@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خطة الوجبات المخصصة - أكاديمية الأبطال</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        
+        .meal-plan-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ffa500);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .summary-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .summary-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .summary-card h3 {
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 700;
+        }
+        
+        .summary-card p {
+            margin: 5px 0 0 0;
+            opacity: 0.9;
+        }
+        
+        .meal-day {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid #ff6b6b;
+        }
+        
+        .meal-day h3 {
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .meal-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-right: 4px solid #ffa500;
+        }
+        
+        .meal-item h4 {
+            color: #ff6b6b;
+            margin-bottom: 10px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .meal-item p {
+            margin: 5px 0;
+            color: #666;
+        }
+        
+        .calories {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .action-buttons {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+        }
+        
+        .btn-custom {
+            background: linear-gradient(135deg, #ff6b6b, #ffa500);
+            border: none;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+            color: white;
+        }
+        
+        .tips-section {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        
+        .tips-section h3 {
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .tips-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-section li {
+            padding: 8px 0;
+            padding-right: 25px;
+            position: relative;
+        }
+        
+        .tips-section li:before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #fff;
+            font-weight: bold;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .meal-plan-container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .action-buttons {
+                display: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            .summary-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="meal-plan-container">
+        <div class="header">
+            <h1><i class="fas fa-utensils"></i> خطة الوجبات المخصصة</h1>
+            <p>خطة غذائية مصممة خصيصاً لتحقيق أهدافك الصحية</p>
+        </div>
+        
+        <div class="content">
+            <!-- ملخص الخطة -->
+            <div class="summary-cards">
+                <div class="summary-card">
+                    <i class="fas fa-fire"></i>
+                    <h3 id="daily-calories">2000</h3>
+                    <p>سعرة حرارية يومياً</p>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-dumbbell"></i>
+                    <h3 id="protein-amount">150</h3>
+                    <p>جرام بروتين</p>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-bread-slice"></i>
+                    <h3 id="carbs-amount">200</h3>
+                    <p>جرام كربوهيدرات</p>
+                </div>
+                <div class="summary-card">
+                    <i class="fas fa-seedling"></i>
+                    <h3 id="fats-amount">70</h3>
+                    <p>جرام دهون</p>
+                </div>
+            </div>
+            
+            <!-- الخطة الأسبوعية -->
+            <div id="weekly-plan">
+                <!-- سيتم ملء هذا القسم بواسطة JavaScript -->
+            </div>
+            
+            <!-- نصائح مهمة -->
+            <div class="tips-section">
+                <h3><i class="fas fa-lightbulb"></i> نصائح مهمة لنجاح خطتك</h3>
+                <ul id="tips-list">
+                    <!-- سيتم ملء النصائح بواسطة JavaScript -->
+                </ul>
+            </div>
+            
+            <!-- أزرار الإجراءات -->
+            <div class="action-buttons">
+                <button class="btn btn-custom" onclick="window.print()">
+                    <i class="fas fa-print"></i> طباعة الخطة
+                </button>
+                <button class="btn btn-custom" onclick="downloadPlan()">
+                    <i class="fas fa-download"></i> تحميل كملف نصي
+                </button>
+                <button class="btn btn-custom" onclick="generateNewPlan()">
+                    <i class="fas fa-refresh"></i> إنشاء خطة جديدة
+                </button>
+                <a href="/interactive-quiz" class="btn btn-custom">
+                    <i class="fas fa-arrow-right"></i> العودة للاستبيان
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // بيانات الخطة (سيتم تمريرها من الخادم)
+        let planData = {
+            dailyCalories: 2000,
+            protein: 150,
+            carbs: 200,
+            fats: 70,
+            weeklyMeals: {
+                'الأحد': [
+                    { name: 'الإفطار', meal: 'شوفان مع الفواكه والمكسرات', calories: 350 },
+                    { name: 'الغداء', meal: 'صدر دجاج مشوي مع الأرز البني والخضار', calories: 550 },
+                    { name: 'وجبة خفيفة', meal: 'زبادي يوناني مع العسل', calories: 200 },
+                    { name: 'العشاء', meal: 'سلطة التونة مع الخبز الأسمر', calories: 400 },
+                    { name: 'وجبة خفيفة مسائية', meal: 'حفنة من اللوز', calories: 150 }
+                ],
+                'الاثنين': [
+                    { name: 'الإفطار', meal: 'بيض مسلوق مع الخبز الأسمر والأفوكادو', calories: 380 },
+                    { name: 'الغداء', meal: 'سمك السلمون مع البطاطا الحلوة', calories: 520 },
+                    { name: 'وجبة خفيفة', meal: 'سموثي البروتين مع الموز', calories: 250 },
+                    { name: 'العشاء', meal: 'شوربة العدس مع السلطة الخضراء', calories: 350 },
+                    { name: 'وجبة خفيفة مسائية', meal: 'تفاحة مع زبدة اللوز', calories: 180 }
+                ],
+                'الثلاثاء': [
+                    { name: 'الإفطار', meal: 'فطائر الشوفان مع التوت', calories: 320 },
+                    { name: 'الغداء', meal: 'لحم بقري قليل الدهن مع الكينوا', calories: 580 },
+                    { name: 'وجبة خفيفة', meal: 'جبن قريش مع الخيار', calories: 150 },
+                    { name: 'العشاء', meal: 'دجاج مشوي مع السلطة المتنوعة', calories: 420 },
+                    { name: 'وجبة خفيفة مسائية', meal: 'مكسرات مشكلة', calories: 160 }
+                ]
+            },
+            tips: [
+                'اشرب 8-10 أكواب من الماء يومياً',
+                'تناول وجباتك في أوقات منتظمة',
+                'امضغ طعامك ببطء واستمتع بكل قضمة',
+                'تجنب الأكل أمام التلفزيون أو الهاتف',
+                'احرص على تناول الخضار والفواكه الطازجة',
+                'قم بتحضير وجباتك مسبقاً عند الإمكان',
+                'استمع لإشارات الجوع والشبع من جسمك'
+            ]
+        };
+        
+        // تحديث البيانات من URL parameters إذا كانت متوفرة
+        function updatePlanFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('calories')) {
+                planData.dailyCalories = parseInt(urlParams.get('calories'));
+            }
+            if (urlParams.has('protein')) {
+                planData.protein = parseInt(urlParams.get('protein'));
+            }
+            if (urlParams.has('carbs')) {
+                planData.carbs = parseInt(urlParams.get('carbs'));
+            }
+            if (urlParams.has('fats')) {
+                planData.fats = parseInt(urlParams.get('fats'));
+            }
+        }
+        
+        // عرض البيانات
+        function displayPlan() {
+            // تحديث الملخص
+            document.getElementById('daily-calories').textContent = planData.dailyCalories;
+            document.getElementById('protein-amount').textContent = planData.protein;
+            document.getElementById('carbs-amount').textContent = planData.carbs;
+            document.getElementById('fats-amount').textContent = planData.fats;
+            
+            // عرض الخطة الأسبوعية
+            const weeklyPlanContainer = document.getElementById('weekly-plan');
+            weeklyPlanContainer.innerHTML = '';
+            
+            Object.keys(planData.weeklyMeals).forEach(day => {
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'meal-day';
+                
+                let dayHTML = `<h3><i class="fas fa-calendar-day"></i> ${day}</h3>`;
+                
+                planData.weeklyMeals[day].forEach(meal => {
+                    dayHTML += `
+                        <div class="meal-item">
+                            <h4><i class="fas fa-utensils"></i> ${meal.name}</h4>
+                            <p>${meal.meal}</p>
+                            <span class="calories">${meal.calories} سعرة حرارية</span>
+                        </div>
+                    `;
+                });
+                
+                dayDiv.innerHTML = dayHTML;
+                weeklyPlanContainer.appendChild(dayDiv);
+            });
+            
+            // عرض النصائح
+            const tipsList = document.getElementById('tips-list');
+            tipsList.innerHTML = '';
+            planData.tips.forEach(tip => {
+                const li = document.createElement('li');
+                li.textContent = tip;
+                tipsList.appendChild(li);
+            });
+        }
+        
+        // تحميل الخطة كملف نصي
+        function downloadPlan() {
+            let content = `خطة الوجبات المخصصة - أكاديمية الأبطال\n`;
+            content += `=====================================\n\n`;
+            content += `الملخص اليومي:\n`;
+            content += `السعرات الحرارية: ${planData.dailyCalories}\n`;
+            content += `البروتين: ${planData.protein} جرام\n`;
+            content += `الكربوهيدرات: ${planData.carbs} جرام\n`;
+            content += `الدهون: ${planData.fats} جرام\n\n`;
+            
+            content += `الخطة الأسبوعية:\n`;
+            content += `================\n\n`;
+            
+            Object.keys(planData.weeklyMeals).forEach(day => {
+                content += `${day}:\n`;
+                content += `------\n`;
+                planData.weeklyMeals[day].forEach(meal => {
+                    content += `${meal.name}: ${meal.meal} (${meal.calories} سعرة)\n`;
+                });
+                content += `\n`;
+            });
+            
+            content += `نصائح مهمة:\n`;
+            content += `===========\n`;
+            planData.tips.forEach((tip, index) => {
+                content += `${index + 1}. ${tip}\n`;
+            });
+            
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'خطة_الوجبات_المخصصة.txt';
+            link.click();
+        }
+        
+        // إنشاء خطة جديدة
+        function generateNewPlan() {
+            if (confirm('هل تريد إنشاء خطة جديدة؟ سيتم توجيهك للاستبيان مرة أخرى.')) {
+                window.location.href = '/interactive-quiz';
+            }
+        }
+        
+        // تشغيل الكود عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePlanFromURL();
+            displayPlan();
+        });
+    </script>
+</body>
+</html>

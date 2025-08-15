@@ -1,0 +1,430 @@
+/* Psychological Engagement & Growth Hacking Styles */
+
+/* Progress Tracker Bar */
+.progress-tracker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.2);
+    z-index: 9999;
+    transition: all 0.3s ease;
+}
+
+.progress-tracker-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4f46e5, #06b6d4, #10b981);
+    width: 0%;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px rgba(79, 70, 229, 0.5);
+}
+
+/* Progress Achievement Card */
+.achievement-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 25px;
+    color: white;
+    margin: 20px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    animation: slideInUp 0.6s ease-out;
+}
+
+.achievement-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: float 3s ease-in-out infinite;
+}
+
+.achievement-progress {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    height: 8px;
+    margin: 15px 0;
+    overflow: hidden;
+}
+
+.achievement-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+    border-radius: 10px;
+    transition: width 1s ease;
+    box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+}
+
+/* Weekly Challenge Card */
+.challenge-card {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 20px;
+    padding: 25px;
+    color: white;
+    margin: 20px 0;
+    box-shadow: 0 10px 30px rgba(240, 147, 251, 0.3);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.challenge-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(240, 147, 251, 0.4);
+}
+
+.challenge-timer {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-top: 15px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+/* Community Section */
+.community-section {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 30px 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.success-story {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #10b981;
+    transition: transform 0.3s ease;
+}
+
+.success-story:hover {
+    transform: translateX(-5px);
+}
+
+.story-author {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.story-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+/* Email Capture Form */
+.email-capture {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    text-align: center;
+    margin: 30px 0;
+    box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.email-capture::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    animation: rotate 10s linear infinite;
+}
+
+.email-form {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 15px;
+    max-width: 400px;
+    margin: 20px auto 0;
+    flex-wrap: wrap;
+}
+
+.email-input {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    min-width: 250px;
+}
+
+.email-submit {
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.email-submit:hover {
+    background: white;
+    color: #4facfe;
+}
+
+/* Persistent CTA Button */
+.persistent-cta {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.persistent-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+    color: white;
+    text-decoration: none;
+}
+
+/* Did You Know Section */
+.did-you-know {
+    background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+    border-radius: 20px;
+    padding: 25px;
+    margin: 20px 0;
+    color: #1f2937;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.did-you-know:hover {
+    transform: scale(1.02);
+}
+
+.did-you-know-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #059669;
+}
+
+/* Cliffhanger Section */
+.cliffhanger {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    border-radius: 20px;
+    padding: 25px;
+    margin: 30px 0;
+    color: white;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(250, 112, 154, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.cliffhanger-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.cliffhanger-cta {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.cliffhanger-cta:hover {
+    background: white;
+    color: #fa709a;
+    text-decoration: none;
+}
+
+/* Dynamic Stats Counter */
+.stats-counter {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    text-align: center;
+    margin: 30px 0;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.stat-item {
+    margin: 15px 0;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    display: block;
+    color: #fbbf24;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* Contextual Links */
+.contextual-link {
+    background: rgba(79, 70, 229, 0.1);
+    border: 2px solid #4f46e5;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.contextual-link:hover {
+    background: #4f46e5;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(79, 70, 229, 0.3);
+}
+
+.contextual-link a {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 600;
+}
+
+/* Animations */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    }
+    50% {
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.6);
+    }
+    100% {
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .persistent-cta {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .email-form {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .email-input {
+        min-width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .achievement-card,
+    .challenge-card,
+    .community-section,
+    .email-capture,
+    .did-you-know,
+    .cliffhanger,
+    .stats-counter {
+        margin: 15px 0;
+        padding: 20px;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+
+/* RTL Support */
+[dir="rtl"] .story-avatar {
+    margin-left: 0;
+    margin-right: 15px;
+}
+
+[dir="rtl"] .success-story {
+    border-left: none;
+    border-right: 4px solid #10b981;
+}
+
+[dir="rtl"] .success-story:hover {
+    transform: translateX(5px);
+}
+
+[dir="rtl"] .persistent-cta {
+    right: auto;
+    left: 30px;
+}
+
+@media (max-width: 768px) {
+    [dir="rtl"] .persistent-cta {
+        left: 20px;
+    }
+}

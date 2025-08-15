@@ -1,0 +1,309 @@
+{% extends "admin/base.html" %}
+
+{% block title %}إدارة التمارين - جسمي أحسن{% endblock %}
+
+{% block extra_css %}
+<style>
+    .filter-section {
+        background: #f8f9fa;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .exercise-card {
+        background: white;
+        border: 1px solid #e9ecef;
+        border-radius: 10px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .exercise-card:hover {
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transform: translateY(-2px);
+    }
+
+    .exercise-image {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .exercise-image-placeholder {
+        width: 80px;
+        height: 80px;
+        background: var(--light-bg);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6c757d;
+    }
+
+    .badge-muscle {
+        background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    }
+
+    .badge-equipment {
+        background: linear-gradient(135deg, var(--success-color), #229954);
+    }
+
+    .badge-difficulty {
+        background: linear-gradient(135deg, var(--warning-color), #e67e22);
+    }
+
+    .btn-action {
+        padding: 0.375rem 0.75rem;
+        border-radius: 6px;
+        font-size: 0.875rem;
+        margin: 0 0.25rem;
+    }
+
+    .pagination {
+        justify-content: center;
+    }
+
+    .page-link {
+        border-radius: 6px;
+        margin: 0 2px;
+        border: 1px solid #dee2e6;
+    }
+
+    .page-link:hover {
+        background-color: var(--secondary-color);
+        border-color: var(--secondary-color);
+        color: white;
+    }
+
+    .page-item.active .page-link {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+
+    @media (max-width: 768px) {
+        .exercise-card {
+            padding: 1rem;
+        }
+        
+        .exercise-image,
+        .exercise-image-placeholder {
+            width: 60px;
+            height: 60px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Header -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h1 class="display-6 mb-2">
+                    <i class="fas fa-dumbbell me-2 text-primary"></i>
+                    إدارة التمارين
+                </h1>
+                <p class="text-muted mb-0">إجمالي {{ total_exercises }} تمرين</p>
+            </div>
+            <a href="{{ url_for('admin_add_exercise') }}" class="btn btn-primary btn-lg">
+                <i class="fas fa-plus me-2"></i>
+                إضافة تمرين جديد
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Filters -->
+<div class="content-card">
+    <form method="GET" class="filter-section">
+        <div class="row g-3">
+            <div class="col-md-3">
+                <label class="form-label">البحث</label>
+                <input type="text" name="search" class="form-control" placeholder="اسم التمرين..." value="{{ request.args.get('search', '') }}">
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">المجموعة العضلية</label>
+                <select name="muscle_group" class="form-select">
+                    <option value="">جميع المجموعات</option>
+                    <option value="Chest" {{ 'selected' if request.args.get('muscle_group') == 'Chest' }}>الصدر</option>
+                    <option value="Back" {{ 'selected' if request.args.get('muscle_group') == 'Back' }}>الظهر</option>
+                    <option value="Legs" {{ 'selected' if request.args.get('muscle_group') == 'Legs' }}>الأرجل</option>
+                    <option value="Shoulders" {{ 'selected' if request.args.get('muscle_group') == 'Shoulders' }}>الأكتاف</option>
+                    <option value="Arms" {{ 'selected' if request.args.get('muscle_group') == 'Arms' }}>الذراعين</option>
+                    <option value="Core" {{ 'selected' if request.args.get('muscle_group') == 'Core' }}>البطن</option>
+                    <option value="Full Body" {{ 'selected' if request.args.get('muscle_group') == 'Full Body' }}>الجسم كامل</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">نوع المعدات</label>
+                <select name="equipment" class="form-select">
+                    <option value="">جميع الأنواع</option>
+                    <option value="Bodyweight" {{ 'selected' if request.args.get('equipment') == 'Bodyweight' }}>وزن الجسم</option>
+                    <option value="Dumbbells" {{ 'selected' if request.args.get('equipment') == 'Dumbbells' }}>دمبل</option>
+                    <option value="Machines" {{ 'selected' if request.args.get('equipment') == 'Machines' }}>أجهزة</option>
+                    <option value="Bands" {{ 'selected' if request.args.get('equipment') == 'Bands' }}>أحزمة مقاومة</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">مستوى الصعوبة</label>
+                <select name="difficulty" class="form-select">
+                    <option value="">جميع المستويات</option>
+                    <option value="Beginner" {{ 'selected' if request.args.get('difficulty') == 'Beginner' }}>مبتدئ</option>
+                    <option value="Intermediate" {{ 'selected' if request.args.get('difficulty') == 'Intermediate' }}>متوسط</option>
+                    <option value="Advanced" {{ 'selected' if request.args.get('difficulty') == 'Advanced' }}>متقدم</option>
+                </select>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary me-2">
+                    <i class="fas fa-search me-1"></i>
+                    بحث
+                </button>
+                <a href="{{ url_for('admin_exercises') }}" class="btn btn-outline-secondary">
+                    <i class="fas fa-times me-1"></i>
+                    مسح الفلاتر
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- Exercises List -->
+<div class="content-card">
+    {% if exercises %}
+        {% for exercise in exercises %}
+            <div class="exercise-card">
+                <div class="row align-items-center">
+                    <div class="col-md-1">
+                        {% if exercise.image_url %}
+                            <img src="{{ exercise.image_url }}" alt="{{ exercise.name_ar }}" class="exercise-image">
+                        {% else %}
+                            <div class="exercise-image-placeholder">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="mb-2">{{ exercise.name_ar }}</h5>
+                        <p class="text-muted mb-2">{{ exercise.name_en }}</p>
+                        <div class="mb-2">
+                            <span class="badge badge-muscle me-1">{{ exercise.muscle_group }}</span>
+                            <span class="badge badge-equipment me-1">{{ exercise.equipment_type }}</span>
+                            <span class="badge badge-difficulty">{{ exercise.difficulty_level }}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="text-muted small">
+                            <div><strong>المجموعات:</strong> {{ exercise.sets }}</div>
+                            <div><strong>التكرارات:</strong> {{ exercise.reps }}</div>
+                            <div><strong>الراحة:</strong> {{ exercise.rest_time }}ث</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 text-end">
+                        <a href="{{ url_for('admin_edit_exercise', exercise_id=exercise.id) }}" class="btn btn-outline-primary btn-action">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <button type="button" class="btn btn-outline-danger btn-action" onclick="confirmDelete({{ exercise.id }}, '{{ exercise.name_ar }}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="text-center py-5">
+            <i class="fas fa-dumbbell fa-3x text-muted mb-3"></i>
+            <h4 class="text-muted">لا توجد تمارين</h4>
+            <p class="text-muted">ابدأ بإضافة تمرين جديد</p>
+            <a href="{{ url_for('admin_add_exercise') }}" class="btn btn-primary">
+                <i class="fas fa-plus me-2"></i>
+                إضافة تمرين جديد
+            </a>
+        </div>
+    {% endif %}
+</div>
+
+<!-- Pagination -->
+{% if pagination.pages > 1 %}
+    <nav aria-label="صفحات التمارين">
+        <ul class="pagination">
+            {% if pagination.has_prev %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('admin_exercises', page=pagination.prev_num, **request.args) }}">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </li>
+            {% endif %}
+            
+            {% for page_num in pagination.iter_pages() %}
+                {% if page_num %}
+                    {% if page_num != pagination.page %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{ url_for('admin_exercises', page=page_num, **request.args) }}">{{ page_num }}</a>
+                        </li>
+                    {% else %}
+                        <li class="page-item active">
+                            <span class="page-link">{{ page_num }}</span>
+                        </li>
+                    {% endif %}
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link">...</span>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            
+            {% if pagination.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="{{ url_for('admin_exercises', page=pagination.next_num, **request.args) }}">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-exclamation-triangle text-danger me-2"></i>
+                    تأكيد الحذف
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p>هل أنت متأكد من حذف التمرين <strong id="exerciseName"></strong>؟</p>
+                <p class="text-muted">لا يمكن التراجع عن هذا الإجراء.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+                <form id="deleteForm" method="POST" style="display: inline;">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash me-1"></i>
+                        حذف
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function confirmDelete(exerciseId, exerciseName) {
+        document.getElementById('exerciseName').textContent = exerciseName;
+        document.getElementById('deleteForm').action = '/admin/exercises/delete/' + exerciseId;
+        new bootstrap.Modal(document.getElementById('deleteModal')).show();
+    }
+</script>
+{% endblock %}

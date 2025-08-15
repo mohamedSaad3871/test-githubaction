@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Header & Filter Bar Example</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            /* Important: Add padding-top to account for fixed header + filter bar */
+            padding-top: 140px; /* Adjust based on your header + filter heights */
+        }
+
+        /* Fixed Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000; /* High z-index to stay on top */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Sticky Filter Bar Styles */
+        .filter-bar {
+            position: fixed;
+            top: 70px; /* Position below header - adjust based on header height */
+            left: 0;
+            right: 0;
+            z-index: 999; /* Slightly lower than header */
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .filter-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 200px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 25px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-input:focus {
+            border-color: #667eea;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 2px solid #667eea;
+            background: transparent;
+            color: #667eea;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            min-height: 200vh; /* For demonstration - shows scrolling */
+        }
+
+        .content-section {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-section h2 {
+            color: #333;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .content-section p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* Card Grid for Content */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        /* Scroll Enhancement Effects */
+        .header.scrolled {
+            padding: 0.5rem 0;
+            background: rgba(102, 126, 234, 0.95);
+        }
+
+        .filter-bar.scrolled {
+            top: 50px; /* Adjust when header is compressed */
+            background: rgba(255, 255, 255, 0.98);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 160px; /* Increase for mobile due to wrapping */
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .filter-bar {
+                top: 90px; /* Adjust for mobile header height */
+            }
+
+            .filter-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .search-box {
+                min-width: 100%;
+            }
+
+            .filter-buttons {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 180px;
+            }
+
+            .header {
+                padding: 0.75rem 0;
+            }
+
+            .filter-bar {
+                top: 100px;
+                padding: 0.75rem 0;
+            }
+
+            .filter-btn {
+                font-size: 0.8rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .main-content {
+                padding: 1rem 0.5rem;
+            }
+
+            .content-section {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Loading and Animation States */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Menu Toggle (Optional Enhancement) */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(102, 126, 234, 0.95);
+                flex-direction: column;
+                padding: 1rem;
+                backdrop-filter: blur(10px);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Fixed Header -->
+    <header class="header" id="header">
+        <div class="header-content">
+            <div class="logo">Your App Logo</div>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-toggle" id="mobileToggle">☰</button>
+        </div>
+    </header>
+
+    <!-- Sticky Filter Bar -->
+    <div class="filter-bar" id="filterBar">
+        <div class="filter-content">
+            <!-- Search Box -->
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Search items..." id="searchInput">
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="category1">Category 1</button>
+                <button class="filter-btn" data-filter="category2">Category 2</button>
+                <button class="filter-btn" data-filter="category3">Category 3</button>
+                <button class="filter-btn" data-filter="category4">Category 4</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Content Section 1 -->
+        <section class="content-section fade-in">
+            <h2>Welcome to Our Application</h2>
+            <p>This is an example of a properly implemented sticky header and filter bar. The content starts below the fixed elements and doesn't get hidden behind them.</p>
+            <p>Notice how the header and filter bar remain visible as you scroll, but the content flows naturally underneath them without any overlap issues.</p>
+        </section>
+
+        <!-- Card Grid Example -->
+        <div class="card-grid">
+            <div class="card fade-in">
+                <h3>Feature 1</h3>
+                <p>This card demonstrates how content appears properly below the sticky elements. No content is hidden or overlapped.</p>
+            </div>
+            <div class="card fade-in">
+                <h3>Feature 2</h3>
+                <p>The responsive design ensures that on mobile devices, the layout adapts and maintains proper spacing.</p>
+            </div>
+            <div class="card fade-in">
+                <h3>Feature 3</h3>
+                <p>The filter bar remains accessible while scrolling, making it easy to change filters without losing your place.</p>
+            </div>
+            <div class="card fade-in">
+                <h3>Feature 4</h3>
+                <p>Smooth animations and transitions provide a polished user experience similar to modern apps.</p>
+            </div>
+            <div class="card fade-in">
+                <h3>Feature 5</h3>
+                <p>The backdrop blur effect gives the sticky elements a modern, glass-like appearance.</p>
+            </div>
+            <div class="card fade-in">
+                <h3>Feature 6</h3>
+                <p>Z-index management ensures proper layering of elements without conflicts.</p>
+            </div>
+        </div>
+
+        <!-- More Content Sections -->
+        <section class="content-section fade-in">
+            <h2>Responsive Design</h2>
+            <p>The layout automatically adapts to different screen sizes. On mobile devices, the navigation collapses and the filter bar adjusts to stack elements vertically when needed.</p>
+            <p>The body padding-top is adjusted for different screen sizes to ensure proper spacing on all devices.</p>
+        </section>
+
+        <section class="content-section fade-in">
+            <h2>Implementation Notes</h2>
+            <p><strong>Key CSS Properties Used:</strong></p>
+            <ul style="margin-left: 2rem; color: #666;">
+                <li><code>position: fixed</code> - Keeps header and filter bar at top</li>
+                <li><code>z-index</code> - Manages element layering (header: 1000, filter: 999)</li>
+                <li><code>padding-top</code> on body - Creates space for fixed elements</li>
+                <li><code>backdrop-filter: blur()</code> - Modern glass effect</li>
+                <li><code>transition</code> - Smooth animations</li>
+            </ul>
+        </section>
+
+        <section class="content-section fade-in">
+            <h2>Scroll to Test</h2>
+            <p>Keep scrolling to see how the sticky elements behave. Notice that:</p>
+            <ul style="margin-left: 2rem; color: #666;">
+                <li>The header can compress slightly when scrolling (optional enhancement)</li>
+                <li>The filter bar adjusts its position relative to the header</li>
+                <li>All content remains visible and accessible</li>
+                <li>The design works smoothly on all screen sizes</li>
+            </ul>
+        </section>
+
+        <!-- Additional content for scrolling demonstration -->
+        <div class="card-grid">
+            <div class="card fade-in">
+                <h3>Scroll Test 1</h3>
+                <p>This content helps demonstrate the scrolling behavior. The sticky elements should remain perfectly positioned.</p>
+            </div>
+            <div class="card fade-in">
+                <h3>Scroll Test 2</h3>
+                <p>Notice how the filter bar stays accessible, making it easy to change filters while browsing content.</p>
+            </div>
+            <div class="card fade-in">
+                <h3>Scroll Test 3</h3>
+                <p>The responsive design ensures consistent behavior across all device sizes and orientations.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript for Enhanced Functionality -->
+    <script>
+        // Scroll effects for header compression
+        let lastScrollTop = 0;
+        const header = document.getElementById('header');
+        const filterBar = document.getElementById('filterBar');
+        
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Add scrolled class for enhanced effects (optional)
+            if (scrollTop > 50) {
+                header.classList.add('scrolled');
+                filterBar.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+                filterBar.classList.remove('scrolled');
+            }
+            
+            lastScrollTop = scrollTop;
+        }, { passive: true });
+
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+        });
+
+        // Filter button functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Here you would implement your filtering logic
+                const filter = this.getAttribute('data-filter');
+                console.log('Filter selected:', filter);
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            console.log('Search term:', searchTerm);
+            // Here you would implement your search logic
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationDelay = '0.1s';
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards for animation
+        document.querySelectorAll('.card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Dynamic body padding adjustment (for perfect spacing)
+        function adjustBodyPadding() {
+            const headerHeight = header.offsetHeight;
+            const filterHeight = filterBar.offsetHeight;
+            const totalHeight = headerHeight + filterHeight + 20; // 20px extra spacing
+            
+            document.body.style.paddingTop = totalHeight + 'px';
+        }
+
+        // Adjust on load and resize
+        window.addEventListener('load', adjustBodyPadding);
+        window.addEventListener('resize', adjustBodyPadding);
+    </script>
+</body>
+</html>

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفرق بين البروتين الحيواني والنباتي - جسمي أحسن</title>
+    <meta name="description" content="دليل شامل للفروق بين البروتين الحيواني والنباتي وأيهما أفضل لرواد الجيم">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+        
+        .article-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-bottom: 50px;
+        }
+        
+        .article-header {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .article-meta {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .article-content {
+            padding: 50px;
+        }
+        
+        .content-section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            color: #0984e3;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #0984e3;
+            padding-bottom: 10px;
+        }
+        
+        .protein-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .protein-card {
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .animal-protein {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+        }
+        
+        .plant-protein {
+            background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+            color: white;
+        }
+        
+        .protein-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .amino-acids-table {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .amino-acid-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .amino-acid-row:last-child {
+            border-bottom: none;
+        }
+        
+        .amino-acid-name {
+            font-weight: 600;
+            color: #2d3436;
+        }
+        
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .source-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border-top: 4px solid #0984e3;
+        }
+        
+        .source-icon {
+            font-size: 2.5rem;
+            color: #0984e3;
+            margin-bottom: 15px;
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border-right: 5px solid #e17055;
+        }
+        
+        .tip-title {
+            color: #d63031;
+            font-weight: 600;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+        
+        .back-btn {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(116, 185, 255, 0.3);
+            color: white;
+        }
+        
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .pros-card, .cons-card {
+            padding: 25px;
+            border-radius: 15px;
+        }
+        
+        .pros-card {
+            background: linear-gradient(135deg, #55efc4 0%, #00b894 100%);
+            color: white;
+        }
+        
+        .cons-card {
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .article-content {
+                padding: 30px 20px;
+            }
+            
+            .protein-comparison {
+                grid-template-columns: 1fr;
+            }
+            
+            .pros-cons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="article-container">
+            <div class="article-header">
+                <h1 class="article-title">الفرق بين البروتين الحيواني والنباتي</h1>
+                <div class="article-meta">
+                    <i class="fas fa-clock"></i> وقت القراءة: 10 دقائق
+                    <span class="mx-3">|</span>
+                    <i class="fas fa-user"></i> بواسطة أخصائي التغذية
+                </div>
+            </div>
+            
+            <div class="article-content">
+                <div class="content-section">
+                    <h2 class="section-title">مقدمة</h2>
+                    <p class="lead">
+                        البروتين هو أحد أهم العناصر الغذائية لرواد الجيم، فهو المسؤول عن بناء وإصلاح العضلات. 
+                        لكن هل تعلم أن هناك فروقاً جوهرية بين البروتين الحيواني والنباتي؟
+                    </p>
+                    <p>
+                        في هذا المقال الشامل، سنستكشف الفروق بين النوعين، مصادر كل منهما، 
+                        وكيفية الحصول على أفضل استفادة من البروتين في نظامك الغذائي.
+                    </p>
+                </div>
+
+                <div class="protein-comparison">
+                    <div class="protein-card animal-protein">
+                        <div class="protein-icon">
+                            <i class="fas fa-drumstick-bite"></i>
+                        </div>
+                        <h3>البروتين الحيواني</h3>
+                        <p>يأتي من مصادر حيوانية ويحتوي على جميع الأحماض الأمينية الأساسية</p>
+                    </div>
+                    
+                    <div class="protein-card plant-protein">
+                        <div class="protein-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>البروتين النباتي</h3>
+                        <p>يأتي من مصادر نباتية وقد يفتقر لبعض الأحماض الأمينية</p>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">ما هي الأحماض الأمينية؟</h2>
+                    <p>
+                        الأحماض الأمينية هي اللبنات الأساسية للبروتين. يحتاج جسمنا إلى 20 حمض أميني مختلف، 
+                        منها 9 أحماض أمينية أساسية لا يستطيع الجسم تصنيعها ويجب الحصول عليها من الطعام.
+                    </p>
+                    
+                    <div class="amino-acids-table">
+                        <h4 class="text-center mb-4">الأحماض الأمينية الأساسية التسعة</h4>
+                        
+                        <div class="amino-acid-row">
+                            <span class="amino-acid-name">الليوسين (Leucine)</span>
+                            <span>مهم لبناء العضلات</span>
+                        </div>
+                        
+                        <div class="amino-acid-row">
+                            <span class="amino-acid-name">الإيزوليوسين (Isoleucine)</span>
+                            <span>ينظم مستوى السكر</span>
+                        </div>
+                        
+                        <div class="amino-acid-row">
+                            <span class="amino-acid-name">الفالين (Valine)</span>
+                            <span>يحفز نمو العضلات</span>
+                        </div>
+                        
+                        <div class="amino-acid-row">
+                            <span class="amino-acid-name">الليسين (Lysine)</span>
+                            <span>يساعد في امتصاص الكالسيوم</span>
+                        </div>
+                        
+                        <div class="amino-acid-row">
+                            <span class="amino-acid-name">الميثيونين (Methionine)</span>
+                            <span>مهم لصحة الجلد والشعر</span>
+                        </div>
+                        
+                        <div class="amino-acid-row">
+                            <span class="amino-acid-name">الفينيل ألانين (Phenylalanine)</span>
+                            <span>ينتج النواقل العصبية</span>
+                        </div>
+                        
+                        <div class="amino-acid-row">
+                            <span class="amino-acid-name">الثريونين (Threonine)</span>
+                            <span>يدعم جهاز المناعة</span>
+                        </div>
+                        
+                        <div class="amino-acid-row">
+                            <span class="amino-acid-name">التريبتوفان (Tryptophan)</span>
+                            <span>ينتج السيروتونين</span>
+                        </div>
+                        
+                        <div class="amino-acid-row">
+                            <span class="amino-acid-name">الهيستيدين (Histidine)</span>
+                            <span>مهم للنمو والإصلاح</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">مصادر البروتين الحيواني</h2>
+                    <div class="source-grid">
+                        <div class="source-item">
+                            <div class="source-icon">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                            <h5>اللحوم الحمراء</h5>
+                            <p>لحم البقر، الخروف - 25-30g بروتين/100g</p>
+                        </div>
+                        
+                        <div class="source-item">
+                            <div class="source-icon">
+                                <i class="fas fa-egg"></i>
+                            </div>
+                            <h5>البيض</h5>
+                            <p>بيضة واحدة - 6g بروتين عالي الجودة</p>
+                        </div>
+                        
+                        <div class="source-item">
+                            <div class="source-icon">
+                                <i class="fas fa-fish"></i>
+                            </div>
+                            <h5>الأسماك</h5>
+                            <p>السلمون، التونة - 20-25g بروتين/100g</p>
+                        </div>
+                        
+                        <div class="source-item">
+                            <div class="source-icon">
+                                <i class="fas fa-cheese"></i>
+                            </div>
+                            <h5>منتجات الألبان</h5>
+                            <p>الحليب، الجبن، الزبادي - 3-20g بروتين</p>
+                        </div>
+                        
+                        <div class="source-item">
+                            <div class="source-icon">
+                                <i class="fas fa-dove"></i>
+                            </div>
+                            <h5>الدواجن</h5>
+                            <p>الدجاج، الديك الرومي - 20-25g بروتين/100g</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">مصادر البروتين النباتي</h2>
+                    <div class="source-grid">
+                        <div class="source-item">
+                            <div class="source-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <h5>البقوليات</h5>
+                            <p>العدس، الحمص، الفاصوليا - 15-25g بروتين/100g</p>
+                        </div>
+                        
+                        <div class="source-item">
+                            <div class="source-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h5>المكسرات والبذور</h5>
+                            <p>اللوز، الجوز، بذور الشيا - 15-30g بروتين/100g</p>
+                        </div>
+                        
+                        <div class="source-item">
+                            <div class="source-icon">
+                                <i class="fas fa-wheat-awn"></i>
+                            </div>
+                            <h5>الحبوب الكاملة</h5>
+                            <p>الكينوا، الشوفان، الأرز البني - 10-15g بروتين/100g</p>
+                        </div>
+                        
+                        <div class="source-item">
+                            <div class="source-icon">
+                                <i class="fas fa-carrot"></i>
+                            </div>
+                            <h5>الخضروات</h5>
+                            <p>السبانخ، البروكلي - 3-5g بروتين/100g</p>
+                        </div>
+                        
+                        <div class="source-item">
+                            <div class="source-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <h5>منتجات الصويا</h5>
+                            <p>التوفو، التيمبي - 10-20g بروتين/100g</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">مقارنة المزايا والعيوب</h2>
+                    
+                    <h4>البروتين الحيواني:</h4>
+                    <div class="pros-cons">
+                        <div class="pros-card">
+                            <h5><i class="fas fa-check-circle"></i> المزايا</h5>
+                            <ul>
+                                <li>يحتوي على جميع الأحماض الأمينية الأساسية</li>
+                                <li>سهل الامتصاص والهضم</li>
+                                <li>غني بفيتامين B12 والحديد</li>
+                                <li>يحفز بناء العضلات بفعالية</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cons-card">
+                            <h5><i class="fas fa-times-circle"></i> العيوب</h5>
+                            <ul>
+                                <li>قد يحتوي على دهون مشبعة عالية</li>
+                                <li>أغلى من البروتين النباتي</li>
+                                <li>قد يزيد خطر أمراض القلب</li>
+                                <li>تأثير بيئي أكبر</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h4>البروتين النباتي:</h4>
+                    <div class="pros-cons">
+                        <div class="pros-card">
+                            <h5><i class="fas fa-check-circle"></i> المزايا</h5>
+                            <ul>
+                                <li>غني بالألياف ومضادات الأكسدة</li>
+                                <li>أقل في الدهون المشبعة</li>
+                                <li>أرخص وأكثر استدامة</li>
+                                <li>يقلل خطر الأمراض المزمنة</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="cons-card">
+                            <h5><i class="fas fa-times-circle"></i> العيوب</h5>
+                            <ul>
+                                <li>قد يفتقر لبعض الأحماض الأمينية</li>
+                                <li>امتصاص أقل من الحيواني</li>
+                                <li>يحتاج تنويع أكثر</li>
+                                <li>قد يحتوي على مضادات التغذية</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <div class="tip-title">
+                        <i class="fas fa-lightbulb"></i> نصيحة للرياضيين
+                    </div>
+                    <p>
+                        <strong>لا تعتمد على نوع واحد فقط!</strong> أفضل استراتيجية هي دمج البروتين الحيواني والنباتي معاً. 
+                        هذا يضمن حصولك على جميع الأحماض الأمينية مع الاستفادة من فوائد كلا النوعين.
+                    </p>
+                    <p>
+                        <strong>للنباتيين:</strong> تأكد من دمج مصادر مختلفة مثل الأرز مع البقوليات للحصول على بروتين كامل.
+                    </p>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">التوصيات العملية</h2>
+                    
+                    <h4>لرواد الجيم:</h4>
+                    <ul>
+                        <li>استهدف 1.6-2.2 جرام بروتين لكل كيلو من وزن الجسم</li>
+                        <li>وزع البروتين على 4-5 وجبات يومياً</li>
+                        <li>تناول 20-30 جرام بروتين خلال ساعتين بعد التمرين</li>
+                        <li>نوع مصادر البروتين لضمان التوازن الغذائي</li>
+                    </ul>
+                    
+                    <h4>للنباتيين:</h4>
+                    <ul>
+                        <li>ادمج البقوليات مع الحبوب في نفس الوجبة</li>
+                        <li>تناول مكملات B12 والحديد</li>
+                        <li>اشرب عصير حمضيات مع الوجبات لتحسين امتصاص الحديد</li>
+                        <li>فكر في مكملات البروتين النباتي</li>
+                    </ul>
+                </div>
+
+                <div class="content-section">
+                    <h2 class="section-title">الخلاصة</h2>
+                    <p>
+                        كل من البروتين الحيواني والنباتي له مكانه في النظام الغذائي الصحي. البروتين الحيواني يتميز 
+                        بكونه مصدراً كاملاً وسهل الامتصاص، بينما البروتين النباتي يوفر فوائد إضافية من الألياف 
+                        ومضادات الأكسدة. الأهم هو تحقيق التوازن والتنويع للحصول على أفضل النتائج.
+                    </p>
+                </div>
+
+                <div class="text-center mt-5">
+                    <a href="{{ url_for('training_nutrition') }}" class="back-btn">
+                        <i class="fas fa-arrow-right me-2"></i>
+                        العودة للمقالات
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

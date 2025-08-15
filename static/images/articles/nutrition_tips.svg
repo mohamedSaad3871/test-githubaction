@@ -1,0 +1,94 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nutritionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="200" fill="url(#nutritionGradient)" rx="15"/>
+  
+  <!-- Apple -->
+  <g transform="translate(80, 60)">
+    <ellipse cx="0" cy="10" rx="20" ry="25" fill="#e74c3c"/>
+    <ellipse cx="-5" cy="5" rx="8" ry="10" fill="#c0392b" opacity="0.3"/>
+    <!-- Stem -->
+    <rect x="-1" y="-5" width="2" height="8" rx="1" fill="#8b4513"/>
+    <!-- Leaf -->
+    <ellipse cx="5" cy="-2" rx="4" ry="2" fill="#27ae60" transform="rotate(30 5 -2)"/>
+  </g>
+  
+  <!-- Carrot -->
+  <g transform="translate(150, 80)">
+    <polygon points="0,0 -8,30 8,30" fill="#f39c12"/>
+    <g stroke="#e67e22" stroke-width="1">
+      <line x1="-4" y1="10" x2="4" y2="10"/>
+      <line x1="-6" y1="20" x2="6" y2="20"/>
+    </g>
+    <!-- Carrot top -->
+    <g fill="#27ae60">
+      <rect x="-2" y="-8" width="1" height="8" rx="0.5"/>
+      <rect x="0" y="-10" width="1" height="10" rx="0.5"/>
+      <rect x="2" y="-6" width="1" height="6" rx="0.5"/>
+    </g>
+  </g>
+  
+  <!-- Broccoli -->
+  <g transform="translate(220, 70)">
+    <circle cx="0" cy="0" r="12" fill="#27ae60"/>
+    <circle cx="-8" cy="-5" r="8" fill="#27ae60"/>
+    <circle cx="8" cy="-5" r="8" fill="#27ae60"/>
+    <circle cx="0" cy="-10" r="6" fill="#27ae60"/>
+    <!-- Stem -->
+    <rect x="-2" y="12" width="4" height="15" rx="2" fill="#2ecc71"/>
+  </g>
+  
+  <!-- Water glass -->
+  <g transform="translate(60, 130)">
+    <rect x="0" y="0" width="20" height="30" rx="2" fill="none" stroke="#3498db" stroke-width="2"/>
+    <rect x="2" y="10" width="16" height="18" fill="#85c1e9" opacity="0.7"/>
+    <!-- Water bubbles -->
+    <circle cx="6" cy="15" r="1" fill="#ffffff" opacity="0.8"/>
+    <circle cx="14" cy="20" r="1.5" fill="#ffffff" opacity="0.6"/>
+    <circle cx="10" cy="25" r="1" fill="#ffffff" opacity="0.9"/>
+  </g>
+  
+  <!-- Protein (fish) -->
+  <g transform="translate(180, 130)">
+    <ellipse cx="0" cy="0" rx="18" ry="8" fill="#95a5a6"/>
+    <polygon points="18,0 25,-3 25,3" fill="#95a5a6"/>
+    <circle cx="-8" cy="-2" r="1.5" fill="#2c3e50"/>
+    <!-- Fish lines -->
+    <g stroke="#7f8c8d" stroke-width="1">
+      <line x1="-10" y1="-3" x2="10" y2="-3"/>
+      <line x1="-10" y1="0" x2="10" y2="0"/>
+      <line x1="-10" y1="3" x2="10" y2="3"/>
+    </g>
+  </g>
+  
+  <!-- Nuts -->
+  <g transform="translate(120, 140)">
+    <ellipse cx="0" cy="0" rx="4" ry="6" fill="#8b4513"/>
+    <ellipse cx="10" cy="-2" rx="3" ry="5" fill="#a0522d"/>
+    <ellipse cx="-8" cy="3" rx="3.5" ry="4" fill="#8b4513"/>
+  </g>
+  
+  <!-- Plus signs for balance -->
+  <g fill="#2c3e50" opacity="0.6">
+    <rect x="110" y="58" width="8" height="2" rx="1"/>
+    <rect x="113" y="55" width="2" height="8" rx="1"/>
+    
+    <rect x="190" y="98" width="6" height="1.5" rx="0.5"/>
+    <rect x="192" y="96" width="1.5" height="6" rx="0.5"/>
+  </g>
+  
+  <!-- Checkmark for healthy -->
+  <g fill="#27ae60" transform="translate(250, 30)">
+    <circle cx="0" cy="0" r="12" fill="#2ecc71"/>
+    <polyline points="-6,-2 -2,2 6,-6" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Label -->
+  <text x="150" y="25" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="14" font-weight="bold">نصائح التغذية</text>
+</svg>

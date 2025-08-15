@@ -1,0 +1,187 @@
+/* ===========================================
+   STICKY HEADER & FILTER BAR CSS SOLUTION
+   =========================================== */
+
+/* 1. RESET AND BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    
+    /* CRITICAL: Add padding-top to prevent content overlap */
+    /* Adjust this value based on your header + filter bar heights */
+    padding-top: 140px; /* Header (70px) + Filter Bar (70px) */
+    
+    /* Smooth transitions when padding changes */
+    transition: padding-top 0.3s ease;
+}
+
+/* 2. FIXED HEADER STYLES */
+.header {
+    /* Fixed positioning keeps it at the top */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    /* High z-index to stay above other content */
+    z-index: 1000;
+    
+    /* Styling */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1rem 0;
+    
+    /* Modern effects */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    
+    /* Smooth transitions */
+    transition: all 0.3s ease;
+}
+
+/* 3. STICKY FILTER BAR STYLES */
+.filter-bar {
+    /* Fixed positioning below the header */
+    position: fixed;
+    top: 70px; /* Adjust based on your header height */
+    left: 0;
+    right: 0;
+    
+    /* Slightly lower z-index than header */
+    z-index: 999;
+    
+    /* Styling */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    
+    /* Modern shadow effect */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    
+    /* Smooth transitions */
+    transition: all 0.3s ease;
+}
+
+/* 4. CONTENT CONTAINER */
+.main-content {
+    /* This ensures content starts below the fixed elements */
+    /* No need for margin-top since body has padding-top */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+/* 5. SCROLL ENHANCEMENT EFFECTS (Optional) */
+.header.scrolled {
+    /* Compress header when scrolling */
+    padding: 0.5rem 0;
+    background: rgba(102, 126, 234, 0.95);
+}
+
+.filter-bar.scrolled {
+    /* Adjust filter bar position when header is compressed */
+    top: 50px;
+    background: rgba(255, 255, 255, 0.98);
+}
+
+/* 6. RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    body {
+        /* Increase padding for mobile due to potential wrapping */
+        padding-top: 160px;
+    }
+    
+    .filter-bar {
+        /* Adjust position for mobile header height */
+        top: 90px;
+    }
+    
+    /* Stack filter elements vertically on mobile */
+    .filter-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-top: 180px;
+    }
+    
+    .header {
+        padding: 0.75rem 0;
+    }
+    
+    .filter-bar {
+        top: 100px;
+        padding: 0.75rem 0;
+    }
+}
+
+/* 7. UTILITY CLASSES */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* ===========================================
+   JAVASCRIPT HELPER FUNCTIONS
+   =========================================== */
+
+/*
+// Add this JavaScript to your page for dynamic padding adjustment:
+
+function adjustBodyPadding() {
+    const header = document.querySelector('.header');
+    const filterBar = document.querySelector('.filter-bar');
+    
+    if (header && filterBar) {
+        const headerHeight = header.offsetHeight;
+        const filterHeight = filterBar.offsetHeight;
+        const totalHeight = headerHeight + filterHeight + 20; // 20px extra spacing
+        
+        document.body.style.paddingTop = totalHeight + 'px';
+    }
+}
+
+// Call on load and resize
+window.addEventListener('load', adjustBodyPadding);
+window.addEventListener('resize', adjustBodyPadding);
+
+// Optional: Scroll effects
+window.addEventListener('scroll', function() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const header = document.querySelector('.header');
+    const filterBar = document.querySelector('.filter-bar');
+    
+    if (scrollTop > 50) {
+        header.classList.add('scrolled');
+        filterBar.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+        filterBar.classList.remove('scrolled');
+    }
+}, { passive: true });
+*/

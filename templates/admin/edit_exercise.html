@@ -1,0 +1,631 @@
+{% extends "admin/base.html" %}
+
+{% block title %}تعديل التمرين - جسمي أحسن{% endblock %}
+
+{% block extra_css %}
+<style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --warning-color: #f39c12;
+            --light-bg: #ecf0f1;
+            --dark-text: #2c3e50;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .navbar {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .main-content {
+            padding: 2rem 0;
+        }
+
+        .content-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+        }
+
+        .form-section {
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            background: #f8f9fa;
+        }
+
+        .form-section h5 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control, .form-select {
+            border-radius: 8px;
+            border: 1px solid #ced4da;
+            padding: 0.75rem;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+        }
+
+        .current-image {
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            padding: 0.5rem;
+            background: white;
+        }
+
+        .image-preview {
+            max-width: 200px;
+            max-height: 200px;
+            border-radius: 10px;
+            border: 2px dashed #ced4da;
+            padding: 1rem;
+            text-align: center;
+            background: #f8f9fa;
+        }
+
+        .image-preview img {
+            max-width: 100%;
+            max-height: 150px;
+            border-radius: 8px;
+        }
+
+        .video-preview {
+            border: 2px dashed #ced4da;
+            border-radius: 10px;
+            padding: 1rem;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .current-video {
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 1rem;
+            background: white;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            border: none;
+            border-radius: 8px;
+            padding: 0.75rem 2rem;
+        }
+
+        .btn-danger {
+            background: var(--accent-color);
+            border: none;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+        }
+
+        .alert {
+            border-radius: 10px;
+            border: none;
+        }
+
+        .required {
+            color: var(--accent-color);
+        }
+
+        .media-section {
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 1rem 0;
+            }
+            
+            .content-card {
+                padding: 1.5rem;
+            }
+            
+            .form-section {
+                padding: 1rem;
+            }
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+            <!-- Header -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h1 class="display-6 mb-2">
+                                <i class="fas fa-edit me-2 text-primary"></i>
+                                تعديل التمرين: {{ exercise.name_ar }}
+                            </h1>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="{{ url_for('admin_dashboard') }}">لوحة التحكم</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ url_for('admin_exercises') }}">إدارة التمارين</a></li>
+                                    <li class="breadcrumb-item active">تعديل التمرين</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <a href="{{ url_for('admin_exercises') }}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-right me-2"></i>
+                            العودة للقائمة
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flash Messages -->
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show" role="alert">
+                            <i class="fas fa-{{ 'exclamation-triangle' if category == 'error' else 'check-circle' }} me-2"></i>
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            <!-- Edit Exercise Form -->
+            <form method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                
+                <div class="content-card">
+                    <!-- Basic Information -->
+                    <div class="form-section">
+                        <h5><i class="fas fa-info-circle me-2"></i>المعلومات الأساسية</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    {{ form.name_ar.label(class="form-label") }}
+                                    <span class="required">*</span>
+                                    {{ form.name_ar(class="form-control") }}
+                                    {% if form.name_ar.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {% for error in form.name_ar.errors %}
+                                                <div>{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    {{ form.name_en.label(class="form-label") }}
+                                    <span class="required">*</span>
+                                    {{ form.name_en(class="form-control") }}
+                                    {% if form.name_en.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {% for error in form.name_en.errors %}
+                                                <div>{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    {{ form.muscle_group.label(class="form-label") }}
+                                    <span class="required">*</span>
+                                    {{ form.muscle_group(class="form-select") }}
+                                    {% if form.muscle_group.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {% for error in form.muscle_group.errors %}
+                                                <div>{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    {{ form.equipment_type.label(class="form-label") }}
+                                    <span class="required">*</span>
+                                    {{ form.equipment_type(class="form-select") }}
+                                    {% if form.equipment_type.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {% for error in form.equipment_type.errors %}
+                                                <div>{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    {{ form.difficulty_level.label(class="form-label") }}
+                                    <span class="required">*</span>
+                                    {{ form.difficulty_level(class="form-select") }}
+                                    {% if form.difficulty_level.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {% for error in form.difficulty_level.errors %}
+                                                <div>{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Goal and Split Type -->
+                    <div class="form-section">
+                        <h5><i class="fas fa-target me-2"></i>الهدف ونوع التقسيم</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    {{ form.goal.label(class="form-label") }}
+                                    <span class="required">*</span>
+                                    {{ form.goal(class="form-select") }}
+                                    {% if form.goal.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {% for error in form.goal.errors %}
+                                                <div>{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    {{ form.split_type.label(class="form-label") }}
+                                    <span class="required">*</span>
+                                    {{ form.split_type(class="form-select") }}
+                                    {% if form.split_type.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {% for error in form.split_type.errors %}
+                                                <div>{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exercise Parameters -->
+                    <div class="form-section">
+                        <h5><i class="fas fa-cogs me-2"></i>معاملات التمرين</h5>
+                        
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    {{ form.sets.label(class="form-label") }}
+                                    <span class="required">*</span>
+                                    {{ form.sets(class="form-control", min="1", max="10") }}
+                                    {% if form.sets.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {% for error in form.sets.errors %}
+                                                <div>{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    {{ form.reps.label(class="form-label") }}
+                                    <span class="required">*</span>
+                                    {{ form.reps(class="form-control") }}
+                                    <small class="form-text text-muted">مثال: 8-12 أو 15 أو حتى الفشل</small>
+                                    {% if form.reps.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {% for error in form.reps.errors %}
+                                                <div>{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="mb-3">
+                                    {{ form.rest_time.label(class="form-label") }}
+                                    <span class="required">*</span>
+                                    <div class="input-group">
+                                        {{ form.rest_time(class="form-control", min="30", max="300") }}
+                                        <span class="input-group-text">ثانية</span>
+                                    </div>
+                                    {% if form.rest_time.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {% for error in form.rest_time.errors %}
+                                                <div>{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Instructions -->
+                    <div class="form-section">
+                        <h5><i class="fas fa-list-alt me-2"></i>التعليمات والإرشادات</h5>
+                        
+                        <div class="mb-3">
+                            {{ form.instructions.label(class="form-label") }}
+                            <span class="required">*</span>
+                            {{ form.instructions(class="form-control", rows="6", placeholder="اكتب تعليمات مفصلة لأداء التمرين، نصائح الشكل الصحيح، والأخطاء الشائعة...") }}
+                            {% if form.instructions.errors %}
+                                <div class="text-danger small mt-1">
+                                    {% for error in form.instructions.errors %}
+                                        <div>{{ error }}</div>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    {{ form.risk_notes.label(class="form-label") }}
+                                    {{ form.risk_notes(class="form-control", rows="4", placeholder="اذكر أي مخاطر أو احتياطات خاصة بهذا التمرين...") }}
+                                    {% if form.risk_notes.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {% for error in form.risk_notes.errors %}
+                                                <div>{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    {{ form.alternatives.label(class="form-label") }}
+                                    {{ form.alternatives(class="form-control", rows="4", placeholder="اقترح تمارين بديلة أو تعديلات للمبتدئين...") }}
+                                    {% if form.alternatives.errors %}
+                                        <div class="text-danger small mt-1">
+                                            {% for error in form.alternatives.errors %}
+                                                <div>{{ error }}</div>
+                                            {% endfor %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Media -->
+                    <div class="form-section">
+                        <h5><i class="fas fa-photo-video me-2"></i>الوسائط</h5>
+                        
+                        <div class="row">
+                            <!-- Video Section -->
+                            <div class="col-md-6">
+                                <div class="media-section">
+                                    <h6><i class="fas fa-video me-1"></i>الفيديو</h6>
+                                    
+                                    {% if exercise.video_url %}
+                                        <div class="current-video mb-3">
+                                            <p class="mb-2"><strong>الفيديو الحالي:</strong></p>
+                                            {% set video_id = '' %}
+                                            {% if 'youtube.com' in exercise.video_url or 'youtu.be' in exercise.video_url %}
+                                                {% if 'watch?v=' in exercise.video_url %}
+                                                    {% set video_id = exercise.video_url.split('watch?v=')[1].split('&')[0] %}
+                                                {% elif 'youtu.be/' in exercise.video_url %}
+                                                    {% set video_id = exercise.video_url.split('youtu.be/')[1].split('?')[0] %}
+                                                {% endif %}
+                                                {% if video_id %}
+                                                    <iframe src="https://www.youtube.com/embed/{{ video_id }}" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+                                                {% endif %}
+                                            {% elif 'vimeo.com' in exercise.video_url %}
+                                                {% set video_id = exercise.video_url.split('vimeo.com/')[1].split('/')[0] %}
+                                                <iframe src="https://player.vimeo.com/video/{{ video_id }}" width="100%" height="200" frameborder="0" allowfullscreen></iframe>
+                                            {% else %}
+                                                <p class="text-muted">رابط الفيديو: <a href="{{ exercise.video_url }}" target="_blank">{{ exercise.video_url }}</a></p>
+                                            {% endif %}
+                                            <button type="button" class="btn btn-danger btn-sm mt-2" onclick="clearCurrentVideo()">
+                                                <i class="fas fa-trash me-1"></i>
+                                                حذف الفيديو
+                                            </button>
+                                        </div>
+                                    {% endif %}
+                                    
+                                    <div class="mb-3">
+                                        {{ form.video_url.label(class="form-label") }}
+                                        {{ form.video_url(class="form-control", placeholder="https://www.youtube.com/watch?v=...") }}
+                                        <small class="form-text text-muted">رابط فيديو من YouTube أو Vimeo (اتركه فارغاً للاحتفاظ بالفيديو الحالي)</small>
+                                        {% if form.video_url.errors %}
+                                            <div class="text-danger small mt-1">
+                                                {% for error in form.video_url.errors %}
+                                                    <div>{{ error }}</div>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    
+                                    <div id="videoPreview" class="video-preview" style="display: none;">
+                                        <p class="mb-2"><i class="fas fa-video me-1"></i>معاينة الفيديو الجديد:</p>
+                                        <div id="videoEmbed"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Image Section -->
+                            <div class="col-md-6">
+                                <div class="media-section">
+                                    <h6><i class="fas fa-image me-1"></i>الصورة</h6>
+                                    
+                                    {% if exercise.image_path %}
+                                        <div class="mb-3">
+                                            <p class="mb-2"><strong>الصورة الحالية:</strong></p>
+                                            <img src="{{ url_for('static', filename='uploads/' + exercise.image_path) }}" alt="{{ exercise.name_ar }}" class="current-image">
+                                            <br>
+                                            <button type="button" class="btn btn-danger btn-sm mt-2" onclick="clearCurrentImage()">
+                                                <i class="fas fa-trash me-1"></i>
+                                                حذف الصورة
+                                            </button>
+                                        </div>
+                                    {% endif %}
+                                    
+                                    <div class="mb-3">
+                                        {{ form.image.label(class="form-label") }}
+                                        {{ form.image(class="form-control", accept="image/*") }}
+                                        <small class="form-text text-muted">صورة توضيحية جديدة للتمرين (JPEG, PNG) - اتركها فارغة للاحتفاظ بالصورة الحالية</small>
+                                        {% if form.image.errors %}
+                                            <div class="text-danger small mt-1">
+                                                {% for error in form.image.errors %}
+                                                    <div>{{ error }}</div>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    
+                                    <div id="imagePreview" class="image-preview" style="display: none;">
+                                        <i class="fas fa-image fa-2x text-muted mb-2"></i>
+                                        <p class="text-muted mb-0">معاينة الصورة الجديدة ستظهر هنا</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Workout Splits -->
+                    <div class="form-section">
+                        <h5><i class="fas fa-calendar-alt me-2"></i>أنظمة التمرين</h5>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">اختر أنظمة التمرين المناسبة لهذا التمرين:</label>
+                            <div class="row">
+                                {% for split in workout_splits %}
+                                    <div class="col-md-4 mb-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="workout_splits" value="{{ split.id }}" id="split{{ split.id }}" 
+                                                   {% if split.id in selected_splits %}checked{% endif %}>
+                                            <label class="form-check-label" for="split{{ split.id }}">
+                                                {{ split.name_ar }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hidden fields for deletion flags -->
+                    <input type="hidden" id="delete_image" name="delete_image" value="false">
+                    <input type="hidden" id="delete_video" name="delete_video" value="false">
+
+                    <!-- Submit Buttons -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg me-3">
+                            <i class="fas fa-save me-2"></i>
+                            حفظ التعديلات
+                        </button>
+                        <a href="{{ url_for('admin_exercises') }}" class="btn btn-secondary btn-lg">
+                            <i class="fas fa-times me-2"></i>
+                            إلغاء
+                        </a>
+                    </div>
+                </div>
+            </form>
+        {% endblock %}
+
+{% block extra_js %}
+    <script>
+        // Image preview for new image
+        document.getElementById('image').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            const preview = document.getElementById('imagePreview');
+            
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.innerHTML = `<img src="${e.target.result}" alt="معاينة الصورة الجديدة">`;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                preview.style.display = 'none';
+            }
+        });
+
+        // Video preview for new video
+        document.getElementById('video_url').addEventListener('input', function(e) {
+            const url = e.target.value;
+            const preview = document.getElementById('videoPreview');
+            const embed = document.getElementById('videoEmbed');
+            
+            if (url) {
+                let embedUrl = '';
+                
+                // YouTube
+                const youtubeMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)/);
+                if (youtubeMatch) {
+                    embedUrl = `https://www.youtube.com/embed/${youtubeMatch[1]}`;
+                }
+                
+                // Vimeo
+                const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
+                if (vimeoMatch) {
+                    embedUrl = `https://player.vimeo.com/video/${vimeoMatch[1]}`;
+                }
+                
+                if (embedUrl) {
+                    embed.innerHTML = `<iframe src="${embedUrl}" width="100%" height="200" frameborder="0" allowfullscreen></iframe>`;
+                    preview.style.display = 'block';
+                } else {
+                    preview.style.display = 'none';
+                }
+            } else {
+                preview.style.display = 'none';
+            }
+        });
+
+        // Clear current image
+        function clearCurrentImage() {
+            if (confirm('هل أنت متأكد من حذف الصورة الحالية؟')) {
+                document.getElementById('delete_image').value = 'true';
+                document.querySelector('.current-image').parentElement.style.display = 'none';
+            }
+        }
+
+        // Clear current video
+        function clearCurrentVideo() {
+            if (confirm('هل أنت متأكد من حذف الفيديو الحالي؟')) {
+                document.getElementById('delete_video').value = 'true';
+                document.querySelector('.current-video').style.display = 'none';
+            }
+        }
+    </script>
+{% endblock %}

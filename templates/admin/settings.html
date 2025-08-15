@@ -1,0 +1,295 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Dashboard Settings{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="text-primary">
+                    <i class="fas fa-cogs me-2"></i>
+                    Dashboard Settings
+                </h2>
+                <button class="btn btn-success" onclick="saveAllSettings()">
+                    <i class="fas fa-save me-2"></i>Save All Changes
+                </button>
+            </div>
+
+            <!-- Display Settings -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-eye me-2"></i>Display Settings
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="show_performance_indicators" 
+                                       {% if settings.show_performance_indicators == 'true' %}checked{% endif %}>
+                                <label class="form-check-label" for="show_performance_indicators">
+                                    Show Performance Indicators
+                                </label>
+                            </div>
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="show_motivational_messages" 
+                                       {% if settings.show_motivational_messages == 'true' %}checked{% endif %}>
+                                <label class="form-check-label" for="show_motivational_messages">
+                                    Show Motivational Messages
+                                </label>
+                            </div>
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="show_exercise_videos" 
+                                       {% if settings.show_exercise_videos == 'true' %}checked{% endif %}>
+                                <label class="form-check-label" for="show_exercise_videos">
+                                    Show Exercise Videos
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check form-switch mb-3">
+                                <input class="form-check-input" type="checkbox" id="enable_statistics" 
+                                       {% if settings.enable_statistics == 'true' %}checked{% endif %}>
+                                <label class="form-check-label" for="enable_statistics">
+                                    Enable Statistics Tracking
+                                </label>
+                            </div>
+                            <div class="mb-3">
+                                <label for="default_workout_goal" class="form-label">Default Workout Goal</label>
+                                <select class="form-select" id="default_workout_goal">
+                                    <option value="weight_loss" {% if settings.default_workout_goal == 'weight_loss' %}selected{% endif %}>Weight Loss</option>
+                                    <option value="muscle_gain" {% if settings.default_workout_goal == 'muscle_gain' %}selected{% endif %}>Muscle Gain</option>
+                                    <option value="maintenance" {% if settings.default_workout_goal == 'maintenance' %}selected{% endif %}>Maintenance</option>
+                                    <option value="strength" {% if settings.default_workout_goal == 'strength' %}selected{% endif %}>Strength</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme Settings -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-palette me-2"></i>Theme Settings
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="theme_mode" class="form-label">Theme Mode</label>
+                                <select class="form-select" id="theme_mode">
+                                    <option value="light" {% if settings.theme_mode == 'light' %}selected{% endif %}>Light</option>
+                                    <option value="dark" {% if settings.theme_mode == 'dark' %}selected{% endif %}>Dark</option>
+                                    <option value="auto" {% if settings.theme_mode == 'auto' %}selected{% endif %}>Auto</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="primary_color" class="form-label">Primary Color</label>
+                                <input type="color" class="form-control form-control-color" id="primary_color" 
+                                       value="{{ settings.primary_color or '#007bff' }}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="secondary_color" class="form-label">Secondary Color</label>
+                                <input type="color" class="form-control form-control-color" id="secondary_color" 
+                                       value="{{ settings.secondary_color or '#6c757d' }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="accent_color" class="form-label">Accent Color</label>
+                                <input type="color" class="form-control form-control-color" id="accent_color" 
+                                       value="{{ settings.accent_color or '#28a745' }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Workout Configuration -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-dumbbell me-2"></i>Workout Configuration
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="max_workout_days" class="form-label">Maximum Workout Days</label>
+                                <input type="number" class="form-control" id="max_workout_days" 
+                                       value="{{ settings.max_workout_days or 7 }}" min="1" max="7">
+                            </div>
+                            <div class="mb-3">
+                                <label for="available_fitness_levels" class="form-label">Available Fitness Levels</label>
+                                <textarea class="form-control" id="available_fitness_levels" rows="3">{{ settings.available_fitness_levels or 'Beginner,Intermediate,Advanced' }}</textarea>
+                                <div class="form-text">Separate levels with commas</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="available_workout_splits" class="form-label">Available Workout Splits</label>
+                                <textarea class="form-control" id="available_workout_splits" rows="3">{{ settings.available_workout_splits or 'Full Body,Upper/Lower,Push/Pull/Legs,Body Part Split' }}</textarea>
+                                <div class="form-text">Separate splits with commas</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Site Information -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-info-circle me-2"></i>Site Information
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="site_title" class="form-label">Site Title</label>
+                                <input type="text" class="form-control" id="site_title" 
+                                       value="{{ settings.site_title or 'Fitness Tracker' }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="contact_email" class="form-label">Contact Email</label>
+                                <input type="email" class="form-control" id="contact_email" 
+                                       value="{{ settings.contact_email or 'contact@fitness.com' }}">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="facebook_url" class="form-label">Facebook URL</label>
+                                <input type="url" class="form-control" id="facebook_url" 
+                                       value="{{ settings.facebook_url or '' }}">
+                            </div>
+                            <div class="mb-3">
+                                <label for="instagram_url" class="form-label">Instagram URL</label>
+                                <input type="url" class="form-control" id="instagram_url" 
+                                       value="{{ settings.instagram_url or '' }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Preview Changes -->
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="fas fa-eye me-2"></i>Preview Changes
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <p class="text-muted">Changes will be applied to the workout plan result page immediately after saving.</p>
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-outline-primary" onclick="previewChanges()">
+                            <i class="fas fa-external-link-alt me-2"></i>Preview Result Page
+                        </button>
+                        <button class="btn btn-outline-secondary" onclick="resetToDefaults()">
+                            <i class="fas fa-undo me-2"></i>Reset to Defaults
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+async function saveAllSettings() {
+    const settings = {
+        show_performance_indicators: document.getElementById('show_performance_indicators').checked,
+        show_motivational_messages: document.getElementById('show_motivational_messages').checked,
+        show_exercise_videos: document.getElementById('show_exercise_videos').checked,
+        enable_statistics: document.getElementById('enable_statistics').checked,
+        default_workout_goal: document.getElementById('default_workout_goal').value,
+        theme_mode: document.getElementById('theme_mode').value,
+        primary_color: document.getElementById('primary_color').value,
+        secondary_color: document.getElementById('secondary_color').value,
+        accent_color: document.getElementById('accent_color').value,
+        max_workout_days: document.getElementById('max_workout_days').value,
+        available_fitness_levels: document.getElementById('available_fitness_levels').value,
+        available_workout_splits: document.getElementById('available_workout_splits').value,
+        site_title: document.getElementById('site_title').value,
+        contact_email: document.getElementById('contact_email').value,
+        facebook_url: document.getElementById('facebook_url').value,
+        instagram_url: document.getElementById('instagram_url').value
+    };
+
+    try {
+        const response = await fetch('/admin/settings/update', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(settings)
+        });
+
+        if (response.ok) {
+            // Show success message
+            const alert = document.createElement('div');
+            alert.className = 'alert alert-success alert-dismissible fade show';
+            alert.innerHTML = `
+                <i class="fas fa-check-circle me-2"></i>
+                Settings saved successfully!
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.querySelector('.container-fluid').insertBefore(alert, document.querySelector('.row'));
+            
+            // Auto-dismiss after 3 seconds
+            setTimeout(() => {
+                alert.remove();
+            }, 3000);
+        } else {
+            throw new Error('Failed to save settings');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error saving settings. Please try again.');
+    }
+}
+
+function previewChanges() {
+    window.open('/workout-plan-result', '_blank');
+}
+
+async function resetToDefaults() {
+    if (confirm('Are you sure you want to reset all settings to defaults? This action cannot be undone.')) {
+        try {
+            const response = await fetch('/admin/settings/reset', {
+                method: 'POST'
+            });
+
+            if (response.ok) {
+                location.reload();
+            } else {
+                throw new Error('Failed to reset settings');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error resetting settings. Please try again.');
+        }
+    }
+}
+
+// Real-time color preview
+document.getElementById('primary_color').addEventListener('change', function() {
+    document.documentElement.style.setProperty('--bs-primary', this.value);
+});
+
+document.getElementById('secondary_color').addEventListener('change', function() {
+    document.documentElement.style.setProperty('--bs-secondary', this.value);
+});
+
+document.getElementById('accent_color').addEventListener('change', function() {
+    document.documentElement.style.setProperty('--bs-success', this.value);
+});
+</script>
+{% endblock %}

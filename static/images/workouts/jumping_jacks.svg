@@ -1,0 +1,90 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="personGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ee5a24;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="energyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#feca57;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff9ff3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="200" height="200" fill="url(#bgGradient)" rx="20"/>
+  
+  <!-- Floor line -->
+  <line x1="20" y1="170" x2="180" y2="170" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
+  
+  <!-- Person doing jumping jacks -->
+  <!-- Head -->
+  <circle cx="100" cy="45" r="12" fill="url(#personGradient)"/>
+  
+  <!-- Body -->
+  <rect x="92" y="57" width="16" height="35" fill="url(#personGradient)" rx="8"/>
+  
+  <!-- Arms (spread out) -->
+  <rect x="65" y="65" width="20" height="6" fill="url(#personGradient)" rx="3" transform="rotate(-30 75 68)"/>
+  <rect x="115" y="65" width="20" height="6" fill="url(#personGradient)" rx="3" transform="rotate(30 125 68)"/>
+  
+  <!-- Hands -->
+  <circle cx="70" cy="55" r="4" fill="url(#personGradient)"/>
+  <circle cx="130" cy="55" r="4" fill="url(#personGradient)"/>
+  
+  <!-- Legs (spread out) -->
+  <rect x="80" y="92" width="8" height="30" fill="url(#personGradient)" rx="4" transform="rotate(-15 84 107)"/>
+  <rect x="112" y="92" width="8" height="30" fill="url(#personGradient)" rx="4" transform="rotate(15 116 107)"/>
+  
+  <!-- Feet -->
+  <ellipse cx="75" cy="135" rx="8" ry="4" fill="url(#personGradient)"/>
+  <ellipse cx="125" cy="135" rx="8" ry="4" fill="url(#personGradient)"/>
+  
+  <!-- Motion lines for arms -->
+  <path d="M 70 55 Q 60 45 50 40" stroke="#feca57" stroke-width="3" fill="none" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1s" repeatCount="indefinite"/>
+  </path>
+  <path d="M 130 55 Q 140 45 150 40" stroke="#feca57" stroke-width="3" fill="none" opacity="0.6">
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="1s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Motion lines for legs -->
+  <path d="M 75 135 Q 65 125 55 120" stroke="#ff9ff3" stroke-width="3" fill="none" opacity="0.5">
+    <animate attributeName="opacity" values="0.5;0.1;0.5" dur="1.2s" repeatCount="indefinite"/>
+  </path>
+  <path d="M 125 135 Q 135 125 145 120" stroke="#ff9ff3" stroke-width="3" fill="none" opacity="0.5">
+    <animate attributeName="opacity" values="0.1;0.5;0.1" dur="1.2s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Energy bursts -->
+  <circle cx="100" cy="100" r="4" fill="url(#energyGradient)" opacity="0.7">
+    <animate attributeName="r" values="4;8;4" dur="1.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.7;0.3;0.7" dur="1.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Cardio indicators -->
+  <circle cx="40" cy="60" r="2" fill="#feca57" opacity="0.8">
+    <animate attributeName="opacity" values="0.8;0.3;0.8" dur="0.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="160" cy="65" r="2" fill="#feca57" opacity="0.8">
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="0.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="50" cy="100" r="1.5" fill="#ff9ff3" opacity="0.6">
+    <animate attributeName="opacity" values="0.6;0.2;0.6" dur="1s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="150" cy="105" r="1.5" fill="#ff9ff3" opacity="0.6">
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="1s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Heart rate indicator -->
+  <path d="M 20 30 Q 25 25 30 30 Q 35 25 40 30 Q 35 35 30 40 Q 25 35 20 30" fill="#ff6b6b" opacity="0.8">
+    <animateTransform attributeName="transform" type="scale" values="1;1.2;1" dur="0.8s" repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Text -->
+  <text x="100" y="190" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Jumping Jacks</text>
+</svg>

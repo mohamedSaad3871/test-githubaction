@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="فهم التدريب والتغذية - دليلك الشامل لفهم أساسيات التدريب والتغذية الصحية للوصول لأهدافك الرياضية">
+    <meta name="keywords" content="تدريب, تغذية, لياقة بدنية, كمال أجسام, صحة, رياضة">
+    <meta name="author" content="تطبيق اللياقة البدنية">
+    <meta property="og:title" content="فهم التدريب والتغذية">
+    <meta property="og:description" content="دليلك الشامل لفهم أساسيات التدريب والتغذية الصحية">
+    <meta property="og:type" content="website">
+    <title>فهم التدريب والتغذية | تطبيق اللياقة البدنية</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #06b6d4;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-success: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            --gradient-warm: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            --gradient-cool: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--light-color);
+            min-height: 100vh;
+            direction: rtl;
+            text-align: right;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--primary-color) !important;
+            text-decoration: none;
+        }
+
+        .nav-link {
+            color: var(--dark-color) !important;
+            font-weight: 600;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+            transform: translateY(-2px);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 80%;
+        }
+
+        .hero-section {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/><circle cx="10" cy="60" r="1" fill="white" opacity="0.1"/><circle cx="90" cy="40" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 400;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .articles-section {
+            padding: 5rem 0;
+            background: var(--light-color);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-accent);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            font-size: 1.2rem;
+            color: #6b7280;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .article-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 220px;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Unique gradient backgrounds for each article */
+        .article-card:nth-child(1) .article-image {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .article-card:nth-child(2) .article-image {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        .article-card:nth-child(3) .article-image {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+        }
+
+        .article-card:nth-child(4) .article-image {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+
+        .article-card:nth-child(5) .article-image {
+            background: linear-gradient(135deg, #e67e22, #d35400);
+        }
+
+        .article-card:nth-child(6) .article-image {
+            background: linear-gradient(135deg, #9b59b6, #8e44ad);
+        }
+
+        .article-card:nth-child(7) .article-image {
+            background: linear-gradient(135deg, #1abc9c, #16a085);
+        }
+
+        .article-card:nth-child(8) .article-image {
+            background: linear-gradient(135deg, #34495e, #2c3e50);
+        }
+
+        .article-card:nth-child(9) .article-image {
+            background: linear-gradient(135deg, #27ae60, #229954);
+        }
+
+        .article-card:nth-child(10) .article-image {
+            background: linear-gradient(135deg, #8e44ad, #7d3c98);
+        }
+
+        .article-card:nth-child(11) .article-image {
+            background: linear-gradient(135deg, #e74c3c, #cb4335);
+        }
+
+        .article-card:nth-child(12) .article-image {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+        }
+
+        .article-card:nth-child(13) .article-image {
+            background: linear-gradient(135deg, #f1c40f, #f39c12);
+        }
+
+        .article-card:nth-child(14) .article-image {
+            background: linear-gradient(135deg, #e67e22, #d68910);
+        }
+
+        .article-card:nth-child(5) .article-image {
+            background: var(--gradient-secondary);
+        }
+
+        .article-card:nth-child(6) .article-image {
+            background: var(--gradient-cool);
+        }
+
+        .article-card:nth-child(7) .article-image {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .article-image i {
+            font-size: 3.5rem;
+            color: white;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .article-card:hover .article-image i {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .article-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            z-index: 1;
+        }
+
+        .article-content {
+            padding: 2rem;
+        }
+
+        .article-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+
+        .article-card:hover .article-title {
+            color: var(--primary-color);
+        }
+
+        .article-description {
+            color: #6b7280;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .read-more-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .read-more-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .read-more-btn:hover::before {
+            left: 100%;
+        }
+
+        .read-more-btn:hover {
+            background: linear-gradient(45deg, #5a6fd8, #6a4190);
+            color: white;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
+        }
+
+        .back-to-home {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-home:hover {
+            background: #5a6fd8;
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+            color: white;
+        }
+
+        /* Enhanced Responsive Design */
+        @media (max-width: 1200px) {
+            .articles-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .article-card {
+                margin: 0 0.5rem;
+            }
+
+            .hero-section {
+                padding: 3rem 0;
+            }
+
+            .articles-section {
+                padding: 3rem 0;
+            }
+
+            .article-content {
+                padding: 1.5rem;
+            }
+
+            .navbar {
+                padding: 0.5rem 0;
+            }
+
+            .back-to-home {
+                bottom: 1rem;
+                left: 1rem;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+
+            .article-content {
+                padding: 1.2rem;
+            }
+
+            .article-title {
+                font-size: 1.2rem;
+            }
+
+            .article-description {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .read-more-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-section {
+                padding: 2rem 0;
+            }
+
+            .section-title {
+                margin-bottom: 2rem;
+            }
+        }
+
+        /* Enhanced Animation System */
+        .article-card {
+            animation: fadeInUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .article-card:nth-child(1) { animation-delay: 0.1s; }
+        .article-card:nth-child(2) { animation-delay: 0.2s; }
+        .article-card:nth-child(3) { animation-delay: 0.3s; }
+        .article-card:nth-child(4) { animation-delay: 0.4s; }
+        .article-card:nth-child(5) { animation-delay: 0.5s; }
+        .article-card:nth-child(6) { animation-delay: 0.6s; }
+        .article-card:nth-child(7) { animation-delay: 0.7s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Loading Animation */
+        .loading-shimmer {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* SEO and Performance Optimizations */
+        .article-image {
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* SEO and Accessibility Improvements */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Enhanced Focus styles for accessibility */
+        .read-more-btn:focus,
+        .back-to-home:focus {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 3px;
+            box-shadow: 0 0 0 6px rgba(245, 158, 11, 0.2);
+        }
+
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .article-card {
+                border: 2px solid var(--dark-color);
+            }
+            
+            .read-more-btn {
+                border: 2px solid white;
+            }
+        }
+
+        /* Reduced motion support */
+        @media (prefers-reduced-motion: reduce) {
+            .article-card,
+            .read-more-btn,
+            .nav-link,
+            .back-to-home {
+                animation: none;
+                transition: none;
+            }
+            
+            .article-card:hover {
+                transform: none;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .navbar,
+            .back-to-home,
+            .read-more-btn {
+                display: none;
+            }
+            
+            .article-card {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+            
+            .hero-section {
+                background: #667eea;
+                color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <i class="fas fa-dumbbell"></i> تطبيق اللياقة
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('your_plan_your_goal') }}">خطتك هدفك</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('workout_guide') }}">دليل التمارين</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('tips') }}">نصائح ذهبية</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">فهم التدريب والتغذية</h1>
+                <p class="hero-subtitle">
+                    اكتشف أسرار النجاح في عالم اللياقة البدنية من خلال فهم أساسيات التدريب والتغذية الصحيحة. 
+                    رحلتك نحو جسم صحي ومثالي تبدأ بالمعرفة الصحيحة والتطبيق العملي.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <main class="articles-section">
+        <div class="container">
+            <header class="section-title">
+                <h1>مقالات التدريب والتغذية</h1>
+                <p>اكتشف أحدث المعلومات والنصائح العلمية في عالم اللياقة البدنية والتغذية الصحية من خبراء معتمدين</p>
+            </header>
+
+            <section class="articles-grid" role="main" aria-label="مقالات التدريب والتغذية">
+                <!-- Article 1: Cardio vs Resistance Training -->
+                <article class="article-card" itemscope itemtype="https://schema.org/Article">
+                    <div class="article-image" role="img" aria-label="أيقونة تمارين القلب">
+                        <i class="fas fa-heartbeat" aria-hidden="true"></i>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="article-title" itemprop="headline">الكارديو مقابل تمارين المقاومة</h2>
+                        <p class="article-description" itemprop="description">
+                            تعرف على الفروق العلمية بين تمارين الكارديو وتمارين المقاومة، وكيفية دمجهما بطريقة مثلى في برنامجك التدريبي لتحقيق أهداف حرق الدهون وبناء العضلات معاً.
+                        </p>
+                        <button class="read-more-btn" onclick="openArticle('cardio-vs-resistance')" aria-label="اقرأ المزيد عن الكارديو مقابل تمارين المقاومة">
+                            <span>اقرأ المزيد</span> <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 2: Animal vs Plant Protein -->
+                <article class="article-card" itemscope itemtype="https://schema.org/Article">
+                    <div class="article-image" role="img" aria-label="أيقونة البروتين النباتي">
+                        <i class="fas fa-leaf" aria-hidden="true"></i>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="article-title" itemprop="headline">البروتين الحيواني مقابل النباتي</h2>
+                        <p class="article-description" itemprop="description">
+                            دليل شامل للمقارنة بين مصادر البروتين المختلفة، تركيب الأحماض الأمينية، القيمة البيولوجية، وكيفية اختيار الأنسب لأهدافك الرياضية ونمط حياتك الغذائي.
+                        </p>
+                        <button class="read-more-btn" onclick="openArticle('animal-vs-plant-protein')" aria-label="اقرأ المزيد عن البروتين الحيواني مقابل النباتي">
+                            <span>اقرأ المزيد</span> <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 3: Importance of Water -->
+                <article class="article-card" itemscope itemtype="https://schema.org/Article">
+                    <div class="article-image" role="img" aria-label="أيقونة قطرة الماء">
+                        <i class="fas fa-tint" aria-hidden="true"></i>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="article-title" itemprop="headline">أهمية الماء للرياضيين</h2>
+                        <p class="article-description" itemprop="description">
+                            تعلم أسس الترطيب العلمية للرياضيين، الكميات المطلوبة حسب نوع النشاط، علامات الجفاف، وتأثير نقص السوائل على الأداء الرياضي والتعافي.
+                        </p>
+                        <button class="read-more-btn" onclick="openArticle('importance-of-water')" aria-label="اقرأ المزيد عن أهمية الماء للرياضيين">
+                            <span>اقرأ المزيد</span> <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 4: Staying Consistent -->
+                <article class="article-card" itemscope itemtype="https://schema.org/Article">
+                    <div class="article-image" role="img" aria-label="أيقونة الوقت والتنظيم">
+                        <i class="fas fa-clock" aria-hidden="true"></i>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="article-title" itemprop="headline">نصائح للاستمرارية في التمرين</h2>
+                        <p class="article-description" itemprop="description">
+                            استراتيجيات مجربة علمياً للحفاظ على الانتظام في التمرين رغم الجدول المزدحم، بناء عادات صحية مستدامة، والتغلب على العوائق النفسية والجسدية.
+                        </p>
+                        <button class="read-more-btn" onclick="openArticle('staying-consistent')" aria-label="اقرأ المزيد عن نصائح الاستمرارية في التمرين">
+                            <span>اقرأ المزيد</span> <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 5: Beginner Mistakes -->
+                <article class="article-card" itemscope itemtype="https://schema.org/Article">
+                    <div class="article-image" role="img" aria-label="أيقونة التحذير">
+                        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="article-title" itemprop="headline">أخطاء المبتدئين الشائعة</h2>
+                        <p class="article-description" itemprop="description">
+                            دليل شامل لتجنب الأخطاء الشائعة في عالم اللياقة البدنية، من التقنيات الخاطئة إلى التوقعات غير الواقعية، مع حلول عملية وطرق صحيحة للتمرين الآمن.
+                        </p>
+                        <button class="read-more-btn" onclick="openArticle('beginner-mistakes')" aria-label="اقرأ المزيد عن أخطاء المبتدئين الشائعة">
+                            <span>اقرأ المزيد</span> <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 6: Success Stories -->
+                <article class="article-card" itemscope itemtype="https://schema.org/Article">
+                    <div class="article-image" role="img" aria-label="أيقونة الكأس والإنجاز">
+                        <i class="fas fa-trophy" aria-hidden="true"></i>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="article-title" itemprop="headline">قصص تحول ملهمة</h2>
+                        <p class="article-description" itemprop="description">
+                            قصص نجاح حقيقية موثقة لأشخاص حققوا تحولات مذهلة في لياقتهم البدنية، مع تفاصيل البرامج المتبعة، التحديات المواجهة، والدروس المستفادة من رحلتهم.
+                        </p>
+                        <button class="read-more-btn" onclick="openArticle('success-stories')" aria-label="اقرأ المزيد عن قصص التحول الملهمة">
+                            <span>اقرأ المزيد</span> <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 7: Motivation Tips -->
+                <article class="article-card" itemscope itemtype="https://schema.org/Article">
+                    <div class="article-image" role="img" aria-label="أيقونة الدماغ والتفكير">
+                        <i class="fas fa-brain" aria-hidden="true"></i>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="article-title" itemprop="headline">علم نفس الدافعية في الرياضة</h2>
+                        <p class="article-description" itemprop="description">
+                            فهم عميق للجوانب النفسية للدافعية الرياضية، نظريات التحفيز الحديثة، تقنيات بناء العقلية القوية، والاستراتيجيات النفسية للوصول إلى أهدافك الرياضية.
+                        </p>
+                        <button class="read-more-btn" onclick="openArticle('motivation-tips')" aria-label="اقرأ المزيد عن علم نفس الدافعية في الرياضة">
+                            <span>اقرأ المزيد</span> <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 8: First Day at the Gym -->
+                <article class="article-card" itemscope itemtype="https://schema.org/Article">
+                    <div class="article-image" role="img" aria-label="أيقونة أول يوم في الجيم">
+                        <i class="fas fa-door-open" aria-hidden="true"></i>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="article-title" itemprop="headline">أول يوم في الجيم</h2>
+                        <p class="article-description" itemprop="description">
+                            دليل شامل للمبتدئين في أول يوم لهم في الجيم، يشمل التهيئة النفسية والبدنية، الأخطاء الشائعة التي يجب تجنبها، وبرنامج تمريني مقترح للبداية الصحيحة.
+                        </p>
+                        <button class="read-more-btn" onclick="openArticle('first-gym-day')" aria-label="اقرأ المزيد عن أول يوم في الجيم">
+                            <span>اقرأ المزيد</span> <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 9: Workout Systems -->
+                <article class="article-card" itemscope itemtype="https://schema.org/Article">
+                    <div class="article-image" role="img" aria-label="أيقونة أنظمة التمارين">
+                        <i class="fas fa-cogs" aria-hidden="true"></i>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="article-title" itemprop="headline">شرح أنظمة التمارين المختلفة</h2>
+                        <p class="article-description" itemprop="description">
+                            تعرف على أنظمة التمارين الأساسية مثل Full Body وUpper/Lower وPush Pull Legs، مع شرح مفصل لكل نظام ومميزاته وعيوبه وكيفية اختيار الأنسب لك.
+                        </p>
+                        <button class="read-more-btn" onclick="openArticle('workout-systems')" aria-label="اقرأ المزيد عن أنظمة التمارين المختلفة">
+                            <span>اقرأ المزيد</span> <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 10: Body Muscles -->
+                <article class="article-card" itemscope itemtype="https://schema.org/Article">
+                    <div class="article-image" role="img" aria-label="أيقونة عضلات الجسم">
+                        <i class="fas fa-user-md" aria-hidden="true"></i>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="article-title" itemprop="headline">شرح عضلات الجسم بالكامل</h2>
+                        <p class="article-description" itemprop="description">
+                            دليل تشريحي شامل لعضلات الجسم البشري، وظيفة كل عضلة، أهمية تمرينها، وكيفية تطوير برنامج تدريبي متوازن يستهدف جميع المجموعات العضلية.
+                        </p>
+                        <button class="read-more-btn" onclick="openArticle('body-muscles')" aria-label="اقرأ المزيد عن عضلات الجسم بالكامل">
+                            <span>اقرأ المزيد</span> <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 11: Fitness Improvement -->
+                <article class="article-card" itemscope itemtype="https://schema.org/Article">
+                    <div class="article-image" role="img" aria-label="أيقونة تحسين اللياقة">
+                        <i class="fas fa-chart-line" aria-hidden="true"></i>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="article-title" itemprop="headline">إزاي تعلي لياقة جسمك</h2>
+                        <p class="article-description" itemprop="description">
+                            برامج تدريبية متدرجة لتحسين اللياقة البدنية والتحمل، تمارين القلب والرئة، طرق قياس التقدم، ونصائح عملية لزيادة قوة التحمل والطاقة.
+                        </p>
+                        <button class="read-more-btn" onclick="openArticle('fitness-improvement')" aria-label="اقرأ المزيد عن تحسين لياقة الجسم">
+                            <span>اقرأ المزيد</span> <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 12: Football Exercises -->
+                <article class="article-card" itemscope itemtype="https://schema.org/Article">
+                    <div class="article-image" role="img" aria-label="أيقونة كرة القدم">
+                        <i class="fas fa-futbol" aria-hidden="true"></i>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="article-title" itemprop="headline">تمارين مناسبة للاعبي كرة القدم</h2>
+                        <p class="article-description" itemprop="description">
+                            برنامج تدريبي متخصص للاعبي كرة القدم في الجيم، تمارين تطوير السرعة والرشاقة والتحمل، تقوية العضلات الأساسية، ونصائح التغذية الرياضية.
+                        </p>
+                        <button class="read-more-btn" onclick="openArticle('football-exercises')" aria-label="اقرأ المزيد عن تمارين لاعبي كرة القدم">
+                            <span>اقرأ المزيد</span> <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 13: Walking Benefits -->
+                <article class="article-card" itemscope itemtype="https://schema.org/Article">
+                    <div class="article-image" role="img" aria-label="أيقونة المشي">
+                        <i class="fas fa-walking" aria-hidden="true"></i>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="article-title" itemprop="headline">فوائد المشي في التخسيس</h2>
+                        <p class="article-description" itemprop="description">
+                            دليل علمي شامل لفوائد المشي في حرق الدهون وتحسين الصحة العامة، برامج مشي متدرجة، حساب السعرات المحروقة، ونصائح لتحقيق أقصى استفادة.
+                        </p>
+                        <button class="read-more-btn" onclick="openArticle('walking-benefits')" aria-label="اقرأ المزيد عن فوائد المشي في التخسيس">
+                            <span>اقرأ المزيد</span> <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Article 14: Diet Plan -->
+                <article class="article-card" itemscope itemtype="https://schema.org/Article">
+                    <div class="article-image" role="img" aria-label="أيقونة النظام الغذائي">
+                        <i class="fas fa-utensils" aria-hidden="true"></i>
+                    </div>
+                    <div class="article-content">
+                        <h2 class="article-title" itemprop="headline">إزاي تعمل نظام غذائي يناسب هدفك</h2>
+                        <p class="article-description" itemprop="description">
+                            دليل شامل لإنشاء نظام غذائي مخصص حسب هدفك، حساب السعرات الحرارية والماكروز، أمثلة وجبات للتخسيس وبناء العضلات، ونصائح التطبيق العملي.
+                        </p>
+                        <button class="read-more-btn" onclick="openArticle('diet-plan')" aria-label="اقرأ المزيد عن إنشاء نظام غذائي مناسب">
+                            <span>اقرأ المزيد</span> <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </article>
+            </section>
+        </div>
+    </main>
+
+    <!-- Back to Home Button -->
+    <button class="back-to-home" onclick="window.location.href='{{ url_for('index') }}'" title="العودة للرئيسية">
+        <i class="fas fa-home"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Function to handle article opening
+        function openArticle(articleId) {
+            // Navigate to the specific article page with proper error handling
+            const articleRoutes = {
+                'cardio-vs-resistance': '/article/cardio-vs-resistance',
+                'animal-vs-plant-protein': '/article/protein-types',
+                'importance-of-water': '/article/water-importance',
+                'staying-consistent': '/article/consistency-tips',
+                'beginner-mistakes': '/article/beginner-mistakes',
+                'success-stories': '/article/transformation-stories',
+                'motivation-tips': '/article/motivation-psychology',
+                'first-gym-day': '/article/first-gym-day',
+                'workout-systems': '/article/workout-systems',
+                'body-muscles': '/article/body-muscles',
+                'fitness-improvement': '/article/fitness-improvement',
+                'football-exercises': '/article/football-exercises',
+                'walking-benefits': '/article/walking-benefits',
+                'diet-plan': '/article/diet-plan'
+            };
+
+            const route = articleRoutes[articleId];
+            if (route) {
+                // Add loading state
+                const button = event.target.closest('.read-more-btn');
+                if (button) {
+                    button.style.opacity = '0.7';
+                    button.style.pointerEvents = 'none';
+                }
+                
+                // Navigate to article
+                window.location.href = route;
+            } else {
+                console.error('Unknown article ID:', articleId);
+                alert('عذراً، هذا المقال غير متوفر حالياً');
+            }
+        }
+
+        // Add smooth scroll behavior for better UX
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add intersection observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all article cards
+            document.querySelectorAll('.article-card').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تمارين مناسبة للاعبي كرة القدم في الجيم - تقوية السرعة والتحمل</title>
+    <meta name="description" content="دليل شامل للتمارين المخصصة للاعبي كرة القدم لتطوير السرعة والقوة والتحمل والرشاقة">
+    <meta name="keywords" content="تمارين كرة القدم، تقوية السرعة، تحسين التحمل، تمارين الجيم للاعبين، اللياقة البدنية للكرة">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #f39c12;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --football-green: #00a651;
+            --football-white: #ffffff;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-football: linear-gradient(135deg, #00a651 0%, #2c5aa0 100%);
+            --gradient-speed: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+            --gradient-strength: linear-gradient(135deg, #4ecdc4 0%, #44a08d 100%);
+            --gradient-agility: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.8;
+            color: var(--dark-color);
+            background: linear-gradient(135deg, #00a651 0%, #2c5aa0 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: var(--gradient-football);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .article-container {
+            background: white;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+            max-width: 1200px;
+        }
+
+        .article-header {
+            background: var(--gradient-football);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(-50px) translateY(-50px); }
+            100% { transform: translateX(50px) translateY(50px); }
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .article-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .article-content {
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 2rem 0 1rem 0;
+            position: relative;
+            padding-right: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-football);
+            border-radius: 2px;
+        }
+
+        .training-category {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .training-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .speed-training::before {
+            background: var(--gradient-speed);
+        }
+
+        .strength-training::before {
+            background: var(--gradient-strength);
+        }
+
+        .agility-training::before {
+            background: var(--gradient-agility);
+        }
+
+        .endurance-training::before {
+            background: var(--gradient-football);
+        }
+
+        .training-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-icon {
+            font-size: 3rem;
+            margin-left: 1rem;
+            padding: 1rem;
+            border-radius: 15px;
+            color: white;
+        }
+
+        .speed-training .category-icon {
+            background: var(--gradient-speed);
+        }
+
+        .strength-training .category-icon {
+            background: var(--gradient-strength);
+        }
+
+        .agility-training .category-icon {
+            background: var(--gradient-agility);
+        }
+
+        .endurance-training .category-icon {
+            background: var(--gradient-football);
+        }
+
+        .category-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .category-subtitle {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .exercise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .exercise-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .exercise-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .exercise-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .exercise-details {
+            margin: 1rem 0;
+        }
+
+        .exercise-details h6 {
+            color: var(--dark-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .exercise-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .spec-item {
+            background: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .spec-value {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .spec-label {
+            color: #666;
+            font-size: 0.8rem;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .benefits-list li {
+            padding: 0.3rem 0;
+            color: #666;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+
+        .benefits-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            color: var(--success-color);
+        }
+
+        .workout-plan {
+            background: var(--gradient-football);
+            color: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .workout-plan h4 {
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .weekly-schedule {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .day-schedule {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .day-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--football-white);
+        }
+
+        .day-focus {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .day-exercises {
+            list-style: none;
+            padding: 0;
+        }
+
+        .day-exercises li {
+            padding: 0.2rem 0;
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .nutrition-tips {
+            background: var(--gradient-agility);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: var(--dark-color);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .tip-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .tip-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .tip-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #00a65120, #2c5aa020);
+            border: 2px solid var(--football-green);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: '\f091';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: white;
+            color: var(--football-green);
+            padding: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .back-btn {
+            background: var(--gradient-football);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            margin: 2rem 0;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        .exercise-video {
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .video-btn {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+        }
+
+        .video-btn:hover {
+            background: linear-gradient(135deg, #cc0000, #990000);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        .video-btn i {
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .article-content {
+                padding: 2rem 1rem;
+            }
+            
+            .category-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .category-icon {
+                margin: 0 0 1rem 0;
+            }
+            
+            .exercise-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .weekly-schedule {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <i class="fas fa-dumbbell me-2"></i>
+                فتنس برو
+            </a>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <div class="container" style="margin-top: 100px;">
+        <div class="article-container">
+            <!-- Article Header -->
+            <div class="article-header">
+                <h1 class="article-title">
+                    <i class="fas fa-futbol me-3"></i>
+                    تمارين مناسبة للاعبي كرة القدم
+                </h1>
+                <p class="article-subtitle">دليلك الشامل لتطوير السرعة والقوة والتحمل والرشاقة في الجيم</p>
+            </div>
+
+            <!-- Article Content -->
+            <div class="article-content">
+                <div class="highlight-box">
+                    <h3>لماذا يحتاج لاعب كرة القدم لتمارين الجيم؟</h3>
+                    <p>كرة القدم رياضة تتطلب مزيجاً من السرعة والقوة والتحمل والرشاقة. تمارين الجيم المخصصة تساعد في تطوير هذه القدرات البدنية، تقليل خطر الإصابات، وتحسين الأداء على أرض الملعب. البرنامج المناسب يجب أن يركز على الحركات الوظيفية التي تحاكي متطلبات اللعبة.</p>
+                </div>
+
+                <!-- Speed Training -->
+                <div class="training-category speed-training">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div>
+                            <h3 class="category-title">تدريبات السرعة والانفجار</h3>
+                            <p class="category-subtitle">تطوير السرعة القصوى والقدرة الانفجارية للساقين</p>
+                        </div>
+                    </div>
+
+                    <div class="exercise-grid">
+                        <div class="exercise-card">
+                            <div class="exercise-name">
+                                <i class="fas fa-running"></i>
+                                Sprint على جهاز المشي
+                            </div>
+                            <div class="exercise-details">
+                                <h6>الوصف:</h6>
+                                <p>جري بأقصى سرعة لفترات قصيرة مع راحة كاملة بين المجموعات</p>
+                                
+                                <div class="exercise-specs">
+                                    <div class="spec-item">
+                                        <div class="spec-value">6-8</div>
+                                        <div class="spec-label">مجموعات</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">15-30 ثانية</div>
+                                        <div class="spec-label">مدة العدو</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">2-3 دقائق</div>
+                                        <div class="spec-label">راحة</div>
+                                    </div>
+                                </div>
+
+                                <h6>الفوائد:</h6>
+                                <ul class="benefits-list">
+                                    <li>تحسين السرعة القصوى</li>
+                                    <li>تطوير القدرة الانفجارية</li>
+                                    <li>تحسين تقنية الجري</li>
+                                </ul>
+                                
+                                <div class="exercise-video">
+                                    <a href="https://www.youtube.com/watch?v=3RamyaVqrus" target="_blank" class="video-btn">
+                                        <i class="fab fa-youtube"></i>
+                                        مشاهدة الفيديو
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="exercise-card">
+                            <div class="exercise-name">
+                                <i class="fas fa-arrow-up"></i>
+                                Box Jumps
+                            </div>
+                            <div class="exercise-details">
+                                <h6>الوصف:</h6>
+                                <p>القفز على صندوق بارتفاع مناسب بقوة انفجارية</p>
+                                
+                                <div class="exercise-specs">
+                                    <div class="spec-item">
+                                        <div class="spec-value">4-5</div>
+                                        <div class="spec-label">مجموعات</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">5-8</div>
+                                        <div class="spec-label">تكرارات</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">60-90 ثانية</div>
+                                        <div class="spec-label">راحة</div>
+                                    </div>
+                                </div>
+
+                                <h6>الفوائد:</h6>
+                                <ul class="benefits-list">
+                                    <li>تقوية عضلات الساقين</li>
+                                    <li>تحسين القفز العمودي</li>
+                                    <li>تطوير التوازن والتنسيق</li>
+                                </ul>
+                                
+                                <div class="exercise-video">
+                                    <a href="https://www.youtube.com/watch?v=hxldG9FX4j4" target="_blank" class="video-btn">
+                                        <i class="fab fa-youtube"></i>
+                                        مشاهدة الفيديو
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="exercise-card">
+                            <div class="exercise-name">
+                                <i class="fas fa-dumbbell"></i>
+                                Bulgarian Split Squats
+                            </div>
+                            <div class="exercise-details">
+                                <h6>الوصف:</h6>
+                                <p>تمرين أحادي الساق لتقوية الفخذين والمؤخرة</p>
+                                
+                                <div class="exercise-specs">
+                                    <div class="spec-item">
+                                        <div class="spec-value">3-4</div>
+                                        <div class="spec-label">مجموعات</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">8-12</div>
+                                        <div class="spec-label">تكرارات/ساق</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">60 ثانية</div>
+                                        <div class="spec-label">راحة</div>
+                                    </div>
+                                </div>
+
+                                <h6>الفوائد:</h6>
+                                <ul class="benefits-list">
+                                    <li>تقوية كل ساق منفردة</li>
+                                    <li>تحسين التوازن</li>
+                                    <li>تطوير القوة الوظيفية</li>
+                                </ul>
+                                
+                                <div class="exercise-video">
+                                    <a href="https://www.youtube.com/watch?v=2C-uNgKwPLE" target="_blank" class="video-btn">
+                                        <i class="fab fa-youtube"></i>
+                                        مشاهدة الفيديو
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Strength Training -->
+                <div class="training-category strength-training">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div>
+                            <h3 class="category-title">تدريبات القوة العضلية</h3>
+                            <p class="category-subtitle">بناء القوة الأساسية للجسم كاملاً</p>
+                        </div>
+                    </div>
+
+                    <div class="exercise-grid">
+                        <div class="exercise-card">
+                            <div class="exercise-name">
+                                <i class="fas fa-weight-hanging"></i>
+                                Squats
+                            </div>
+                            <div class="exercise-details">
+                                <h6>الوصف:</h6>
+                                <p>تمرين أساسي لتقوية عضلات الساقين والمؤخرة</p>
+                                
+                                <div class="exercise-specs">
+                                    <div class="spec-item">
+                                        <div class="spec-value">4-5</div>
+                                        <div class="spec-label">مجموعات</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">6-10</div>
+                                        <div class="spec-label">تكرارات</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">2-3 دقائق</div>
+                                        <div class="spec-label">راحة</div>
+                                    </div>
+                                </div>
+
+                                <h6>الفوائد:</h6>
+                                <ul class="benefits-list">
+                                    <li>تقوية الساقين والمؤخرة</li>
+                                    <li>تحسين قوة الجذع</li>
+                                    <li>تطوير القوة الوظيفية</li>
+                                </ul>
+                                
+                                <div class="exercise-video">
+                                    <a href="https://www.youtube.com/watch?v=Dy28eq2PjcM" target="_blank" class="video-btn">
+                                        <i class="fab fa-youtube"></i>
+                                        مشاهدة الفيديو
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="exercise-card">
+                            <div class="exercise-name">
+                                <i class="fas fa-arrows-alt-v"></i>
+                                Deadlifts
+                            </div>
+                            <div class="exercise-details">
+                                <h6>الوصف:</h6>
+                                <p>تمرين شامل لتقوية الظهر والساقين والجذع</p>
+                                
+                                <div class="exercise-specs">
+                                    <div class="spec-item">
+                                        <div class="spec-value">3-4</div>
+                                        <div class="spec-label">مجموعات</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">5-8</div>
+                                        <div class="spec-label">تكرارات</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">2-3 دقائق</div>
+                                        <div class="spec-label">راحة</div>
+                                    </div>
+                                </div>
+
+                                <h6>الفوائد:</h6>
+                                <ul class="benefits-list">
+                                    <li>تقوية الظهر السفلي</li>
+                                    <li>تطوير قوة الجذع</li>
+                                    <li>تحسين الوضعية</li>
+                                </ul>
+                                
+                                <div class="exercise-video">
+                                    <a href="https://www.youtube.com/watch?v=op9kVnSso6Q" target="_blank" class="video-btn">
+                                        <i class="fab fa-youtube"></i>
+                                        مشاهدة الفيديو
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="exercise-card">
+                            <div class="exercise-name">
+                                <i class="fas fa-hand-rock"></i>
+                                Pull-ups
+                            </div>
+                            <div class="exercise-details">
+                                <h6>الوصف:</h6>
+                                <p>تمرين لتقوية عضلات الظهر والذراعين</p>
+                                
+                                <div class="exercise-specs">
+                                    <div class="spec-item">
+                                        <div class="spec-value">3-4</div>
+                                        <div class="spec-label">مجموعات</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">5-12</div>
+                                        <div class="spec-label">تكرارات</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">90 ثانية</div>
+                                        <div class="spec-label">راحة</div>
+                                    </div>
+                                </div>
+
+                                <h6>الفوائد:</h6>
+                                <ul class="benefits-list">
+                                    <li>تقوية الظهر العلوي</li>
+                                    <li>تطوير قوة القبضة</li>
+                                    <li>تحسين قوة الجذع</li>
+                                </ul>
+                                
+                                <div class="exercise-video">
+                                    <a href="https://www.youtube.com/watch?v=eGo4IYlbE5g" target="_blank" class="video-btn">
+                                        <i class="fab fa-youtube"></i>
+                                        مشاهدة الفيديو
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Agility Training -->
+                <div class="training-category agility-training">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <div>
+                            <h3 class="category-title">تدريبات الرشاقة والتنسيق</h3>
+                            <p class="category-subtitle">تحسين سرعة تغيير الاتجاه والتوازن</p>
+                        </div>
+                    </div>
+
+                    <div class="exercise-grid">
+                        <div class="exercise-card">
+                            <div class="exercise-name">
+                                <i class="fas fa-exchange-alt"></i>
+                                Lateral Lunges
+                            </div>
+                            <div class="exercise-details">
+                                <h6>الوصف:</h6>
+                                <p>تمرين للحركة الجانبية وتقوية العضلات المثبتة</p>
+                                
+                                <div class="exercise-specs">
+                                    <div class="spec-item">
+                                        <div class="spec-value">3-4</div>
+                                        <div class="spec-label">مجموعات</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">10-15</div>
+                                        <div class="spec-label">تكرارات/جانب</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">60 ثانية</div>
+                                        <div class="spec-label">راحة</div>
+                                    </div>
+                                </div>
+
+                                <h6>الفوائد:</h6>
+                                <ul class="benefits-list">
+                                    <li>تحسين الحركة الجانبية</li>
+                                    <li>تقوية العضلات المثبتة</li>
+                                    <li>تطوير المرونة</li>
+                                </ul>
+                                
+                                <div class="exercise-video">
+                                    <a href="https://www.youtube.com/watch?v=Z2n58m2i4jg" target="_blank" class="video-btn">
+                                        <i class="fab fa-youtube"></i>
+                                        مشاهدة الفيديو
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="exercise-card">
+                            <div class="exercise-name">
+                                <i class="fas fa-sync-alt"></i>
+                                Agility Ladder
+                            </div>
+                            <div class="exercise-details">
+                                <h6>الوصف:</h6>
+                                <p>تمارين متنوعة باستخدام سلم الرشاقة</p>
+                                
+                                <div class="exercise-specs">
+                                    <div class="spec-item">
+                                        <div class="spec-value">4-6</div>
+                                        <div class="spec-label">مجموعات</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">20-30 ثانية</div>
+                                        <div class="spec-label">مدة التمرين</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">60 ثانية</div>
+                                        <div class="spec-label">راحة</div>
+                                    </div>
+                                </div>
+
+                                <h6>الفوائد:</h6>
+                                <ul class="benefits-list">
+                                    <li>تحسين سرعة القدمين</li>
+                                    <li>تطوير التنسيق</li>
+                                    <li>تحسين الرشاقة</li>
+                                </ul>
+                                
+                                <div class="exercise-video">
+                                    <a href="https://www.youtube.com/watch?v=mVq5_AaJByI" target="_blank" class="video-btn">
+                                        <i class="fab fa-youtube"></i>
+                                        مشاهدة الفيديو
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="exercise-card">
+                            <div class="exercise-name">
+                                <i class="fas fa-balance-scale"></i>
+                                Single Leg Balance
+                            </div>
+                            <div class="exercise-details">
+                                <h6>الوصف:</h6>
+                                <p>تمارين التوازن على ساق واحدة مع تحديات إضافية</p>
+                                
+                                <div class="exercise-specs">
+                                    <div class="spec-item">
+                                        <div class="spec-value">3-4</div>
+                                        <div class="spec-label">مجموعات</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">30-60 ثانية</div>
+                                        <div class="spec-label">مدة/ساق</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">30 ثانية</div>
+                                        <div class="spec-label">راحة</div>
+                                    </div>
+                                </div>
+
+                                <h6>الفوائد:</h6>
+                                <ul class="benefits-list">
+                                    <li>تحسين التوازن</li>
+                                    <li>تقوية العضلات المثبتة</li>
+                                    <li>تطوير الوعي الجسدي</li>
+                                </ul>
+                                
+                                <div class="exercise-video">
+                                    <a href="https://www.youtube.com/watch?v=Ky_T4Sg_1oM" target="_blank" class="video-btn">
+                                        <i class="fab fa-youtube"></i>
+                                        مشاهدة الفيديو
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Endurance Training -->
+                <div class="training-category endurance-training">
+                    <div class="category-header">
+                        <div class="category-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div>
+                            <h3 class="category-title">تدريبات التحمل</h3>
+                            <p class="category-subtitle">تطوير القدرة على الأداء لفترات طويلة</p>
+                        </div>
+                    </div>
+
+                    <div class="exercise-grid">
+                        <div class="exercise-card">
+                            <div class="exercise-name">
+                                <i class="fas fa-clock"></i>
+                                HIIT Training
+                            </div>
+                            <div class="exercise-details">
+                                <h6>الوصف:</h6>
+                                <p>تدريب متقطع عالي الشدة لتحسين التحمل</p>
+                                
+                                <div class="exercise-specs">
+                                    <div class="spec-item">
+                                        <div class="spec-value">6-10</div>
+                                        <div class="spec-label">فترات</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">30 ثانية</div>
+                                        <div class="spec-label">عمل عالي</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">30 ثانية</div>
+                                        <div class="spec-label">راحة</div>
+                                    </div>
+                                </div>
+
+                                <h6>الفوائد:</h6>
+                                <ul class="benefits-list">
+                                    <li>تحسين التحمل القلبي</li>
+                                    <li>زيادة كفاءة الأكسجين</li>
+                                    <li>حرق السعرات الحرارية</li>
+                                </ul>
+                                
+                                <div class="exercise-video">
+                                    <a href="https://www.youtube.com/watch?v=ygwp9Fm6TJE" target="_blank" class="video-btn">
+                                        <i class="fab fa-youtube"></i>
+                                        مشاهدة الفيديو
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="exercise-card">
+                            <div class="exercise-name">
+                                <i class="fas fa-bicycle"></i>
+                                Cycling Intervals
+                            </div>
+                            <div class="exercise-details">
+                                <h6>الوصف:</h6>
+                                <p>تدريب فترات على الدراجة الثابتة</p>
+                                
+                                <div class="exercise-specs">
+                                    <div class="spec-item">
+                                        <div class="spec-value">8-12</div>
+                                        <div class="spec-label">فترات</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">1-2 دقيقة</div>
+                                        <div class="spec-label">عمل شديد</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">1 دقيقة</div>
+                                        <div class="spec-label">راحة نشطة</div>
+                                    </div>
+                                </div>
+
+                                <h6>الفوائد:</h6>
+                                <ul class="benefits-list">
+                                    <li>تطوير قوة الساقين</li>
+                                    <li>تحسين التحمل العضلي</li>
+                                    <li>تقليل إجهاد المفاصل</li>
+                                </ul>
+                                
+                                <div class="exercise-video">
+                                    <a href="https://www.youtube.com/watch?v=1Vs6jJU7FVE" target="_blank" class="video-btn">
+                                        <i class="fab fa-youtube"></i>
+                                        مشاهدة الفيديو
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="exercise-card">
+                            <div class="exercise-name">
+                                <i class="fas fa-swimmer"></i>
+                                Circuit Training
+                            </div>
+                            <div class="exercise-details">
+                                <h6>الوصف:</h6>
+                                <p>دائرة تمارين متنوعة بدون راحة</p>
+                                
+                                <div class="exercise-specs">
+                                    <div class="spec-item">
+                                        <div class="spec-value">3-4</div>
+                                        <div class="spec-label">دورات</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">6-8</div>
+                                        <div class="spec-label">تمارين</div>
+                                    </div>
+                                    <div class="spec-item">
+                                        <div class="spec-value">45 ثانية</div>
+                                        <div class="spec-label">كل تمرين</div>
+                                    </div>
+                                </div>
+
+                                <h6>الفوائد:</h6>
+                                <ul class="benefits-list">
+                                    <li>تحسين التحمل الشامل</li>
+                                    <li>توفير الوقت</li>
+                                    <li>تنويع التدريب</li>
+                                </ul>
+                                
+                                <div class="exercise-video">
+                                    <a href="https://www.youtube.com/watch?v=R216iWb4vs8" target="_blank" class="video-btn">
+                                        <i class="fab fa-youtube"></i>
+                                        مشاهدة الفيديو
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">
+                    <i class="fas fa-calendar-week me-2"></i>
+                    برنامج أسبوعي مقترح
+                </h2>
+
+                <div class="workout-plan">
+                    <h4><i class="fas fa-futbol me-2"></i>جدول تدريبي أسبوعي للاعبي كرة القدم</h4>
+                    <p>برنامج متوازن يجمع بين جميع عناصر اللياقة المطلوبة للاعب كرة القدم</p>
+
+                    <div class="weekly-schedule">
+                        <div class="day-schedule">
+                            <div class="day-title">الأحد - السرعة والقوة</div>
+                            <div class="day-focus">التركيز: تطوير القوة الانفجارية</div>
+                            <ul class="day-exercises">
+                                <li>Squats - 4×6-8</li>
+                                <li>Box Jumps - 4×5</li>
+                                <li>Sprint Intervals - 6×20s</li>
+                                <li>Bulgarian Split Squats - 3×8</li>
+                            </ul>
+                        </div>
+
+                        <div class="day-schedule">
+                            <div class="day-title">الاثنين - التحمل</div>
+                            <div class="day-focus">التركيز: تحسين اللياقة القلبية</div>
+                            <ul class="day-exercises">
+                                <li>HIIT Training - 20 دقيقة</li>
+                                <li>Circuit Training - 3 دورات</li>
+                                <li>Core Stability - 15 دقيقة</li>
+                            </ul>
+                        </div>
+
+                        <div class="day-schedule">
+                            <div class="day-title">الثلاثاء - راحة نشطة</div>
+                            <div class="day-focus">التركيز: الاستشفاء والمرونة</div>
+                            <ul class="day-exercises">
+                                <li>مشي خفيف - 30 دقيقة</li>
+                                <li>تمارين إطالة - 20 دقيقة</li>
+                                <li>تمارين تنفس</li>
+                            </ul>
+                        </div>
+
+                        <div class="day-schedule">
+                            <div class="day-title">الأربعاء - القوة العامة</div>
+                            <div class="day-focus">التركيز: بناء القوة الأساسية</div>
+                            <ul class="day-exercises">
+                                <li>Deadlifts - 4×5-6</li>
+                                <li>Pull-ups - 3×8-12</li>
+                                <li>Push-ups - 3×15-20</li>
+                                <li>Plank - 3×60s</li>
+                            </ul>
+                        </div>
+
+                        <div class="day-schedule">
+                            <div class="day-title">الخميس - الرشاقة</div>
+                            <div class="day-focus">التركيز: تحسين التنسيق والرشاقة</div>
+                            <ul class="day-exercises">
+                                <li>Agility Ladder - 6×30s</li>
+                                <li>Lateral Lunges - 3×12</li>
+                                <li>Single Leg Balance - 3×45s</li>
+                                <li>Cone Drills - 15 دقيقة</li>
+                            </ul>
+                        </div>
+
+                        <div class="day-schedule">
+                            <div class="day-title">الجمعة - تدريب مختلط</div>
+                            <div class="day-focus">التركيز: دمج جميع العناصر</div>
+                            <ul class="day-exercises">
+                                <li>Functional Movements</li>
+                                <li>Sport-Specific Drills</li>
+                                <li>Plyometric Exercises</li>
+                                <li>Recovery Work</li>
+                            </ul>
+                        </div>
+
+                        <div class="day-schedule">
+                            <div class="day-title">السبت - راحة كاملة</div>
+                            <div class="day-focus">التركيز: الاستشفاء التام</div>
+                            <ul class="day-exercises">
+                                <li>راحة كاملة</li>
+                                <li>تدليك (اختياري)</li>
+                                <li>تمارين تنفس خفيفة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">
+                    <i class="fas fa-apple-alt me-2"></i>
+                    التغذية والاستشفاء
+                </h2>
+
+                <div class="nutrition-tips">
+                    <h4><i class="fas fa-utensils me-2"></i>نصائح التغذية للاعبي كرة القدم</h4>
+                    
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="tip-title">قبل التمرين</div>
+                            <p>تناول وجبة خفيفة غنية بالكربوهيدرات قبل 1-2 ساعة من التمرين</p>
+                        </div>
+
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div class="tip-title">الترطيب</div>
+                            <p>اشرب 500-750 مل من الماء قبل ساعتين من التمرين</p>
+                        </div>
+
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <div class="tip-title">بعد التمرين</div>
+                            <p>تناول البروتين والكربوهيدرات خلال 30 دقيقة من انتهاء التمرين</p>
+                        </div>
+
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <i class="fas fa-bed"></i>
+                            </div>
+                            <div class="tip-title">النوم</div>
+                            <p>احصل على 7-9 ساعات نوم يومياً لضمان الاستشفاء الأمثل</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>نصائح مهمة للاعبي كرة القدم</h4>
+                    <ul>
+                        <li><strong>التدرج:</strong> ابدأ بأوزان خفيفة وزد تدريجياً</li>
+                        <li><strong>التقنية:</strong> ركز على الأداء الصحيح قبل زيادة الوزن</li>
+                        <li><strong>التنويع:</strong> غير التمارين كل 4-6 أسابيع لتجنب التكيف</li>
+                        <li><strong>الاستشفاء:</strong> امنح عضلاتك وقت كافي للراحة والنمو</li>
+                        <li><strong>التوازن:</strong> لا تهمل أي مجموعة عضلية لتجنب عدم التوازن</li>
+                    </ul>
+                </div>
+
+                <!-- Back Button -->
+                <div class="text-center">
+                    <a href="{{ url_for('training_nutrition') }}" class="back-btn">
+                        <i class="fas fa-arrow-right me-2"></i>
+                        العودة إلى المقالات
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="cyclingBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#74b9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0984e3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#cyclingBg)" opacity="0.9"/>
+  
+  <!-- Bicycle -->
+  <!-- Rear wheel -->
+  <circle cx="70" cy="130" r="25" fill="none" stroke="#333" stroke-width="4"/>
+  <circle cx="70" cy="130" r="20" fill="none" stroke="#666" stroke-width="2"/>
+  <circle cx="70" cy="130" r="3" fill="#333"/>
+  
+  <!-- Front wheel -->
+  <circle cx="130" cy="130" r="25" fill="none" stroke="#333" stroke-width="4"/>
+  <circle cx="130" cy="130" r="20" fill="none" stroke="#666" stroke-width="2"/>
+  <circle cx="130" cy="130" r="3" fill="#333"/>
+  
+  <!-- Bike frame -->
+  <line x1="70" y1="130" x2="100" y2="100" stroke="#333" stroke-width="4"/>
+  <line x1="100" y1="100" x2="130" y2="130" stroke="#333" stroke-width="4"/>
+  <line x1="100" y1="100" x2="100" y2="80" stroke="#333" stroke-width="4"/>
+  <line x1="100" y1="80" x2="120" y2="90" stroke="#333" stroke-width="4"/>
+  
+  <!-- Handlebars -->
+  <line x1="120" y1="90" x2="115" y2="85" stroke="#333" stroke-width="3"/>
+  <line x1="120" y1="90" x2="125" y2="85" stroke="#333" stroke-width="3"/>
+  
+  <!-- Seat -->
+  <ellipse cx="95" cy="78" rx="8" ry="3" fill="#333"/>
+  
+  <!-- Pedals -->
+  <ellipse cx="100" cy="115" rx="3" ry="8" fill="#666"/>
+  
+  <!-- Person cycling -->
+  <!-- Head with helmet -->
+  <circle cx="110" cy="65" r="12" fill="#fdbcb4" stroke="#333" stroke-width="2"/>
+  <ellipse cx="110" cy="60" rx="14" ry="8" fill="#ff0000" stroke="#333" stroke-width="2"/>
+  
+  <!-- Body leaning forward -->
+  <ellipse cx="105" cy="85" rx="12" ry="20" fill="#4a90e2" stroke="#333" stroke-width="2"/>
+  
+  <!-- Arms holding handlebars -->
+  <line x1="95" y1="75" x2="115" y2="85" stroke="#fdbcb4" stroke-width="6" stroke-linecap="round"/>
+  <line x1="115" y1="75" x2="125" y2="85" stroke="#fdbcb4" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Hands on handlebars -->
+  <circle cx="115" cy="85" r="4" fill="#fdbcb4"/>
+  <circle cx="125" cy="85" r="4" fill="#fdbcb4"/>
+  
+  <!-- Legs pedaling -->
+  <line x1="100" y1="100" x2="95" y2="115" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+  <line x1="110" y1="100" x2="105" y2="115" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Feet on pedals -->
+  <ellipse cx="95" cy="118" rx="6" ry="3" fill="#333"/>
+  <ellipse cx="105" cy="118" rx="6" ry="3" fill="#333"/>
+  
+  <!-- Motion lines -->
+  <line x1="40" y1="80" x2="25" y2="85" stroke="#fff" stroke-width="3" opacity="0.7"/>
+  <line x1="45" y1="95" x2="30" y2="100" stroke="#fff" stroke-width="3" opacity="0.7"/>
+  <line x1="50" y1="110" x2="35" y2="115" stroke="#fff" stroke-width="3" opacity="0.7"/>
+  
+  <!-- Wheel spokes motion blur -->
+  <line x1="70" y1="105" x2="70" y2="155" stroke="#999" stroke-width="1" opacity="0.5"/>
+  <line x1="45" y1="130" x2="95" y2="130" stroke="#999" stroke-width="1" opacity="0.5"/>
+  <line x1="130" y1="105" x2="130" y2="155" stroke="#999" stroke-width="1" opacity="0.5"/>
+  <line x1="105" y1="130" x2="155" y2="130" stroke="#999" stroke-width="1" opacity="0.5"/>
+  
+  <!-- Speed indicator -->
+  <text x="160" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">25 km/h</text>
+  
+  <!-- Text -->
+  <text x="100" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">Cycling</text>
+</svg>

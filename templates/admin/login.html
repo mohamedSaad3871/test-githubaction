@@ -1,0 +1,153 @@
+{% extends "admin/base.html" %}
+
+{% block title %}تسجيل دخول الإدارة - جسمي أحسن{% endblock %}
+
+{% block extra_css %}
+<style>
+    body {
+        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        min-height: 100vh;
+    }
+    
+    .navbar, .footer {
+        display: none;
+    }
+    
+    .main-content {
+        padding: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-container {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-card {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        overflow: hidden;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    .login-header {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .login-header i {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .login-body {
+        padding: 2rem;
+    }
+
+    .btn-login {
+        background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        border: none;
+        border-radius: 10px;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        width: 100%;
+    }
+
+    .btn-login:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(52, 152, 219, 0.3);
+    }
+
+    .input-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .input-group-text {
+        background: var(--light-bg);
+        border: 2px solid #e9ecef;
+        border-left: none;
+        border-radius: 0 10px 10px 0;
+    }
+
+    .form-control.with-icon {
+        border-left: none;
+        border-radius: 10px 0 0 10px;
+    }
+
+    @media (max-width: 768px) {
+        .login-card {
+            margin: 1rem;
+        }
+        
+        .login-header {
+            padding: 1.5rem;
+        }
+        
+        .login-body {
+            padding: 1.5rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <i class="fas fa-dumbbell"></i>
+                <h2>لوحة تحكم الإدارة</h2>
+                <p class="mb-0">جسمي أحسن - نظام إدارة التمارين</p>
+            </div>
+            
+            <div class="login-body">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ 'danger' if category == 'error' else category }} alert-dismissible fade show" role="alert">
+                                {{ message }}
+                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+                    
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        {{ form.username(class="form-control with-icon", placeholder="اسم المستخدم") }}
+                    </div>
+                    
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        {{ form.password(class="form-control with-icon", placeholder="كلمة المرور") }}
+                    </div>
+                    
+                    {{ form.submit(class="btn btn-primary btn-login") }}
+                </form>
+                
+                <div class="text-center mt-3">
+                    <small class="text-muted">
+                        <i class="fas fa-shield-alt"></i>
+                        منطقة محمية - للمدربين والإداريين فقط
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

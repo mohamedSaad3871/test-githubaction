@@ -1,0 +1,60 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="pullupGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="200" fill="url(#pullupGradient)" rx="15"/>
+  
+  <!-- Pull-up bar -->
+  <rect x="80" y="30" width="140" height="8" rx="4" fill="#2c3e50"/>
+  <rect x="75" y="25" width="10" height="18" rx="2" fill="#34495e"/>
+  <rect x="215" y="25" width="10" height="18" rx="2" fill="#34495e"/>
+  
+  <!-- Person hanging/pulling up -->
+  <g fill="#ffffff">
+    <!-- Head -->
+    <circle cx="150" cy="55" r="12"/>
+    
+    <!-- Body -->
+    <rect x="142" y="67" width="16" height="45" rx="8"/>
+    
+    <!-- Arms (bent, pulling up) -->
+    <rect x="125" y="50" width="20" height="8" rx="4" transform="rotate(-45 135 54)"/>
+    <rect x="155" y="50" width="20" height="8" rx="4" transform="rotate(45 165 54)"/>
+    
+    <!-- Hands gripping bar -->
+    <rect x="140" y="30" width="6" height="12" rx="3"/>
+    <rect x="154" y="30" width="6" height="12" rx="3"/>
+    
+    <!-- Legs (slightly bent) -->
+    <rect x="145" y="112" width="8" height="30" rx="4"/>
+    <rect x="147" y="142" width="8" height="25" rx="4" transform="rotate(10 151 154)"/>
+  </g>
+  
+  <!-- Motion arrows -->
+  <g stroke="#ffffff" stroke-width="3" fill="none" opacity="0.8">
+    <path d="M 130 80 Q 125 70 120 60" marker-end="url(#arrowhead2)"/>
+    <path d="M 170 80 Q 175 70 180 60" marker-end="url(#arrowhead2)"/>
+  </g>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffffff"/>
+    </marker>
+  </defs>
+  
+  <!-- Muscle emphasis (back and arms) -->
+  <g fill="#ffffff" opacity="0.3">
+    <ellipse cx="150" cy="80" rx="8" ry="15"/>
+    <ellipse cx="135" cy="60" rx="4" ry="8"/>
+    <ellipse cx="165" cy="60" rx="4" ry="8"/>
+  </g>
+  
+  <!-- Exercise label -->
+  <text x="150" y="185" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Pull-ups</text>
+</svg>

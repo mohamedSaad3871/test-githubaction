@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شرح عضلات الجسم بالكامل - الوظائف والأهمية</title>
+    <meta name="description" content="دليل شامل لعضلات الجسم البشري ووظائفها وأهمية تمرين كل عضلة للحصول على جسم متوازن وقوي">
+    <meta name="keywords" content="عضلات الجسم، تشريح العضلات، وظائف العضلات، تمارين العضلات، بناء العضلات">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #f39c12;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-warning: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            --gradient-info: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.8;
+            color: var(--dark-color);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .article-container {
+            background: white;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+            max-width: 1200px;
+        }
+
+        .article-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .article-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .article-content {
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 2rem 0 1rem 0;
+            position: relative;
+            padding-right: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .muscle-group {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .muscle-group::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .muscle-group:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .upper-body::before {
+            background: var(--gradient-success);
+        }
+
+        .core::before {
+            background: var(--gradient-secondary);
+        }
+
+        .lower-body::before {
+            background: var(--gradient-warning);
+        }
+
+        .muscle-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .muscle-icon {
+            font-size: 3rem;
+            margin-left: 1rem;
+            padding: 1rem;
+            border-radius: 15px;
+            color: white;
+        }
+
+        .upper-body .muscle-icon {
+            background: var(--gradient-success);
+        }
+
+        .core .muscle-icon {
+            background: var(--gradient-secondary);
+        }
+
+        .lower-body .muscle-icon {
+            background: var(--gradient-warning);
+        }
+
+        .muscle-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .muscle-subtitle {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .muscles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .muscle-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            border-right: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .muscle-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .muscle-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .muscle-name i {
+            margin-left: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .muscle-function {
+            color: #666;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .muscle-importance {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--success-color);
+        }
+
+        .muscle-importance h6 {
+            color: var(--success-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: '\f0eb';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: white;
+            color: var(--primary-color);
+            padding: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .anatomy-diagram {
+            background: var(--gradient-info);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            color: var(--dark-color);
+        }
+
+        .body-parts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .body-part {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .body-part:hover {
+            transform: scale(1.05);
+        }
+
+        .body-part i {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .training-tips {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+
+        .training-tips h4 {
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .training-tips ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .training-tips li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+
+        .training-tips li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            color: white;
+        }
+
+        .back-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            margin: 2rem 0;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .article-content {
+                padding: 2rem 1rem;
+            }
+            
+            .muscles-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .muscle-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .muscle-icon {
+                margin: 0 0 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <i class="fas fa-dumbbell me-2"></i>
+                فتنس برو
+            </a>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <div class="container" style="margin-top: 100px;">
+        <div class="article-container">
+            <!-- Article Header -->
+            <div class="article-header">
+                <h1 class="article-title">
+                    <i class="fas fa-user-md me-3"></i>
+                    عضلات الجسم بالكامل
+                </h1>
+                <p class="article-subtitle">دليلك الشامل لفهم عضلات الجسم ووظائفها وأهمية تمرين كل عضلة</p>
+            </div>
+
+            <!-- Article Content -->
+            <div class="article-content">
+                <div class="highlight-box">
+                    <h3>لماذا يجب أن تعرف عضلات جسمك؟</h3>
+                    <p>فهم عضلات الجسم ووظائفها يساعدك على تصميم برنامج تدريبي فعال ومتوازن. كل عضلة لها دور مهم في الحركة والاستقرار، ومعرفة هذه الأدوار يضمن لك تدريب شامل وآمن يحقق أفضل النتائج.</p>
+                </div>
+
+                <div class="anatomy-diagram">
+                    <h3><i class="fas fa-search me-2"></i>نظرة عامة على الجسم البشري</h3>
+                    <p>يحتوي الجسم البشري على أكثر من 600 عضلة، لكننا سنركز على العضلات الرئيسية التي تحتاج لتمرينها للحصول على جسم قوي ومتوازن.</p>
+                    
+                    <div class="body-parts">
+                        <div class="body-part">
+                            <i class="fas fa-hand-paper"></i>
+                            <h6>الجزء العلوي</h6>
+                            <small>صدر، ظهر، أكتاف، ذراعين</small>
+                        </div>
+                        <div class="body-part">
+                            <i class="fas fa-circle"></i>
+                            <h6>الجذع</h6>
+                            <small>عضلات البطن والظهر</small>
+                        </div>
+                        <div class="body-part">
+                            <i class="fas fa-walking"></i>
+                            <h6>الجزء السفلي</h6>
+                            <small>أرجل، مؤخرة، سمانة</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upper Body Muscles -->
+                <div class="muscle-group upper-body">
+                    <div class="muscle-header">
+                        <div class="muscle-icon">
+                            <i class="fas fa-hand-paper"></i>
+                        </div>
+                        <div>
+                            <h2 class="muscle-title">عضلات الجزء العلوي</h2>
+                            <p class="muscle-subtitle">العضلات المسؤولة عن حركات الذراعين والكتفين</p>
+                        </div>
+                    </div>
+
+                    <div class="muscles-grid">
+                        <div class="muscle-card">
+                            <h4 class="muscle-name">
+                                <i class="fas fa-heart"></i>
+                                عضلات الصدر (Pectorals)
+                            </h4>
+                            <p class="muscle-function">المسؤولة عن دفع الأشياء بعيداً عن الجسم والضغط</p>
+                            <div class="muscle-importance">
+                                <h6>أهمية التمرين:</h6>
+                                <p>تحسين القوة الوظيفية للأنشطة اليومية مثل دفع الأبواب ورفع الأشياء. تساهم في تحسين شكل الجزء العلوي من الجسم.</p>
+                            </div>
+                        </div>
+
+                        <div class="muscle-card">
+                            <h4 class="muscle-name">
+                                <i class="fas fa-shield-alt"></i>
+                                عضلات الظهر (Latissimus Dorsi)
+                            </h4>
+                            <p class="muscle-function">المسؤولة عن سحب الأشياء نحو الجسم والحفاظ على وضعية الجسم</p>
+                            <div class="muscle-importance">
+                                <h6>أهمية التمرين:</h6>
+                                <p>تحسين الوضعية ومنع آلام الظهر. ضرورية لتوازن القوة مع عضلات الصدر ومنع الانحناء الأمامي.</p>
+                            </div>
+                        </div>
+
+                        <div class="muscle-card">
+                            <h4 class="muscle-name">
+                                <i class="fas fa-mountain"></i>
+                                عضلات الأكتاف (Deltoids)
+                            </h4>
+                            <p class="muscle-function">المسؤولة عن رفع الذراعين في جميع الاتجاهات</p>
+                            <div class="muscle-importance">
+                                <h6>أهمية التمرين:</h6>
+                                <p>تحسين مدى الحركة في الكتف ومنع الإصابات. ضرورية للأنشطة التي تتطلب رفع الذراعين فوق الرأس.</p>
+                            </div>
+                        </div>
+
+                        <div class="muscle-card">
+                            <h4 class="muscle-name">
+                                <i class="fas fa-fist-raised"></i>
+                                عضلات البايسبس (Biceps)
+                            </h4>
+                            <p class="muscle-function">المسؤولة عن ثني الذراع وسحب الأشياء نحو الجسم</p>
+                            <div class="muscle-importance">
+                                <h6>أهمية التمرين:</h6>
+                                <p>تحسين القوة الوظيفية لحمل ورفع الأشياء. تساهم في تحسين شكل الذراعين وزيادة الثقة بالنفس.</p>
+                            </div>
+                        </div>
+
+                        <div class="muscle-card">
+                            <h4 class="muscle-name">
+                                <i class="fas fa-hand-rock"></i>
+                                عضلات الترايسبس (Triceps)
+                            </h4>
+                            <p class="muscle-function">المسؤولة عن فرد الذراع ودفع الأشياء</p>
+                            <div class="muscle-importance">
+                                <h6>أهمية التمرين:</h6>
+                                <p>تشكل 2/3 من حجم الذراع. ضرورية للقوة الوظيفية في الدفع والضغط. تحسن من استقرار الكتف.</p>
+                            </div>
+                        </div>
+
+                        <div class="muscle-card">
+                            <h4 class="muscle-name">
+                                <i class="fas fa-grip-horizontal"></i>
+                                عضلات الساعد (Forearms)
+                            </h4>
+                            <p class="muscle-function">المسؤولة عن قوة القبضة وحركة المعصم</p>
+                            <div class="muscle-importance">
+                                <h6>أهمية التمرين:</h6>
+                                <p>تحسين قوة القبضة ضرورية لجميع تمارين الرفع. تمنع إصابات المعصم وتحسن الأداء في الرياضات.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Core Muscles -->
+                <div class="muscle-group core">
+                    <div class="muscle-header">
+                        <div class="muscle-icon">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div>
+                            <h2 class="muscle-title">عضلات الجذع (Core)</h2>
+                            <p class="muscle-subtitle">العضلات المسؤولة عن الاستقرار والتوازن</p>
+                        </div>
+                    </div>
+
+                    <div class="muscles-grid">
+                        <div class="muscle-card">
+                            <h4 class="muscle-name">
+                                <i class="fas fa-square"></i>
+                                عضلات البطن (Abdominals)
+                            </h4>
+                            <p class="muscle-function">المسؤولة عن ثني الجذع والحفاظ على استقرار العمود الفقري</p>
+                            <div class="muscle-importance">
+                                <h6>أهمية التمرين:</h6>
+                                <p>تحسين الوضعية ومنع آلام أسفل الظهر. ضرورية لجميع الحركات الرياضية وتحسين الأداء الوظيفي.</p>
+                            </div>
+                        </div>
+
+                        <div class="muscle-card">
+                            <h4 class="muscle-name">
+                                <i class="fas fa-arrows-alt"></i>
+                                عضلات الخصر (Obliques)
+                            </h4>
+                            <p class="muscle-function">المسؤولة عن دوران الجذع والانحناء الجانبي</p>
+                            <div class="muscle-importance">
+                                <h6>أهمية التمرين:</h6>
+                                <p>تحسين القوة الدورانية وتشكيل الخصر. ضرورية للرياضات التي تتطلب دوران الجسم.</p>
+                            </div>
+                        </div>
+
+                        <div class="muscle-card">
+                            <h4 class="muscle-name">
+                                <i class="fas fa-spine"></i>
+                                عضلات أسفل الظهر (Lower Back)
+                            </h4>
+                            <p class="muscle-function">المسؤولة عن تمديد العمود الفقري والحفاظ على الوضعية</p>
+                            <div class="muscle-importance">
+                                <h6>أهمية التمرين:</h6>
+                                <p>منع آلام أسفل الظهر وتحسين الوضعية. ضرورية لتوازن القوة مع عضلات البطن.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lower Body Muscles -->
+                <div class="muscle-group lower-body">
+                    <div class="muscle-header">
+                        <div class="muscle-icon">
+                            <i class="fas fa-walking"></i>
+                        </div>
+                        <div>
+                            <h2 class="muscle-title">عضلات الجزء السفلي</h2>
+                            <p class="muscle-subtitle">العضلات المسؤولة عن الحركة والقوة السفلية</p>
+                        </div>
+                    </div>
+
+                    <div class="muscles-grid">
+                        <div class="muscle-card">
+                            <h4 class="muscle-name">
+                                <i class="fas fa-chair"></i>
+                                عضلات المؤخرة (Glutes)
+                            </h4>
+                            <p class="muscle-function">أقوى عضلات الجسم، مسؤولة عن تمديد الورك والاستقرار</p>
+                            <div class="muscle-importance">
+                                <h6>أهمية التمرين:</h6>
+                                <p>تحسين القوة والسرعة. منع آلام أسفل الظهر وتحسين الوضعية. ضرورية لجميع الأنشطة الرياضية.</p>
+                            </div>
+                        </div>
+
+                        <div class="muscle-card">
+                            <h4 class="muscle-name">
+                                <i class="fas fa-running"></i>
+                                عضلات الفخذ الأمامية (Quadriceps)
+                            </h4>
+                            <p class="muscle-function">المسؤولة عن فرد الركبة وثني الورك</p>
+                            <div class="muscle-importance">
+                                <h6>أهمية التمرين:</h6>
+                                <p>ضرورية للمشي والجري والقفز. تحسين القوة الوظيفية للأنشطة اليومية مثل النهوض من الكرسي.</p>
+                            </div>
+                        </div>
+
+                        <div class="muscle-card">
+                            <h4 class="muscle-name">
+                                <i class="fas fa-angle-down"></i>
+                                عضلات الفخذ الخلفية (Hamstrings)
+                            </h4>
+                            <p class="muscle-function">المسؤولة عن ثني الركبة وتمديد الورك</p>
+                            <div class="muscle-importance">
+                                <h6>أهمية التمرين:</h6>
+                                <p>منع إصابات الركبة وتحسين السرعة. ضرورية لتوازن القوة مع عضلات الفخذ الأمامية.</p>
+                            </div>
+                        </div>
+
+                        <div class="muscle-card">
+                            <h4 class="muscle-name">
+                                <i class="fas fa-shoe-prints"></i>
+                                عضلات السمانة (Calves)
+                            </h4>
+                            <p class="muscle-function">المسؤولة عن دفع الجسم للأمام أثناء المشي والجري</p>
+                            <div class="muscle-importance">
+                                <h6>أهمية التمرين:</h6>
+                                <p>تحسين القوة الانفجارية والقفز. ضرورية للجري والرياضات التي تتطلب تغيير الاتجاه السريع.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="training-tips">
+                    <h4><i class="fas fa-lightbulb me-2"></i>نصائح مهمة لتدريب العضلات</h4>
+                    <ul>
+                        <li>ادرب جميع العضلات بتوازن لتجنب الخلل العضلي</li>
+                        <li>ابدأ بالعضلات الكبيرة ثم الصغيرة في كل جلسة</li>
+                        <li>اعط كل مجموعة عضلية 48-72 ساعة راحة للاستشفاء</li>
+                        <li>ركز على الحركة الصحيحة قبل زيادة الوزن</li>
+                        <li>لا تهمل عضلات الجذع فهي أساس القوة</li>
+                        <li>تنوع في التمارين لتحفيز العضلات بطرق مختلفة</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>خطة تدريب متوازنة</h4>
+                    <p>للحصول على جسم متوازن وقوي، تأكد من تدريب جميع المجموعات العضلية خلال الأسبوع. يمكنك تقسيم التمارين حسب المجموعات العضلية أو استخدام تمارين مركبة تستهدف عدة عضلات في نفس الوقت.</p>
+                </div>
+
+                <!-- Back Button -->
+                <div class="text-center">
+                    <a href="{{ url_for('training_nutrition') }}" class="back-btn">
+                        <i class="fas fa-arrow-right me-2"></i>
+                        العودة إلى المقالات
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

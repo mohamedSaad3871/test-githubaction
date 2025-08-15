@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار التصميم الجديد للبطاقة</title>
+    <style>
+        /* Modern Card Layout v3.0 - Ultra Modern Design with Advanced Effects */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.03)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.03)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.03)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .result {
+            display: block;
+            margin: 40px auto;
+            max-width: 950px;
+            padding: 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .plan-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.15),
+                0 10px 25px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .plan-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.05) 0%, 
+                rgba(118, 75, 162, 0.05) 50%, 
+                rgba(240, 147, 251, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 
+                0 35px 70px rgba(0, 0, 0, 0.2),
+                0 15px 35px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        }
+
+        .plan-card:hover::before {
+            opacity: 1;
+        }
+
+        .plan-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 200% 200%;
+            animation: headerGradient 6s ease infinite;
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes headerGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .plan-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        .plan-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: floatingOrbs 8s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+        }
+
+        @keyframes floatingOrbs {
+            0%, 100% { opacity: 0.3; transform: translateY(0px); }
+            50% { opacity: 0.6; transform: translateY(-10px); }
+        }
+
+        .plan-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .plan-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-top: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .plan-content {
+            padding: 40px;
+        }
+
+        .plan-section {
+            margin-bottom: 35px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(250,251,252,0.9) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(232, 236, 239, 0.6);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.03) 0%, 
+                rgba(118, 75, 162, 0.03) 50%, 
+                rgba(240, 147, 251, 0.03) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .plan-section:hover {
+            background: linear-gradient(135deg, rgba(245,247,250,0.95) 0%, rgba(240,242,255,0.95) 100%);
+            border-color: rgba(102, 126, 234, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .plan-section:hover::before {
+            opacity: 1;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid rgba(232, 236, 239, 0.6);
+            position: relative;
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+
+        .plan-section:hover .section-header::after {
+            width: 100%;
+        }
+
+        .section-icon {
+            font-size: 1.8rem;
+            margin-left: 15px;
+            color: #667eea;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
+        }
+
+        .plan-section:hover .section-icon {
+            transform: scale(1.1) rotate(5deg);
+            color: #764ba2;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        .plan-section:hover .section-title {
+            color: #667eea;
+        }
+
+        .exercise-item {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .exercise-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .exercise-item:hover {
+            transform: translateX(8px) translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+            border-left-color: #764ba2;
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .exercise-item:hover::before {
+            left: 100%;
+        }
+
+        .nutrition-tip {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f9f0 100%);
+            padding: 18px;
+            margin: 12px 0;
+            border-radius: 10px;
+            border-left: 4px solid #28a745;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .nutrition-tip::before {
+            content: '🍎';
+            font-size: 1.2rem;
+            margin-left: 10px;
+            margin-top: 2px;
+        }
+
+        .tips-guidelines {
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid #e0e6ff;
+        }
+
+        .tips-guidelines h3 {
+            color: #667eea;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .tips-guidelines h3::before {
+            content: '💡';
+            margin-left: 10px;
+        }
+
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tips-list li {
+            padding: 8px 0;
+            padding-right: 25px;
+            position: relative;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .tips-list li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .nutrition-tip {
+            background: linear-gradient(135deg, rgba(232, 245, 232, 0.9) 0%, rgba(240, 249, 240, 0.9) 100%);
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 15px;
+            border-left: 4px solid #28a745;
+            display: flex;
+            align-items: flex-start;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nutrition-tip::before {
+            content: '🍎';
+            font-size: 1.4rem;
+            margin-left: 12px;
+            margin-top: 2px;
+            transition: transform 0.3s ease;
+        }
+
+        .nutrition-tip:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(40, 167, 69, 0.15);
+            background: linear-gradient(135deg, rgba(232, 245, 232, 0.95) 0%, rgba(240, 249, 240, 0.95) 100%);
+        }
+
+        .nutrition-tip:hover::before {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .tips-guidelines {
+            background: linear-gradient(135deg, rgba(248, 249, 255, 0.9) 0%, rgba(240, 242, 255, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 35px;
+            border: 1px solid rgba(224, 230, 255, 0.6);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .tips-guidelines::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.02) 0%, 
+                rgba(118, 75, 162, 0.02) 50%, 
+                rgba(240, 147, 251, 0.02) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+
+        .tips-guidelines:hover::before {
+            opacity: 1;
+        }
+
+        .tips-guidelines h3 {
+            color: #667eea;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .tips-guidelines h3::before {
+            content: '💡';
+            margin-left: 12px;
+            font-size: 1.6rem;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(102, 126, 234, 0.3));
+        }
+
+        .tips-guidelines:hover h3::before {
+            transform: scale(1.2) rotate(-10deg);
+        }
+
+        .tips-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tips-list li {
+            padding: 12px 0;
+            padding-right: 30px;
+            position: relative;
+            color: #2c3e50;
+            line-height: 1.7;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 5px 0;
+        }
+
+        .tips-list li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 1px 2px rgba(40, 167, 69, 0.3));
+        }
+
+        .tips-list li:hover {
+            background: rgba(102, 126, 234, 0.05);
+            padding-right: 35px;
+            transform: translateX(5px);
+        }
+
+        .tips-list li:hover::before {
+            transform: scale(1.3) rotate(360deg);
+            color: #667eea;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 40px;
+            padding: 0 40px 50px;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            background-size: 200% 200%;
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
+            backdrop-filter: blur(10px);
+        }
+
+        .action-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+            background-position: 100% 0;
+            color: white;
+            text-decoration: none;
+        }
+
+        .action-btn:hover::before {
+            left: 100%;
+        }
+
+        .action-btn:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .action-btn.secondary {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 50%, #17a2b8 100%);
+            background-size: 200% 200%;
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.25);
+        }
+
+        .action-btn.secondary:hover {
+            box-shadow: 0 15px 40px rgba(40, 167, 69, 0.4);
+            background-position: 100% 0;
+        }
+
+        .action-btn span {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
+        }
+
+        .action-btn:hover span {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        /* Floating animation for buttons */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-3px); }
+        }
+
+        .action-btn {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .action-btn.secondary {
+            animation-delay: 1.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="result">
+        <div class="plan-card">
+            <div class="plan-header">
+                <h1 class="plan-title">خطة التمرين الخاصة بك</h1>
+                <p class="plan-subtitle">خطة مخصصة لتحقيق أهدافك الرياضية</p>
+            </div>
+            <div class="plan-content">
+                <div class="plan-section">
+                    <div class="section-header">
+                        <h3 class="section-title">خطة التمرين</h3>
+                        <span class="section-icon">🏋️</span>
+                    </div>
+                    <div class="exercise-item">
+                        <strong>تمرين الضغط</strong> - 3 مجموعات × 15 تكرار - راحة: 60 ثانية
+                    </div>
+                    <div class="exercise-item">
+                        <strong>تمرين القرفصاء</strong> - 3 مجموعات × 12 تكرار - راحة: 90 ثانية
+                    </div>
+                    <div class="exercise-item">
+                        <strong>تمرين العقلة</strong> - 3 مجموعات × 8 تكرار - راحة: 120 ثانية
+                    </div>
+                </div>
+
+                <div class="plan-section">
+                    <div class="section-header">
+                        <h3 class="section-title">النظام الغذائي</h3>
+                        <span class="section-icon">🍎</span>
+                    </div>
+                    <div class="nutrition-tip">
+                        <div>تناول البروتين بعد التمرين مباشرة لبناء العضلات</div>
+                    </div>
+                    <div class="nutrition-tip">
+                        <div>اشرب الماء بكثرة قبل وأثناء وبعد التمرين</div>
+                    </div>
+                </div>
+
+                <div class="tips-guidelines">
+                    <h3>نصائح وإرشادات مهمة</h3>
+                    <ul class="tips-list">
+                        <li>اشرب كمية كافية من الماء يومياً</li>
+                        <li>احرص على النوم لمدة 7-8 ساعات</li>
+                        <li>تناول وجبة خفيفة قبل التمرين بساعة</li>
+                        <li>لا تتجاهل فترات الراحة بين التمارين</li>
+                        <li>استمع لجسدك وتوقف عند الشعور بالألم</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button class="action-btn">
+                    <span>📥</span> تحميل الخطة
+                </button>
+                <button class="action-btn secondary">
+                    <span>📤</span> مشاركة الخطة
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,793 @@
+{% extends "base.html" %}
+
+{% block title %}دليل السعرات الحرارية - اعرف أكلك صح{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-blue-400 via-purple-500 to-pink-600 py-8" dir="rtl">
+    <!-- Header Section -->
+    <div class="text-center mb-8">
+        <div class="container mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">🔥 دليل السعرات الحرارية</h1>
+            <p class="text-xl text-blue-100">اعرف أكلك صح واوصل لهدفك بذكاء</p>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 max-w-6xl">
+        <!-- Introduction Section -->
+        <div class="bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-8 mb-8">
+            <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">🎯 ليه السعرات مهمة؟</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 text-center">
+                    <div class="text-4xl mb-4">💪</div>
+                    <h3 class="text-xl font-bold text-green-800 mb-3">عايز تخس؟</h3>
+                    <p class="text-green-700">كل سعرات أقل من اللي بتحرقها يوميًا. بساطة!</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center">
+                    <div class="text-4xl mb-4">🏋️‍♂️</div>
+                    <h3 class="text-xl font-bold text-blue-800 mb-3">عايز تكبر عضلاتك؟</h3>
+                    <p class="text-blue-700">كل سعرات أكتر مع بروتين عالي وتمارين قوية</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 text-center">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-bold text-purple-800 mb-3">عايز تثبت وزنك؟</h3>
+                    <p class="text-purple-700">كل نفس السعرات اللي بتحرقها كل يوم</p>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-orange-100 to-red-100 rounded-2xl p-6">
+                <h3 class="text-xl font-bold text-orange-800 mb-3">🧠 الفكرة بسيطة:</h3>
+                <p class="text-orange-700 text-lg leading-relaxed">
+                    جسمك زي العربية، محتاج وقود (سعرات) علشان يشتغل. لو ديتله وقود أكتر من اللي محتاجه، هيخزن الزيادة دهون. 
+                    لو ديتله أقل، هيحرق من المخزون ووزنك هينزل. اختار أكلك بذكاء واوصل لهدفك! 🚀
+                </p>
+            </div>
+        </div>
+
+        <!-- Calorie Calculator Section -->
+        <div class="bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-8 mb-8">
+            <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">🧮 حاسبة السعرات الذكية</h2>
+                <p class="text-gray-600">اعرف احتياجك اليومي من السعرات بدقة</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Calculator Form -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">📝 ادخل بياناتك:</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">👤 الجنس</label>
+                            <select id="gender" class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <option value="male">راجل</option>
+                                <option value="female">ست</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">🎂 العمر</label>
+                            <input type="number" id="age" class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="25" min="15" max="80">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">⚖️ الوزن (كيلو)</label>
+                            <input type="number" id="weight" class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="70" min="30" max="200">
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">📏 الطول (سم)</label>
+                            <input type="number" id="height" class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="170" min="120" max="220">
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">🏃‍♂️ مستوى النشاط</label>
+                        <select id="activity" class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="1.2">قليل الحركة (شغل مكتب)</option>
+                            <option value="1.375">حركة خفيفة (رياضة 1-3 مرات أسبوعيًا)</option>
+                            <option value="1.55">حركة متوسطة (رياضة 3-5 مرات أسبوعيًا)</option>
+                            <option value="1.725">حركة كتيرة (رياضة 6-7 مرات أسبوعيًا)</option>
+                            <option value="1.9">حركة جامدة جدًا (رياضة مرتين يوميًا)</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-semibold text-gray-700 mb-2">🎯 الهدف</label>
+                        <select id="goal" class="w-full px-3 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            <option value="cut">تخسيس (-500 كالوري)</option>
+                            <option value="maintain">ثبات الوزن</option>
+                            <option value="bulk">زيادة العضلات (+300 كالوري)</option>
+                        </select>
+                    </div>
+                    
+                    <button onclick="calculateCalories()" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300">
+                        احسب سعراتي دلوقتي! 🔥
+                    </button>
+                </div>
+                
+                <!-- Results Display -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">📊 النتايج:</h3>
+                    
+                    <div id="calorieResults" class="space-y-4">
+                        <div class="bg-gradient-to-r from-green-100 to-green-200 rounded-xl p-4 text-center">
+                            <h4 class="font-bold text-green-800 mb-2">🔥 السعرات اليومية</h4>
+                            <div id="dailyCalories" class="text-3xl font-bold text-green-600">--</div>
+                            <small class="text-green-700">كالوري يوميًا</small>
+                        </div>
+                        
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="bg-blue-100 rounded-lg p-3 text-center">
+                                <div class="font-bold text-blue-600 text-lg" id="proteinGrams">--</div>
+                                <small class="text-blue-700">جم بروتين</small>
+                            </div>
+                            <div class="bg-yellow-100 rounded-lg p-3 text-center">
+                                <div class="font-bold text-yellow-600 text-lg" id="carbsGrams">--</div>
+                                <small class="text-yellow-700">جم كاربس</small>
+                            </div>
+                            <div class="bg-red-100 rounded-lg p-3 text-center">
+                                <div class="font-bold text-red-600 text-lg" id="fatsGrams">--</div>
+                                <small class="text-red-700">جم دهون</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Example Calculation -->
+                    <div class="bg-gradient-to-r from-purple-100 to-pink-100 rounded-xl p-4">
+                        <h4 class="font-bold text-purple-800 mb-3">💡 مثال عملي:</h4>
+                        <div class="text-sm text-purple-700 space-y-2">
+                            <p><strong>راجل، 25 سنة، 80 كيلو، 175 سم، نشاط متوسط:</strong></p>
+                            <p>• للثبات: 2200 كالوري يوميًا</p>
+                            <p>• للتخسيس: 1700 كالوري يوميًا</p>
+                            <p>• لزيادة العضلات: 2500 كالوري يوميًا</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Global Weight Loss Tips -->
+        <div class="bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-8 mb-8">
+            <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">🌍 نصايح التخسيس العالمية</h2>
+                <p class="text-gray-600">مستوحاة من MyFitnessPal و Healthline و WHO</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6">
+                    <div class="text-3xl mb-4">🥩</div>
+                    <h3 class="text-lg font-bold text-blue-800 mb-3">بروتين عالي</h3>
+                    <p class="text-blue-700">كل بروتين كتير علشان تحس بالشبع وتحافظ على عضلاتك</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-cyan-50 to-cyan-100 rounded-2xl p-6">
+                    <div class="text-3xl mb-4">💧</div>
+                    <h3 class="text-lg font-bold text-cyan-800 mb-3">مياه قبل الأكل</h3>
+                    <p class="text-cyan-700">اشرب كوبين مياه قبل كل وجبة علشان تقلل شهيتك</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-6">
+                    <div class="text-3xl mb-4">🚫</div>
+                    <h3 class="text-lg font-bold text-red-800 mb-3">قلل السكر</h3>
+                    <p class="text-red-700">ابعد عن المشروبات السكرية والأكل المصنع</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6">
+                    <div class="text-3xl mb-4">🥬</div>
+                    <h3 class="text-lg font-bold text-green-800 mb-3">أكل طبيعي</h3>
+                    <p class="text-green-700">ركز على الفواكه والخضار واللحوم الطبيعية</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6">
+                    <div class="text-3xl mb-4">📦</div>
+                    <h3 class="text-lg font-bold text-purple-800 mb-3">تحضير الوجبات</h3>
+                    <p class="text-purple-700">حضر أكلك من بدري علشان متنحرفش عن خطتك</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-6">
+                    <div class="text-3xl mb-4">⏰</div>
+                    <h3 class="text-lg font-bold text-orange-800 mb-3">صيام متقطع</h3>
+                    <p class="text-orange-700">جرب تاكل في 8 ساعات بس وتصوم 16 ساعة</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step-by-Step Guide -->
+        <div class="bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-8 mb-8">
+            <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">📋 دليل حساب سعرات الوجبات</h2>
+                <p class="text-gray-600">خطوة بخطوة للوصول لهدفك</p>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="flex items-start space-x-4 space-x-reverse">
+                    <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">1</div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">🎯 حدد هدفك</h3>
+                        <p class="text-gray-600">تخسيس، زيادة عضلات، أو ثبات الوزن</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4 space-x-reverse">
+                    <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">2</div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">🧮 احسب احتياجك اليومي</h3>
+                        <p class="text-gray-600">استخدم الحاسبة فوق أو المعادلة: BMR × مستوى النشاط</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4 space-x-reverse">
+                    <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">3</div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">⚖️ وزع الماكروز</h3>
+                        <p class="text-gray-600">بروتين 30% - كاربس 40% - دهون 30%</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-4 space-x-reverse">
+                    <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">4</div>
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2">🍽️ اختار وجباتك</h3>
+                        <p class="text-gray-600">استخدم جدول السعرات تحت علشان تبني وجباتك بذكاء</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calorie Tables -->
+        <div class="bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-8 mb-8">
+            <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">📊 جدول السعرات الأساسي</h2>
+                <p class="text-gray-600">اعرف سعرات أكلك المفضل</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Proteins -->
+                <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-red-800 mb-4 text-center">🥩 البروتينات</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center bg-white rounded-lg p-3">
+                            <span class="font-semibold">فراخ مشوية (100جم)</span>
+                            <span class="text-red-600 font-bold">165 كالوري</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white rounded-lg p-3">
+                            <span class="font-semibold">لحمة حمرا (100جم)</span>
+                            <span class="text-red-600 font-bold">250 كالوري</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white rounded-lg p-3">
+                            <span class="font-semibold">سمك (100جم)</span>
+                            <span class="text-red-600 font-bold">120 كالوري</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white rounded-lg p-3">
+                            <span class="font-semibold">بيضة واحدة</span>
+                            <span class="text-red-600 font-bold">70 كالوري</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white rounded-lg p-3">
+                            <span class="font-semibold">تونة (علبة)</span>
+                            <span class="text-red-600 font-bold">150 كالوري</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Carbs -->
+                <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-yellow-800 mb-4 text-center">🍚 الكاربوهيدرات</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center bg-white rounded-lg p-3">
+                            <span class="font-semibold">رز أبيض (كوب)</span>
+                            <span class="text-yellow-600 font-bold">200 كالوري</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white rounded-lg p-3">
+                            <span class="font-semibold">عيش بلدي (رغيف)</span>
+                            <span class="text-yellow-600 font-bold">150 كالوري</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white rounded-lg p-3">
+                            <span class="font-semibold">مكرونة (كوب)</span>
+                            <span class="text-yellow-600 font-bold">220 كالوري</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white rounded-lg p-3">
+                            <span class="font-semibold">بطاطس (حبة متوسطة)</span>
+                            <span class="text-yellow-600 font-bold">130 كالوري</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white rounded-lg p-3">
+                            <span class="font-semibold">شوفان (كوب)</span>
+                            <span class="text-yellow-600 font-bold">150 كالوري</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Healthy Foods -->
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6">
+                    <h3 class="text-xl font-bold text-green-800 mb-4 text-center">🥗 أكل صحي</h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center bg-white rounded-lg p-3">
+                            <span class="font-semibold">سلطة خضرا (كوب)</span>
+                            <span class="text-green-600 font-bold">20 كالوري</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white rounded-lg p-3">
+                            <span class="font-semibold">تفاحة متوسطة</span>
+                            <span class="text-green-600 font-bold">80 كالوري</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white rounded-lg p-3">
+                            <span class="font-semibold">موزة متوسطة</span>
+                            <span class="text-green-600 font-bold">100 كالوري</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white rounded-lg p-3">
+                            <span class="font-semibold">لوز (30جم)</span>
+                            <span class="text-green-600 font-bold">170 كالوري</span>
+                        </div>
+                        <div class="flex justify-between items-center bg-white rounded-lg p-3">
+                            <span class="font-semibold">زبادي (كوب)</span>
+                            <span class="text-green-600 font-bold">100 كالوري</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Practical Tips -->
+        <div class="bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-8 mb-8">
+            <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">💡 نصايح عملية للوجبات</h2>
+                <p class="text-gray-600">اتعلم تقدر الكميات بدون ميزان</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Portion Sizes -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">✋ قياس الكميات بالإيد</h3>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gradient-to-r from-red-100 to-red-200 rounded-xl p-4">
+                            <h4 class="font-bold text-red-800 mb-2">🥩 البروتين = كف الإيد</h4>
+                            <p class="text-red-700">قطعة فراخ أو لحمة بحجم كف إيدك = 100-120 جم</p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-yellow-100 to-yellow-200 rounded-xl p-4">
+                            <h4 class="font-bold text-yellow-800 mb-2">🍚 الكاربس = قبضة الإيد</h4>
+                            <p class="text-yellow-700">رز أو مكرونة بحجم قبضة إيدك = كوب تقريبًا</p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-green-100 to-green-200 rounded-xl p-4">
+                            <h4 class="font-bold text-green-800 mb-2">🥗 الخضار = إيدك مفتوحة</h4>
+                            <p class="text-green-700">سلطة بحجم إيدك مفتوحة = كوب ونص</p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-purple-100 to-purple-200 rounded-xl p-4">
+                            <h4 class="font-bold text-purple-800 mb-2">🥜 الدهون = إبهام الإيد</h4>
+                            <p class="text-purple-700">مكسرات أو زيت بحجم إبهامك = 15-20 جم</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Meal Distribution -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">⚖️ توزيع الوجبات المثالي</h3>
+                    
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6">
+                        <h4 class="font-bold text-blue-800 mb-4">📊 نسب الماكروز:</h4>
+                        <div class="space-y-3">
+                            <div class="flex items-center justify-between">
+                                <span class="text-blue-700">بروتين</span>
+                                <div class="flex-1 mx-4 bg-blue-200 rounded-full h-3">
+                                    <div class="bg-blue-600 h-3 rounded-full" style="width: 30%"></div>
+                                </div>
+                                <span class="text-blue-800 font-bold">30%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-yellow-700">كاربس</span>
+                                <div class="flex-1 mx-4 bg-yellow-200 rounded-full h-3">
+                                    <div class="bg-yellow-600 h-3 rounded-full" style="width: 40%"></div>
+                                </div>
+                                <span class="text-yellow-800 font-bold">40%</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-red-700">دهون</span>
+                                <div class="flex-1 mx-4 bg-red-200 rounded-full h-3">
+                                    <div class="bg-red-600 h-3 rounded-full" style="width: 30%"></div>
+                                </div>
+                                <span class="text-red-800 font-bold">30%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-6">
+                        <h4 class="font-bold text-orange-800 mb-4">⚠️ احذر من:</h4>
+                        <ul class="space-y-2 text-orange-700">
+                            <li>• الوجبات السريعة (500-1000 كالوري)</li>
+                            <li>• المشروبات الغازية (150 كالوري/علبة)</li>
+                            <li>• الحلويات المخفية في القهوة</li>
+                            <li>• الزيوت الزيادة في الطبخ</li>
+                            <li>• المكسرات المملحة (عالية السعرات)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ready-Made Meal Examples -->
+        <div class="bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-8 mb-8">
+            <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">🍽️ أمثلة وجبات جاهزة</h2>
+                <p class="text-gray-600">وجبات متوازنة لكل هدف</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Weight Loss Meal -->
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6">
+                    <div class="text-center mb-4">
+                        <h3 class="text-xl font-bold text-green-800 mb-2">💪 وجبة التخسيس</h3>
+                        <div class="text-3xl font-bold text-green-600">500 كالوري</div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="bg-white rounded-lg p-3 flex justify-between items-center">
+                            <span>صدر فراخ مشوي (150جم)</span>
+                            <span class="text-green-600 font-bold">250 كالوري</span>
+                        </div>
+                        <div class="bg-white rounded-lg p-3 flex justify-between items-center">
+                            <span>سلطة خضرا كبيرة</span>
+                            <span class="text-green-600 font-bold">50 كالوري</span>
+                        </div>
+                        <div class="bg-white rounded-lg p-3 flex justify-between items-center">
+                            <span>رز بني (نص كوب)</span>
+                            <span class="text-green-600 font-bold">110 كالوري</span>
+                        </div>
+                        <div class="bg-white rounded-lg p-3 flex justify-between items-center">
+                            <span>زيت زيتون (ملعقة)</span>
+                            <span class="text-green-600 font-bold">90 كالوري</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 grid grid-cols-3 gap-2 text-center">
+                        <div class="bg-blue-100 rounded-lg p-2">
+                            <div class="font-bold text-blue-600">40جم</div>
+                            <small class="text-blue-700">بروتين</small>
+                        </div>
+                        <div class="bg-yellow-100 rounded-lg p-2">
+                            <div class="font-bold text-yellow-600">35جم</div>
+                            <small class="text-yellow-700">كاربس</small>
+                        </div>
+                        <div class="bg-red-100 rounded-lg p-2">
+                            <div class="font-bold text-red-600">15جم</div>
+                            <small class="text-red-700">دهون</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Muscle Gain Meal -->
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6">
+                    <div class="text-center mb-4">
+                        <h3 class="text-xl font-bold text-blue-800 mb-2">🏋️‍♂️ وجبة زيادة العضلات</h3>
+                        <div class="text-3xl font-bold text-blue-600">700 كالوري</div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="bg-white rounded-lg p-3 flex justify-between items-center">
+                            <span>لحمة حمرا (200جم)</span>
+                            <span class="text-blue-600 font-bold">400 كالوري</span>
+                        </div>
+                        <div class="bg-white rounded-lg p-3 flex justify-between items-center">
+                            <span>رز أبيض (كوب)</span>
+                            <span class="text-blue-600 font-bold">200 كالوري</span>
+                        </div>
+                        <div class="bg-white rounded-lg p-3 flex justify-between items-center">
+                            <span>خضار مطبوخة</span>
+                            <span class="text-blue-600 font-bold">50 كالوري</span>
+                        </div>
+                        <div class="bg-white rounded-lg p-3 flex justify-between items-center">
+                            <span>أفوكادو (نص حبة)</span>
+                            <span class="text-blue-600 font-bold">50 كالوري</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 grid grid-cols-3 gap-2 text-center">
+                        <div class="bg-blue-100 rounded-lg p-2">
+                            <div class="font-bold text-blue-600">55جم</div>
+                            <small class="text-blue-700">بروتين</small>
+                        </div>
+                        <div class="bg-yellow-100 rounded-lg p-2">
+                            <div class="font-bold text-yellow-600">60جم</div>
+                            <small class="text-yellow-700">كاربس</small>
+                        </div>
+                        <div class="bg-red-100 rounded-lg p-2">
+                            <div class="font-bold text-red-600">25جم</div>
+                            <small class="text-red-700">دهون</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-8 mb-8">
+            <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">❓ أسئلة شائعة</h2>
+                <p class="text-gray-600">إجابات على أهم الأسئلة</p>
+            </div>
+            
+            <div class="space-y-4">
+                <div class="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-6">
+                    <h3 class="font-bold text-blue-800 mb-2">🤔 إيه الفرق بين BMR و TDEE؟</h3>
+                    <p class="text-blue-700">BMR = السعرات اللي جسمك محتاجها وإنت نايم. TDEE = BMR + سعرات النشاط اليومي</p>
+                </div>
+                
+                <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-xl p-6">
+                    <h3 class="font-bold text-green-800 mb-2">⏰ امتى أكل الكاربس؟</h3>
+                    <p class="text-green-700">أحسن وقت قبل وبعد التمرين. في الليل قلل الكاربس وزود البروتين</p>
+                </div>
+                
+                <div class="bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl p-6">
+                    <h3 class="font-bold text-purple-800 mb-2">🍎 هل الفاكهة بتخسس؟</h3>
+                    <p class="text-purple-700">الفاكهة صحية بس فيها سكر. كل 2-3 حبات يوميًا مش أكتر</p>
+                </div>
+                
+                <div class="bg-gradient-to-r from-orange-50 to-orange-100 rounded-xl p-6">
+                    <h3 class="font-bold text-orange-800 mb-2">💧 كام كوب مياه في اليوم؟</h3>
+                    <p class="text-orange-700">8-10 كوبايات على الأقل. زود لو بتتمرن أو الجو حر</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Internal Links Section -->
+        <div class="bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-8 mb-8">
+            <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">🔗 أدوات مفيدة لرحلتك</h2>
+                <p class="text-gray-600">استكمل رحلتك مع أدواتنا المتخصصة</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 text-center hover:shadow-lg transition-all transform hover:scale-105">
+                    <div class="text-4xl mb-4">🥗</div>
+                    <h3 class="text-xl font-bold text-green-800 mb-3">دليل السعرات الغذائية</h3>
+                    <p class="text-green-700 mb-4">اعرف سعرات أكلك المفضل وخطط وجباتك بذكاء</p>
+                    <a href="{{ url_for('food_calories_guide') }}" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                        دليل الأطعمة
+                    </a>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 text-center hover:shadow-lg transition-all transform hover:scale-105">
+                    <div class="text-4xl mb-4">💊</div>
+                    <h3 class="text-xl font-bold text-blue-800 mb-3">دليل المكملات الغذائية</h3>
+                    <p class="text-blue-700 mb-4">تعرف على أفضل المكملات لهدفك الرياضي</p>
+                    <a href="{{ url_for('supplements') }}" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                        دليل المكملات
+                    </a>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 text-center hover:shadow-lg transition-all transform hover:scale-105">
+                    <div class="text-4xl mb-4">🏋️‍♂️</div>
+                    <h3 class="text-xl font-bold text-purple-800 mb-3">دليل التمارين</h3>
+                    <p class="text-purple-700 mb-4">تمارين شاملة لجميع عضلات الجسم مع الشرح</p>
+                    <a href="{{ url_for('workout_guide') }}" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                        ابدأ التمرين
+                    </a>
+                </div>
+                
+                <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-6 text-center hover:shadow-lg transition-all transform hover:scale-105">
+                    <div class="text-4xl mb-4">❤️</div>
+                    <h3 class="text-xl font-bold text-red-800 mb-3">دليل إصابات الجيم</h3>
+                    <p class="text-red-700 mb-4">تعلم كيف تتجنب الإصابات وتتعامل معها</p>
+                    <a href="{{ url_for('gym_injuries') }}" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                        دليل الأمان
+                    </a>
+                </div>
+                
+                <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-6 text-center hover:shadow-lg transition-all transform hover:scale-105">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="text-xl font-bold text-yellow-800 mb-3">حاسبات اللياقة</h3>
+                    <p class="text-yellow-700 mb-4">احسب BMI، نسبة الدهون، والمؤشرات الصحية</p>
+                    <a href="{{ url_for('calculators') }}" class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                        الحاسبات
+                    </a>
+                </div>
+                
+                <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl p-6 text-center hover:shadow-lg transition-all transform hover:scale-105">
+                    <div class="text-4xl mb-4">📚</div>
+                    <h3 class="text-xl font-bold text-indigo-800 mb-3">مقالات التغذية</h3>
+                    <p class="text-indigo-700 mb-4">مقالات علمية ونصائح من خبراء التغذية</p>
+                    <a href="{{ url_for('training_nutrition') }}" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition-colors">
+                        المقالات
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl shadow-2xl p-6 md:p-8 text-center text-white">
+            <h2 class="text-3xl font-bold mb-4">🚀 جاهز تبدأ رحلتك؟</h2>
+            <p class="text-xl mb-6">استخدم أدواتنا المجانية واوصل لهدفك بسرعة!</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a href="/calculators" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-xl p-4 transition-all transform hover:scale-105">
+                    <div class="text-2xl mb-2">🧮</div>
+                    <h3 class="font-bold mb-2">حاسبة السعرات</h3>
+                    <p class="text-sm">احسب احتياجك اليومي دلوقتي!</p>
+                </a>
+                
+                <a href="/meal-generator" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-xl p-4 transition-all transform hover:scale-105">
+                    <div class="text-2xl mb-2">🍽️</div>
+                    <h3 class="font-bold mb-2">السعرات الحرارية</h3>
+                    <p class="text-sm">وجبات جاهزة حسب هدفك!</p>
+                </a>
+                
+                <a href="/workout-plans" class="bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-xl p-4 transition-all transform hover:scale-105">
+                    <div class="text-2xl mb-2">💪</div>
+                    <h3 class="font-bold mb-2">خطط التمارين</h3>
+                    <p class="text-sm">تمارين مناسبة لمستواك!</p>
+                </a>
+            </div>
+            
+            <div class="mt-8">
+                <p class="text-lg font-semibold">💎 جسمك هو أفضل استثمار - ابدأ النهاردة!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+function calculateCalories() {
+    const gender = document.getElementById('gender').value;
+    const age = parseInt(document.getElementById('age').value);
+    const weight = parseFloat(document.getElementById('weight').value);
+    const height = parseFloat(document.getElementById('height').value);
+    const activity = parseFloat(document.getElementById('activity').value);
+    const goal = document.getElementById('goal').value;
+    
+    if (!age || !weight || !height) {
+        alert('يا برو، اكتب البيانات كلها الأول! 😊');
+        return;
+    }
+    
+    // Calculate BMR using Mifflin-St Jeor Equation
+    let bmr;
+    if (gender === 'male') {
+        bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+    } else {
+        bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+    }
+    
+    // Calculate TDEE
+    let tdee = bmr * activity;
+    
+    // Adjust based on goal
+    let calories;
+    if (goal === 'cut') {
+        calories = tdee - 500; // 500 calorie deficit
+    } else if (goal === 'bulk') {
+        calories = tdee + 300; // 300 calorie surplus
+    } else {
+        calories = tdee; // maintenance
+    }
+    
+    // Round to nearest 50
+    calories = Math.round(calories / 50) * 50;
+    
+    // Calculate macros
+    const proteinCalories = calories * 0.30;
+    const carbsCalories = calories * 0.40;
+    const fatsCalories = calories * 0.30;
+    
+    const proteinGrams = Math.round(proteinCalories / 4);
+    const carbsGrams = Math.round(carbsCalories / 4);
+    const fatsGrams = Math.round(fatsCalories / 9);
+    
+    // Update display
+    document.getElementById('dailyCalories').textContent = calories;
+    document.getElementById('proteinGrams').textContent = proteinGrams;
+    document.getElementById('carbsGrams').textContent = carbsGrams;
+    document.getElementById('fatsGrams').textContent = fatsGrams;
+    
+    // Show success message
+    alert(`🔥 تمام! سعراتك اليومية: ${calories} كالوري\n\n📊 الماكروز:\n• بروتين: ${proteinGrams} جم\n• كاربس: ${carbsGrams} جم\n• دهون: ${fatsGrams} جم\n\nيلا نبدأ! 💪`);
+    
+    // Scroll to results
+    document.getElementById('calorieResults').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Add some interactive animations
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate cards on scroll
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all cards
+    document.querySelectorAll('.bg-white\\/95, .bg-gradient-to-br, .bg-gradient-to-r').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+});
+
+// Add click effects to buttons
+document.querySelectorAll('button, a').forEach(element => {
+    element.addEventListener('click', function(e) {
+        // Create ripple effect
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    });
+});
+</script>
+
+<style>
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.6);
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+    pointer-events: none;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+    transition: all 0.3s ease;
+}
+
+/* Enhanced hover effects */
+.hover\:scale-105:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+</style>
+
+{% endblock %}

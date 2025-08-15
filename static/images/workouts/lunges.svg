@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="lungesBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#lungesBg)" opacity="0.9"/>
+  
+  <!-- Floor line -->
+  <line x1="20" y1="170" x2="180" y2="170" stroke="#333" stroke-width="3"/>
+  
+  <!-- Person doing lunges -->
+  <!-- Head -->
+  <circle cx="100" cy="50" r="12" fill="#fdbcb4" stroke="#333" stroke-width="2"/>
+  
+  <!-- Body -->
+  <ellipse cx="100" cy="85" rx="15" ry="25" fill="#4a90e2" stroke="#333" stroke-width="2"/>
+  
+  <!-- Arms for balance -->
+  <line x1="85" y1="70" x2="70" y2="85" stroke="#fdbcb4" stroke-width="6" stroke-linecap="round"/>
+  <line x1="115" y1="70" x2="130" y2="85" stroke="#fdbcb4" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Hands -->
+  <circle cx="70" cy="85" r="4" fill="#fdbcb4"/>
+  <circle cx="130" cy="85" r="4" fill="#fdbcb4"/>
+  
+  <!-- Front leg (bent) -->
+  <line x1="95" y1="105" x2="85" y2="140" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+  <line x1="85" y1="140" x2="75" y2="165" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Back leg (extended) -->
+  <line x1="105" y1="105" x2="130" y2="130" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+  <line x1="130" y1="130" x2="145" y2="155" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Front foot -->
+  <ellipse cx="72" cy="168" rx="8" ry="4" fill="#333"/>
+  
+  <!-- Back foot (on toes) -->
+  <ellipse cx="148" cy="158" rx="4" ry="6" fill="#333"/>
+  
+  <!-- Motion arrows -->
+  <path d="M 100 30 L 95 20 L 105 20 Z" fill="#ff6b6b" opacity="0.8"/>
+  <path d="M 100 180 L 95 190 L 105 190 Z" fill="#ff6b6b" opacity="0.8"/>
+  
+  <!-- Balance lines -->
+  <line x1="60" y1="80" x2="55" y2="75" stroke="#ffd700" stroke-width="2" opacity="0.7"/>
+  <line x1="140" y1="80" x2="145" y2="75" stroke="#ffd700" stroke-width="2" opacity="0.7"/>
+  
+  <!-- Knee angle indicator -->
+  <path d="M 80 135 Q 85 130 90 135" stroke="#ff6b6b" stroke-width="2" fill="none" opacity="0.6"/>
+  
+  <!-- Text -->
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">Lunges</text>
+</svg>

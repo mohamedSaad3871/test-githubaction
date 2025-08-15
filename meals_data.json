@@ -1,0 +1,26 @@
+[
+    {
+        "meal_name": "فول مدمس بالطحينة",
+        "meal_type": "Breakfast",
+        "diet_type": "Vegetarian",
+        "calories": 320,
+        "protein": 18,
+        "carbs": 35,
+        "fats": 12,
+        "ingredients": "فول، طحينة، زيت زيتون، ليمون، طماطم",
+        "goal": "Maintenance",
+        "image_url": "https://example.com/images/ful_medames.jpg"
+    },
+    {
+        "meal_name": "عجة بالخضار",
+        "meal_type": "Breakfast",
+        "diet_type": "Vegetarian",
+        "calories": 280,
+        "protein": 20,
+        "carbs": 8,
+        "fats": 18,
+        "ingredients": "بيض، بقدونس، جزر، بصل، زيت",
+        "goal": "Weight loss",
+        "image_url": "https://example.com/images/vegetable_omelet.jpg"
+    }
+]

@@ -1,0 +1,81 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="overlayGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#000000;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0.6" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#heroGradient)"/>
+  
+  <!-- Gym Equipment Silhouettes -->
+  <g opacity="0.1" fill="#ffffff">
+    <!-- Dumbbell -->
+    <rect x="100" y="200" width="80" height="20" rx="10"/>
+    <rect x="80" y="190" width="20" height="40" rx="5"/>
+    <rect x="180" y="190" width="20" height="40" rx="5"/>
+    
+    <!-- Barbell -->
+    <rect x="300" y="150" width="200" height="15" rx="7"/>
+    <rect x="280" y="135" width="25" height="45" rx="5"/>
+    <rect x="495" y="135" width="25" height="45" rx="5"/>
+    
+    <!-- Weight Plates -->
+    <circle cx="900" cy="300" r="40" stroke="#ffffff" stroke-width="3" fill="none"/>
+    <circle cx="900" cy="300" r="25" stroke="#ffffff" stroke-width="2" fill="none"/>
+    
+    <!-- Kettlebell -->
+    <circle cx="1000" cy="400" r="30"/>
+    <rect x="990" y="360" width="20" height="30" rx="10"/>
+  </g>
+  
+  <!-- Fitness Figure -->
+  <g transform="translate(600, 150)" fill="#ffffff" opacity="0.8">
+    <!-- Head -->
+    <circle cx="0" cy="0" r="25"/>
+    
+    <!-- Body -->
+    <rect x="-15" y="25" width="30" height="80" rx="15"/>
+    
+    <!-- Arms (flexing) -->
+    <rect x="-45" y="35" width="25" height="8" rx="4" transform="rotate(-30)"/>
+    <rect x="20" y="35" width="25" height="8" rx="4" transform="rotate(30)"/>
+    
+    <!-- Legs -->
+    <rect x="-12" y="105" width="8" height="40" rx="4"/>
+    <rect x="4" y="105" width="8" height="40" rx="4"/>
+    
+    <!-- Muscle definition -->
+    <ellipse cx="0" cy="50" rx="8" ry="15" opacity="0.3"/>
+    <ellipse cx="-8" cy="65" rx="4" ry="8" opacity="0.3"/>
+    <ellipse cx="8" cy="65" rx="4" ry="8" opacity="0.3"/>
+  </g>
+  
+  <!-- Motivational Elements -->
+  <g fill="#ffffff" opacity="0.6">
+    <!-- Stars -->
+    <polygon points="200,100 205,115 220,115 208,125 213,140 200,130 187,140 192,125 180,115 195,115" />
+    <polygon points="1000,150 1003,160 1013,160 1005,167 1008,177 1000,172 992,177 995,167 987,160 997,160" />
+    <polygon points="150,450 153,460 163,460 155,467 158,477 150,472 142,477 145,467 137,460 147,460" />
+    
+    <!-- Achievement Badge -->
+    <circle cx="1050" cy="100" r="30" stroke="#FFD700" stroke-width="3" fill="none"/>
+    <polygon points="1050,85 1055,95 1065,95 1057,102 1060,112 1050,107 1040,112 1043,102 1035,95 1045,95" fill="#FFD700"/>
+  </g>
+  
+  <!-- Overlay Gradient -->
+  <rect width="1200" height="600" fill="url(#overlayGradient)"/>
+  
+  <!-- Geometric Patterns -->
+  <g stroke="#ffffff" stroke-width="1" fill="none" opacity="0.1">
+    <polygon points="50,50 100,50 75,100"/>
+    <polygon points="1100,500 1150,500 1125,550"/>
+    <rect x="20" y="500" width="40" height="40" transform="rotate(45 40 520)"/>
+    <rect x="1140" y="80" width="30" height="30" transform="rotate(45 1155 95)"/>
+  </g>
+</svg>

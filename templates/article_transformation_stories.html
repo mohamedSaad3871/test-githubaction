@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قصص نجاح ملهمة في عالم اللياقة - دليل التدريب والتغذية</title>
+    <meta name="description" content="قصص حقيقية ملهمة لأشخاص حققوا تحولات مذهلة في حياتهم من خلال اللياقة البدنية والتغذية الصحية">
+    <meta name="keywords" content="قصص نجاح, تحولات, اللياقة البدنية, إنقاص الوزن, بناء العضلات, الدافعية, الإلهام">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px 0;
+        }
+        
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .article-header {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #8b4513;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .article-header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .article-header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+        
+        .article-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .article-content {
+            padding: 40px 30px;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section h2 {
+            color: #fcb69f;
+            font-weight: 600;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #fcb69f;
+            display: inline-block;
+        }
+        
+        .section h3 {
+            color: #333;
+            font-weight: 600;
+            font-size: 1.4rem;
+            margin: 25px 0 15px 0;
+        }
+        
+        .section p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .story-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .story-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        
+        .story-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .story-avatar {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-left: 15px;
+        }
+        
+        .story-info h4 {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .story-info .story-subtitle {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        .story-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-item {
+            background: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            color: #8b4513;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 10px 20px rgba(252, 182, 159, 0.3);
+        }
+        
+        .highlight-box h4 {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .tip-card {
+            background: #f8f9ff;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 5px solid #fcb69f;
+            transition: transform 0.3s ease;
+        }
+        
+        .tip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .tip-card h5 {
+            color: #fcb69f;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .back-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            margin: 20px 0;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .quote-box {
+            background: #f8f9ff;
+            border-right: 5px solid #fcb69f;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .quote-box::before {
+            content: '"';
+            font-size: 3rem;
+            color: #fcb69f;
+            position: absolute;
+            top: -10px;
+            right: 15px;
+            font-family: serif;
+        }
+        
+        @media (max-width: 768px) {
+            .article-container {
+                margin: 0 10px;
+                border-radius: 15px;
+            }
+            
+            .article-header {
+                padding: 30px 20px;
+            }
+            
+            .article-header h1 {
+                font-size: 2rem;
+            }
+            
+            .article-content {
+                padding: 30px 20px;
+            }
+            
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .story-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="article-container">
+        <div class="article-header">
+            <div class="article-icon">
+                <i class="fas fa-trophy"></i>
+            </div>
+            <h1>قصص نجاح ملهمة في عالم اللياقة</h1>
+            <p class="subtitle">تحولات حقيقية غيرت حياة أصحابها وستلهمك لتحقيق أهدافك</p>
+        </div>
+        
+        <div class="article-content">
+            <div class="section">
+                <h2>قوة القصص الملهمة</h2>
+                <p>في رحلة اللياقة البدنية، نحتاج أحياناً إلى دفعة إضافية من الدافعية والإلهام. قصص النجاح الحقيقية تذكرنا أن التحول ممكن، وأن كل شخص يمكنه تحقيق أهدافه مهما كانت التحديات. هذه القصص ليست مجرد أرقام على الميزان، بل تحولات شاملة في الصحة والثقة والحياة.</p>
+                
+                <div class="highlight-box">
+                    <h4><i class="fas fa-heart"></i> لماذا نحتاج لقصص الإلهام؟</h4>
+                    <p>القصص الملهمة تعطينا الأمل والدافعية، وتثبت أن التحدي ممكن التغلب عليه. عندما نرى أشخاص عاديين حققوا نتائج استثنائية، ندرك أننا نستطيع فعل الشيء نفسه.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>قصة أحمد: من 120 كيلو إلى 80 كيلو</h2>
+                
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="story-info">
+                            <h4>أحمد محمد - 32 سنة</h4>
+                            <div class="story-subtitle">مهندس برمجيات، متزوج وأب لطفلين</div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">40</span>
+                            <span class="stat-label">كيلو مفقود</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">18</span>
+                            <span class="stat-label">شهر</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">120→80</span>
+                            <span class="stat-label">الوزن</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">42→32</span>
+                            <span class="stat-label">مقاس البنطال</span>
+                        </div>
+                    </div>
+                    
+                    <p><strong>التحدي:</strong> بعد سنوات من العمل المكتبي والأكل غير الصحي، وصل وزن أحمد إلى 120 كيلو. كان يعاني من آلام الظهر، صعوبة في التنفس، وفقدان الثقة بالنفس.</p>
+                    
+                    <p><strong>نقطة التحول:</strong> عندما لم يستطع اللعب مع أطفاله في الحديقة دون أن يلهث، قرر أن الوقت حان للتغيير.</p>
+                    
+                    <p><strong>الاستراتيجية:</strong></p>
+                    <ul>
+                        <li>بدأ بالمشي 20 دقيقة يومياً</li>
+                        <li>قلل حجم الوجبات تدريجياً</li>
+                        <li>استبدل المشروبات الغازية بالماء</li>
+                        <li>انضم للجيم بعد شهرين</li>
+                        <li>طبخ وجبات صحية في المنزل</li>
+                    </ul>
+                </div>
+                
+                <div class="quote-box">
+                    "أصعب جزء كان البداية. بعد الأسبوع الثالث، أصبح التمرين عادة. الآن لا أستطيع تخيل حياتي بدونه." - أحمد
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>قصة فاطمة: من الضعف إلى القوة</h2>
+                
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <div class="story-info">
+                            <h4>فاطمة علي - 28 سنة</h4>
+                            <div class="story-subtitle">معلمة، كانت تعاني من ضعف عام</div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">15</span>
+                            <span class="stat-label">كيلو عضلات</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">شهر</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50→65</span>
+                            <span class="stat-label">الوزن</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">18→25</span>
+                            <span class="stat-label">BMI</span>
+                        </div>
+                    </div>
+                    
+                    <p><strong>التحدي:</strong> فاطمة كانت تعاني من النحافة المفرطة وضعف عام. لم تكن تستطيع حمل أكياس التسوق أو صعود الدرج دون تعب.</p>
+                    
+                    <p><strong>نقطة التحول:</strong> عندما أغمي عليها في الفصل أمام طلابها، قررت أن تعمل على تقوية جسمها.</p>
+                    
+                    <p><strong>الاستراتيجية:</strong></p>
+                    <ul>
+                        <li>بدأت بتمارين وزن الجسم في المنزل</li>
+                        <li>زادت كمية البروتين في نظامها الغذائي</li>
+                        <li>انضمت لصف يوجا لتحسين المرونة</li>
+                        <li>بدأت تمارين الأوزان تدريجياً</li>
+                        <li>تناولت وجبات صغيرة متكررة</li>
+                    </ul>
+                </div>
+                
+                <div class="quote-box">
+                    "لم أكن أريد أن أصبح ضخمة، فقط أردت أن أشعر بالقوة. الآن أستطيع حمل أكياس التسوق وأشعر بثقة أكبر." - فاطمة
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>قصة خالد: العودة بعد الإصابة</h2>
+                
+                <div class="story-card">
+                    <div class="story-header">
+                        <div class="story-avatar">
+                            <i class="fas fa-running"></i>
+                        </div>
+                        <div class="story-info">
+                            <h4>خالد سعد - 45 سنة</h4>
+                            <div class="story-subtitle">كان رياضي سابق، توقف بعد إصابة</div>
+                        </div>
+                    </div>
+                    
+                    <div class="story-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">25</span>
+                            <span class="stat-label">كيلو مفقود</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24</span>
+                            <span class="stat-label">شهر</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">95→70</span>
+                            <span class="stat-label">الوزن</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">0→5</span>
+                            <span class="stat-label">كم جري يومياً</span>
+                        </div>
+                    </div>
+                    
+                    <p><strong>التحدي:</strong> خالد كان لاعب كرة قدم في شبابه، لكن إصابة في الركبة أوقفته عن الرياضة لمدة 15 سنة. زاد وزنه وفقد لياقته تماماً.</p>
+                    
+                    <p><strong>نقطة التحول:</strong> عندما رأى صورة قديمة له وهو يلعب كرة القدم، قرر أن يستعيد لياقته رغم التحديات.</p>
+                    
+                    <p><strong>الاستراتيجية:</strong></p>
+                    <ul>
+                        <li>بدأ بالسباحة لحماية ركبته</li>
+                        <li>عمل مع أخصائي علاج طبيعي</li>
+                        <li>اتبع نظام غذائي متوازن</li>
+                        <li>أضاف تمارين القوة تدريجياً</li>
+                        <li>عاد للجري بعد 6 أشهر</li>
+                    </ul>
+                </div>
+                
+                <div class="quote-box">
+                    "اعتقدت أن عمري تجاوز إمكانية العودة للرياضة. اكتشفت أن الجسم قادر على التعافي والتحسن في أي عمر." - خالد
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>الدروس المستفادة من هذه القصص</h2>
+                
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h5><i class="fas fa-seedling"></i> البداية الصغيرة</h5>
+                        <p>كل قصة نجاح بدأت بخطوة صغيرة. لا تحتاج لتغيير كل شيء دفعة واحدة</p>
+                    </div>
+                    <div class="tip-card">
+                        <h5><i class="fas fa-calendar-alt"></i> الصبر والاستمرارية</h5>
+                        <p>التحولات الحقيقية تحتاج وقت. النتائج المستدامة تأتي مع الوقت</p>
+                    </div>
+                    <div class="tip-card">
+                        <h5><i class="fas fa-bullseye"></i> وضوح الهدف</h5>
+                        <p>كل شخص كان له سبب قوي للتغيير. اعرف سببك الشخصي</p>
+                    </div>
+                    <div class="tip-card">
+                        <h5><i class="fas fa-chart-line"></i> التقدم التدريجي</h5>
+                        <p>لم يحقق أحد النتائج بين ليلة وضحاها. التقدم كان تدريجياً ومستمراً</p>
+                    </div>
+                    <div class="tip-card">
+                        <h5><i class="fas fa-heart"></i> التغيير الشامل</h5>
+                        <p>النجاح لم يكن فقط في الوزن، بل في الصحة والثقة والحياة عموماً</p>
+                    </div>
+                    <div class="tip-card">
+                        <h5><i class="fas fa-users"></i> الدعم المجتمعي</h5>
+                        <p>معظم القصص تضمنت دعم من الأسرة أو الأصدقاء أو المدربين</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>كيف تبدأ قصة نجاحك الخاصة؟</h2>
+                
+                <h3>1. حدد سببك الشخصي</h3>
+                <p>لماذا تريد التغيير؟ هل لصحتك؟ لثقتك؟ لأطفالك؟ السبب القوي سيدفعك في الأوقات الصعبة.</p>
+                
+                <h3>2. ضع أهداف واقعية</h3>
+                <p>لا تحاول تقليد قصة شخص آخر بالضبط. ضع أهداف تناسب ظروفك وإمكانياتك.</p>
+                
+                <h3>3. ابدأ بخطوة واحدة</h3>
+                <p>اختر تغيير واحد صغير وابدأ به اليوم. قد يكون المشي 10 دقائق أو شرب كوب ماء إضافي.</p>
+                
+                <h3>4. وثق رحلتك</h3>
+                <p>التقط صور، سجل أوزانك، اكتب مشاعرك. هذا سيساعدك على رؤية التقدم ويحفزك للاستمرار.</p>
+                
+                <div class="highlight-box">
+                    <h4>تذكر دائماً:</h4>
+                    <p>قصتك ستكون مختلفة عن قصص الآخرين، وهذا شيء جميل. المهم هو أن تبدأ وتستمر. كل يوم تتمرن فيه أو تأكل بشكل صحي هو يوم تكتب فيه فصل جديد من قصة نجاحك.</p>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>رسالة أخيرة</h2>
+                <p>هذه القصص ليست خيال، بل حقائق لأشخاص عاديين قرروا تغيير حياتهم. إذا كانوا استطاعوا، فأنت أيضاً تستطيع. الفرق الوحيد بينك وبينهم هو القرار والبداية.</p>
+                
+                <div class="quote-box">
+                    "أفضل وقت لزراعة شجرة كان منذ 20 سنة. ثاني أفضل وقت هو الآن." - مثل صيني
+                </div>
+                
+                <p>ابدأ اليوم، ولو بخطوة صغيرة. قصة نجاحك تنتظرك لتكتبها.</p>
+            </div>
+            
+            <a href="/training-nutrition" class="back-button">
+                <i class="fas fa-arrow-right"></i>
+                العودة إلى المقالات
+            </a>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

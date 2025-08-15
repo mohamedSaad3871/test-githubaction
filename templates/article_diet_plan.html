@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إزاي تعمل نظام غذائي يناسب هدفك - سواء خسارة وزن أو بناء عضلات</title>
+    <meta name="description" content="دليل شامل لإنشاء نظام غذائي مخصص لأهدافك سواء كانت خسارة الوزن أو بناء العضلات مع أمثلة عملية ونصائح مهمة">
+    <meta name="keywords" content="نظام غذائي، خسارة الوزن، بناء العضلات، تغذية، دايت، سعرات حرارية، بروتين">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #f39c12;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --nutrition-green: #2ecc71;
+            --nutrition-orange: #f39c12;
+            --nutrition-red: #e74c3c;
+            --nutrition-blue: #3498db;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-nutrition: linear-gradient(135deg, #2ecc71 0%, #f39c12 100%);
+            --gradient-weight-loss: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);
+            --gradient-muscle-gain: linear-gradient(135deg, #3498db 0%, #2ecc71 100%);
+            --gradient-balance: linear-gradient(135deg, #9b59b6 0%, #3498db 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.8;
+            color: var(--dark-color);
+            background: linear-gradient(135deg, #2ecc71 0%, #f39c12 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: var(--gradient-nutrition);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .article-container {
+            background: white;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+            max-width: 1200px;
+        }
+
+        .article-header {
+            background: var(--gradient-nutrition);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .article-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            100% { transform: translateY(-100px) rotate(360deg); }
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .article-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .article-content {
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 2rem 0 1rem 0;
+            position: relative;
+            padding-right: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-nutrition);
+            border-radius: 2px;
+        }
+
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .goal-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+        }
+
+        .goal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .weight-loss-card::before {
+            background: var(--gradient-weight-loss);
+        }
+
+        .muscle-gain-card::before {
+            background: var(--gradient-muscle-gain);
+        }
+
+        .goal-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+
+        .goal-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 50%;
+            color: white;
+            display: inline-block;
+        }
+
+        .weight-loss-card .goal-icon {
+            background: var(--gradient-weight-loss);
+        }
+
+        .muscle-gain-card .goal-icon {
+            background: var(--gradient-muscle-gain);
+        }
+
+        .goal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .goal-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .goal-features {
+            list-style: none;
+            padding: 0;
+            text-align: right;
+        }
+
+        .goal-features li {
+            padding: 0.5rem 0;
+            color: #666;
+            position: relative;
+            padding-right: 2rem;
+        }
+
+        .goal-features li::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            color: var(--success-color);
+        }
+
+        .calculator-section {
+            background: var(--gradient-balance);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: white;
+        }
+
+        .calculator-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .calc-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        .calc-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .calc-title {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .calc-formula {
+            background: rgba(255,255,255,0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+        }
+
+        .macros-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .macros-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+        }
+
+        .macros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .macro-card {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .macro-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .protein-card {
+            background: linear-gradient(135deg, #e74c3c20, #e74c3c10);
+            border: 2px solid var(--nutrition-red);
+        }
+
+        .carbs-card {
+            background: linear-gradient(135deg, #f39c1220, #f39c1210);
+            border: 2px solid var(--nutrition-orange);
+        }
+
+        .fats-card {
+            background: linear-gradient(135deg, #2ecc7120, #2ecc7110);
+            border: 2px solid var(--nutrition-green);
+        }
+
+        .macro-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .protein-card .macro-icon {
+            color: var(--nutrition-red);
+        }
+
+        .carbs-card .macro-icon {
+            color: var(--nutrition-orange);
+        }
+
+        .fats-card .macro-icon {
+            color: var(--nutrition-green);
+        }
+
+        .macro-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .macro-percentage {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .macro-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .meal-plan-section {
+            background: var(--gradient-nutrition);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            color: white;
+        }
+
+        .meal-plan-title {
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .meal-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .meal-tab {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .meal-tab.active {
+            background: white;
+            color: var(--dark-color);
+        }
+
+        .meal-content {
+            display: none;
+        }
+
+        .meal-content.active {
+            display: block;
+        }
+
+        .meals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .meal-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .meal-time {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .meal-items {
+            list-style: none;
+            padding: 0;
+        }
+
+        .meal-items li {
+            padding: 0.3rem 0;
+            position: relative;
+            padding-right: 1.5rem;
+        }
+
+        .meal-items li::before {
+            content: '\f0a4';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            color: var(--secondary-color);
+            font-size: 0.8rem;
+        }
+
+        .tips-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .tip-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-right: 4px solid var(--nutrition-green);
+            transition: transform 0.3s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateX(-5px);
+        }
+
+        .tip-icon {
+            font-size: 2rem;
+            color: var(--nutrition-green);
+            margin-bottom: 1rem;
+        }
+
+        .tip-title {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .tip-description {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, #e74c3c20, #f39c1220);
+            border: 2px solid var(--accent-color);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .warning-box::before {
+            content: '\f071';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: white;
+            color: var(--accent-color);
+            padding: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, #2ecc7120, #27ae6020);
+            border: 2px solid var(--success-color);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .success-box::before {
+            content: '\f058';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: white;
+            color: var(--success-color);
+            padding: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .back-btn {
+            background: var(--gradient-nutrition);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            margin: 2rem 0;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .article-content {
+                padding: 2rem 1rem;
+            }
+            
+            .goals-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .macros-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .meals-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .meal-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <i class="fas fa-dumbbell me-2"></i>
+                فتنس برو
+            </a>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <div class="container" style="margin-top: 100px;">
+        <div class="article-container">
+            <!-- Article Header -->
+            <div class="article-header">
+                <h1 class="article-title">
+                    <i class="fas fa-utensils me-3"></i>
+                    إزاي تعمل نظام غذائي يناسب هدفك
+                </h1>
+                <p class="article-subtitle">دليل شامل لإنشاء نظام غذائي مخصص سواء لخسارة الوزن أو بناء العضلات</p>
+            </div>
+
+            <!-- Article Content -->
+            <div class="article-content">
+                <div class="success-box">
+                    <h3>لماذا النظام الغذائي مهم؟</h3>
+                    <p>النظام الغذائي يشكل 70% من نجاحك في تحقيق أهدافك الصحية واللياقة البدنية. سواء كان هدفك خسارة الوزن أو بناء العضلات، فإن التغذية السليمة هي الأساس. النظام الغذائي المناسب يوفر للجسم العناصر الغذائية اللازمة، يحسن الأداء الرياضي، ويساعد في التعافي بشكل أفضل.</p>
+                </div>
+
+                <h2 class="section-title">
+                    <i class="fas fa-target me-2"></i>
+                    حدد هدفك أولاً
+                </h2>
+
+                <div class="goals-grid">
+                    <div class="goal-card weight-loss-card">
+                        <div class="goal-icon">
+                            <i class="fas fa-weight"></i>
+                        </div>
+                        <h3 class="goal-title">خسارة الوزن</h3>
+                        <p class="goal-description">إذا كان هدفك هو فقدان الوزن والدهون، فأنت تحتاج لنظام غذائي يخلق عجز في السعرات الحرارية مع الحفاظ على العضلات.</p>
+                        <ul class="goal-features">
+                            <li>عجز في السعرات الحرارية 300-500 سعرة</li>
+                            <li>بروتين عالي للحفاظ على العضلات</li>
+                            <li>كربوهيدرات معتدلة للطاقة</li>
+                            <li>دهون صحية للهرمونات</li>
+                            <li>تركيز على الأطعمة المشبعة</li>
+                        </ul>
+                    </div>
+
+                    <div class="goal-card muscle-gain-card">
+                        <div class="goal-icon">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <h3 class="goal-title">بناء العضلات</h3>
+                        <p class="goal-description">لبناء العضلات تحتاج لفائض في السعرات الحرارية مع تركيز عالي على البروتين والتمارين المقاومة.</p>
+                        <ul class="goal-features">
+                            <li>فائض في السعرات 300-500 سعرة</li>
+                            <li>بروتين عالي جداً لبناء العضلات</li>
+                            <li>كربوهيدرات كافية للطاقة والتعافي</li>
+                            <li>دهون صحية للهرمونات</li>
+                            <li>وجبات متكررة لتوزيع البروتين</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h2 class="section-title">
+                    <i class="fas fa-calculator me-2"></i>
+                    حساب احتياجاتك من السعرات الحرارية
+                </h2>
+
+                <div class="calculator-section">
+                    <h4 class="calculator-title">
+                        <i class="fas fa-chart-line me-2"></i>
+                        خطوات حساب السعرات الحرارية
+                    </h4>
+                    
+                    <div class="calculator-grid">
+                        <div class="calc-card">
+                            <div class="calc-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="calc-title">معدل الأيض الأساسي (BMR)</div>
+                            <div class="calc-formula">
+                                للرجال: 88.362 + (13.397 × الوزن) + (4.799 × الطول) - (5.677 × العمر)
+                                <br><br>
+                                للنساء: 447.593 + (9.247 × الوزن) + (3.098 × الطول) - (4.330 × العمر)
+                            </div>
+                        </div>
+
+                        <div class="calc-card">
+                            <div class="calc-icon">
+                                <i class="fas fa-running"></i>
+                            </div>
+                            <div class="calc-title">إجمالي الطاقة اليومية (TDEE)</div>
+                            <div class="calc-formula">
+                                قليل النشاط: BMR × 1.2
+                                <br>
+                                نشاط خفيف: BMR × 1.375
+                                <br>
+                                نشاط متوسط: BMR × 1.55
+                                <br>
+                                نشاط عالي: BMR × 1.725
+                                <br>
+                                نشاط شديد: BMR × 1.9
+                            </div>
+                        </div>
+
+                        <div class="calc-card">
+                            <div class="calc-icon">
+                                <i class="fas fa-bullseye"></i>
+                            </div>
+                            <div class="calc-title">السعرات المطلوبة للهدف</div>
+                            <div class="calc-formula">
+                                لخسارة الوزن: TDEE - 300 إلى 500
+                                <br><br>
+                                للحفاظ على الوزن: TDEE
+                                <br><br>
+                                لبناء العضلات: TDEE + 300 إلى 500
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">
+                    <i class="fas fa-balance-scale me-2"></i>
+                    توزيع المغذيات الكبرى (Macronutrients)
+                </h2>
+
+                <div class="macros-section">
+                    <h4 class="macros-title">النسب المثلى للمغذيات الكبرى</h4>
+                    
+                    <div class="macros-grid">
+                        <div class="macro-card protein-card">
+                            <div class="macro-icon">
+                                <i class="fas fa-drumstick-bite"></i>
+                            </div>
+                            <div class="macro-name">البروتين</div>
+                            <div class="macro-percentage">25-35%</div>
+                            <div class="macro-description">
+                                أساسي لبناء وإصلاح العضلات. يحتاج الجسم 1.6-2.2 جرام لكل كيلو من وزن الجسم للرياضيين.
+                                <br><br>
+                                <strong>مصادر جيدة:</strong> الدجاج، السمك، البيض، اللحوم الحمراء، البقوليات، منتجات الألبان
+                            </div>
+                        </div>
+
+                        <div class="macro-card carbs-card">
+                            <div class="macro-icon">
+                                <i class="fas fa-bread-slice"></i>
+                            </div>
+                            <div class="macro-name">الكربوهيدرات</div>
+                            <div class="macro-percentage">40-50%</div>
+                            <div class="macro-description">
+                                المصدر الرئيسي للطاقة، خاصة للتمارين عالية الشدة. ضرورية للتعافي وتجديد الجليكوجين.
+                                <br><br>
+                                <strong>مصادر جيدة:</strong> الأرز البني، الشوفان، البطاطا الحلوة، الفواكه، الخضروات
+                            </div>
+                        </div>
+
+                        <div class="macro-card fats-card">
+                            <div class="macro-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="macro-name">الدهون</div>
+                            <div class="macro-percentage">20-30%</div>
+                            <div class="macro-description">
+                                ضرورية لإنتاج الهرمونات وامتصاص الفيتامينات. تساعد في الشعور بالشبع لفترة أطول.
+                                <br><br>
+                                <strong>مصادر جيدة:</strong> زيت الزيتون، المكسرات، الأفوكادو، السمك الدهني، البذور
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">
+                    <i class="fas fa-clock me-2"></i>
+                    أمثلة على خطط الوجبات
+                </h2>
+
+                <div class="meal-plan-section">
+                    <h4 class="meal-plan-title">خطط وجبات مخصصة لكل هدف</h4>
+                    
+                    <div class="meal-tabs">
+                        <button class="meal-tab active" onclick="showMealPlan('weight-loss')">خسارة الوزن</button>
+                        <button class="meal-tab" onclick="showMealPlan('muscle-gain')">بناء العضلات</button>
+                        <button class="meal-tab" onclick="showMealPlan('maintenance')">الحفاظ على الوزن</button>
+                    </div>
+
+                    <div id="weight-loss" class="meal-content active">
+                        <div class="meals-grid">
+                            <div class="meal-card">
+                                <div class="meal-time">الإفطار (7:00 ص)</div>
+                                <ul class="meal-items">
+                                    <li>3 بيضات مسلوقة</li>
+                                    <li>شريحة خبز أسمر</li>
+                                    <li>حبة طماطم وخيار</li>
+                                    <li>كوب شاي أخضر</li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-time">وجبة خفيفة (10:00 ص)</div>
+                                <ul class="meal-items">
+                                    <li>حبة تفاح متوسطة</li>
+                                    <li>10 حبات لوز</li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-time">الغداء (1:00 م)</div>
+                                <ul class="meal-items">
+                                    <li>150 جرام دجاج مشوي</li>
+                                    <li>كوب أرز بني</li>
+                                    <li>سلطة خضراء كبيرة</li>
+                                    <li>ملعقة زيت زيتون</li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-time">وجبة خفيفة (4:00 م)</div>
+                                <ul class="meal-items">
+                                    <li>كوب زبادي يوناني</li>
+                                    <li>ملعقة عسل</li>
+                                    <li>حفنة توت</li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-time">العشاء (7:00 م)</div>
+                                <ul class="meal-items">
+                                    <li>150 جرام سمك مشوي</li>
+                                    <li>خضروات مطبوخة على البخار</li>
+                                    <li>حبة بطاطا حلوة صغيرة</li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-time">قبل النوم (9:00 م)</div>
+                                <ul class="meal-items">
+                                    <li>كوب حليب خالي الدسم</li>
+                                    <li>ملعقة زبدة لوز</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="muscle-gain" class="meal-content">
+                        <div class="meals-grid">
+                            <div class="meal-card">
+                                <div class="meal-time">الإفطار (7:00 ص)</div>
+                                <ul class="meal-items">
+                                    <li>4 بيضات كاملة</li>
+                                    <li>كوب شوفان مع موز</li>
+                                    <li>ملعقة زبدة فول سوداني</li>
+                                    <li>كوب حليب كامل الدسم</li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-time">وجبة خفيفة (10:00 ص)</div>
+                                <ul class="meal-items">
+                                    <li>سموثي بروتين</li>
+                                    <li>موزة</li>
+                                    <li>ملعقة عسل</li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-time">الغداء (1:00 م)</div>
+                                <ul class="meal-items">
+                                    <li>200 جرام لحم أحمر</li>
+                                    <li>كوب ونصف أرز أبيض</li>
+                                    <li>سلطة مع أفوكادو</li>
+                                    <li>ملعقتين زيت زيتون</li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-time">قبل التمرين (4:00 م)</div>
+                                <ul class="meal-items">
+                                    <li>موزة</li>
+                                    <li>كوب قهوة</li>
+                                    <li>حفنة تمر</li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-time">بعد التمرين (6:00 م)</div>
+                                <ul class="meal-items">
+                                    <li>سكوب واي بروتين</li>
+                                    <li>موزة</li>
+                                    <li>كوب حليب</li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-time">العشاء (8:00 م)</div>
+                                <ul class="meal-items">
+                                    <li>200 جرام دجاج</li>
+                                    <li>كوب مكرونة</li>
+                                    <li>خضروات مشكلة</li>
+                                    <li>ملعقة زبدة</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="maintenance" class="meal-content">
+                        <div class="meals-grid">
+                            <div class="meal-card">
+                                <div class="meal-time">الإفطار (7:00 ص)</div>
+                                <ul class="meal-items">
+                                    <li>3 بيضات + بياض بيضة</li>
+                                    <li>شريحتين خبز أسمر</li>
+                                    <li>حبة أفوكادو صغيرة</li>
+                                    <li>كوب عصير برتقال</li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-time">وجبة خفيفة (10:00 ص)</div>
+                                <ul class="meal-items">
+                                    <li>كوب زبادي</li>
+                                    <li>حفنة مكسرات مشكلة</li>
+                                    <li>ملعقة عسل</li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-time">الغداء (1:00 م)</div>
+                                <ul class="meal-items">
+                                    <li>150 جرام سمك أو دجاج</li>
+                                    <li>كوب أرز بسمتي</li>
+                                    <li>سلطة خضراء</li>
+                                    <li>ملعقة زيت زيتون</li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-time">وجبة خفيفة (4:00 م)</div>
+                                <ul class="meal-items">
+                                    <li>حبة فاكهة موسمية</li>
+                                    <li>قطعة جبن قريش</li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-time">العشاء (7:00 م)</div>
+                                <ul class="meal-items">
+                                    <li>150 جرام بروتين</li>
+                                    <li>خضروات مطبوخة</li>
+                                    <li>حبة بطاطا متوسطة</li>
+                                </ul>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-time">قبل النوم (9:00 م)</div>
+                                <ul class="meal-items">
+                                    <li>كوب حليب</li>
+                                    <li>ملعقة زبدة لوز</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">
+                    <i class="fas fa-lightbulb me-2"></i>
+                    نصائح مهمة للنجاح
+                </h2>
+
+                <div class="tips-section">
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            <div class="tip-title">اشرب الماء بكثرة</div>
+                            <div class="tip-description">اشرب 2-3 لتر ماء يومياً. الماء يساعد في الهضم، يحسن الأداء، ويقلل الشعور بالجوع الكاذب.</div>
+                        </div>
+
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="tip-title">توقيت الوجبات</div>
+                            <div class="tip-description">تناول وجبة كل 3-4 ساعات للحفاظ على مستوى السكر في الدم وتحسين عملية الأيض.</div>
+                        </div>
+
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <i class="fas fa-apple-alt"></i>
+                            </div>
+                            <div class="tip-title">اختر الأطعمة الكاملة</div>
+                            <div class="tip-description">ركز على الأطعمة الطبيعية غير المصنعة. تجنب الأطعمة المعلبة والمصنعة قدر الإمكان.</div>
+                        </div>
+
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div class="tip-title">راقب الكميات</div>
+                            <div class="tip-description">استخدم ميزان الطعام أو كؤوس القياس لضمان تناول الكميات الصحيحة من كل مغذي.</div>
+                        </div>
+
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <i class="fas fa-utensils"></i>
+                            </div>
+                            <div class="tip-title">حضر وجباتك مسبقاً</div>
+                            <div class="tip-description">حضر وجباتك في نهاية الأسبوع لتوفير الوقت وضمان الالتزام بنظامك الغذائي.</div>
+                        </div>
+
+                        <div class="tip-card">
+                            <div class="tip-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="tip-title">تتبع تقدمك</div>
+                            <div class="tip-description">سجل وزنك وقياساتك أسبوعياً. التقدم قد يكون بطيئاً لكنه مستمر مع الصبر والثبات.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>تحذيرات مهمة</h4>
+                    <ul>
+                        <li><strong>لا تقلل السعرات بشكل مفرط:</strong> تجنب الحميات القاسية التي تقل عن 1200 سعرة للنساء أو 1500 للرجال</li>
+                        <li><strong>استشر طبيب:</strong> إذا كان لديك مشاكل صحية أو تتناول أدوية، استشر طبيبك قبل تغيير نظامك الغذائي</li>
+                        <li><strong>لا تحرم نفسك تماماً:</strong> اسمح لنفسك بوجبة مفتوحة أسبوعياً للحفاظ على الصحة النفسية</li>
+                        <li><strong>تدرج في التغيير:</strong> لا تغير نظامك الغذائي بالكامل فجأة، بل تدرج في التغيير</li>
+                    </ul>
+                </div>
+
+                <div class="success-box">
+                    <h4>مفاتيح النجاح</h4>
+                    <ul>
+                        <li><strong>الصبر:</strong> النتائج تحتاج وقت، لا تتوقع تغييرات سريعة</li>
+                        <li><strong>الثبات:</strong> الالتزام بالنظام 80% من الوقت أفضل من الكمال لأسبوع ثم التوقف</li>
+                        <li><strong>المرونة:</strong> اعدل النظام حسب ظروفك وتفضيلاتك</li>
+                        <li><strong>التعلم المستمر:</strong> اقرأ واتعلم عن التغذية لتحسين نظامك</li>
+                        <li><strong>الدعم:</strong> ابحث عن دعم من الأصدقاء أو مجتمعات اللياقة</li>
+                    </ul>
+                </div>
+
+                <!-- Back Button -->
+                <div class="text-center">
+                    <a href="{{ url_for('training_nutrition') }}" class="back-btn">
+                        <i class="fas fa-arrow-right me-2"></i>
+                        العودة إلى المقالات
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function showMealPlan(planType) {
+            // Hide all meal contents
+            const contents = document.querySelectorAll('.meal-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.meal-tab');
+            tabs.forEach(tab => tab.classList.remove('active'));
+            
+            // Show selected content and activate tab
+            document.getElementById(planType).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

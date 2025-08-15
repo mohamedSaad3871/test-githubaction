@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}جسمي أحسن{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Enhanced Header with Dropdown Menus -->
+    <nav class="navbar navbar-expand-lg modern-navbar sticky-top" id="mainNavbar">
+        <div class="container">
+            <!-- Logo (Right aligned for RTL) -->
+            <a class="navbar-brand d-flex align-items-center" href="{{ url_for('index') }}">
+                <div class="logo-container me-3">
+                    <i class="fas fa-heartbeat logo-icon"></i>
+                </div>
+                <div class="brand-text">
+                    <h5 class="brand-name mb-0">جسمي أحسن</h5>
+                    <small class="brand-subtitle">Jasmy A7san</small>
+                </div>
+            </a>
+
+            <!-- Mobile Toggle Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Menu -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">
+                            <i class="fas fa-home me-2"></i>
+                            الرئيسية
+                        </a>
+                    </li>
+
+                    <!-- Workout Section -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="workoutDropdown" role="button" 
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-dumbbell me-2"></i>
+                            التمارين
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="workoutDropdown">
+                            <li><a class="dropdown-item" href="{{ url_for('workout_plans') }}">
+                                <i class="fas fa-calendar-day me-2"></i>التمارين اليومية
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('workout_guide') }}">
+                                <i class="fas fa-book me-2"></i>دليل التمارين
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('workout_plan_result') }}">
+                                <i class="fas fa-chart-line me-2"></i>نتائج خطة التمارين
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Nutrition Section -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="nutritionDropdown" role="button" 
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-apple-alt me-2"></i>
+                            التغذية
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nutritionDropdown">
+                            <li><a class="dropdown-item" href="{{ url_for('meal_generator') }}">
+                                <i class="fas fa-utensils me-2"></i>السعرات الحرارية
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('food_calories_guide') }}">
+                                <i class="fas fa-fire me-2"></i>دليل السعرات الحرارية
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Body Calculators -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('calculators') }}">
+                            <i class="fas fa-calculator me-2"></i>
+                            احسب جسمك
+                        </a>
+                    </li>
+
+                    <!-- Injuries -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('gym_injuries') }}">
+                            <i class="fas fa-band-aid me-2"></i>
+                            إصابات الجيم
+                        </a>
+                    </li>
+
+                    <!-- Weight Loss Ideas -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="weightLossDropdown" role="button" 
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-weight me-2"></i>
+                            أفكار التخسيس
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="weightLossDropdown">
+                            <li><a class="dropdown-item" href="{{ url_for('your_plan_your_goal') }}">
+                                <i class="fas fa-bullseye me-2"></i>خطتك هدفك
+                            </a></li>
+                        </ul>
+                    </li>
+
+                    <!-- Understand Your Body -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="bodyDropdown" role="button" 
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-brain me-2"></i>
+                            افهم جسمك
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="bodyDropdown">
+                            <li><a class="dropdown-item" href="{{ url_for('interactive_quiz') }}">
+                                <i class="fas fa-clipboard-list me-2"></i>الاستبيان التفاعلي
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('tips') }}">
+                                <i class="fas fa-lightbulb me-2"></i>النصائح الذهبية
+                            </a></li>
+                            <li><a class="dropdown-item" href="{{ url_for('supplements') }}">
+                                <i class="fas fa-pills me-2"></i>دليل المكملات
+                            </a></li>
+
+                        </ul>
+                    </li>
+
+                    <!-- Login/Admin Button -->
+                    <li class="nav-item">
+                        <a class="nav-link auth-btn btn btn-outline-light ms-3" href="{{ url_for('admin_login') }}">
+                            <i class="fas fa-user-shield me-2"></i>
+                            تسجيل الدخول
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-dark text-white text-center p-4 mt-5">
+        <div class="container">
+            <p>&copy; 2024 جسمي أحسن. كل الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

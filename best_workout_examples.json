@@ -1,0 +1,1438 @@
+[
+  {
+    "timestamp": "2025-07-24 23:28:51.099397",
+    "user_data": {
+      "name": "محمد سعد السيد حسن",
+      "age": 25,
+      "gender": "male",
+      "weight": 70.0,
+      "height": 170.0,
+      "activity_level": "moderate",
+      "goal": "gain_muscle",
+      "target_weight": 73.0
+    },
+    "workout_plan": {
+      "weekly_plan": [
+        {
+          "day": "اليوم 1",
+          "workout_type": "الدفع",
+          "exercises": [
+            {
+              "name": "تمرين البنش برس",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 90,
+              "muscle_group": "الصدر"
+            },
+            {
+              "name": "تمرين الكتف العسكري",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 75,
+              "muscle_group": "الكتف"
+            },
+            {
+              "name": "تمرين التراي بالدمبل",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 55,
+              "muscle_group": "التراي"
+            },
+            {
+              "name": "تمرين الصدر المائل",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 85,
+              "muscle_group": "الصدر العلوي"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 305,
+          "focus": "الصدر، الكتف، التراي"
+        },
+        {
+          "day": "اليوم 2",
+          "workout_type": "السحب",
+          "exercises": [
+            {
+              "name": "تمرين السحب بالبار",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الباي بالبار",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 60,
+              "muscle_group": "الباي"
+            },
+            {
+              "name": "تمرين العقلة",
+              "sets": 3,
+              "reps": "6-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الباي بالكابل",
+              "sets": 3,
+              "reps": "10-12",
+              "calories": 55,
+              "muscle_group": "الباي"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 285,
+          "focus": "الظهر، الباي"
+        },
+        {
+          "day": "اليوم 3",
+          "workout_type": "الأرجل",
+          "exercises": [
+            {
+              "name": "تمرين القرفصاء بالوزن",
+              "sets": 4,
+              "reps": "10-12",
+              "calories": 100,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين الديدليفت الروماني",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 110,
+              "muscle_group": "الأرجل الخلفية"
+            },
+            {
+              "name": "تمرين البلغاري سكوات",
+              "sets": 3,
+              "reps": "10-12 لكل رجل",
+              "calories": 85,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين السمانة بالوزن",
+              "sets": 4,
+              "reps": "12-15",
+              "calories": 60,
+              "muscle_group": "السمانة"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 355,
+          "focus": "الأرجل، المؤخرة، السمانة"
+        }
+      ],
+      "workout_system": "push_pull_legs",
+      "total_workout_days": 3,
+      "difficulty_level": "متوسط",
+      "total_weekly_calories": 945,
+      "equipment_needed": "وزن الجسم",
+      "goal_focus": "gain_muscle",
+      "intensity_level": "شدة متوسطة - مناسب للمستوى المتوسط",
+      "estimated_session_duration": "55-70 دقيقة",
+      "progression_notes": "زيادة الأوزان تدريجياً كل أسبوعين - زيادة التحدي كل أسبوع",
+      "safety_tips": [
+        "شرب الماء بانتظام",
+        "الإحماء قبل التمرين والتبريد بعده",
+        "استخدام الأوزان المناسبة لمستواك"
+      ],
+      "nutrition_sync": {
+        "daily_calories": 2545,
+        "post_workout_protein": 39,
+        "hydration_goal": "2450ml يومياً"
+      }
+    },
+    "rating": null,
+    "id": 817
+  },
+  {
+    "timestamp": "2025-07-25 01:10:52.238256",
+    "user_data": {
+      "name": "نخناابلا",
+      "age": 25,
+      "gender": "male",
+      "weight": 70.0,
+      "height": 170.0,
+      "activity_level": "moderate",
+      "goal": "gain_weight",
+      "target_weight": 75.0
+    },
+    "workout_plan": {
+      "weekly_plan": [
+        {
+          "day": "اليوم 1",
+          "workout_type": "جسم كامل",
+          "exercises": [
+            {
+              "name": "تمرين القرفصاء بالوزن",
+              "sets": 4,
+              "reps": "10-12",
+              "calories": 100,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين البنش برس",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 90,
+              "muscle_group": "الصدر"
+            },
+            {
+              "name": "تمرين الديدليفت",
+              "sets": 4,
+              "reps": "6-8",
+              "calories": 120,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين العقلة",
+              "sets": 3,
+              "reps": "6-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الكتف العسكري",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 75,
+              "muscle_group": "الكتف"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 470,
+          "focus": "تمارين شاملة لجميع عضلات الجسم"
+        },
+        {
+          "day": "اليوم 2",
+          "workout_type": "راحة نشطة",
+          "exercises": [
+            {
+              "name": "مشي سريع أو تمدد",
+              "duration": "20-30 دقيقة",
+              "calories": 100
+            }
+          ],
+          "is_rest_day": true,
+          "total_calories": 100,
+          "focus": "استشفاء وتمدد"
+        },
+        {
+          "day": "اليوم 3",
+          "workout_type": "جسم كامل",
+          "exercises": [
+            {
+              "name": "تمرين القرفصاء بالوزن",
+              "sets": 4,
+              "reps": "10-12",
+              "calories": 100,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين البنش برس",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 90,
+              "muscle_group": "الصدر"
+            },
+            {
+              "name": "تمرين الديدليفت",
+              "sets": 4,
+              "reps": "6-8",
+              "calories": 120,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين العقلة",
+              "sets": 3,
+              "reps": "6-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الكتف العسكري",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 75,
+              "muscle_group": "الكتف"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 470,
+          "focus": "تمارين شاملة لجميع عضلات الجسم"
+        }
+      ],
+      "workout_system": "full_body",
+      "total_workout_days": 3,
+      "difficulty_level": "متوسط",
+      "total_weekly_calories": 940,
+      "equipment_needed": "وزن الجسم",
+      "goal_focus": "gain_weight",
+      "intensity_level": "شدة متوسطة - مناسب للمستوى المتوسط",
+      "estimated_session_duration": "45-60 دقيقة",
+      "progression_notes": "تقدم تدريجي - زيادة التحدي كل أسبوع",
+      "safety_tips": [
+        "شرب الماء بانتظام",
+        "الإحماء قبل التمرين والتبريد بعده",
+        "استخدام الأوزان المناسبة لمستواك"
+      ],
+      "nutrition_sync": {
+        "daily_calories": 2545,
+        "post_workout_protein": 39,
+        "hydration_goal": "2450ml يومياً"
+      }
+    },
+    "rating": null,
+    "id": 598
+  },
+  {
+    "timestamp": "2025-07-25 01:11:30.177909",
+    "user_data": {
+      "name": "محمد سعد السيد حسن",
+      "age": 25,
+      "gender": "male",
+      "weight": 70.0,
+      "height": 170.0,
+      "activity_level": "moderate",
+      "goal": "gain_weight",
+      "target_weight": 75.0
+    },
+    "workout_plan": {
+      "weekly_plan": [
+        {
+          "day": "اليوم 1",
+          "workout_type": "الدفع",
+          "exercises": [
+            {
+              "name": "تمرين البنش برس",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 90,
+              "muscle_group": "الصدر"
+            },
+            {
+              "name": "تمرين الكتف العسكري",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 75,
+              "muscle_group": "الكتف"
+            },
+            {
+              "name": "تمرين التراي بالدمبل",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 55,
+              "muscle_group": "التراي"
+            },
+            {
+              "name": "تمرين الصدر المائل",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 85,
+              "muscle_group": "الصدر العلوي"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 305,
+          "focus": "الصدر، الكتف، التراي"
+        },
+        {
+          "day": "اليوم 2",
+          "workout_type": "السحب",
+          "exercises": [
+            {
+              "name": "تمرين السحب بالبار",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الباي بالبار",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 60,
+              "muscle_group": "الباي"
+            },
+            {
+              "name": "تمرين العقلة",
+              "sets": 3,
+              "reps": "6-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الباي بالكابل",
+              "sets": 3,
+              "reps": "10-12",
+              "calories": 55,
+              "muscle_group": "الباي"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 285,
+          "focus": "الظهر، الباي"
+        },
+        {
+          "day": "اليوم 3",
+          "workout_type": "الأرجل",
+          "exercises": [
+            {
+              "name": "تمرين القرفصاء بالوزن",
+              "sets": 4,
+              "reps": "10-12",
+              "calories": 100,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين الديدليفت الروماني",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 110,
+              "muscle_group": "الأرجل الخلفية"
+            },
+            {
+              "name": "تمرين البلغاري سكوات",
+              "sets": 3,
+              "reps": "10-12 لكل رجل",
+              "calories": 85,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين السمانة بالوزن",
+              "sets": 4,
+              "reps": "12-15",
+              "calories": 60,
+              "muscle_group": "السمانة"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 355,
+          "focus": "الأرجل، المؤخرة، السمانة"
+        }
+      ],
+      "workout_system": "push_pull_legs",
+      "total_workout_days": 3,
+      "difficulty_level": "متوسط",
+      "total_weekly_calories": 945,
+      "equipment_needed": "وزن الجسم",
+      "goal_focus": "gain_weight",
+      "intensity_level": "شدة متوسطة - مناسب للمستوى المتوسط",
+      "estimated_session_duration": "55-70 دقيقة",
+      "progression_notes": "تقدم تدريجي - زيادة التحدي كل أسبوع",
+      "safety_tips": [
+        "شرب الماء بانتظام",
+        "الإحماء قبل التمرين والتبريد بعده",
+        "استخدام الأوزان المناسبة لمستواك"
+      ],
+      "nutrition_sync": {
+        "daily_calories": 2545,
+        "post_workout_protein": 39,
+        "hydration_goal": "2450ml يومياً"
+      }
+    },
+    "rating": null,
+    "id": 541
+  },
+  {
+    "timestamp": "2025-07-25 01:14:37.295848",
+    "user_data": {
+      "name": "محمد سعد السيد حسن",
+      "age": 25,
+      "gender": "male",
+      "weight": 70.0,
+      "height": 170.0,
+      "activity_level": "moderate",
+      "goal": "gain_weight",
+      "target_weight": 75.0
+    },
+    "workout_plan": {
+      "weekly_plan": [
+        {
+          "day": "اليوم 1",
+          "workout_type": "الدفع",
+          "exercises": [
+            {
+              "name": "تمرين البنش برس",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 90,
+              "muscle_group": "الصدر"
+            },
+            {
+              "name": "تمرين الكتف العسكري",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 75,
+              "muscle_group": "الكتف"
+            },
+            {
+              "name": "تمرين التراي بالدمبل",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 55,
+              "muscle_group": "التراي"
+            },
+            {
+              "name": "تمرين الصدر المائل",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 85,
+              "muscle_group": "الصدر العلوي"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 305,
+          "focus": "الصدر، الكتف، التراي"
+        },
+        {
+          "day": "اليوم 2",
+          "workout_type": "السحب",
+          "exercises": [
+            {
+              "name": "تمرين السحب بالبار",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الباي بالبار",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 60,
+              "muscle_group": "الباي"
+            },
+            {
+              "name": "تمرين العقلة",
+              "sets": 3,
+              "reps": "6-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الباي بالكابل",
+              "sets": 3,
+              "reps": "10-12",
+              "calories": 55,
+              "muscle_group": "الباي"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 285,
+          "focus": "الظهر، الباي"
+        },
+        {
+          "day": "اليوم 3",
+          "workout_type": "الأرجل",
+          "exercises": [
+            {
+              "name": "تمرين القرفصاء بالوزن",
+              "sets": 4,
+              "reps": "10-12",
+              "calories": 100,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين الديدليفت الروماني",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 110,
+              "muscle_group": "الأرجل الخلفية"
+            },
+            {
+              "name": "تمرين البلغاري سكوات",
+              "sets": 3,
+              "reps": "10-12 لكل رجل",
+              "calories": 85,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين السمانة بالوزن",
+              "sets": 4,
+              "reps": "12-15",
+              "calories": 60,
+              "muscle_group": "السمانة"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 355,
+          "focus": "الأرجل، المؤخرة، السمانة"
+        }
+      ],
+      "workout_system": "push_pull_legs",
+      "total_workout_days": 3,
+      "difficulty_level": "متوسط",
+      "total_weekly_calories": 945,
+      "equipment_needed": "وزن الجسم",
+      "goal_focus": "gain_weight",
+      "intensity_level": "شدة متوسطة - مناسب للمستوى المتوسط",
+      "estimated_session_duration": "55-70 دقيقة",
+      "progression_notes": "تقدم تدريجي - زيادة التحدي كل أسبوع",
+      "safety_tips": [
+        "شرب الماء بانتظام",
+        "الإحماء قبل التمرين والتبريد بعده",
+        "استخدام الأوزان المناسبة لمستواك"
+      ],
+      "nutrition_sync": {
+        "daily_calories": 2545,
+        "post_workout_protein": 39,
+        "hydration_goal": "2450ml يومياً"
+      }
+    },
+    "rating": null,
+    "id": 930
+  },
+  {
+    "timestamp": "2025-07-25 01:15:07.365392",
+    "user_data": {
+      "name": "windows server",
+      "age": 25,
+      "gender": "male",
+      "weight": 70.0,
+      "height": 170.0,
+      "activity_level": "moderate",
+      "goal": "gain_weight",
+      "target_weight": 75.0
+    },
+    "workout_plan": {
+      "weekly_plan": [
+        {
+          "day": "اليوم 1",
+          "workout_type": "جسم كامل",
+          "exercises": [
+            {
+              "name": "تمرين القرفصاء بالوزن",
+              "sets": 4,
+              "reps": "10-12",
+              "calories": 100,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين البنش برس",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 90,
+              "muscle_group": "الصدر"
+            },
+            {
+              "name": "تمرين الديدليفت",
+              "sets": 4,
+              "reps": "6-8",
+              "calories": 120,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين العقلة",
+              "sets": 3,
+              "reps": "6-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الكتف العسكري",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 75,
+              "muscle_group": "الكتف"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 470,
+          "focus": "تمارين شاملة لجميع عضلات الجسم"
+        },
+        {
+          "day": "اليوم 2",
+          "workout_type": "راحة نشطة",
+          "exercises": [
+            {
+              "name": "مشي سريع أو تمدد",
+              "duration": "20-30 دقيقة",
+              "calories": 100
+            }
+          ],
+          "is_rest_day": true,
+          "total_calories": 100,
+          "focus": "استشفاء وتمدد"
+        },
+        {
+          "day": "اليوم 3",
+          "workout_type": "جسم كامل",
+          "exercises": [
+            {
+              "name": "تمرين القرفصاء بالوزن",
+              "sets": 4,
+              "reps": "10-12",
+              "calories": 100,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين البنش برس",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 90,
+              "muscle_group": "الصدر"
+            },
+            {
+              "name": "تمرين الديدليفت",
+              "sets": 4,
+              "reps": "6-8",
+              "calories": 120,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين العقلة",
+              "sets": 3,
+              "reps": "6-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الكتف العسكري",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 75,
+              "muscle_group": "الكتف"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 470,
+          "focus": "تمارين شاملة لجميع عضلات الجسم"
+        }
+      ],
+      "workout_system": "full_body",
+      "total_workout_days": 3,
+      "difficulty_level": "متوسط",
+      "total_weekly_calories": 940,
+      "equipment_needed": "وزن الجسم",
+      "goal_focus": "gain_weight",
+      "intensity_level": "شدة متوسطة - مناسب للمستوى المتوسط",
+      "estimated_session_duration": "45-60 دقيقة",
+      "progression_notes": "تقدم تدريجي - زيادة التحدي كل أسبوع",
+      "safety_tips": [
+        "شرب الماء بانتظام",
+        "الإحماء قبل التمرين والتبريد بعده",
+        "استخدام الأوزان المناسبة لمستواك"
+      ],
+      "nutrition_sync": {
+        "daily_calories": 2545,
+        "post_workout_protein": 39,
+        "hydration_goal": "2450ml يومياً"
+      }
+    },
+    "rating": null,
+    "id": 141
+  },
+  {
+    "timestamp": "2025-07-25 01:20:43.218671",
+    "user_data": {
+      "name": "windows server",
+      "age": 25,
+      "gender": "male",
+      "weight": 70.0,
+      "height": 170.0,
+      "activity_level": "moderate",
+      "goal": "gain_weight",
+      "target_weight": 75.0
+    },
+    "workout_plan": {
+      "weekly_plan": [
+        {
+          "day": "اليوم 1",
+          "workout_type": "جسم كامل",
+          "exercises": [
+            {
+              "name": "تمرين القرفصاء بالوزن",
+              "sets": 4,
+              "reps": "10-12",
+              "calories": 100,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين البنش برس",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 90,
+              "muscle_group": "الصدر"
+            },
+            {
+              "name": "تمرين الديدليفت",
+              "sets": 4,
+              "reps": "6-8",
+              "calories": 120,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين العقلة",
+              "sets": 3,
+              "reps": "6-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الكتف العسكري",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 75,
+              "muscle_group": "الكتف"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 470,
+          "focus": "تمارين شاملة لجميع عضلات الجسم"
+        },
+        {
+          "day": "اليوم 2",
+          "workout_type": "راحة نشطة",
+          "exercises": [
+            {
+              "name": "مشي سريع أو تمدد",
+              "duration": "20-30 دقيقة",
+              "calories": 100
+            }
+          ],
+          "is_rest_day": true,
+          "total_calories": 100,
+          "focus": "استشفاء وتمدد"
+        },
+        {
+          "day": "اليوم 3",
+          "workout_type": "جسم كامل",
+          "exercises": [
+            {
+              "name": "تمرين القرفصاء بالوزن",
+              "sets": 4,
+              "reps": "10-12",
+              "calories": 100,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين البنش برس",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 90,
+              "muscle_group": "الصدر"
+            },
+            {
+              "name": "تمرين الديدليفت",
+              "sets": 4,
+              "reps": "6-8",
+              "calories": 120,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين العقلة",
+              "sets": 3,
+              "reps": "6-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الكتف العسكري",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 75,
+              "muscle_group": "الكتف"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 470,
+          "focus": "تمارين شاملة لجميع عضلات الجسم"
+        }
+      ],
+      "workout_system": "full_body",
+      "total_workout_days": 3,
+      "difficulty_level": "متوسط",
+      "total_weekly_calories": 940,
+      "equipment_needed": "وزن الجسم",
+      "goal_focus": "gain_weight",
+      "intensity_level": "شدة متوسطة - مناسب للمستوى المتوسط",
+      "estimated_session_duration": "45-60 دقيقة",
+      "progression_notes": "تقدم تدريجي - زيادة التحدي كل أسبوع",
+      "safety_tips": [
+        "شرب الماء بانتظام",
+        "الإحماء قبل التمرين والتبريد بعده",
+        "استخدام الأوزان المناسبة لمستواك"
+      ],
+      "nutrition_sync": {
+        "daily_calories": 2545,
+        "post_workout_protein": 39,
+        "hydration_goal": "2450ml يومياً"
+      }
+    },
+    "rating": null,
+    "id": 701
+  },
+  {
+    "timestamp": "2025-07-25 01:20:51.163477",
+    "user_data": {
+      "name": "windows server",
+      "age": 25,
+      "gender": "male",
+      "weight": 70.0,
+      "height": 170.0,
+      "activity_level": "moderate",
+      "goal": "gain_weight",
+      "target_weight": 75.0
+    },
+    "workout_plan": {
+      "weekly_plan": [
+        {
+          "day": "اليوم 1",
+          "workout_type": "جسم كامل",
+          "exercises": [
+            {
+              "name": "تمرين القرفصاء بالوزن",
+              "sets": 4,
+              "reps": "10-12",
+              "calories": 100,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين البنش برس",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 90,
+              "muscle_group": "الصدر"
+            },
+            {
+              "name": "تمرين الديدليفت",
+              "sets": 4,
+              "reps": "6-8",
+              "calories": 120,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين العقلة",
+              "sets": 3,
+              "reps": "6-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الكتف العسكري",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 75,
+              "muscle_group": "الكتف"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 470,
+          "focus": "تمارين شاملة لجميع عضلات الجسم"
+        },
+        {
+          "day": "اليوم 2",
+          "workout_type": "راحة نشطة",
+          "exercises": [
+            {
+              "name": "مشي سريع أو تمدد",
+              "duration": "20-30 دقيقة",
+              "calories": 100
+            }
+          ],
+          "is_rest_day": true,
+          "total_calories": 100,
+          "focus": "استشفاء وتمدد"
+        },
+        {
+          "day": "اليوم 3",
+          "workout_type": "جسم كامل",
+          "exercises": [
+            {
+              "name": "تمرين القرفصاء بالوزن",
+              "sets": 4,
+              "reps": "10-12",
+              "calories": 100,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين البنش برس",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 90,
+              "muscle_group": "الصدر"
+            },
+            {
+              "name": "تمرين الديدليفت",
+              "sets": 4,
+              "reps": "6-8",
+              "calories": 120,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين العقلة",
+              "sets": 3,
+              "reps": "6-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الكتف العسكري",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 75,
+              "muscle_group": "الكتف"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 470,
+          "focus": "تمارين شاملة لجميع عضلات الجسم"
+        }
+      ],
+      "workout_system": "full_body",
+      "total_workout_days": 3,
+      "difficulty_level": "متوسط",
+      "total_weekly_calories": 940,
+      "equipment_needed": "وزن الجسم",
+      "goal_focus": "gain_weight",
+      "intensity_level": "شدة متوسطة - مناسب للمستوى المتوسط",
+      "estimated_session_duration": "45-60 دقيقة",
+      "progression_notes": "تقدم تدريجي - زيادة التحدي كل أسبوع",
+      "safety_tips": [
+        "شرب الماء بانتظام",
+        "الإحماء قبل التمرين والتبريد بعده",
+        "استخدام الأوزان المناسبة لمستواك"
+      ],
+      "nutrition_sync": {
+        "daily_calories": 2545,
+        "post_workout_protein": 39,
+        "hydration_goal": "2450ml يومياً"
+      }
+    },
+    "rating": null,
+    "id": 714
+  },
+  {
+    "timestamp": "2025-07-25 01:22:07.209704",
+    "user_data": {
+      "name": "windows server",
+      "age": 25,
+      "gender": "male",
+      "weight": 70.0,
+      "height": 170.0,
+      "activity_level": "moderate",
+      "goal": "gain_weight",
+      "target_weight": 75.0
+    },
+    "workout_plan": {
+      "weekly_plan": [
+        {
+          "day": "اليوم 1",
+          "workout_type": "جسم كامل",
+          "exercises": [
+            {
+              "name": "تمرين القرفصاء بالوزن",
+              "sets": 4,
+              "reps": "10-12",
+              "calories": 100,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين البنش برس",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 90,
+              "muscle_group": "الصدر"
+            },
+            {
+              "name": "تمرين الديدليفت",
+              "sets": 4,
+              "reps": "6-8",
+              "calories": 120,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين العقلة",
+              "sets": 3,
+              "reps": "6-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الكتف العسكري",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 75,
+              "muscle_group": "الكتف"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 470,
+          "focus": "تمارين شاملة لجميع عضلات الجسم"
+        },
+        {
+          "day": "اليوم 2",
+          "workout_type": "راحة نشطة",
+          "exercises": [
+            {
+              "name": "مشي سريع أو تمدد",
+              "duration": "20-30 دقيقة",
+              "calories": 100
+            }
+          ],
+          "is_rest_day": true,
+          "total_calories": 100,
+          "focus": "استشفاء وتمدد"
+        },
+        {
+          "day": "اليوم 3",
+          "workout_type": "جسم كامل",
+          "exercises": [
+            {
+              "name": "تمرين القرفصاء بالوزن",
+              "sets": 4,
+              "reps": "10-12",
+              "calories": 100,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين البنش برس",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 90,
+              "muscle_group": "الصدر"
+            },
+            {
+              "name": "تمرين الديدليفت",
+              "sets": 4,
+              "reps": "6-8",
+              "calories": 120,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين العقلة",
+              "sets": 3,
+              "reps": "6-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الكتف العسكري",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 75,
+              "muscle_group": "الكتف"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 470,
+          "focus": "تمارين شاملة لجميع عضلات الجسم"
+        }
+      ],
+      "workout_system": "full_body",
+      "total_workout_days": 3,
+      "difficulty_level": "متوسط",
+      "total_weekly_calories": 940,
+      "equipment_needed": "وزن الجسم",
+      "goal_focus": "gain_weight",
+      "intensity_level": "شدة متوسطة - مناسب للمستوى المتوسط",
+      "estimated_session_duration": "45-60 دقيقة",
+      "progression_notes": "تقدم تدريجي - زيادة التحدي كل أسبوع",
+      "safety_tips": [
+        "شرب الماء بانتظام",
+        "الإحماء قبل التمرين والتبريد بعده",
+        "استخدام الأوزان المناسبة لمستواك"
+      ],
+      "nutrition_sync": {
+        "daily_calories": 2545,
+        "post_workout_protein": 39,
+        "hydration_goal": "2450ml يومياً"
+      }
+    },
+    "rating": null,
+    "id": 23
+  },
+  {
+    "timestamp": "2025-07-25 01:22:42.983105",
+    "user_data": {
+      "name": "محمد سعد السيد حسن",
+      "age": 25,
+      "gender": "male",
+      "weight": 70.0,
+      "height": 170.0,
+      "activity_level": "moderate",
+      "goal": "gain_weight",
+      "target_weight": 75.0
+    },
+    "workout_plan": {
+      "weekly_plan": [
+        {
+          "day": "اليوم 1",
+          "workout_type": "جسم كامل",
+          "exercises": [
+            {
+              "name": "تمرين القرفصاء بالوزن",
+              "sets": 4,
+              "reps": "10-12",
+              "calories": 100,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين البنش برس",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 90,
+              "muscle_group": "الصدر"
+            },
+            {
+              "name": "تمرين الديدليفت",
+              "sets": 4,
+              "reps": "6-8",
+              "calories": 120,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين العقلة",
+              "sets": 3,
+              "reps": "6-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الكتف العسكري",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 75,
+              "muscle_group": "الكتف"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 470,
+          "focus": "تمارين شاملة لجميع عضلات الجسم"
+        },
+        {
+          "day": "اليوم 2",
+          "workout_type": "راحة نشطة",
+          "exercises": [
+            {
+              "name": "مشي سريع أو تمدد",
+              "duration": "20-30 دقيقة",
+              "calories": 100
+            }
+          ],
+          "is_rest_day": true,
+          "total_calories": 100,
+          "focus": "استشفاء وتمدد"
+        },
+        {
+          "day": "اليوم 3",
+          "workout_type": "جسم كامل",
+          "exercises": [
+            {
+              "name": "تمرين القرفصاء بالوزن",
+              "sets": 4,
+              "reps": "10-12",
+              "calories": 100,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين البنش برس",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 90,
+              "muscle_group": "الصدر"
+            },
+            {
+              "name": "تمرين الديدليفت",
+              "sets": 4,
+              "reps": "6-8",
+              "calories": 120,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين العقلة",
+              "sets": 3,
+              "reps": "6-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الكتف العسكري",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 75,
+              "muscle_group": "الكتف"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 470,
+          "focus": "تمارين شاملة لجميع عضلات الجسم"
+        }
+      ],
+      "workout_system": "full_body",
+      "total_workout_days": 3,
+      "difficulty_level": "متوسط",
+      "total_weekly_calories": 940,
+      "equipment_needed": "وزن الجسم",
+      "goal_focus": "gain_weight",
+      "intensity_level": "شدة متوسطة - مناسب للمستوى المتوسط",
+      "estimated_session_duration": "45-60 دقيقة",
+      "progression_notes": "تقدم تدريجي - زيادة التحدي كل أسبوع",
+      "safety_tips": [
+        "شرب الماء بانتظام",
+        "الإحماء قبل التمرين والتبريد بعده",
+        "استخدام الأوزان المناسبة لمستواك"
+      ],
+      "nutrition_sync": {
+        "daily_calories": 2545,
+        "post_workout_protein": 39,
+        "hydration_goal": "2450ml يومياً"
+      }
+    },
+    "rating": null,
+    "id": 461
+  },
+  {
+    "timestamp": "2025-07-25 01:23:32.232545",
+    "user_data": {
+      "name": "محمد سعد السيد حسن",
+      "age": 25,
+      "gender": "male",
+      "weight": 70.0,
+      "height": 170.0,
+      "activity_level": "moderate",
+      "goal": "gain_weight",
+      "target_weight": 75.0
+    },
+    "workout_plan": {
+      "weekly_plan": [
+        {
+          "day": "اليوم 1",
+          "workout_type": "الدفع",
+          "exercises": [
+            {
+              "name": "تمرين البنش برس",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 90,
+              "muscle_group": "الصدر"
+            },
+            {
+              "name": "تمرين الكتف العسكري",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 75,
+              "muscle_group": "الكتف"
+            },
+            {
+              "name": "تمرين التراي بالدمبل",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 55,
+              "muscle_group": "التراي"
+            },
+            {
+              "name": "تمرين الصدر المائل",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 85,
+              "muscle_group": "الصدر العلوي"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 305,
+          "focus": "الصدر، الكتف، التراي"
+        },
+        {
+          "day": "اليوم 2",
+          "workout_type": "السحب",
+          "exercises": [
+            {
+              "name": "تمرين السحب بالبار",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الباي بالبار",
+              "sets": 3,
+              "reps": "8-10",
+              "calories": 60,
+              "muscle_group": "الباي"
+            },
+            {
+              "name": "تمرين العقلة",
+              "sets": 3,
+              "reps": "6-10",
+              "calories": 85,
+              "muscle_group": "الظهر"
+            },
+            {
+              "name": "تمرين الباي بالكابل",
+              "sets": 3,
+              "reps": "10-12",
+              "calories": 55,
+              "muscle_group": "الباي"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 285,
+          "focus": "الظهر، الباي"
+        },
+        {
+          "day": "اليوم 3",
+          "workout_type": "الأرجل",
+          "exercises": [
+            {
+              "name": "تمرين القرفصاء بالوزن",
+              "sets": 4,
+              "reps": "10-12",
+              "calories": 100,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين الديدليفت الروماني",
+              "sets": 4,
+              "reps": "8-10",
+              "calories": 110,
+              "muscle_group": "الأرجل الخلفية"
+            },
+            {
+              "name": "تمرين البلغاري سكوات",
+              "sets": 3,
+              "reps": "10-12 لكل رجل",
+              "calories": 85,
+              "muscle_group": "الأرجل"
+            },
+            {
+              "name": "تمرين السمانة بالوزن",
+              "sets": 4,
+              "reps": "12-15",
+              "calories": 60,
+              "muscle_group": "السمانة"
+            }
+          ],
+          "is_rest_day": false,
+          "total_calories": 355,
+          "focus": "الأرجل، المؤخرة، السمانة"
+        }
+      ],
+      "workout_system": "push_pull_legs",
+      "total_workout_days": 3,
+      "difficulty_level": "متوسط",
+      "total_weekly_calories": 945,
+      "equipment_needed": "وزن الجسم",
+      "goal_focus": "gain_weight",
+      "intensity_level": "شدة متوسطة - مناسب للمستوى المتوسط",
+      "estimated_session_duration": "55-70 دقيقة",
+      "progression_notes": "تقدم تدريجي - زيادة التحدي كل أسبوع",
+      "safety_tips": [
+        "شرب الماء بانتظام",
+        "الإحماء قبل التمرين والتبريد بعده",
+        "استخدام الأوزان المناسبة لمستواك"
+      ],
+      "nutrition_sync": {
+        "daily_calories": 2545,
+        "post_workout_protein": 39,
+        "hydration_goal": "2450ml يومياً"
+      }
+    },
+    "rating": null,
+    "id": 158
+  }
+]

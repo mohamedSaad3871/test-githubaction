@@ -1,0 +1,100 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="proteinGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffecd2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fcb69f;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="plateGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ecf0f1;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="200" fill="url(#proteinGradient)" rx="15"/>
+  
+  <!-- Plate -->
+  <ellipse cx="150" cy="130" rx="90" ry="50" fill="url(#plateGradient)" stroke="#bdc3c7" stroke-width="2"/>
+  <ellipse cx="150" cy="120" rx="85" ry="8" fill="#ecf0f1"/>
+  
+  <!-- Grilled Chicken -->
+  <g fill="#d4a574">
+    <ellipse cx="120" cy="120" rx="25" ry="15" transform="rotate(-10 120 120)"/>
+    <!-- Grill marks -->
+    <g stroke="#8b4513" stroke-width="2" opacity="0.6">
+      <line x1="105" y1="115" x2="135" y2="115"/>
+      <line x1="105" y1="125" x2="135" y2="125"/>
+    </g>
+  </g>
+  
+  <!-- Rice -->
+  <g fill="#f8f9fa">
+    <ellipse cx="180" cy="115" rx="20" ry="12"/>
+    <!-- Rice grains texture -->
+    <g fill="#e9ecef" opacity="0.7">
+      <ellipse cx="175" cy="112" rx="2" ry="1"/>
+      <ellipse cx="185" cy="115" rx="1.5" ry="0.8"/>
+      <ellipse cx="180" cy="118" rx="1.8" ry="1"/>
+      <ellipse cx="170" cy="116" rx="1.2" ry="0.6"/>
+    </g>
+  </g>
+  
+  <!-- Broccoli -->
+  <g fill="#27ae60">
+    <circle cx="140" cy="145" r="8"/>
+    <circle cx="135" cy="140" r="6"/>
+    <circle cx="145" cy="140" r="5"/>
+    <circle cx="140" cy="135" r="4"/>
+    <!-- Stem -->
+    <rect x="138" y="150" width="4" height="8" rx="2" fill="#2ecc71"/>
+  </g>
+  
+  <!-- Sweet Potato -->
+  <g fill="#e67e22">
+    <ellipse cx="170" cy="145" rx="15" ry="8"/>
+    <!-- Lines for texture -->
+    <g stroke="#d35400" stroke-width="1" opacity="0.5">
+      <line x1="160" y1="145" x2="180" y2="145"/>
+      <line x1="162" y1="140" x2="178" y2="140"/>
+      <line x1="162" y1="150" x2="178" y2="150"/>
+    </g>
+  </g>
+  
+  <!-- Avocado slices -->
+  <g fill="#2ecc71">
+    <ellipse cx="110" cy="140" rx="8" ry="12" transform="rotate(20 110 140)"/>
+    <ellipse cx="105" cy="145" rx="6" ry="10" transform="rotate(20 105 145)"/>
+    <!-- Avocado center -->
+    <ellipse cx="110" cy="140" rx="3" ry="5" fill="#f1c40f" transform="rotate(20 110 140)"/>
+  </g>
+  
+  <!-- Knife and Fork -->
+  <g fill="#95a5a6" transform="translate(50, 90)">
+    <!-- Fork -->
+    <rect x="0" y="0" width="2" height="40" rx="1"/>
+    <rect x="-1" y="0" width="1" height="6" rx="0.5"/>
+    <rect x="1" y="0" width="1" height="6" rx="0.5"/>
+    <rect x="3" y="0" width="1" height="6" rx="0.5"/>
+  </g>
+  
+  <g fill="#95a5a6" transform="translate(230, 90)">
+    <!-- Knife -->
+    <rect x="0" y="0" width="2" height="40" rx="1"/>
+    <polygon points="0,0 4,0 2,8 0,6" fill="#bdc3c7"/>
+  </g>
+  
+  <!-- Protein indicator -->
+  <g fill="#e74c3c" opacity="0.8">
+    <circle cx="250" cy="50" r="15"/>
+    <text x="250" y="55" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="10" font-weight="bold">P</text>
+  </g>
+  
+  <!-- Sparkles for appeal -->
+  <g fill="#f39c12" opacity="0.8">
+    <polygon points="80,50 82,55 87,55 83,58 85,63 80,60 75,63 77,58 73,55 78,55"/>
+    <polygon points="220,40 221,43 224,43 222,45 223,48 220,46 217,48 218,45 216,43 219,43"/>
+  </g>
+  
+  <!-- Label -->
+  <text x="150" y="25" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="16" font-weight="bold">وجبة بروتين</text>
+</svg>

@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>استبيان اللياقة الذكي - خطتك الشخصية المثالية</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --secondary-color: #06b6d4;
+            --accent-color: #f59e0b;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --gradient-success: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .quiz-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .quiz-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            max-width: 700px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .quiz-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .quiz-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .quiz-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .progress-container {
+            background: rgba(255, 255, 255, 0.2);
+            height: 8px;
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #fff, #f0f0f0);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            width: 0%;
+        }
+
+        .quiz-body {
+            padding: 40px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .question-container {
+            display: none;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .question-container.active {
+            display: block;
+        }
+
+        .question-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .question-subtitle {
+            font-size: 1rem;
+            color: #4a5568;
+            margin-bottom: 20px;
+            text-align: center;
+            opacity: 0.8;
+        }
+
+        .options-grid {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .options-grid.two-columns {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .options-grid.three-columns {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: 600;
+            color: #2d3748;
+            margin-bottom: 8px;
+        }
+
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .input-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .option-card {
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
+            padding: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .option-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .option-card.selected {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.3);
+        }
+
+        .option-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .option-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .option-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .checkbox-group {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .checkbox-item:hover {
+            border-color: var(--primary-color);
+            background: #f1f5f9;
+        }
+
+        .checkbox-item.selected {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-left: 10px;
+            transform: scale(1.2);
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            position: sticky;
+            bottom: 0;
+            background: white;
+            padding: 20px 0;
+        }
+
+        .btn-nav {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-prev {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .btn-prev:hover {
+            background: #cbd5e0;
+            transform: translateX(-3px);
+        }
+
+        .btn-next {
+            background: var(--gradient-primary);
+            color: white;
+            min-width: 120px;
+        }
+
+        .btn-next:hover {
+            transform: translateX(3px);
+            box-shadow: 0 5px 15px rgba(79, 70, 229, 0.4);
+        }
+
+        .btn-next:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .question-number {
+            background: var(--gradient-accent);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .auto-save-indicator {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--success-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .auto-save-indicator.show {
+            opacity: 1;
+        }
+
+        .validation-error {
+            color: var(--danger-color);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .result-container {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .result-container.active {
+            display: block;
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .result-icon {
+            font-size: 4rem;
+            color: var(--success-color);
+            margin-bottom: 20px;
+        }
+
+        .result-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #2d3748;
+            margin-bottom: 15px;
+        }
+
+        .result-description {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .result-details {
+            background: #f8fafc;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: right;
+        }
+
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .result-item:last-child {
+            border-bottom: none;
+        }
+
+        .result-label {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .result-value {
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .macro-chart {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .macro-item {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .macro-percentage {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+
+        .macro-label {
+            font-size: 0.9rem;
+            color: #4a5568;
+            margin-top: 5px;
+        }
+
+        .meal-plan-preview {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: right;
+        }
+
+        .meal-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .meal-item:last-child {
+            border-bottom: none;
+        }
+
+        .meal-name {
+            font-weight: 600;
+            color: #2d3748;
+        }
+
+        .meal-calories {
+            background: var(--gradient-accent);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .result-actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn-result {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--gradient-secondary);
+            color: white;
+        }
+
+        .btn-success {
+            background: var(--gradient-success);
+            color: white;
+        }
+
+        .btn-result:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            color: white;
+            text-decoration: none;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .quiz-card {
+                margin: 10px;
+                border-radius: 20px;
+            }
+            
+            .quiz-header {
+                padding: 20px;
+            }
+            
+            .quiz-title {
+                font-size: 1.8rem;
+            }
+            
+            .quiz-body {
+                padding: 20px;
+            }
+            
+            .options-grid.two-columns,
+            .options-grid.three-columns {
+                grid-template-columns: 1fr;
+            }
+            
+            .input-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .macro-chart {
+                grid-template-columns: 1fr;
+            }
+            
+            .result-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <div class="quiz-card">
+            <div class="auto-save-indicator" id="autoSaveIndicator">
+                <i class="fas fa-save"></i> تم الحفظ تلقائياً
+            </div>
+            
+            <div class="quiz-header">
+                <h1 class="quiz-title">🎯 استبيان اللياقة الذكي</h1>
+                <p class="quiz-subtitle">احصل على خطة تغذية وتمارين مخصصة تماماً لك</p>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+
+            <div class="quiz-body">
+                <!-- Question 1: Basic Personal Data -->
+                <div class="question-container active" data-question="1">
+                    <div class="question-number">1</div>
+                    <h2 class="question-title">البيانات الشخصية الأساسية</h2>
+                    <p class="question-subtitle">هذه المعلومات ضرورية لحساب احتياجاتك الغذائية بدقة</p>
+                    
+                    <div class="input-group">
+                        <label>العمر (سنة)</label>
+                        <input type="number" id="age" min="13" max="80" placeholder="مثال: 25" required>
+                        <div class="validation-error" id="ageError">يرجى إدخال عمر صحيح (13-80 سنة)</div>
+                    </div>
+                    
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>الوزن الحالي (كيلو)</label>
+                            <input type="number" id="currentWeight" min="30" max="200" step="0.1" placeholder="مثال: 70.5" required>
+                            <div class="validation-error" id="weightError">يرجى إدخال وزن صحيح (30-200 كيلو)</div>
+                        </div>
+                        <div class="input-group">
+                            <label>الطول (سم)</label>
+                            <input type="number" id="height" min="120" max="220" placeholder="مثال: 170" required>
+                            <div class="validation-error" id="heightError">يرجى إدخال طول صحيح (120-220 سم)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label>الوزن المستهدف (كيلو)</label>
+                            <input type="number" id="targetWeight" min="30" max="200" step="0.1" placeholder="مثال: 65" required>
+                            <div class="validation-error" id="targetWeightError">يرجى إدخال وزن مستهدف صحيح</div>
+                        </div>
+                        <div class="input-group">
+                            <label>الجنس</label>
+                            <select id="gender" required>
+                                <option value="">اختر الجنس</option>
+                                <option value="male">ذكر</option>
+                                <option value="female">أنثى</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>سرعة تغيير الوزن المرغوبة</label>
+                        <div class="options-grid three-columns">
+                            <div class="option-card" data-value="fast">
+                                <i class="fas fa-rocket option-icon"></i>
+                                <div class="option-title">سريع</div>
+                                <div class="option-description">1-1.5 كيلو أسبوعياً</div>
+                            </div>
+                            <div class="option-card" data-value="moderate">
+                                <i class="fas fa-walking option-icon"></i>
+                                <div class="option-title">متوسط</div>
+                                <div class="option-description">0.5-1 كيلو أسبوعياً</div>
+                            </div>
+                            <div class="option-card" data-value="slow">
+                                <i class="fas fa-turtle option-icon"></i>
+                                <div class="option-title">بطيء</div>
+                                <div class="option-description">0.25-0.5 كيلو أسبوعياً</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button class="btn-nav btn-prev" onclick="previousQuestion()" disabled>السابق</button>
+                        <button class="btn-nav btn-next" onclick="nextQuestion()" disabled>التالي</button>
+                    </div>
+                </div>
+
+                <!-- Question 2: Daily Activity Level -->
+                <div class="question-container" data-question="2">
+                    <div class="question-number">2</div>
+                    <h2 class="question-title">مستوى النشاط اليومي</h2>
+                    <p class="question-subtitle">يساعدنا هذا في حساب معدل الأيض الكلي (TDEE) بدقة</p>
+                    
+                    <div class="options-grid">
+                        <div class="option-card" data-value="sedentary">
+                            <i class="fas fa-couch option-icon"></i>
+                            <div class="option-title">قليل الحركة</div>
+                            <div class="option-description">عمل مكتبي، لا توجد تمارين أو تمارين قليلة جداً</div>
+                        </div>
+                        <div class="option-card" data-value="light">
+                            <i class="fas fa-walking option-icon"></i>
+                            <div class="option-title">نشاط خفيف</div>
+                            <div class="option-description">تمارين خفيفة أو رياضة 1-3 أيام في الأسبوع</div>
+                        </div>
+                        <div class="option-card" data-value="moderate">
+                            <i class="fas fa-running option-icon"></i>
+                            <div class="option-title">نشاط متوسط</div>
+                            <div class="option-description">تمارين متوسطة 3-5 أيام في الأسبوع</div>
+                        </div>
+                        <div class="option-card" data-value="active">
+                            <i class="fas fa-dumbbell option-icon"></i>
+                            <div class="option-title">نشيط جداً</div>
+                            <div class="option-description">تمارين مكثفة 6-7 أيام في الأسبوع</div>
+                        </div>
+                        <div class="option-card" data-value="very_active">
+                            <i class="fas fa-fire option-icon"></i>
+                            <div class="option-title">نشيط للغاية</div>
+                            <div class="option-description">تمارين مكثفة يومياً + عمل بدني شاق</div>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button class="btn-nav btn-prev" onclick="previousQuestion()">السابق</button>
+                        <button class="btn-nav btn-next" onclick="nextQuestion()" disabled>التالي</button>
+                    </div>
+                </div>
+
+                <!-- Question 3: Food Preferences & Restrictions -->
+                <div class="question-container" data-question="3">
+                    <div class="question-number">3</div>
+                    <h2 class="question-title">التفضيلات والقيود الغذائية</h2>
+                    <p class="question-subtitle">سنخصص خطة التغذية وفقاً لتفضيلاتك وقيودك الغذائية</p>
+                    
+                    <div class="input-group">
+                        <label>نوع النظام الغذائي</label>
+                        <div class="options-grid two-columns">
+                            <div class="option-card" data-value="omnivore">
+                                <i class="fas fa-utensils option-icon"></i>
+                                <div class="option-title">متنوع</div>
+                                <div class="option-description">جميع أنواع الطعام</div>
+                            </div>
+                            <div class="option-card" data-value="vegetarian">
+                                <i class="fas fa-leaf option-icon"></i>
+                                <div class="option-title">نباتي</div>
+                                <div class="option-description">لا لحوم، نعم للبيض ومنتجات الألبان</div>
+                            </div>
+                            <div class="option-card" data-value="vegan">
+                                <i class="fas fa-seedling option-icon"></i>
+                                <div class="option-title">نباتي صرف</div>
+                                <div class="option-description">نباتات فقط، لا منتجات حيوانية</div>
+                            </div>
+                            <div class="option-card" data-value="pescatarian">
+                                <i class="fas fa-fish option-icon"></i>
+                                <div class="option-title">سمكي</div>
+                                <div class="option-description">أسماك ونباتات، لا لحوم</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>الحساسية الغذائية (اختر كل ما ينطبق)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item" data-allergy="lactose">
+                                <input type="checkbox" id="lactose">
+                                <label for="lactose">حساسية اللاكتوز (منتجات الألبان)</label>
+                            </div>
+                            <div class="checkbox-item" data-allergy="gluten">
+                                <input type="checkbox" id="gluten">
+                                <label for="gluten">حساسية الجلوتين (القمح)</label>
+                            </div>
+                            <div class="checkbox-item" data-allergy="nuts">
+                                <input type="checkbox" id="nuts">
+                                <label for="nuts">حساسية المكسرات</label>
+                            </div>
+                            <div class="checkbox-item" data-allergy="eggs">
+                                <input type="checkbox" id="eggs">
+                                <label for="eggs">حساسية البيض</label>
+                            </div>
+                            <div class="checkbox-item" data-allergy="seafood">
+                                <input type="checkbox" id="seafood">
+                                <label for="seafood">حساسية المأكولات البحرية</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>المطبخ المفضل</label>
+                        <div class="options-grid three-columns">
+                            <div class="option-card" data-value="mediterranean">
+                                <i class="fas fa-olive-branch option-icon"></i>
+                                <div class="option-title">متوسطي</div>
+                            </div>
+                            <div class="option-card" data-value="middle_eastern">
+                                <i class="fas fa-mosque option-icon"></i>
+                                <div class="option-title">شرق أوسطي</div>
+                            </div>
+                            <div class="option-card" data-value="asian">
+                                <i class="fas fa-yin-yang option-icon"></i>
+                                <div class="option-title">آسيوي</div>
+                            </div>
+                            <div class="option-card" data-value="international">
+                                <i class="fas fa-globe option-icon"></i>
+                                <div class="option-title">عالمي</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button class="btn-nav btn-prev" onclick="previousQuestion()">السابق</button>
+                        <button class="btn-nav btn-next" onclick="nextQuestion()" disabled>التالي</button>
+                    </div>
+                </div>
+
+                <!-- Question 4: Budget & Time Availability -->
+                <div class="question-container" data-question="4">
+                    <div class="question-number">4</div>
+                    <h2 class="question-title">الميزانية والوقت المتاح</h2>
+                    <p class="question-subtitle">سنقترح وجبات تناسب ميزانيتك ووقتك المتاح للطبخ</p>
+                    
+                    <div class="input-group">
+                        <label>الميزانية الشهرية للطعام</label>
+                        <div class="options-grid three-columns">
+                            <div class="option-card" data-value="low">
+                                <i class="fas fa-coins option-icon"></i>
+                                <div class="option-title">محدودة</div>
+                                <div class="option-description">أقل من 500 ريال</div>
+                            </div>
+                            <div class="option-card" data-value="medium">
+                                <i class="fas fa-money-bill option-icon"></i>
+                                <div class="option-title">متوسطة</div>
+                                <div class="option-description">500-1000 ريال</div>
+                            </div>
+                            <div class="option-card" data-value="high">
+                                <i class="fas fa-money-bill-wave option-icon"></i>
+                                <div class="option-title">مرتفعة</div>
+                                <div class="option-description">أكثر من 1000 ريال</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>الوقت المتاح للطبخ يومياً</label>
+                        <div class="options-grid">
+                            <div class="option-card" data-value="quick">
+                                <i class="fas fa-clock option-icon"></i>
+                                <div class="option-title">وجبات سريعة</div>
+                                <div class="option-description">أقل من 15 دقيقة - وجبات جاهزة وسهلة</div>
+                            </div>
+                            <div class="option-card" data-value="moderate">
+                                <i class="fas fa-stopwatch option-icon"></i>
+                                <div class="option-title">طبخ متوسط</div>
+                                <div class="option-description">15-30 دقيقة - وجبات بسيطة</div>
+                            </div>
+                            <div class="option-card" data-value="full">
+                                <i class="fas fa-hourglass-half option-icon"></i>
+                                <div class="option-title">طبخ كامل</div>
+                                <div class="option-description">أكثر من 30 دقيقة - وجبات مفصلة</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button class="btn-nav btn-prev" onclick="previousQuestion()">السابق</button>
+                        <button class="btn-nav btn-next" onclick="nextQuestion()" disabled>التالي</button>
+                    </div>
+                </div>
+
+                <!-- Question 5: Health Conditions -->
+                <div class="question-container" data-question="5">
+                    <div class="question-number">5</div>
+                    <h2 class="question-title">الحالة الصحية والمكملات</h2>
+                    <p class="question-subtitle">معلومات مهمة لضمان سلامة وفعالية خطتك الغذائية</p>
+                    
+                    <div class="input-group">
+                        <label>الحالات الصحية المزمنة (اختر كل ما ينطبق)</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item" data-condition="none">
+                                <input type="checkbox" id="none">
+                                <label for="none">لا توجد حالات صحية مزمنة</label>
+                            </div>
+                            <div class="checkbox-item" data-condition="diabetes">
+                                <input type="checkbox" id="diabetes">
+                                <label for="diabetes">السكري</label>
+                            </div>
+                            <div class="checkbox-item" data-condition="hypertension">
+                                <input type="checkbox" id="hypertension">
+                                <label for="hypertension">ضغط الدم المرتفع</label>
+                            </div>
+                            <div class="checkbox-item" data-condition="heart">
+                                <input type="checkbox" id="heart">
+                                <label for="heart">أمراض القلب</label>
+                            </div>
+                            <div class="checkbox-item" data-condition="thyroid">
+                                <input type="checkbox" id="thyroid">
+                                <label for="thyroid">مشاكل الغدة الدرقية</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label>المكملات الغذائية المستخدمة حالياً</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item" data-supplement="none">
+                                <input type="checkbox" id="no_supplements">
+                                <label for="no_supplements">لا أستخدم مكملات</label>
+                            </div>
+                            <div class="checkbox-item" data-supplement="whey">
+                                <input type="checkbox" id="whey">
+                                <label for="whey">بروتين مصل اللبن (Whey)</label>
+                            </div>
+                            <div class="checkbox-item" data-supplement="creatine">
+                                <input type="checkbox" id="creatine">
+                                <label for="creatine">الكرياتين</label>
+                            </div>
+                            <div class="checkbox-item" data-supplement="vitamins">
+                                <input type="checkbox" id="vitamins">
+                                <label for="vitamins">فيتامينات متعددة</label>
+                            </div>
+                            <div class="checkbox-item" data-supplement="omega3">
+                                <input type="checkbox" id="omega3">
+                                <label for="omega3">أوميجا 3</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button class="btn-nav btn-prev" onclick="previousQuestion()">السابق</button>
+                        <button class="btn-nav btn-next" onclick="nextQuestion()" disabled>التالي</button>
+                    </div>
+                </div>
+
+                <!-- Question 6: Primary Goal -->
+                <div class="question-container" data-question="6">
+                    <div class="question-number">6</div>
+                    <h2 class="question-title">الهدف الأساسي من التمارين</h2>
+                    <p class="question-subtitle">سيحدد هذا نوع التمارين والنظام الغذائي المناسب لك</p>
+                    
+                    <div class="options-grid">
+                        <div class="option-card" data-value="weight_loss">
+                            <i class="fas fa-weight option-icon"></i>
+                            <div class="option-title">إنقاص الوزن</div>
+                            <div class="option-description">حرق الدهون والوصول للوزن المثالي</div>
+                        </div>
+                        <div class="option-card" data-value="muscle_gain">
+                            <i class="fas fa-dumbbell option-icon"></i>
+                            <div class="option-title">بناء العضلات</div>
+                            <div class="option-description">زيادة الكتلة العضلية والقوة</div>
+                        </div>
+                        <div class="option-card" data-value="fitness">
+                            <i class="fas fa-heart option-icon"></i>
+                            <div class="option-title">تحسين اللياقة</div>
+                            <div class="option-description">زيادة القدرة على التحمل والصحة العامة</div>
+                        </div>
+                        <div class="option-card" data-value="maintenance">
+                            <i class="fas fa-balance-scale option-icon"></i>
+                            <div class="option-title">الحفاظ على الوضع الحالي</div>
+                            <div class="option-description">المحافظة على الوزن والشكل الحالي</div>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-buttons">
+                        <button class="btn-nav btn-prev" onclick="previousQuestion()">السابق</button>
+                        <button class="btn-nav btn-next" onclick="showResults()">احصل على خطتك المثالية 🎯</button>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div class="result-container" id="results">
+                    <i class="fas fa-trophy result-icon"></i>
+                    <h2 class="result-title">خطتك الشخصية جاهزة! 🎉</h2>
+                    <p class="result-description">
+                        تم تحليل بياناتك بدقة وإنشاء خطة مخصصة تماماً لاحتياجاتك وأهدافك.
+                    </p>
+                    
+                    <div class="result-details" id="calculationResults">
+                        <!-- سيتم ملء النتائج هنا بواسطة JavaScript -->
+                    </div>
+                    
+                    <div class="macro-chart" id="macroChart">
+                        <!-- سيتم ملء توزيع الماكروز هنا -->
+                    </div>
+                    
+                    <div class="meal-plan-preview" id="mealPlanPreview">
+                        <!-- سيتم ملء معاينة خطة الوجبات هنا -->
+                    </div>
+                    
+                    <div class="result-actions">
+                        <button class="btn-result btn-primary" onclick="viewMealPlan()">
+                            <i class="fas fa-utensils"></i> عرض خطة الوجبات المفصلة
+                        </button>
+
+                        <a href="/workout-plans" class="btn-result btn-secondary">
+                            <i class="fas fa-dumbbell"></i> خطة التمارين
+                        </a>
+                        <a href="/calculators" class="btn-result btn-success">
+                            <i class="fas fa-calculator"></i> حاسبات اللياقة
+                        </a>
+                        <button class="btn-result btn-info" onclick="downloadPlan()">
+                            <i class="fas fa-download"></i> تحميل الخطة PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 6;
+        let answers = {};
+        let autoSaveTimer;
+
+        // تحميل البيانات المحفوظة عند بدء الصفحة
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSavedData();
+            setupEventListeners();
+            updateProgress();
+            validateCurrentQuestion();
+        });
+
+        function setupEventListeners() {
+            // إضافة مستمعي الأحداث لجميع بطاقات الخيارات
+            const optionCards = document.querySelectorAll('.option-card');
+            optionCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const questionNum = this.closest('.question-container').dataset.question;
+                    const value = this.getAttribute('data-value');
+                    selectOption(this, value, questionNum);
+                });
+            });
+
+            // إضافة مستمعي الأحداث للحقول النصية
+            const inputs = document.querySelectorAll('input, select');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    validateInput(this);
+                    autoSave();
+                    validateCurrentQuestion();
+                });
+            });
+
+            // إضافة مستمعي الأحداث لصناديق الاختيار
+            const checkboxItems = document.querySelectorAll('.checkbox-item');
+            checkboxItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const checkbox = this.querySelector('input[type="checkbox"]');
+                    checkbox.checked = !checkbox.checked;
+                    this.classList.toggle('selected', checkbox.checked);
+                    
+                    // إذا تم اختيار "لا توجد" فقم بإلغاء تحديد الباقي
+                    if (checkbox.id === 'none' || checkbox.id === 'no_supplements') {
+                        if (checkbox.checked) {
+                            const otherCheckboxes = this.parentElement.querySelectorAll('input[type="checkbox"]:not(#' + checkbox.id + ')');
+                            otherCheckboxes.forEach(cb => {
+                                cb.checked = false;
+                                cb.closest('.checkbox-item').classList.remove('selected');
+                            });
+                        }
+                    } else {
+                        // إذا تم اختيار خيار آخر، قم بإلغاء تحديد "لا توجد"
+                        const noneCheckbox = this.parentElement.querySelector('#none, #no_supplements');
+                        if (noneCheckbox && noneCheckbox.checked) {
+                            noneCheckbox.checked = false;
+                            noneCheckbox.closest('.checkbox-item').classList.remove('selected');
+                        }
+                    }
+                    
+                    autoSave();
+                    validateCurrentQuestion();
+                });
+            });
+        }
+
+        function validateInput(input) {
+            const value = parseFloat(input.value);
+            const min = parseFloat(input.min);
+            const max = parseFloat(input.max);
+            const errorElement = document.getElementById(input.id + 'Error');
+            
+            let isValid = true;
+            
+            if (input.type === 'number') {
+                if (isNaN(value) || value < min || value > max) {
+                    isValid = false;
+                }
+                
+                // التحقق من الوزن المستهدف
+                if (input.id === 'targetWeight') {
+                    const currentWeight = parseFloat(document.getElementById('currentWeight').value);
+                    if (!isNaN(currentWeight) && Math.abs(value - currentWeight) > 50) {
+                        isValid = false;
+                        errorElement.textContent = 'الفرق بين الوزن الحالي والمستهدف كبير جداً';
+                    }
+                }
+            }
+            
+            if (errorElement) {
+                errorElement.style.display = isValid ? 'none' : 'block';
+            }
+            
+            input.style.borderColor = isValid ? '#e2e8f0' : '#ef4444';
+            
+            return isValid;
+        }
+
+        function validateCurrentQuestion() {
+            const currentContainer = document.querySelector(`[data-question="${currentQuestion}"]`);
+            const nextBtn = currentContainer.querySelector('.btn-next');
+            let isValid = true;
+            
+            if (currentQuestion === 1) {
+                // التحقق من جميع الحقول المطلوبة في السؤال الأول
+                const requiredInputs = ['age', 'currentWeight', 'height', 'targetWeight', 'gender'];
+                for (let inputId of requiredInputs) {
+                    const input = document.getElementById(inputId);
+                    if (!input.value || (input.type === 'number' && !validateInput(input))) {
+                        isValid = false;
+                        break;
+                    }
+                }
+                
+                // التحقق من اختيار سرعة تغيير الوزن
+                const weightChangeSpeed = currentContainer.querySelector('.option-card.selected');
+                if (!weightChangeSpeed) {
+                    isValid = false;
+                }
+            } else {
+                // للأسئلة الأخرى، التحقق من وجود اختيار
+                const selectedOption = currentContainer.querySelector('.option-card.selected');
+                if (!selectedOption) {
+                    isValid = false;
+                }
+            }
+            
+            nextBtn.disabled = !isValid;
+        }
+
+        function selectOption(element, value, questionNum) {
+            const currentContainer = document.querySelector(`[data-question="${questionNum}"]`);
+            
+            // إزالة التحديد من جميع الخيارات في السؤال الحالي
+            const options = currentContainer.querySelectorAll('.option-card');
+            options.forEach(option => option.classList.remove('selected'));
+            
+            // إضافة التحديد للخيار المنقور
+            element.classList.add('selected');
+            
+            // حفظ الإجابة
+            answers[`question_${questionNum}`] = value;
+            
+            // تفعيل زر التالي
+            validateCurrentQuestion();
+            autoSave();
+        }
+
+        function updateProgress() {
+            const progress = (currentQuestion - 1) / totalQuestions * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function nextQuestion() {
+            if (currentQuestion === 1) {
+                // حفظ البيانات الشخصية
+                answers.age = parseInt(document.getElementById('age').value);
+                answers.currentWeight = parseFloat(document.getElementById('currentWeight').value);
+                answers.height = parseInt(document.getElementById('height').value);
+                answers.targetWeight = parseFloat(document.getElementById('targetWeight').value);
+                answers.gender = document.getElementById('gender').value;
+            } else if (currentQuestion === 3) {
+                // حفظ الحساسية الغذائية
+                answers.allergies = [];
+                document.querySelectorAll('[data-question="3"] .checkbox-item.selected').forEach(item => {
+                    answers.allergies.push(item.dataset.allergy);
+                });
+            } else if (currentQuestion === 5) {
+                // حفظ الحالات الصحية والمكملات
+                answers.healthConditions = [];
+                answers.supplements = [];
+                
+                document.querySelectorAll('[data-question="5"] .checkbox-item.selected').forEach(item => {
+                    if (item.dataset.condition) {
+                        answers.healthConditions.push(item.dataset.condition);
+                    }
+                    if (item.dataset.supplement) {
+                        answers.supplements.push(item.dataset.supplement);
+                    }
+                });
+            }
+            
+            if (currentQuestion < totalQuestions) {
+                // إخفاء السؤال الحالي
+                document.querySelector(`[data-question="${currentQuestion}"]`).classList.remove('active');
+                
+                // إظهار السؤال التالي
+                currentQuestion++;
+                document.querySelector(`[data-question="${currentQuestion}"]`).classList.add('active');
+                
+                updateProgress();
+                validateCurrentQuestion();
+                autoSave();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 1) {
+                // إخفاء السؤال الحالي
+                document.querySelector(`[data-question="${currentQuestion}"]`).classList.remove('active');
+                
+                // إظهار السؤال السابق
+                currentQuestion--;
+                document.querySelector(`[data-question="${currentQuestion}"]`).classList.add('active');
+                
+                updateProgress();
+                validateCurrentQuestion();
+            }
+        }
+
+        function autoSave() {
+            clearTimeout(autoSaveTimer);
+            autoSaveTimer = setTimeout(() => {
+                localStorage.setItem('quizAnswers', JSON.stringify(answers));
+                localStorage.setItem('currentQuestion', currentQuestion);
+                showAutoSaveIndicator();
+            }, 1000);
+        }
+
+        function loadSavedData() {
+            const savedAnswers = localStorage.getItem('quizAnswers');
+            const savedQuestion = localStorage.getItem('currentQuestion');
+            
+            if (savedAnswers) {
+                answers = JSON.parse(savedAnswers);
+                
+                // استعادة البيانات الشخصية
+                if (answers.age) document.getElementById('age').value = answers.age;
+                if (answers.currentWeight) document.getElementById('currentWeight').value = answers.currentWeight;
+                if (answers.height) document.getElementById('height').value = answers.height;
+                if (answers.targetWeight) document.getElementById('targetWeight').value = answers.targetWeight;
+                if (answers.gender) document.getElementById('gender').value = answers.gender;
+                
+                // استعادة الخيارات المحددة
+                Object.keys(answers).forEach(key => {
+                    if (key.startsWith('question_')) {
+                        const questionNum = key.split('_')[1];
+                        const value = answers[key];
+                        const optionCard = document.querySelector(`[data-question="${questionNum}"] [data-value="${value}"]`);
+                        if (optionCard) {
+                            optionCard.classList.add('selected');
+                        }
+                    }
+                });
+                
+                // استعادة الحساسية والحالات الصحية
+                if (answers.allergies) {
+                    answers.allergies.forEach(allergy => {
+                        const item = document.querySelector(`[data-allergy="${allergy}"]`);
+                        if (item) {
+                            item.classList.add('selected');
+                            item.querySelector('input').checked = true;
+                        }
+                    });
+                }
+                
+                if (answers.healthConditions) {
+                    answers.healthConditions.forEach(condition => {
+                        const item = document.querySelector(`[data-condition="${condition}"]`);
+                        if (item) {
+                            item.classList.add('selected');
+                            item.querySelector('input').checked = true;
+                        }
+                    });
+                }
+                
+                if (answers.supplements) {
+                    answers.supplements.forEach(supplement => {
+                        const item = document.querySelector(`[data-supplement="${supplement}"]`);
+                        if (item) {
+                            item.classList.add('selected');
+                            item.querySelector('input').checked = true;
+                        }
+                    });
+                }
+            }
+            
+            if (savedQuestion && parseInt(savedQuestion) > 1) {
+                currentQuestion = parseInt(savedQuestion);
+                document.querySelector('[data-question="1"]').classList.remove('active');
+                document.querySelector(`[data-question="${currentQuestion}"]`).classList.add('active');
+                updateProgress();
+            }
+        }
+
+        function showAutoSaveIndicator() {
+            const indicator = document.getElementById('autoSaveIndicator');
+            indicator.classList.add('show');
+            setTimeout(() => {
+                indicator.classList.remove('show');
+            }, 2000);
+        }
+
+        function calculateBMR(weight, height, age, gender) {
+            // معادلة Mifflin-St Jeor
+            if (gender === 'male') {
+                return 10 * weight + 6.25 * height - 5 * age + 5;
+            } else {
+                return 10 * weight + 6.25 * height - 5 * age - 161;
+            }
+        }
+
+        function calculateTDEE(bmr, activityLevel) {
+            const activityFactors = {
+                'sedentary': 1.2,
+                'light': 1.375,
+                'moderate': 1.55,
+                'active': 1.725,
+                'very_active': 1.9
+            };
+            
+            return bmr * (activityFactors[activityLevel] || 1.2);
+        }
+
+        function calculateCalorieGoal(tdee, goal, weightChangeSpeed) {
+            const speedFactors = {
+                'fast': 700,
+                'moderate': 500,
+                'slow': 300
+            };
+            
+            const deficit = speedFactors[weightChangeSpeed] || 500;
+            
+            if (goal === 'weight_loss') {
+                return tdee - deficit;
+            } else if (goal === 'muscle_gain') {
+                return tdee + (deficit * 0.7); // زيادة أقل للبناء
+            } else {
+                return tdee; // للحفاظ على الوزن
+            }
+        }
+
+        function calculateMacros(calories, goal) {
+            let protein, carbs, fats;
+            
+            if (goal === 'weight_loss') {
+                protein = Math.round(calories * 0.30 / 4); // 30% بروتين
+                fats = Math.round(calories * 0.25 / 9); // 25% دهون
+                carbs = Math.round((calories - (protein * 4) - (fats * 9)) / 4); // الباقي كربوهيدرات
+            } else if (goal === 'muscle_gain') {
+                protein = Math.round(calories * 0.25 / 4); // 25% بروتين
+                fats = Math.round(calories * 0.25 / 9); // 25% دهون
+                carbs = Math.round((calories - (protein * 4) - (fats * 9)) / 4); // 50% كربوهيدرات
+            } else {
+                protein = Math.round(calories * 0.20 / 4); // 20% بروتين
+                fats = Math.round(calories * 0.30 / 9); // 30% دهون
+                carbs = Math.round((calories - (protein * 4) - (fats * 9)) / 4); // 50% كربوهيدرات
+            }
+            
+            return { protein, carbs, fats };
+        }
+
+        function generateMealPlan(calories, macros, dietType, allergies, cuisine, cookingTime) {
+            // خطة وجبات مبسطة - في التطبيق الحقيقي ستكون من قاعدة البيانات
+            const meals = {
+                breakfast: { name: 'إفطار صحي', calories: Math.round(calories * 0.25) },
+                lunch: { name: 'غداء متوازن', calories: Math.round(calories * 0.35) },
+                dinner: { name: 'عشاء خفيف', calories: Math.round(calories * 0.25) },
+                snack1: { name: 'وجبة خفيفة 1', calories: Math.round(calories * 0.08) },
+                snack2: { name: 'وجبة خفيفة 2', calories: Math.round(calories * 0.07) }
+            };
+            
+            // تخصيص الوجبات المصرية حسب النوع الغذائي
+            if (dietType === 'vegetarian') {
+                meals.breakfast.name = 'فول مدمس بالطحينة والسلطة';
+                meals.lunch.name = 'كشري مصري بالعدس والأرز';
+                meals.dinner.name = 'ملوخية بالخضار مع الأرز الأبيض';
+                meals.snack1.name = 'طحينة بالعسل مع الخبز البلدي';
+                meals.snack2.name = 'جبنة قريش مع الطماطم والخيار';
+            } else if (dietType === 'vegan') {
+                meals.breakfast.name = 'عصير قصب طبيعي مع التمر';
+                meals.lunch.name = 'فاصوليا خضراء بالطماطم والأرز';
+                meals.dinner.name = 'شوربة عدس مصرية مع الخبز البلدي';
+                meals.snack1.name = 'حمص بالطحينة والليمون';
+                meals.snack2.name = 'فواكه موسمية (برتقال وموز)';
+            } else {
+                meals.breakfast.name = 'عيش بلدي بالجبنة البيضاء والطحينة';
+                meals.lunch.name = 'فراخ مشوية مع الأرز الأبيض والسلطة';
+                meals.dinner.name = 'سمك بلطي مشوي مع الخضار السوتيه';
+                meals.snack1.name = 'زبادي بالخيار والنعناع';
+                meals.snack2.name = 'بيض مسلوق مع الطحينة';
+            }
+            
+            return meals;
+        }
+
+        function showResults() {
+            // جمع جميع الإجابات
+            answers.age = parseInt(document.getElementById('age').value);
+            answers.currentWeight = parseFloat(document.getElementById('currentWeight').value);
+            answers.height = parseInt(document.getElementById('height').value);
+            answers.targetWeight = parseFloat(document.getElementById('targetWeight').value);
+            answers.gender = document.getElementById('gender').value;
+            
+            // الحصول على الخيارات المحددة
+            const weightChangeSpeed = document.querySelector('[data-question="1"] .option-card.selected')?.dataset.value || 'moderate';
+            const activityLevel = document.querySelector('[data-question="2"] .option-card.selected')?.dataset.value || 'sedentary';
+            const dietType = document.querySelector('[data-question="3"] .option-card.selected')?.dataset.value || 'mixed';
+            const budget = document.querySelector('[data-question="4"] .option-card.selected')?.dataset.value || 'medium';
+            const goal = document.querySelector('[data-question="6"] .option-card.selected')?.dataset.value || 'fitness';
+            
+            // الحصول على الحساسية والحالات الصحية
+            answers.allergies = [];
+            document.querySelectorAll('[data-question="3"] .checkbox-item.selected').forEach(item => {
+                if (item.dataset.allergy) {
+                    answers.allergies.push(item.dataset.allergy);
+                }
+            });
+            
+            answers.healthConditions = [];
+            answers.supplements = [];
+            document.querySelectorAll('[data-question="5"] .checkbox-item.selected').forEach(item => {
+                if (item.dataset.condition) {
+                    answers.healthConditions.push(item.dataset.condition);
+                }
+                if (item.dataset.supplement) {
+                    answers.supplements.push(item.dataset.supplement);
+                }
+            });
+            
+            // إجراء الحسابات
+            const bmi = answers.currentWeight / Math.pow(answers.height / 100, 2);
+            const bmr = calculateBMR(answers.currentWeight, answers.height, answers.age, answers.gender);
+            const tdee = calculateTDEE(bmr, activityLevel);
+            const calorieGoal = calculateCalorieGoal(tdee, goal, weightChangeSpeed);
+            const macros = calculateMacros(calorieGoal, goal);
+            const weightDifference = answers.targetWeight - answers.currentWeight;
+            
+            // عرض النتائج
+            displayResults({
+                bmi,
+                bmr,
+                tdee,
+                calorieGoal,
+                macros,
+                weightDifference,
+                goal,
+                activityLevel,
+                dietType,
+                budget
+            });
+            
+            // إخفاء السؤال الأخير وإظهار النتائج
+            document.querySelector(`[data-question="${currentQuestion}"]`).classList.remove('active');
+            document.getElementById('results').classList.add('active');
+            
+            // حفظ النتائج
+            localStorage.setItem('quizResults', JSON.stringify({
+                answers,
+                calculations: { bmi, bmr, tdee, calorieGoal, macros, weightDifference }
+            }));
+            
+            // إرسال البيانات للخادم
+            sendAnswersToServer();
+        }
+
+        function displayResults(results) {
+            const resultsContainer = document.getElementById('calculationResults');
+            
+            // تحديد حالة الوزن
+            let bmiStatus = '';
+            if (results.bmi < 18.5) bmiStatus = 'نقص في الوزن';
+            else if (results.bmi < 25) bmiStatus = 'وزن طبيعي';
+            else if (results.bmi < 30) bmiStatus = 'زيادة في الوزن';
+            else bmiStatus = 'سمنة';
+            
+            // تحديد اتجاه تغيير الوزن
+            let weightGoal = '';
+            if (results.weightDifference > 0) {
+                weightGoal = `زيادة ${Math.abs(results.weightDifference).toFixed(1)} كيلو`;
+            } else if (results.weightDifference < 0) {
+                weightGoal = `إنقاص ${Math.abs(results.weightDifference).toFixed(1)} كيلو`;
+            } else {
+                weightGoal = 'الحفاظ على الوزن الحالي';
+            }
+            
+            resultsContainer.innerHTML = `
+                <div class="calculation-grid">
+                    <div class="calc-card">
+                        <div class="calc-icon">📊</div>
+                        <div class="calc-title">مؤشر كتلة الجسم</div>
+                        <div class="calc-value">${results.bmi.toFixed(1)}</div>
+                        <div class="calc-status">${bmiStatus}</div>
+                    </div>
+                    
+                    <div class="calc-card">
+                        <div class="calc-icon">🔥</div>
+                        <div class="calc-title">معدل الأيض الأساسي</div>
+                        <div class="calc-value">${Math.round(results.bmr)}</div>
+                        <div class="calc-status">سعرة حرارية/يوم</div>
+                    </div>
+                    
+                    <div class="calc-card">
+                        <div class="calc-icon">⚡</div>
+                        <div class="calc-title">إجمالي الطاقة المطلوبة</div>
+                        <div class="calc-value">${Math.round(results.tdee)}</div>
+                        <div class="calc-status">سعرة حرارية/يوم</div>
+                    </div>
+                    
+                    <div class="calc-card">
+                        <div class="calc-icon">🎯</div>
+                        <div class="calc-title">هدف السعرات اليومية</div>
+                        <div class="calc-value calories-value">${Math.round(results.calorieGoal)}</div>
+                        <div class="calc-status">سعرة حرارية/يوم</div>
+                    </div>
+                    
+                    <div class="calc-card">
+                        <div class="calc-icon">⚖️</div>
+                        <div class="calc-title">هدف الوزن</div>
+                        <div class="calc-value">${answers.targetWeight} كيلو</div>
+                        <div class="calc-status">${weightGoal}</div>
+                    </div>
+                    
+                    <div class="calc-card">
+                        <div class="calc-icon">📅</div>
+                        <div class="calc-title">الوقت المتوقع</div>
+                        <div class="calc-value">${Math.ceil(Math.abs(results.weightDifference) * 7 / 0.5)}</div>
+                        <div class="calc-status">أسبوع تقريباً</div>
+                    </div>
+                </div>
+            `;
+            
+            // عرض توزيع الماكروز
+            displayMacroChart(results.macros, results.calorieGoal);
+            
+            // عرض معاينة خطة الوجبات
+            displayMealPlan(results);
+        }
+
+        function displayMacroChart(macros, totalCalories) {
+            const chartContainer = document.getElementById('macroChart');
+            
+            const proteinPercent = (macros.protein * 4 / totalCalories * 100).toFixed(1);
+            const carbsPercent = (macros.carbs * 4 / totalCalories * 100).toFixed(1);
+            const fatsPercent = (macros.fats * 9 / totalCalories * 100).toFixed(1);
+            
+            chartContainer.innerHTML = `
+                <h3>توزيع العناصر الغذائية الكبرى</h3>
+                <div class="macro-bars">
+                    <div class="macro-bar">
+                        <div class="macro-label">البروتين</div>
+                        <div class="macro-progress">
+                            <div class="macro-fill protein" style="width: ${proteinPercent}%"></div>
+                        </div>
+                        <div class="macro-value protein-value">${macros.protein}g (${proteinPercent}%)</div>
+                    </div>
+                    
+                    <div class="macro-bar">
+                        <div class="macro-label">الكربوهيدرات</div>
+                        <div class="macro-progress">
+                            <div class="macro-fill carbs" style="width: ${carbsPercent}%"></div>
+                        </div>
+                        <div class="macro-value carbs-value">${macros.carbs}g (${carbsPercent}%)</div>
+                    </div>
+                    
+                    <div class="macro-bar">
+                        <div class="macro-label">الدهون</div>
+                        <div class="macro-progress">
+                            <div class="macro-fill fats" style="width: ${fatsPercent}%"></div>
+                        </div>
+                        <div class="macro-value fats-value">${macros.fats}g (${fatsPercent}%)</div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function displayMealPlan(results) {
+            const mealPlanContainer = document.getElementById('mealPlanPreview');
+            const meals = generateMealPlan(
+                results.calorieGoal,
+                results.macros,
+                results.dietType,
+                answers.allergies,
+                'middle_eastern',
+                results.budget
+            );
+            
+            mealPlanContainer.innerHTML = `
+                <h3>معاينة خطة الوجبات اليومية</h3>
+                <div class="meal-cards">
+                    <div class="meal-card">
+                        <div class="meal-time">الإفطار</div>
+                        <div class="meal-name">${meals.breakfast.name}</div>
+                        <div class="meal-calories">${meals.breakfast.calories} سعرة</div>
+                    </div>
+                    
+                    <div class="meal-card">
+                        <div class="meal-time">وجبة خفيفة</div>
+                        <div class="meal-name">${meals.snack1.name}</div>
+                        <div class="meal-calories">${meals.snack1.calories} سعرة</div>
+                    </div>
+                    
+                    <div class="meal-card">
+                        <div class="meal-time">الغداء</div>
+                        <div class="meal-name">${meals.lunch.name}</div>
+                        <div class="meal-calories">${meals.lunch.calories} سعرة</div>
+                    </div>
+                    
+                    <div class="meal-card">
+                        <div class="meal-time">وجبة خفيفة</div>
+                        <div class="meal-name">${meals.snack2.name}</div>
+                        <div class="meal-calories">${meals.snack2.calories} سعرة</div>
+                    </div>
+                    
+                    <div class="meal-card">
+                        <div class="meal-time">العشاء</div>
+                        <div class="meal-name">${meals.dinner.name}</div>
+                        <div class="meal-calories">${meals.dinner.calories} سعرة</div>
+                    </div>
+                </div>
+                
+                <div class="meal-summary">
+                    <div class="summary-item">
+                        <span>إجمالي السعرات:</span>
+                        <span>${Math.round(results.calorieGoal)} سعرة حرارية</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>عدد الوجبات:</span>
+                        <span>5 وجبات يومياً</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>نوع النظام:</span>
+                        <span>${results.dietType === 'vegetarian' ? 'نباتي' : results.dietType === 'vegan' ? 'نباتي صرف' : 'متنوع'}</span>
+                    </div>
+                </div>
+            `;
+        }
+
+        function downloadPlan() {
+            const savedResults = localStorage.getItem('quizResults');
+            if (!savedResults) {
+                alert('لا توجد نتائج محفوظة للتحميل');
+                return;
+            }
+            
+            const data = JSON.parse(savedResults);
+            const { answers, calculations } = data;
+            
+            // إنشاء محتوى الملف
+            let content = `خطة اللياقة والتغذية الشخصية\n`;
+            content += `=====================================\n\n`;
+            
+            content += `البيانات الشخصية:\n`;
+            content += `العمر: ${answers.age} سنة\n`;
+            content += `الوزن الحالي: ${answers.currentWeight} كيلو\n`;
+            content += `الطول: ${answers.height} سم\n`;
+            content += `الوزن المستهدف: ${answers.targetWeight} كيلو\n`;
+            content += `الجنس: ${answers.gender === 'male' ? 'ذكر' : 'أنثى'}\n\n`;
+            
+            content += `الحسابات:\n`;
+            content += `مؤشر كتلة الجسم: ${calculations.bmi.toFixed(1)}\n`;
+            content += `معدل الأيض الأساسي: ${Math.round(calculations.bmr)} سعرة/يوم\n`;
+            content += `إجمالي الطاقة المطلوبة: ${Math.round(calculations.tdee)} سعرة/يوم\n`;
+            content += `هدف السعرات اليومية: ${Math.round(calculations.calorieGoal)} سعرة/يوم\n\n`;
+            
+            content += `توزيع العناصر الغذائية:\n`;
+            content += `البروتين: ${calculations.macros.protein}g\n`;
+            content += `الكربوهيدرات: ${calculations.macros.carbs}g\n`;
+            content += `الدهون: ${calculations.macros.fats}g\n\n`;
+            
+            content += `تم إنشاء هذه الخطة بواسطة أكاديمية الأبطال\n`;
+            content += `التاريخ: ${new Date().toLocaleDateString('ar-SA')}\n`;
+            
+            // إنشاء وتحميل الملف
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `خطة_اللياقة_${new Date().toISOString().split('T')[0]}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        function viewMealPlan() {
+            // الحصول على البيانات المحسوبة من النتائج
+            const caloriesElement = document.querySelector('#calculationResults .calories-value');
+            const proteinElement = document.querySelector('#calculationResults .protein-value');
+            const carbsElement = document.querySelector('#calculationResults .carbs-value');
+            const fatsElement = document.querySelector('#calculationResults .fats-value');
+            const goalElement = document.querySelector('[data-question="6"] .option-card.selected');
+            
+            const calories = caloriesElement ? caloriesElement.textContent.replace(/[^0-9]/g, '') : 2000;
+            const protein = proteinElement ? proteinElement.textContent.replace(/[^0-9]/g, '') : 150;
+            const carbs = carbsElement ? carbsElement.textContent.replace(/[^0-9]/g, '') : 200;
+            const fats = fatsElement ? fatsElement.textContent.replace(/[^0-9]/g, '') : 70;
+            const goal = goalElement ? goalElement.dataset.value : 'maintenance';
+            
+            // توجيه المستخدم إلى صفحة خطة الوجبات مع البيانات
+            const url = `/meal-plan?calories=${calories}&protein=${protein}&carbs=${carbs}&fats=${fats}&goal=${goal}`;
+            window.open(url, '_blank');
+        }
+
+        function sendAnswersToServer() {
+            const allAnswers = {
+                ...answers,
+                weightChangeSpeed: document.querySelector('[data-question="1"] .option-card.selected')?.dataset.value,
+                activityLevel: document.querySelector('[data-question="2"] .option-card.selected')?.dataset.value,
+                dietType: document.querySelector('[data-question="3"] .option-card.selected')?.dataset.value,
+                budget: document.querySelector('[data-question="4"] .option-card.selected')?.dataset.value,
+                goal: document.querySelector('[data-question="6"] .option-card.selected')?.dataset.value
+            };
+            
+            fetch('/quiz-results', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(allAnswers)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('تم إرسال النتائج بنجاح:', data);
+            })
+            .catch(error => {
+                console.error('خطأ في إرسال النتائج:', error);
+            });
+        }
+    </script>
+</body>
+</html>

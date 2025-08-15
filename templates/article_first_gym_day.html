@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أول يوم في الجيم - نصائح وتهيئة نفسية وبدنية</title>
+    <meta name="description" content="دليل شامل لأول يوم في الجيم مع نصائح للتهيئة النفسية والبدنية، وكيفية التغلب على القلق وبناء الثقة">
+    <meta name="keywords" content="أول يوم جيم، نصائح الجيم، تهيئة نفسية، تمارين للمبتدئين، الثقة في الجيم">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #f39c12;
+            --accent-color: #e74c3c;
+            --success-color: #27ae60;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            line-height: 1.8;
+            color: var(--dark-color);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .article-container {
+            background: white;
+            margin: 2rem auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            overflow: hidden;
+            max-width: 1000px;
+        }
+
+        .article-header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .article-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .article-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .article-content {
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 2rem 0 1rem 0;
+            position: relative;
+            padding-right: 1rem;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            position: relative;
+        }
+
+        .highlight-box::before {
+            content: '\f0eb';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            background: white;
+            color: var(--primary-color);
+            padding: 0 10px;
+            font-size: 1.2rem;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .tip-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--secondary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .tip-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .tip-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .quote-box {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .quote-box::before {
+            content: '\f10d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 3rem;
+            opacity: 0.3;
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+        }
+
+        .quote-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .back-btn {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            margin: 2rem 0;
+        }
+
+        .back-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: white;
+        }
+
+        .checklist {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+
+        .checklist-icon {
+            color: var(--success-color);
+            margin-left: 1rem;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .article-content {
+                padding: 2rem 1rem;
+            }
+            
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <i class="fas fa-dumbbell me-2"></i>
+                فتنس برو
+            </a>
+        </div>
+    </nav>
+
+    <!-- Article Content -->
+    <div class="container" style="margin-top: 100px;">
+        <div class="article-container">
+            <!-- Article Header -->
+            <div class="article-header">
+                <h1 class="article-title">
+                    <i class="fas fa-door-open me-3"></i>
+                    أول يوم في الجيم
+                </h1>
+                <p class="article-subtitle">دليلك الشامل للتهيئة النفسية والبدنية لبداية رحلة اللياقة</p>
+            </div>
+
+            <!-- Article Content -->
+            <div class="article-content">
+                <div class="highlight-box">
+                    <h3>لماذا يعتبر أول يوم في الجيم مهماً؟</h3>
+                    <p>أول يوم في الجيم هو بداية رحلة تحويلية في حياتك. إنه اليوم الذي تتخذ فيه قراراً جدياً بالاستثمار في صحتك ولياقتك البدنية. التحضير الجيد لهذا اليوم يضمن لك بداية قوية ومستدامة.</p>
+                </div>
+
+                <h2 class="section-title">
+                    <i class="fas fa-brain me-2"></i>
+                    التهيئة النفسية
+                </h2>
+
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-target"></i>
+                        </div>
+                        <h4 class="tip-title">حدد أهدافك بوضوح</h4>
+                        <p>اكتب أهدافك بشكل محدد وقابل للقياس. مثلاً: "أريد أن أفقد 5 كيلو في شهرين" بدلاً من "أريد أن أنحف".</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4 class="tip-title">تقبل نفسك</h4>
+                        <p>تذكر أن كل شخص في الجيم كان مبتدئاً يوماً ما. لا تقارن نفسك بالآخرين، بل ركز على تطورك الشخصي.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h4 class="tip-title">كن صبوراً</h4>
+                        <p>النتائج تحتاج وقت. لا تتوقع تغييرات جذرية في الأسبوع الأول. الثبات والاستمرارية هما مفتاح النجاح.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4 class="tip-title">لا تخجل من السؤال</h4>
+                        <p>معظم الأشخاص في الجيم ودودون ومستعدون للمساعدة. لا تتردد في السؤال عن استخدام الأجهزة أو طلب النصيحة.</p>
+                    </div>
+                </div>
+
+                <h2 class="section-title">
+                    <i class="fas fa-running me-2"></i>
+                    التهيئة البدنية
+                </h2>
+
+                <div class="checklist">
+                    <h4 style="margin-bottom: 1rem; color: var(--primary-color);">
+                        <i class="fas fa-clipboard-check me-2"></i>
+                        قائمة التحضير البدني
+                    </h4>
+                    
+                    <div class="checklist-item">
+                        <i class="fas fa-check-circle checklist-icon"></i>
+                        <span>احصل على فحص طبي شامل قبل البدء</span>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <i class="fas fa-check-circle checklist-icon"></i>
+                        <span>ابدأ بتمارين خفيفة في المنزل لمدة أسبوع</span>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <i class="fas fa-check-circle checklist-icon"></i>
+                        <span>تأكد من حصولك على نوم كافي (7-8 ساعات)</span>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <i class="fas fa-check-circle checklist-icon"></i>
+                        <span>اشرب كمية كافية من الماء قبل وأثناء التمرين</span>
+                    </div>
+                    
+                    <div class="checklist-item">
+                        <i class="fas fa-check-circle checklist-icon"></i>
+                        <span>تناول وجبة خفيفة قبل التمرين بساعتين</span>
+                    </div>
+                </div>
+
+                <h2 class="section-title">
+                    <i class="fas fa-dumbbell me-2"></i>
+                    برنامج أول يوم
+                </h2>
+
+                <div class="highlight-box">
+                    <h4>جلسة التمرين الأولى (45-60 دقيقة)</h4>
+                    <ul style="margin-top: 1rem;">
+                        <li><strong>الإحماء (10 دقائق):</strong> المشي على الجهاز أو الدراجة الثابتة</li>
+                        <li><strong>تمارين القوة (25 دقيقة):</strong> تمارين بسيطة بأوزان خفيفة</li>
+                        <li><strong>تمارين الكارديو (15 دقيقة):</strong> مشي سريع أو جري خفيف</li>
+                        <li><strong>التبريد (5 دقائق):</strong> تمارين الإطالة والاسترخاء</li>
+                    </ul>
+                </div>
+
+                <h2 class="section-title">
+                    <i class="fas fa-exclamation-triangle me-2"></i>
+                    أخطاء شائعة يجب تجنبها
+                </h2>
+
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-weight-hanging"></i>
+                        </div>
+                        <h4 class="tip-title">البدء بأوزان ثقيلة</h4>
+                        <p>ابدأ بأوزان خفيفة لتعلم الحركة الصحيحة وتجنب الإصابات.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <h4 class="tip-title">إهمال الإحماء</h4>
+                        <p>الإحماء ضروري لتحضير العضلات والمفاصل للتمرين ومنع الإصابات.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h4 class="tip-title">التمرين بشدة عالية</h4>
+                        <p>لا تحاول أن تفعل كل شيء في اليوم الأول. ابدأ تدريجياً وزد الشدة مع الوقت.</p>
+                    </div>
+
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-stopwatch"></i>
+                        </div>
+                        <h4 class="tip-title">التمرين لفترة طويلة</h4>
+                        <p>ساعة واحدة كافية للمبتدئين. الجودة أهم من الكمية.</p>
+                    </div>
+                </div>
+
+                <div class="quote-box">
+                    <p class="quote-text">
+                        "الرحلة الطويلة تبدأ بخطوة واحدة. أول يوم في الجيم هو خطوتك الأولى نحو حياة أكثر صحة ونشاطاً."
+                    </p>
+                </div>
+
+                <h2 class="section-title">
+                    <i class="fas fa-lightbulb me-2"></i>
+                    نصائح إضافية للنجاح
+                </h2>
+
+                <div class="highlight-box">
+                    <ul>
+                        <li><strong>اختر وقتاً مناسباً:</strong> ابدأ في وقت أقل ازدحاماً لتشعر بالراحة أكثر</li>
+                        <li><strong>ارتدِ ملابس مريحة:</strong> استثمر في ملابس رياضية جيدة وحذاء مناسب</li>
+                        <li><strong>احضر منشفة وزجاجة ماء:</strong> النظافة والترطيب مهمان جداً</li>
+                        <li><strong>تعلم آداب الجيم:</strong> احترم الآخرين ونظف الأجهزة بعد الاستخدام</li>
+                        <li><strong>سجل تقدمك:</strong> احتفظ بمذكرة تمارين لتتبع تطورك</li>
+                    </ul>
+                </div>
+
+                <!-- Back Button -->
+                <div class="text-center">
+                    <a href="{{ url_for('training_nutrition') }}" class="back-btn">
+                        <i class="fas fa-arrow-right me-2"></i>
+                        العودة إلى المقالات
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

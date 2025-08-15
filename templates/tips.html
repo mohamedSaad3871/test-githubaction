@@ -1,0 +1,765 @@
+{% extends "base.html" %}
+
+{% block title %}نصائح اللياقة والتغذية - جسمي أحسن{% endblock %}
+
+{% block extra_css %}
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+    :root {
+        --primary-color: #4f46e5;
+        --secondary-color: #06b6d4;
+        --success-color: #10b981;
+        --warning-color: #f59e0b;
+        --danger-color: #ef4444;
+        --light-bg: #f8fafc;
+        --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        --card-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --gradient-accent: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    body {
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .hero-section {
+        background: var(--gradient-primary);
+        color: white;
+        padding: 5rem 0;
+        margin-bottom: 3rem;
+        border-radius: 0 0 2rem 2rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+        opacity: 0.3;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .tip-of-day-card {
+        background-color: white;
+        border-radius: 1.5rem;
+        box-shadow: var(--shadow-lg);
+        padding: 2rem;
+        margin-bottom: 3rem;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tip-of-day-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .tip-of-day-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(255,255,255,0) 40%, rgba(255,215,0,0.2) 100%);
+        z-index: 0;
+    }
+
+    .tip-of-day-badge {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: var(--gradient-accent);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 2;
+    }
+
+    .tip-of-day-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .tip-of-day-icon {
+        position: absolute;
+        bottom: -2rem;
+        right: -2rem;
+        font-size: 8rem;
+        opacity: 0.05;
+        z-index: 1;
+    }
+
+    .tip-of-day-card .icon {
+        font-size: 3rem;
+        color: var(--warning-color);
+        margin-bottom: 1rem;
+    }
+
+    .category-tabs {
+        background: white;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        box-shadow: var(--card-shadow);
+        margin-bottom: 3rem;
+    }
+
+    .category-tab {
+        border: none;
+        background: transparent;
+        padding: 1rem 2rem;
+        border-radius: 0.75rem;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        color: #64748b;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+    }
+
+    .category-tab::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .category-tab:hover::before {
+        left: 100%;
+    }
+
+    .category-tab.active {
+        background: var(--gradient-primary);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    .category-tab:hover:not(.active) {
+        background: #f1f5f9;
+        color: var(--primary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    .category-tab i {
+        font-size: 1.1rem;
+    }
+
+    .tips-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .tip-card {
+        background: white;
+        border-radius: 1.5rem;
+        padding: 2rem;
+        box-shadow: var(--card-shadow);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid #e2e8f0;
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .tip-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--gradient-accent);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .tip-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .tip-card:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        border-color: var(--primary-color);
+    }
+
+    .tip-card .tip-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    .tip-card.workout .tip-icon { color: var(--danger-color); }
+    .tip-card.nutrition .tip-icon { color: var(--success-color); }
+    .tip-card.motivation .tip-icon { color: var(--warning-color); }
+    .tip-card.recovery .tip-icon { color: var(--secondary-color); }
+
+    .tip-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 0.75rem;
+        line-height: 1.4;
+    }
+
+    .tip-description {
+        color: #64748b;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+    }
+
+    .tip-category-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+
+    .badge-workout { background: rgba(239, 68, 68, 0.1); color: var(--danger-color); }
+    .badge-nutrition { background: rgba(16, 185, 129, 0.1); color: var(--success-color); }
+    .badge-motivation { background: rgba(245, 158, 11, 0.1); color: var(--warning-color); }
+    .badge-recovery { background: rgba(6, 182, 212, 0.1); color: var(--secondary-color); }
+
+    .read-more-btn {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .read-more-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(79, 70, 229, 0.3);
+        color: white;
+        text-decoration: none;
+    }
+
+    .cta-section {
+        background: var(--gradient-primary);
+        color: white;
+        padding: 5rem 0;
+        text-align: center;
+        margin-top: 5rem;
+        border-radius: 3rem 3rem 0 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .cta-section::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>') repeat;
+    }
+
+    .cta-content {
+        position: relative;
+        z-index: 2;
+    }
+
+    .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+    }
+
+    .cta-btn {
+        background-color: white;
+        color: var(--primary-color);
+        padding: 1.2rem 2.5rem;
+        border-radius: 3rem;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 2px solid white;
+        position: relative;
+        overflow: hidden;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+    }
+
+    .cta-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .cta-btn:hover::before {
+        left: 100%;
+    }
+
+    .cta-btn-primary {
+        background: var(--primary-color);
+        color: white;
+    }
+
+    .cta-btn-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid rgba(255,255,255,0.8);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    .cta-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        text-decoration: none;
+        box-shadow: 0 8px 25px rgba(255,255,255,0.4);
+    }
+
+    .cta-btn-primary:hover {
+        background: #3730a3;
+        color: white;
+    }
+
+    .cta-btn-secondary:hover {
+        background: white;
+        color: var(--primary-color);
+        border-color: white;
+        box-shadow: 0 8px 25px rgba(255,255,255,0.4);
+    }
+
+    .share-btn {
+        background: #25d366;
+        color: white;
+        border: none;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        font-weight: 600;
+        margin-top: 1rem;
+        transition: all 0.3s ease;
+    }
+
+    .share-btn:hover {
+        background: #128c7e;
+        transform: translateY(-2px);
+    }
+
+    .fade-in {
+        animation: fadeIn 0.6s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tip-image {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #f1f5f9, #e2e8f0);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+        .hero-section {
+            padding: 2rem 0;
+        }
+        
+        .tips-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .cta-btn {
+            width: 100%;
+            max-width: 300px;
+        }
+    }
+
+    .loading-spinner {
+        display: none;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .spinner {
+        border: 4px solid #f3f4f6;
+        border-top: 4px solid var(--primary-color);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section with Tip of the Day -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mx-auto text-center">
+                <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                    <h1 class="display-4 fw-bold mb-3">
+                        <i class="fas fa-lightbulb me-3"></i>
+                        نصائح اللياقة والتغذية
+                    </h1>
+                    <p class="lead mb-4">
+                        اكتشف أفضل النصائح اليومية لتحقيق أهدافك في اللياقة والتغذية
+                    </p>
+                </div>
+                
+                <!-- Tip of the Day Card -->
+                <div class="tip-of-day-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tip-of-day-badge">
+                        <i class="fas fa-lightbulb"></i>
+                        نصيحة اليوم
+                    </div>
+                    <div class="tip-of-day-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <div class="tip-of-day-content">
+                        <div class="row align-items-center">
+                            <div class="col-md-2 text-center">
+                                <i class="{{ tip_of_day.icon }} icon"></i>
+                            </div>
+                            <div class="col-md-8">
+                                <h3 class="fw-bold text-dark mb-2">{{ tip_of_day.title }}</h3>
+                                <p class="text-muted mb-3">{{ tip_of_day.description }}</p>
+                                <span class="badge badge-{{ tip_of_day.category|lower }} tip-category-badge">
+                                    {{ tip_of_day.category }}
+                                </span>
+                            </div>
+                            <div class="col-md-2 text-center">
+                                <button class="share-btn" onclick="shareTipOfDay()">
+                                    <i class="fab fa-whatsapp me-2"></i>
+                                    شارك
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<div class="container">
+    <!-- Category Tabs -->
+    <div class="category-tabs" data-aos="fade-up" data-aos-delay="400">
+        <div class="d-flex justify-content-center flex-wrap">
+            <button class="category-tab active" data-category="all">
+                <i class="fas fa-th-large me-2"></i>
+                جميع النصائح
+            </button>
+            <button class="category-tab" data-category="workout">
+                <i class="fas fa-dumbbell me-2"></i>
+                تمارين
+            </button>
+            <button class="category-tab" data-category="nutrition">
+                <i class="fas fa-apple-alt me-2"></i>
+                تغذية
+            </button>
+            <button class="category-tab" data-category="motivation">
+                <i class="fas fa-fire me-2"></i>
+                تحفيز
+            </button>
+            <button class="category-tab" data-category="recovery">
+                <i class="fas fa-bed me-2"></i>
+                استشفاء
+            </button>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-spinner" id="loadingSpinner">
+        <div class="spinner"></div>
+        <p class="mt-3 text-muted">جاري تحميل النصائح...</p>
+    </div>
+
+    <!-- Tips Grid -->
+    <div class="tips-grid" id="tipsGrid">
+        {% for category, tips in tips_data.items() %}
+            {% for tip in tips %}
+                <div class="tip-card {{ category }} fade-in" data-category="{{ category }}" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 100 }}">
+                    <div class="tip-image">
+                        <i class="{{ tip.icon }} tip-icon"></i>
+                    </div>
+                    
+                    <span class="tip-category-badge badge-{{ category }}">
+                        {{ tip.category }}
+                    </span>
+                    
+                    <h3 class="tip-title">{{ tip.title }}</h3>
+                    <p class="tip-description">{{ tip.description }}</p>
+                    
+                    <button class="read-more-btn" onclick="showTipDetails({{ tip.id }}, '{{ tip.title }}', '{{ tip.full_content }}', '{{ tip.category }}')">
+                        <i class="fas fa-arrow-left me-2"></i>
+                        اعرف أكتر
+                    </button>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+    <!-- Call to Action Section -->
+    <div class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="fade-up" data-aos-delay="200">
+                <h2 class="fw-bold text-dark mb-3">
+                    <i class="fas fa-rocket me-3 text-primary"></i>
+                    ابدأ رحلتك نحو اللياقة الآن!
+                </h2>
+                <p class="text-muted mb-4">
+                    استفد من أدواتنا المتقدمة لتحقيق أهدافك في اللياقة والتغذية
+                </p>
+                
+                <div class="cta-buttons">
+                    <a href="{{ url_for('your_plan_your_goal') }}" class="cta-btn cta-btn-primary">
+                        <i class="fas fa-chart-line me-2"></i>
+                        خطتك هدفك
+                    </a>
+                    <a href="{{ url_for('calculators') }}" class="cta-btn cta-btn-secondary">
+                        <i class="fas fa-calculator me-2"></i>
+                        حاسبات اللياقة
+                    </a>
+                    <a href="{{ url_for('meal_generator') }}" class="cta-btn cta-btn-primary">
+                        <i class="fas fa-utensils me-2"></i>
+                        السعرات الحرارية
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tip Details Modal -->
+<div class="modal fade" id="tipModal" tabindex="-1" aria-labelledby="tipModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="tipModalLabel">تفاصيل النصيحة</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="text-center mb-4">
+                    <span class="badge fs-6 p-2" id="modalCategory"></span>
+                </div>
+                <h4 class="fw-bold text-primary mb-3" id="modalTitle"></h4>
+                <p class="lead" id="modalContent"></p>
+                
+                <div class="text-center mt-4">
+                    <button class="share-btn" onclick="shareTip()">
+                        <i class="fab fa-whatsapp me-2"></i>
+                        شارك هذه النصيحة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 1000,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 50,
+        delay: 100
+    });
+    
+    // Global variables
+    let currentTip = null;
+    
+    // Category filtering
+    document.querySelectorAll('.category-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Update active tab
+            document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Show loading
+            showLoading();
+            
+            // Filter tips
+            const category = this.dataset.category;
+            setTimeout(() => {
+                filterTips(category);
+                hideLoading();
+            }, 300);
+        });
+    });
+    
+    function filterTips(category) {
+        const tips = document.querySelectorAll('.tip-card');
+        
+        tips.forEach(tip => {
+            if (category === 'all' || tip.dataset.category === category) {
+                tip.style.display = 'block';
+                tip.classList.add('fade-in');
+            } else {
+                tip.style.display = 'none';
+                tip.classList.remove('fade-in');
+            }
+        });
+    }
+    
+    function showLoading() {
+        document.getElementById('loadingSpinner').style.display = 'block';
+        document.getElementById('tipsGrid').style.opacity = '0.5';
+    }
+    
+    function hideLoading() {
+        document.getElementById('loadingSpinner').style.display = 'none';
+        document.getElementById('tipsGrid').style.opacity = '1';
+    }
+    
+    // Show tip details in modal
+    function showTipDetails(id, title, content, category) {
+        currentTip = { id, title, content, category };
+        
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('modalContent').textContent = content;
+        
+        const categoryBadge = document.getElementById('modalCategory');
+        categoryBadge.textContent = getCategoryName(category);
+        categoryBadge.className = `badge fs-6 p-2 badge-${category}`;
+        
+        const modal = new bootstrap.Modal(document.getElementById('tipModal'));
+        modal.show();
+    }
+    
+    function getCategoryName(category) {
+        const names = {
+            'workout': 'تمارين',
+            'nutrition': 'تغذية',
+            'motivation': 'تحفيز',
+            'recovery': 'استشفاء'
+        };
+        return names[category] || category;
+    }
+    
+    // Share functions
+    function shareTipOfDay() {
+        const tip = {{ tip_of_day|tojson }};
+        const message = `💡 نصيحة اليوم من جسمي أحسن:\n\n"${tip.title}"\n\n${tip.description}\n\nللمزيد من النصائح: ${window.location.origin}/tips`;
+        shareOnWhatsApp(message);
+    }
+    
+    function shareTip() {
+        if (!currentTip) return;
+        
+        const message = `💪 نصيحة من جسمي أحسن:\n\n"${currentTip.title}"\n\n${currentTip.content}\n\nللمزيد من النصائح: ${window.location.origin}/tips`;
+        shareOnWhatsApp(message);
+    }
+    
+    function shareOnWhatsApp(message) {
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank');
+    }
+    
+    // Smooth scrolling for CTA buttons
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Add animation on scroll
+    const scrollObserverOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, scrollObserverOptions);
+    
+    // Observe all tip cards
+    document.querySelectorAll('.tip-card').forEach(card => {
+        scrollObserver.observe(card);
+    });
+    
+    // Initialize page
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add stagger animation to tip cards
+        const cards = document.querySelectorAll('.tip-card');
+        cards.forEach((card, index) => {
+            card.style.animationDelay = `${index * 0.1}s`;
+        });
+    });
+</script>
+{% endblock %}

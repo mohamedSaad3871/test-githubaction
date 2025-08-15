@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل فقدان الوزن التفاعلي - جسمي أحسن</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <style>
+        .step-container {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        .step-container.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .progress-bar-custom {
+            height: 8px;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #28a745, #20c997);
+        }
+        
+        .card-option {
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .card-option:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .card-option.selected {
+            border-color: #28a745;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+        
+        .motivational-quote {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .habit-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border: none;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px 0;
+        }
+        
+        .final-plan {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 20px 0;
+        }
+        
+        .btn-custom {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4);
+            color: white;
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .meal-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border: none;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .meal-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{{ url_for('index') }}">
+                <i class="fas fa-dumbbell me-2"></i>جسمي أحسن
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('index') }}">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('your_plan_your_goal') }}">خطة التمرين</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">دليل فقدان الوزن</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <!-- Progress Bar -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="progress" style="height: 8px; border-radius: 10px;">
+                    <div class="progress-bar progress-bar-custom" id="progressBar" role="progressbar" style="width: 20%"></div>
+                </div>
+                <div class="text-center mt-2">
+                    <span id="progressText">الخطوة 1 من 5</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 1: Essentials to Know -->
+        <div class="step-container active" id="step1">
+            <div class="section-header">
+                <h2><i class="fas fa-lightbulb me-3"></i>أساسيات يجب معرفتها قبل البدء</h2>
+                <p class="mb-0">المعرفة الصحيحة هي أساس النجاح في رحلة فقدان الوزن</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-fire text-danger me-2"></i>حقائق عن السعرات الحرارية</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>كيلو واحد من الدهون = 7700 سعرة حرارية</li>
+                                <li><i class="fas fa-check text-success me-2"></i>عجز 500 سعرة يومياً = فقدان 0.5 كيلو أسبوعياً</li>
+                                <li><i class="fas fa-check text-success me-2"></i>لا تقل السعرات عن 1200 للنساء و 1500 للرجال</li>
+                                <li><i class="fas fa-check text-success me-2"></i>التوازن أهم من السرعة</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100" style="border: none; border-radius: 15px; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-target text-primary me-2"></i>أهداف واقعية</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-star text-warning me-2"></i>فقدان 0.5-1 كيلو أسبوعياً صحي</li>
+                                <li><i class="fas fa-star text-warning me-2"></i>ركز على تغيير نمط الحياة</li>
+                                <li><i class="fas fa-star text-warning me-2"></i>قس التقدم بطرق متعددة</li>
+                                <li><i class="fas fa-star text-warning me-2"></i>اصبر على النتائج</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="motivational-quote">
+                <h4><i class="fas fa-quote-left me-2"></i>رحلة الألف ميل تبدأ بخطوة واحدة<i class="fas fa-quote-right ms-2"></i></h4>
+                <p class="mb-0">كل يوم تلتزم فيه بخطتك هو استثمار في صحتك ومستقبلك</p>
+            </div>
+
+            <div class="text-center">
+                <h5 class="mb-3">ما هو هدفك من فقدان الوزن؟</h5>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <div class="card card-option" data-goal="health">
+                            <div class="card-body text-center">
+                                <i class="fas fa-heart fa-3x text-danger mb-3"></i>
+                                <h6>تحسين الصحة</h6>
+                                <p class="small">التخلص من مشاكل صحية والشعور بالحيوية</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card card-option" data-goal="appearance">
+                            <div class="card-body text-center">
+                                <i class="fas fa-user fa-3x text-primary mb-3"></i>
+                                <h6>تحسين المظهر</h6>
+                                <p class="small">الحصول على جسم متناسق وثقة أكبر</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card card-option" data-goal="fitness">
+                            <div class="card-body text-center">
+                                <i class="fas fa-running fa-3x text-success mb-3"></i>
+                                <h6>زيادة اللياقة</h6>
+                                <p class="small">تحسين الأداء الرياضي والقدرة على التحمل</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-custom mt-3" onclick="nextStep()" id="nextBtn1" disabled>
+                    التالي <i class="fas fa-arrow-left ms-2"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2: Workout Systems -->
+        <div class="step-container" id="step2">
+            <div class="section-header">
+                <h2><i class="fas fa-dumbbell me-3"></i>أنظمة التمرين لفقدان الوزن</h2>
+                <p class="mb-0">اختر النظام الذي يناسب وقتك ومستوى لياقتك</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card card-option h-100" data-workout="hiit">
+                        <div class="card-body text-center">
+                            <i class="fas fa-bolt fa-3x text-warning mb-3"></i>
+                            <h5>تمارين HIIT</h5>
+                            <p><strong>المدة:</strong> 15-25 دقيقة</p>
+                            <p><strong>التكرار:</strong> 3-4 مرات أسبوعياً</p>
+                            <p><strong>المناسب لـ:</strong> من لديه وقت قليل</p>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="fas fa-check text-success me-2"></i>حرق سعرات عالي</li>
+                                <li><i class="fas fa-check text-success me-2"></i>تحسين اللياقة سريعاً</li>
+                                <li><i class="fas fa-check text-success me-2"></i>لا يحتاج معدات</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card card-option h-100" data-workout="liss">
+                        <div class="card-body text-center">
+                            <i class="fas fa-walking fa-3x text-info mb-3"></i>
+                            <h5>تمارين LISS</h5>
+                            <p><strong>المدة:</strong> 30-60 دقيقة</p>
+                            <p><strong>التكرار:</strong> 4-6 مرات أسبوعياً</p>
+                            <p><strong>المناسب لـ:</strong> المبتدئين</p>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="fas fa-check text-success me-2"></i>سهل على المفاصل</li>
+                                <li><i class="fas fa-check text-success me-2"></i>يمكن ممارسته يومياً</li>
+                                <li><i class="fas fa-check text-success me-2"></i>مناسب لجميع الأعمار</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card card-option h-100" data-workout="combined">
+                        <div class="card-body text-center">
+                            <i class="fas fa-sync-alt fa-3x text-success mb-3"></i>
+                            <h5>مقاومة + كارديو</h5>
+                            <p><strong>المدة:</strong> 45-60 دقيقة</p>
+                            <p><strong>التكرار:</strong> 4-5 مرات أسبوعياً</p>
+                            <p><strong>المناسب لـ:</strong> المتقدمين</p>
+                            <ul class="list-unstyled text-start">
+                                <li><i class="fas fa-check text-success me-2"></i>بناء عضلات + حرق دهون</li>
+                                <li><i class="fas fa-check text-success me-2"></i>نتائج شاملة</li>
+                                <li><i class="fas fa-check text-success me-2"></i>تحسين التمثيل الغذائي</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="motivational-quote">
+                <h4><i class="fas fa-quote-left me-2"></i>لا تتوقف عندما تتعب، توقف عندما تنتهي<i class="fas fa-quote-right ms-2"></i></h4>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-outline-secondary me-3" onclick="prevStep()">
+                    <i class="fas fa-arrow-right me-2"></i>السابق
+                </button>
+                <button class="btn btn-custom" onclick="nextStep()" id="nextBtn2" disabled>
+                    التالي <i class="fas fa-arrow-left ms-2"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 3: Meal Ideas -->
+        <div class="step-container" id="step3">
+            <div class="section-header">
+                <h2><i class="fas fa-utensils me-3"></i>أفكار وجبات لفقدان الوزن</h2>
+                <p class="mb-0">وجبات صحية ولذيذة تساعدك في رحلة فقدان الوزن</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-center mb-3"><i class="fas fa-sun text-warning me-2"></i>الإفطار</h5>
+                    <div class="meal-card card card-option" data-meal="breakfast-1">
+                        <div class="card-body">
+                            <h6>شوفان بالفواكه</h6>
+                            <p class="small">شوفان + حليب قليل الدسم + توت + عسل</p>
+                            <span class="badge bg-success">300 سعرة</span>
+                        </div>
+                    </div>
+                    <div class="meal-card card card-option mt-2" data-meal="breakfast-2">
+                        <div class="card-body">
+                            <h6>بيض مسلوق مع خبز أسمر</h6>
+                            <p class="small">2 بيضة + شريحة خبز أسمر + خضار</p>
+                            <span class="badge bg-success">280 سعرة</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-center mb-3"><i class="fas fa-sun text-orange me-2"></i>الغداء</h5>
+                    <div class="meal-card card card-option" data-meal="lunch-1">
+                        <div class="card-body">
+                            <h6>سلطة دجاج مشوي</h6>
+                            <p class="small">دجاج مشوي + خضار ورقية + أفوكادو</p>
+                            <span class="badge bg-primary">400 سعرة</span>
+                        </div>
+                    </div>
+                    <div class="meal-card card card-option mt-2" data-meal="lunch-2">
+                        <div class="card-body">
+                            <h6>سمك مع أرز بني</h6>
+                            <p class="small">سمك مشوي + أرز بني + خضار مطبوخة</p>
+                            <span class="badge bg-primary">450 سعرة</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-center mb-3"><i class="fas fa-apple-alt text-success me-2"></i>الوجبات الخفيفة</h5>
+                    <div class="meal-card card card-option" data-meal="snack-1">
+                        <div class="card-body">
+                            <h6>مكسرات وفواكه</h6>
+                            <p class="small">لوز + تفاح + زبادي يوناني</p>
+                            <span class="badge bg-warning">200 سعرة</span>
+                        </div>
+                    </div>
+                    <div class="meal-card card card-option mt-2" data-meal="snack-2">
+                        <div class="card-body">
+                            <h6>عصير أخضر</h6>
+                            <p class="small">سبانخ + موز + حليب لوز</p>
+                            <span class="badge bg-warning">150 سعرة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); border: none; border-radius: 15px;">
+                <div class="card-body">
+                    <h5><i class="fas fa-exchange-alt me-2"></i>نصائح للاستبدال الذكي</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-arrow-right text-danger me-2"></i>أرز أبيض → أرز بني أو كينوا</li>
+                                <li><i class="fas fa-arrow-right text-danger me-2"></i>خبز أبيض → خبز أسمر أو شوفان</li>
+                                <li><i class="fas fa-arrow-right text-danger me-2"></i>سكر → عسل أو تمر</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-arrow-right text-danger me-2"></i>حليب كامل الدسم → حليب قليل الدسم</li>
+                                <li><i class="fas fa-arrow-right text-danger me-2"></i>لحم أحمر → دجاج أو سمك</li>
+                                <li><i class="fas fa-arrow-right text-danger me-2"></i>مقلي → مشوي أو مسلوق</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="motivational-quote">
+                <h4><i class="fas fa-quote-left me-2"></i>جسمك هو انعكاس لنمط حياتك، وليس لجيناتك<i class="fas fa-quote-right ms-2"></i></h4>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-outline-secondary me-3" onclick="prevStep()">
+                    <i class="fas fa-arrow-right me-2"></i>السابق
+                </button>
+                <button class="btn btn-custom" onclick="nextStep()" id="nextBtn3" disabled>
+                    التالي <i class="fas fa-arrow-left ms-2"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 4: Simple Habits -->
+        <div class="step-container" id="step4">
+            <div class="section-header">
+                <h2><i class="fas fa-leaf me-3"></i>عادات بسيطة تغير حياتك</h2>
+                <p class="mb-0">عادات صغيرة تحدث فرقاً كبيراً في رحلة فقدان الوزن</p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <div class="habit-card card card-option" data-habit="water">
+                        <div class="card-body">
+                            <h5><i class="fas fa-tint text-info me-2"></i>شرب الماء قبل الوجبات</h5>
+                            <p>اشرب كوبين من الماء قبل كل وجبة بـ 30 دقيقة</p>
+                            <div class="small text-muted">
+                                <i class="fas fa-lightbulb me-1"></i>يساعد على الشعور بالشبع وتحسين الهضم
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                    <div class="habit-card card card-option" data-habit="sleep">
+                        <div class="card-body">
+                            <h5><i class="fas fa-bed text-purple me-2"></i>النوم الكافي</h5>
+                            <p>احرص على النوم 7-8 ساعات يومياً</p>
+                            <div class="small text-muted">
+                                <i class="fas fa-lightbulb me-1"></i>قلة النوم تزيد هرمونات الجوع
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                    <div class="habit-card card card-option" data-habit="walking">
+                        <div class="card-body">
+                            <h5><i class="fas fa-walking text-success me-2"></i>المشي بعد الأكل</h5>
+                            <p>امش لمدة 10-15 دقيقة بعد كل وجبة</p>
+                            <div class="small text-muted">
+                                <i class="fas fa-lightbulb me-1"></i>يحسن الهضم ويساعد في حرق السعرات
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                    <div class="habit-card card card-option" data-habit="portions">
+                        <div class="card-body">
+                            <h5><i class="fas fa-utensils text-warning me-2"></i>تحكم في الحصص</h5>
+                            <p>استخدم أطباق أصغر وامضغ ببطء</p>
+                            <div class="small text-muted">
+                                <i class="fas fa-lightbulb me-1"></i>يساعد على تقليل الكمية المتناولة
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                    <div class="habit-card card card-option" data-habit="planning">
+                        <div class="card-body">
+                            <h5><i class="fas fa-calendar text-primary me-2"></i>تخطيط الوجبات</h5>
+                            <p>خطط وجباتك مسبقاً واحضرها من المنزل</p>
+                            <div class="small text-muted">
+                                <i class="fas fa-lightbulb me-1"></i>يمنع الاختيارات السيئة عند الجوع
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 mb-3">
+                    <div class="habit-card card card-option" data-habit="mindful">
+                        <div class="card-body">
+                            <h5><i class="fas fa-heart text-danger me-2"></i>الأكل الواعي</h5>
+                            <p>ركز على طعامك وتجنب المشتتات</p>
+                            <div class="small text-muted">
+                                <i class="fas fa-lightbulb me-1"></i>يحسن الهضم ويقلل الإفراط في الأكل
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="motivational-quote">
+                <h4><i class="fas fa-quote-left me-2"></i>النجاح هو مجموع الجهود الصغيرة المتكررة يوماً بعد يوم<i class="fas fa-quote-right ms-2"></i></h4>
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-outline-secondary me-3" onclick="prevStep()">
+                    <i class="fas fa-arrow-right me-2"></i>السابق
+                </button>
+                <button class="btn btn-custom" onclick="nextStep()" id="nextBtn4" disabled>
+                    إنشاء خطتي <i class="fas fa-magic ms-2"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 5: Final Plan -->
+        <div class="step-container" id="step5">
+            <div class="section-header">
+                <h2><i class="fas fa-star me-3"></i>خطتك المخصصة لفقدان الوزن</h2>
+                <p class="mb-0">خطة شخصية مصممة خصيصاً لك بناءً على اختياراتك</p>
+            </div>
+
+            <div class="final-plan" id="finalPlan">
+                <!-- سيتم ملء المحتوى بواسطة JavaScript -->
+            </div>
+
+            <div class="text-center">
+                <button class="btn btn-outline-secondary me-3" onclick="prevStep()">
+                    <i class="fas fa-arrow-right me-2"></i>تعديل الخطة
+                </button>
+                <button class="btn btn-custom me-3" onclick="downloadPlan()">
+                    <i class="fas fa-download me-2"></i>تحميل الخطة
+                </button>
+                <button class="btn btn-custom" onclick="startOver()">
+                    <i class="fas fa-redo me-2"></i>بداية جديدة
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/weight-loss-guide.js') }}"></script>
+</body>
+</html>

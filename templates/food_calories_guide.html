@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل التغذية والسعرات الحرارية - جسمي أحسن</title>
+    <meta name="description" content="دليل شامل للتغذية والسعرات الحرارية - اكتشف القيم الغذائية للأطعمة وتعلم كيفية حساب السعرات والماكروز">
+    <meta name="keywords" content="سعرات حرارية, تغذية, بروتين, كربوهيدرات, دهون صحية, فيتامينات">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* Modern Color Palette */
+            --primary-green: #10b981;
+            --secondary-green: #059669;
+            --light-green: #d1fae5;
+            --accent-blue: #3b82f6;
+            --light-blue: #dbeafe;
+            --warm-white: #fefefe;
+            --soft-gray: #f8fafc;
+            --medium-gray: #64748b;
+            --dark-gray: #1e293b;
+            
+            /* Nutritional Colors */
+            --protein-color: #3b82f6;
+            --carbs-color: #f59e0b;
+            --fats-color: #ef4444;
+            --fruits-color: #10b981;
+            --supplements-color: #8b5cf6;
+            
+            /* Gradients */
+            --primary-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --hero-gradient: linear-gradient(135deg, #0ea5e9 0%, #10b981 50%, #059669 100%);
+            --card-gradient: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            /* Border Radius */
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+            
+            /* Typography */
+            --font-primary: 'Cairo', 'Noto Sans Arabic', sans-serif;
+            --font-secondary: 'Noto Sans Arabic', 'Cairo', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background: linear-gradient(135deg, #f0f9ff 0%, #ecfdf5 100%);
+            color: var(--dark-gray);
+            line-height: 1.6;
+            direction: rtl;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Daily Tip Banner */
+        .daily-tip-banner {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .daily-tip-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="80" r="2" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="1" fill="white" opacity="0.1"/></svg>');
+        }
+
+        .tip-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-weight: 500;
+        }
+
+        .tip-icon {
+            font-size: 1.25rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: var(--hero-gradient);
+            color: white;
+            padding: 4rem 0 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="dots" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23dots)"/></svg>');
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Search Section */
+        .search-section {
+            background: white;
+            padding: 2rem 0;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--radius-xl);
+            font-size: 1.1rem;
+            font-family: var(--font-primary);
+            transition: all 0.3s ease;
+            background: var(--soft-gray);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+        }
+
+        .search-input::placeholder {
+            color: var(--medium-gray);
+            font-weight: 400;
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--medium-gray);
+            font-size: 1.25rem;
+        }
+
+        /* Filter Tabs */
+        .filter-tabs {
+            display: flex;
+            gap: 0.75rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .filter-tab {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid transparent;
+            border-radius: var(--radius-xl);
+            background: var(--soft-gray);
+            color: var(--medium-gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-tab:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .filter-tab.active {
+            background: var(--primary-green);
+            color: white;
+            border-color: var(--primary-green);
+        }
+
+        .filter-tab.protein.active { background: var(--protein-color); border-color: var(--protein-color); }
+        .filter-tab.carbs.active { background: var(--carbs-color); border-color: var(--carbs-color); }
+        .filter-tab.fats.active { background: var(--fats-color); border-color: var(--fats-color); }
+        .filter-tab.fruits.active { background: var(--fruits-color); border-color: var(--fruits-color); }
+        .filter-tab.supplements.active { background: var(--supplements-color); border-color: var(--supplements-color); }
+
+        /* Food Categories Grid */
+        .categories-section {
+            padding: 3rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            color: var(--dark-gray);
+        }
+
+        .foods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Food Cards */
+        .food-card {
+            background: var(--card-gradient);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .food-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary-green);
+            transition: all 0.3s ease;
+        }
+
+        .food-card.protein::before { background: var(--protein-color); }
+        .food-card.carbs::before { background: var(--carbs-color); }
+        .food-card.fats::before { background: var(--fats-color); }
+        .food-card.fruits::before { background: var(--fruits-color); }
+        .food-card.supplements::before { background: var(--supplements-color); }
+
+        .food-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .food-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .food-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--light-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .food-image.protein { background: var(--light-blue); }
+        .food-image.carbs { background: #fef3c7; }
+        .food-image.fats { background: #fee2e2; }
+        .food-image.fruits { background: var(--light-green); }
+        .food-image.supplements { background: #f3e8ff; }
+
+        .food-info h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--dark-gray);
+        }
+
+        .food-calories {
+            color: var(--fats-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        /* Macros Display */
+        .macros-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            margin: 1.25rem 0;
+        }
+
+        .macro-item {
+            text-align: center;
+            padding: 0.75rem 0.5rem;
+            border-radius: var(--radius-md);
+            background: white;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #f1f5f9;
+        }
+
+        .macro-value {
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .macro-label {
+            font-size: 0.8rem;
+            color: var(--medium-gray);
+            font-weight: 500;
+        }
+
+        .protein .macro-value { color: var(--protein-color); }
+        .carbs .macro-value { color: var(--carbs-color); }
+        .fats .macro-value { color: var(--fats-color); }
+
+        /* Badges */
+        .food-badges {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-xl);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.025em;
+        }
+
+        .badge.keto { background: #dcfce7; color: #166534; }
+        .badge.high-protein { background: #dbeafe; color: #1e40af; }
+        .badge.low-carb { background: #fef3c7; color: #92400e; }
+        .badge.healthy-fat { background: #fee2e2; color: #991b1b; }
+        .badge.vitamin-rich { background: #f3e8ff; color: #7c3aed; }
+
+        /* Educational Articles Section */
+        .articles-section {
+            background: var(--soft-gray);
+            padding: 4rem 0;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .article-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin: 0 auto 1.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .article-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+
+        .article-description {
+            color: var(--medium-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .article-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .article-link:hover {
+            color: var(--secondary-green);
+            transform: translateX(-3px);
+        }
+
+        /* Fixed CTA Button for Mobile */
+        .fixed-cta {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: none;
+        }
+
+        .cta-button {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: var(--radius-xl);
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+            color: white;
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid var(--primary-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .foods-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .filter-tabs {
+                gap: 0.5rem;
+            }
+
+            .filter-tab {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .fixed-cta {
+                display: block;
+            }
+
+            .search-section {
+                padding: 1.5rem 0;
+            }
+
+            .macros-grid {
+                gap: 0.5rem;
+            }
+
+            .macro-item {
+                padding: 0.5rem 0.25rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .articles-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            .search-section,
+            .fixed-cta,
+            .daily-tip-banner {
+                display: none;
+            }
+            
+            .food-card {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ddd;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Daily Tip Banner -->
+    <div class="daily-tip-banner" data-aos="fade-down">
+        <div class="container">
+            <div class="tip-content">
+                <i class="fas fa-lightbulb tip-icon"></i>
+                <span>💡 نصيحة اليوم: اشرب كوب ماء قبل كل وجبة لتحسين الهضم وزيادة الشبع</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" data-aos="fade-up">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">🥗 دليل التغذية والسعرات</h1>
+                <p class="hero-subtitle">
+                    اكتشف القيم الغذائية لأكثر من 500 نوع طعام وتعلم كيفية بناء نظام غذائي صحي ومتوازن
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">نوع طعام</span>
+                    </div>
+                    <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">فئات غذائية</span>
+                    </div>
+                    <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">معلومات دقيقة</span>
+                    </div>
+                    <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">متاح دائماً</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section" data-aos="fade-up">
+        <div class="container">
+            <!-- Search Bar -->
+            <div class="search-container">
+                <input type="text" class="search-input" id="foodSearch" 
+                       placeholder="ابحث عن طعام... مثل: دجاج، أرز، لوز">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-category="all">
+                    <i class="fas fa-th-large"></i>
+                    جميع الأطعمة
+                </button>
+                <button class="filter-tab protein" data-category="protein">
+                    <i class="fas fa-drumstick-bite"></i>
+                    البروتينات
+                </button>
+                <button class="filter-tab carbs" data-category="carbs">
+                    <i class="fas fa-bread-slice"></i>
+                    الكربوهيدرات
+                </button>
+                <button class="filter-tab fats" data-category="fats">
+                    <i class="fas fa-seedling"></i>
+                    الدهون الصحية
+                </button>
+                <button class="filter-tab fruits" data-category="fruits">
+                    <i class="fas fa-apple-alt"></i>
+                    الفواكه والخضار
+                </button>
+                <button class="filter-tab supplements" data-category="supplements">
+                    <i class="fas fa-pills"></i>
+                    المكملات
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">🍽️ دليل الأطعمة الشامل</h2>
+            
+            <!-- Loading Animation -->
+            <div class="loading" id="loadingSpinner">
+                <div class="spinner"></div>
+                <p>جاري تحميل الأطعمة...</p>
+            </div>
+
+            <!-- All Foods Grid -->
+            <div class="foods-grid" id="allFoodsGrid">
+                <!-- Proteins -->
+                <div class="food-card protein" data-aos="fade-up" data-aos-delay="100">
+                    <div class="food-header">
+                        <div class="food-image protein">🐔</div>
+                        <div class="food-info">
+                            <h3>صدر دجاج مشوي</h3>
+                            <div class="food-calories">165 سعرة / 100جم</div>
+                        </div>
+                    </div>
+                    <div class="macros-grid">
+                        <div class="macro-item protein">
+                            <div class="macro-value">31جم</div>
+                            <div class="macro-label">بروتين</div>
+                        </div>
+                        <div class="macro-item carbs">
+                            <div class="macro-value">0جم</div>
+                            <div class="macro-label">كربوهيدرات</div>
+                        </div>
+                        <div class="macro-item fats">
+                            <div class="macro-value">3.6جم</div>
+                            <div class="macro-label">دهون</div>
+                        </div>
+                    </div>
+                    <div class="food-badges">
+                        <span class="badge high-protein">عالي البروتين</span>
+                        <span class="badge keto">كيتو</span>
+                        <span class="badge low-carb">قليل الكربوهيدرات</span>
+                    </div>
+                </div>
+
+                <!-- Salmon -->
+                <div class="food-card protein" data-aos="fade-up" data-aos-delay="200">
+                    <div class="food-header">
+                        <div class="food-image protein">🐟</div>
+                        <div class="food-info">
+                            <h3>سلمون مشوي</h3>
+                            <div class="food-calories">208 سعرة / 100جم</div>
+                        </div>
+                    </div>
+                    <div class="macros-grid">
+                        <div class="macro-item protein">
+                            <div class="macro-value">25جم</div>
+                            <div class="macro-label">بروتين</div>
+                        </div>
+                        <div class="macro-item carbs">
+                            <div class="macro-value">0جم</div>
+                            <div class="macro-label">كربوهيدرات</div>
+                        </div>
+                        <div class="macro-item fats">
+                            <div class="macro-value">12جم</div>
+                            <div class="macro-label">دهون</div>
+                        </div>
+                    </div>
+                    <div class="food-badges">
+                        <span class="badge high-protein">عالي البروتين</span>
+                        <span class="badge healthy-fat">أوميجا 3</span>
+                        <span class="badge keto">كيتو</span>
+                    </div>
+                </div>
+
+                <!-- Brown Rice -->
+                <div class="food-card carbs" data-aos="fade-up" data-aos-delay="300">
+                    <div class="food-header">
+                        <div class="food-image carbs">🍚</div>
+                        <div class="food-info">
+                            <h3>أرز بني مطبوخ</h3>
+                            <div class="food-calories">123 سعرة / 100جم</div>
+                        </div>
+                    </div>
+                    <div class="macros-grid">
+                        <div class="macro-item protein">
+                            <div class="macro-value">2.6جم</div>
+                            <div class="macro-label">بروتين</div>
+                        </div>
+                        <div class="macro-item carbs">
+                            <div class="macro-value">25جم</div>
+                            <div class="macro-label">كربوهيدرات</div>
+                        </div>
+                        <div class="macro-item fats">
+                            <div class="macro-value">0.9جم</div>
+                            <div class="macro-label">دهون</div>
+                        </div>
+                    </div>
+                    <div class="food-badges">
+                        <span class="badge vitamin-rich">غني بالألياف</span>
+                        <span class="badge healthy-fat">كربوهيدرات معقدة</span>
+                    </div>
+                </div>
+
+                <!-- Avocado -->
+                <div class="food-card fats" data-aos="fade-up" data-aos-delay="400">
+                    <div class="food-header">
+                        <div class="food-image fats">🥑</div>
+                        <div class="food-info">
+                            <h3>أفوكادو طازج</h3>
+                            <div class="food-calories">160 سعرة / 100جم</div>
+                        </div>
+                    </div>
+                    <div class="macros-grid">
+                        <div class="macro-item protein">
+                            <div class="macro-value">2جم</div>
+                            <div class="macro-label">بروتين</div>
+                        </div>
+                        <div class="macro-item carbs">
+                            <div class="macro-value">9جم</div>
+                            <div class="macro-label">كربوهيدرات</div>
+                        </div>
+                        <div class="macro-item fats">
+                            <div class="macro-value">15جم</div>
+                            <div class="macro-label">دهون</div>
+                        </div>
+                    </div>
+                    <div class="food-badges">
+                        <span class="badge healthy-fat">دهون أحادية</span>
+                        <span class="badge keto">كيتو</span>
+                        <span class="badge vitamin-rich">غني بالألياف</span>
+                    </div>
+                </div>
+
+                <!-- Apple -->
+                <div class="food-card fruits" data-aos="fade-up" data-aos-delay="500">
+                    <div class="food-header">
+                        <div class="food-image fruits">🍎</div>
+                        <div class="food-info">
+                            <h3>تفاح طازج</h3>
+                            <div class="food-calories">52 سعرة / 100جم</div>
+                        </div>
+                    </div>
+                    <div class="macros-grid">
+                        <div class="macro-item protein">
+                            <div class="macro-value">0.3جم</div>
+                            <div class="macro-label">بروتين</div>
+                        </div>
+                        <div class="macro-item carbs">
+                            <div class="macro-value">14جم</div>
+                            <div class="macro-label">كربوهيدرات</div>
+                        </div>
+                        <div class="macro-item fats">
+                            <div class="macro-value">0.2جم</div>
+                            <div class="macro-label">دهون</div>
+                        </div>
+                    </div>
+                    <div class="food-badges">
+                        <span class="badge vitamin-rich">غني بالألياف</span>
+                        <span class="badge healthy-fat">مضادات أكسدة</span>
+                        <span class="badge low-carb">قليل السعرات</span>
+                    </div>
+                </div>
+
+                <!-- Whey Protein -->
+                <div class="food-card supplements" data-aos="fade-up" data-aos-delay="600">
+                    <div class="food-header">
+                        <div class="food-image supplements">💊</div>
+                        <div class="food-info">
+                            <h3>بروتين مصل اللبن</h3>
+                            <div class="food-calories">120 سعرة / 30جم</div>
+                        </div>
+                    </div>
+                    <div class="macros-grid">
+                        <div class="macro-item protein">
+                            <div class="macro-value">25جم</div>
+                            <div class="macro-label">بروتين</div>
+                        </div>
+                        <div class="macro-item carbs">
+                            <div class="macro-value">2جم</div>
+                            <div class="macro-label">كربوهيدرات</div>
+                        </div>
+                        <div class="macro-item fats">
+                            <div class="macro-value">1جم</div>
+                            <div class="macro-label">دهون</div>
+                        </div>
+                    </div>
+                    <div class="food-badges">
+                        <span class="badge high-protein">عالي البروتين</span>
+                        <span class="badge vitamin-rich">سريع الامتصاص</span>
+                        <span class="badge low-carb">قليل الكربوهيدرات</span>
+                    </div>
+                </div>
+
+                <!-- Oats -->
+                <div class="food-card carbs" data-aos="fade-up" data-aos-delay="700">
+                    <div class="food-header">
+                        <div class="food-image carbs">🥣</div>
+                        <div class="food-info">
+                            <h3>شوفان مطبوخ</h3>
+                            <div class="food-calories">68 سعرة / 100جم</div>
+                        </div>
+                    </div>
+                    <div class="macros-grid">
+                        <div class="macro-item protein">
+                            <div class="macro-value">2.4جم</div>
+                            <div class="macro-label">بروتين</div>
+                        </div>
+                        <div class="macro-item carbs">
+                            <div class="macro-value">12جم</div>
+                            <div class="macro-label">كربوهيدرات</div>
+                        </div>
+                        <div class="macro-item fats">
+                            <div class="macro-value">1.4جم</div>
+                            <div class="macro-label">دهون</div>
+                        </div>
+                    </div>
+                    <div class="food-badges">
+                        <span class="badge vitamin-rich">غني بالألياف</span>
+                        <span class="badge healthy-fat">بيتا جلوكان</span>
+                    </div>
+                </div>
+
+                <!-- Almonds -->
+                <div class="food-card fats" data-aos="fade-up" data-aos-delay="800">
+                    <div class="food-header">
+                        <div class="food-image fats">🌰</div>
+                        <div class="food-info">
+                            <h3>لوز نيء</h3>
+                            <div class="food-calories">579 سعرة / 100جم</div>
+                        </div>
+                    </div>
+                    <div class="macros-grid">
+                        <div class="macro-item protein">
+                            <div class="macro-value">21جم</div>
+                            <div class="macro-label">بروتين</div>
+                        </div>
+                        <div class="macro-item carbs">
+                            <div class="macro-value">22جم</div>
+                            <div class="macro-label">كربوهيدرات</div>
+                        </div>
+                        <div class="macro-item fats">
+                            <div class="macro-value">50جم</div>
+                            <div class="macro-label">دهون</div>
+                        </div>
+                    </div>
+                    <div class="food-badges">
+                        <span class="badge healthy-fat">دهون صحية</span>
+                        <span class="badge high-protein">عالي البروتين</span>
+                        <span class="badge vitamin-rich">فيتامين E</span>
+                    </div>
+                </div>
+
+                <!-- Spinach -->
+                <div class="food-card fruits" data-aos="fade-up" data-aos-delay="900">
+                    <div class="food-header">
+                        <div class="food-image fruits">🥬</div>
+                        <div class="food-info">
+                            <h3>سبانخ طازجة</h3>
+                            <div class="food-calories">23 سعرة / 100جم</div>
+                        </div>
+                    </div>
+                    <div class="macros-grid">
+                        <div class="macro-item protein">
+                            <div class="macro-value">2.9جم</div>
+                            <div class="macro-label">بروتين</div>
+                        </div>
+                        <div class="macro-item carbs">
+                            <div class="macro-value">3.6جم</div>
+                            <div class="macro-label">كربوهيدرات</div>
+                        </div>
+                        <div class="macro-item fats">
+                            <div class="macro-value">0.4جم</div>
+                            <div class="macro-label">دهون</div>
+                        </div>
+                    </div>
+                    <div class="food-badges">
+                        <span class="badge vitamin-rich">غني بالحديد</span>
+                        <span class="badge healthy-fat">فيتامين K</span>
+                        <span class="badge low-carb">قليل السعرات</span>
+                    </div>
+                </div>
+
+                <!-- Eggs -->
+                <div class="food-card protein" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="food-header">
+                        <div class="food-image protein">🥚</div>
+                        <div class="food-info">
+                            <h3>بيض مسلوق</h3>
+                            <div class="food-calories">155 سعرة / 100جم</div>
+                        </div>
+                    </div>
+                    <div class="macros-grid">
+                        <div class="macro-item protein">
+                            <div class="macro-value">13جم</div>
+                            <div class="macro-label">بروتين</div>
+                        </div>
+                        <div class="macro-item carbs">
+                            <div class="macro-value">1.1جم</div>
+                            <div class="macro-label">كربوهيدرات</div>
+                        </div>
+                        <div class="macro-item fats">
+                            <div class="macro-value">11جم</div>
+                            <div class="macro-label">دهون</div>
+                        </div>
+                    </div>
+                    <div class="food-badges">
+                        <span class="badge high-protein">عالي البروتين</span>
+                        <span class="badge vitamin-rich">غني بالفيتامينات</span>
+                    </div>
+                </div>
+
+                <!-- Sweet Potato -->
+                <div class="food-card carbs" data-aos="fade-up" data-aos-delay="1100">
+                    <div class="food-header">
+                        <div class="food-image carbs">🍠</div>
+                        <div class="food-info">
+                            <h3>بطاطا حلوة مشوية</h3>
+                            <div class="food-calories">90 سعرة / 100جم</div>
+                        </div>
+                    </div>
+                    <div class="macros-grid">
+                        <div class="macro-item protein">
+                            <div class="macro-value">2جم</div>
+                            <div class="macro-label">بروتين</div>
+                        </div>
+                        <div class="macro-item carbs">
+                            <div class="macro-value">21جم</div>
+                            <div class="macro-label">كربوهيدرات</div>
+                        </div>
+                        <div class="macro-item fats">
+                            <div class="macro-value">0.1جم</div>
+                            <div class="macro-label">دهون</div>
+                        </div>
+                    </div>
+                    <div class="food-badges">
+                        <span class="badge vitamin-rich">غني بفيتامين A</span>
+                        <span class="badge healthy-fat">مضادات أكسدة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Internal Links Section -->
+    <section class="internal-links-section" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 4rem 0; margin: 3rem 0;" data-aos="fade-up">
+        <div class="container">
+            <h2 style="text-align: center; color: white; font-size: 2.5rem; font-weight: 700; margin-bottom: 3rem; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                🔗 استكشف المزيد من الأدوات
+            </h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+                <!-- Calorie Calculator Link -->
+                <div style="background: rgba(255,255,255,0.95); border-radius: 20px; padding: 2rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease; backdrop-filter: blur(10px);" 
+                     onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.3)'" 
+                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.2)'">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #4CAF50, #45a049); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 5px 15px rgba(76,175,80,0.4);">
+                        <i class="fas fa-calculator" style="font-size: 2rem; color: white;"></i>
+                    </div>
+                    <h3 style="color: #2c3e50; font-size: 1.4rem; font-weight: 600; margin-bottom: 1rem;">حاسبة السعرات الحرارية</h3>
+                    <p style="color: #7f8c8d; margin-bottom: 1.5rem; line-height: 1.6;">احسب احتياجك اليومي من السعرات والماكروز بدقة</p>
+                    <a href="/meal_generator" style="background: linear-gradient(135deg, #4CAF50, #45a049); color: white; padding: 0.8rem 2rem; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease;">
+                        <i class="fas fa-arrow-left"></i> ابدأ الحساب
+                    </a>
+                </div>
+
+                <!-- Supplements Guide Link -->
+                <div style="background: rgba(255,255,255,0.95); border-radius: 20px; padding: 2rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease; backdrop-filter: blur(10px);" 
+                     onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.3)'" 
+                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.2)'">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #9b59b6, #8e44ad); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 5px 15px rgba(155,89,182,0.4);">
+                        <i class="fas fa-pills" style="font-size: 2rem; color: white;"></i>
+                    </div>
+                    <h3 style="color: #2c3e50; font-size: 1.4rem; font-weight: 600; margin-bottom: 1rem;">دليل المكملات الغذائية</h3>
+                    <p style="color: #7f8c8d; margin-bottom: 1.5rem; line-height: 1.6;">اكتشف أفضل المكملات لأهدافك الرياضية</p>
+                    <a href="/supplements" style="background: linear-gradient(135deg, #9b59b6, #8e44ad); color: white; padding: 0.8rem 2rem; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease;">
+                        <i class="fas fa-arrow-left"></i> استكشف المكملات
+                    </a>
+                </div>
+
+                <!-- Workout Guide Link -->
+                <div style="background: rgba(255,255,255,0.95); border-radius: 20px; padding: 2rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease; backdrop-filter: blur(10px);" 
+                     onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.3)'" 
+                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.2)'">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #e74c3c, #c0392b); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 5px 15px rgba(231,76,60,0.4);">
+                        <i class="fas fa-dumbbell" style="font-size: 2rem; color: white;"></i>
+                    </div>
+                    <h3 style="color: #2c3e50; font-size: 1.4rem; font-weight: 600; margin-bottom: 1rem;">دليل التمارين الرياضية</h3>
+                    <p style="color: #7f8c8d; margin-bottom: 1.5rem; line-height: 1.6;">تمارين شاملة لجميع عضلات الجسم</p>
+                    <a href="/workout_guide" style="background: linear-gradient(135deg, #e74c3c, #c0392b); color: white; padding: 0.8rem 2rem; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease;">
+                        <i class="fas fa-arrow-left"></i> ابدأ التمرين
+                    </a>
+                </div>
+
+                <!-- Fitness Calculators Link -->
+                <div style="background: rgba(255,255,255,0.95); border-radius: 20px; padding: 2rem; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transition: all 0.3s ease; backdrop-filter: blur(10px);" 
+                     onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.3)'" 
+                     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.2)'">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #f39c12, #e67e22); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 5px 15px rgba(243,156,18,0.4);">
+                        <i class="fas fa-chart-line" style="font-size: 2rem; color: white;"></i>
+                    </div>
+                    <h3 style="color: #2c3e50; font-size: 1.4rem; font-weight: 600; margin-bottom: 1rem;">حاسبات اللياقة البدنية</h3>
+                    <p style="color: #7f8c8d; margin-bottom: 1.5rem; line-height: 1.6;">احسب مؤشر كتلة الجسم ونسبة الدهون</p>
+                    <a href="/calculators" style="background: linear-gradient(135deg, #f39c12, #e67e22); color: white; padding: 0.8rem 2rem; border-radius: 25px; text-decoration: none; font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease;">
+                        <i class="fas fa-arrow-left"></i> احسب الآن
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Educational Articles Section -->
+    <section class="articles-section" data-aos="fade-up">
+        <div class="container">
+            <h2 class="section-title">📚 تعلم أكثر عن التغذية</h2>
+            
+            <div class="articles-grid">
+                <div class="article-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="article-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3 class="article-title">كيفية حساب السعرات الحرارية</h3>
+                    <p class="article-description">
+                        تعلم كيفية حساب احتياجك اليومي من السعرات الحرارية بناءً على هدفك ونشاطك البدني
+                    </p>
+                    <a href="#" class="article-link">
+                        اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+
+                <div class="article-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="article-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3 class="article-title">أهمية الماكروز في نظامك الغذائي</h3>
+                    <p class="article-description">
+                        فهم توزيع البروتين والكربوهيدرات والدهون وكيفية تحسين أداءك الرياضي
+                    </p>
+                    <a href="#" class="article-link">
+                        اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+
+                <div class="article-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="article-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="article-title">أفضل توقيت لتناول الوجبات</h3>
+                    <p class="article-description">
+                        متى تأكل كل نوع من المغذيات لأفضل النتائج وتحسين عملية الأيض
+                    </p>
+                    <a href="#" class="article-link">
+                        اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+
+                <div class="article-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="article-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <h3 class="article-title">دليل المكملات الغذائية</h3>
+                    <p class="article-description">
+                        ما هي المكملات التي تحتاجها حقاً ومتى تتناولها لأفضل النتائج
+                    </p>
+                    <a href="#" class="article-link">
+                        اقرأ المزيد <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fixed CTA Button for Mobile -->
+    <div class="fixed-cta">
+        <a href="#" class="cta-button">
+            <i class="fas fa-calculator"></i>
+            احسب سعراتك الآن
+        </a>
+    </div>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Filter functionality
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const foodCards = document.querySelectorAll('.food-card');
+        const searchInput = document.getElementById('foodSearch');
+
+        // Filter by category
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                filterTabs.forEach(t => t.classList.remove('active'));
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                const category = tab.dataset.category;
+                filterFoods(category, searchInput.value);
+            });
+        });
+
+        // Search functionality
+        searchInput.addEventListener('input', (e) => {
+            const activeCategory = document.querySelector('.filter-tab.active').dataset.category;
+            filterFoods(activeCategory, e.target.value);
+        });
+
+        function filterFoods(category, searchTerm) {
+            foodCards.forEach(card => {
+                const cardCategory = card.classList.contains('protein') ? 'protein' :
+                                  card.classList.contains('carbs') ? 'carbs' :
+                                  card.classList.contains('fats') ? 'fats' :
+                                  card.classList.contains('fruits') ? 'fruits' :
+                                  card.classList.contains('supplements') ? 'supplements' : '';
+                
+                const foodName = card.querySelector('h3').textContent.toLowerCase();
+                const matchesCategory = category === 'all' || cardCategory === category;
+                const matchesSearch = searchTerm === '' || foodName.includes(searchTerm.toLowerCase());
+                
+                if (matchesCategory && matchesSearch) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeIn 0.5s ease-in-out';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add fade-in animation keyframes
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Performance optimization: Lazy loading for images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.classList.add('loaded');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('.food-image').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Add loading state for better UX
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>

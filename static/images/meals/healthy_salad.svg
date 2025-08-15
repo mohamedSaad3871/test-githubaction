@@ -1,0 +1,80 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="saladGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="bowlGradient" cx="50%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ecf0f1;stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="200" fill="url(#saladGradient)" rx="15"/>
+  
+  <!-- Bowl -->
+  <ellipse cx="150" cy="140" rx="80" ry="45" fill="url(#bowlGradient)" stroke="#bdc3c7" stroke-width="2"/>
+  <ellipse cx="150" cy="130" rx="75" ry="8" fill="#ecf0f1"/>
+  
+  <!-- Lettuce leaves -->
+  <g fill="#27ae60">
+    <ellipse cx="120" cy="120" rx="15" ry="8" transform="rotate(-20 120 120)"/>
+    <ellipse cx="140" cy="115" rx="18" ry="10" transform="rotate(10 140 115)"/>
+    <ellipse cx="160" cy="118" rx="16" ry="9" transform="rotate(-15 160 118)"/>
+    <ellipse cx="180" cy="125" rx="14" ry="7" transform="rotate(25 180 125)"/>
+    <ellipse cx="130" cy="135" rx="12" ry="6" transform="rotate(-30 130 135)"/>
+    <ellipse cx="170" cy="140" rx="13" ry="7" transform="rotate(15 170 140)"/>
+  </g>
+  
+  <!-- Tomatoes -->
+  <g fill="#e74c3c">
+    <circle cx="135" cy="125" r="8"/>
+    <circle cx="165" cy="130" r="7"/>
+    <circle cx="155" cy="145" r="6"/>
+  </g>
+  
+  <!-- Cucumber slices -->
+  <g fill="#2ecc71" stroke="#27ae60" stroke-width="1">
+    <circle cx="125" cy="140" r="6"/>
+    <circle cx="175" cy="135" r="5"/>
+    <circle cx="145" cy="155" r="5"/>
+  </g>
+  
+  <!-- Carrots -->
+  <g fill="#f39c12">
+    <ellipse cx="150" cy="125" rx="4" ry="12" transform="rotate(45 150 125)"/>
+    <ellipse cx="140" cy="150" rx="3" ry="10" transform="rotate(-30 140 150)"/>
+  </g>
+  
+  <!-- Cheese cubes -->
+  <g fill="#f1c40f">
+    <rect x="160" y="120" width="8" height="8" rx="1"/>
+    <rect x="130" y="150" width="6" height="6" rx="1"/>
+  </g>
+  
+  <!-- Olives -->
+  <g fill="#2c3e50">
+    <ellipse cx="170" cy="150" rx="3" ry="4"/>
+    <ellipse cx="125" cy="130" rx="2" ry="3"/>
+  </g>
+  
+  <!-- Fork -->
+  <g fill="#95a5a6" transform="translate(220, 80)">
+    <rect x="0" y="0" width="3" height="60" rx="1"/>
+    <rect x="-2" y="0" width="2" height="8" rx="1"/>
+    <rect x="1" y="0" width="2" height="8" rx="1"/>
+    <rect x="3" y="0" width="2" height="8" rx="1"/>
+    <rect x="5" y="0" width="2" height="8" rx="1"/>
+  </g>
+  
+  <!-- Sparkles for freshness -->
+  <g fill="#ffffff" opacity="0.8">
+    <polygon points="100,60 102,65 107,65 103,68 105,73 100,70 95,73 97,68 93,65 98,65"/>
+    <polygon points="200,50 201,53 204,53 202,55 203,58 200,56 197,58 198,55 196,53 199,53"/>
+    <polygon points="250,100 251,103 254,103 252,105 253,108 250,106 247,108 248,105 246,103 249,103"/>
+  </g>
+  
+  <!-- Label -->
+  <text x="150" y="25" text-anchor="middle" fill="#2c3e50" font-family="Arial, sans-serif" font-size="16" font-weight="bold">سلطة صحية</text>
+</svg>

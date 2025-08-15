@@ -1,0 +1,60 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="squatGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="200" fill="url(#squatGradient)" rx="15"/>
+  
+  <!-- Person doing squat -->
+  <g fill="#ffffff">
+    <!-- Head -->
+    <circle cx="150" cy="50" r="15"/>
+    
+    <!-- Body (torso) -->
+    <rect x="140" y="65" width="20" height="40" rx="10"/>
+    
+    <!-- Arms extended forward -->
+    <rect x="110" y="75" width="25" height="8" rx="4"/>
+    <rect x="165" y="75" width="25" height="8" rx="4"/>
+    
+    <!-- Upper legs (thighs) -->
+    <rect x="135" y="105" width="12" height="30" rx="6" transform="rotate(-10 141 120)"/>
+    <rect x="153" y="105" width="12" height="30" rx="6" transform="rotate(10 159 120)"/>
+    
+    <!-- Lower legs (calves) -->
+    <rect x="130" y="130" width="10" height="25" rx="5"/>
+    <rect x="160" y="130" width="10" height="25" rx="5"/>
+    
+    <!-- Feet -->
+    <ellipse cx="135" cy="165" rx="8" ry="4"/>
+    <ellipse cx="165" cy="165" rx="8" ry="4"/>
+  </g>
+  
+  <!-- Motion arrows -->
+  <g stroke="#ffffff" stroke-width="3" fill="none" opacity="0.8">
+    <path d="M 120 120 Q 110 110 100 100" marker-end="url(#arrowhead)"/>
+    <path d="M 180 120 Q 190 110 200 100" marker-end="url(#arrowhead)"/>
+  </g>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffffff"/>
+    </marker>
+  </defs>
+  
+  <!-- Muscle emphasis -->
+  <g fill="#ffffff" opacity="0.3">
+    <ellipse cx="141" cy="115" rx="6" ry="12"/>
+    <ellipse cx="159" cy="115" rx="6" ry="12"/>
+    <ellipse cx="135" cy="140" rx="5" ry="10"/>
+    <ellipse cx="165" cy="140" rx="5" ry="10"/>
+  </g>
+  
+  <!-- Exercise label -->
+  <text x="150" y="25" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Squats</text>
+</svg>

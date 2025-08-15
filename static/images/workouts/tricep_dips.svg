@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="tricepBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#tricepBg)" opacity="0.9"/>
+  
+  <!-- Bench/Chair -->
+  <rect x="70" y="90" width="60" height="8" fill="#8B4513" rx="4"/>
+  <rect x="75" y="98" width="8" height="30" fill="#8B4513"/>
+  <rect x="117" y="98" width="8" height="30" fill="#8B4513"/>
+  
+  <!-- Person doing tricep dips -->
+  <!-- Head -->
+  <circle cx="100" cy="60" r="12" fill="#fdbcb4" stroke="#333" stroke-width="2"/>
+  
+  <!-- Body -->
+  <ellipse cx="100" cy="95" rx="15" ry="20" fill="#4a90e2" stroke="#333" stroke-width="2"/>
+  
+  <!-- Arms supporting on bench -->
+  <line x1="85" y1="80" x2="75" y2="90" stroke="#fdbcb4" stroke-width="6" stroke-linecap="round"/>
+  <line x1="115" y1="80" x2="125" y2="90" stroke="#fdbcb4" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Hands on bench -->
+  <circle cx="75" cy="90" r="4" fill="#fdbcb4"/>
+  <circle cx="125" cy="90" r="4" fill="#fdbcb4"/>
+  
+  <!-- Legs extended -->
+  <line x1="90" y1="110" x2="85" y2="140" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+  <line x1="110" y1="110" x2="115" y2="140" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Feet -->
+  <ellipse cx="82" cy="143" rx="8" ry="4" fill="#333"/>
+  <ellipse cx="118" cy="143" rx="8" ry="4" fill="#333"/>
+  
+  <!-- Motion arrows showing up/down movement -->
+  <path d="M 100 40 L 95 30 L 105 30 Z" fill="#ff6b6b" opacity="0.8"/>
+  <path d="M 100 150 L 95 160 L 105 160 Z" fill="#ff6b6b" opacity="0.8"/>
+  
+  <!-- Tricep muscle highlight -->
+  <ellipse cx="85" cy="85" rx="4" ry="8" fill="#ff6b6b" opacity="0.3"/>
+  <ellipse cx="115" cy="85" rx="4" ry="8" fill="#ff6b6b" opacity="0.3"/>
+  
+  <!-- Effort lines -->
+  <line x1="70" y1="85" x2="65" y2="80" stroke="#ffd700" stroke-width="2" opacity="0.7"/>
+  <line x1="130" y1="85" x2="135" y2="80" stroke="#ffd700" stroke-width="2" opacity="0.7"/>
+  <line x1="75" y1="95" x2="70" y2="100" stroke="#ffd700" stroke-width="2" opacity="0.7"/>
+  <line x1="125" y1="95" x2="130" y2="100" stroke="#ffd700" stroke-width="2" opacity="0.7"/>
+  
+  <!-- Text -->
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">Tricep Dips</text>
+</svg>

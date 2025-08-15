@@ -1,0 +1,516 @@
+{% extends "base.html" %}
+
+{% block title %}المكملات الغذائية - جسمي أحسن{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <!-- Header Section -->
+    <div class="row mb-5">
+        <div class="col-12 text-center">
+            <h1 class="display-4 text-primary mb-3">
+                <i class="fas fa-pills me-3"></i>
+                دليل المكملات الغذائية
+            </h1>
+            <p class="lead text-muted">
+                دليل شامل لأشهر المكملات الغذائية للرياضيين مع معلومات مفصلة عن الاستخدام والفوائد
+            </p>
+        </div>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <label for="categoryFilter" class="form-label fw-bold">تصفية حسب الفئة:</label>
+                            <select id="categoryFilter" class="form-select">
+                                <option value="">جميع الفئات</option>
+                                <option value="بروتين">بروتين</option>
+                                <option value="معزز طاقة وقوة">معزز طاقة وقوة</option>
+                                <option value="أحماض أمينية">أحماض أمينية</option>
+                                <option value="أحماض دهنية أساسية">أحماض دهنية أساسية</option>
+                                <option value="فيتامينات ومعادن">فيتامينات ومعادن</option>
+                                <option value="معزز طاقة وتركيز">معزز طاقة وتركيز</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="levelFilter" class="form-label fw-bold">مناسب لـ:</label>
+                            <select id="levelFilter" class="form-select">
+                                <option value="">الجميع</option>
+                                <option value="مبتدئين">المبتدئين</option>
+                                <option value="محترفين">المحترفين</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supplements Grid -->
+    <div class="row" id="supplementsContainer">
+        <!-- Supplements will be loaded here -->
+    </div>
+
+    <!-- Recommendations Section -->
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="card border-success shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-seedling me-2"></i>
+                        توصيات للمبتدئين
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>بروتين مصل اللبن</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>الفيتامينات المتعددة</li>
+                        <li class="mb-0"><i class="fas fa-check-circle text-success me-2"></i>زيت السمك (أوميجا 3)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card border-warning shadow-sm">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0">
+                        <i class="fas fa-trophy me-2"></i>
+                        توصيات للمحترفين
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><i class="fas fa-star text-warning me-2"></i>بروتين مصل اللبن</li>
+                        <li class="mb-2"><i class="fas fa-star text-warning me-2"></i>الكرياتين</li>
+                        <li class="mb-2"><i class="fas fa-star text-warning me-2"></i>BCAA</li>
+                        <li class="mb-2"><i class="fas fa-star text-warning me-2"></i>مكملات ما قبل التمرين</li>
+                        <li class="mb-0"><i class="fas fa-star text-warning me-2"></i>الجلوتامين</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Internal Links Section -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card border-primary shadow-lg">
+                <div class="card-header bg-gradient-primary text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-link me-2"></i>
+                        أدوات مفيدة لرحلتك الرياضية
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="text-center p-4 bg-light rounded-3 h-100">
+                                <div class="mb-3">
+                                    <i class="fas fa-calculator text-primary" style="font-size: 2.5rem;"></i>
+                                </div>
+                                <h6 class="fw-bold text-primary mb-3">حاسبة السعرات الحرارية</h6>
+                                <p class="text-muted small mb-3">احسب احتياجك اليومي من السعرات والماكروز بدقة</p>
+                                <a href="{{ url_for('meal_generator') }}" class="btn btn-primary btn-sm">
+                                    <i class="fas fa-arrow-left me-2"></i>احسب سعراتك
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="text-center p-4 bg-light rounded-3 h-100">
+                                <div class="mb-3">
+                                    <i class="fas fa-utensils text-success" style="font-size: 2.5rem;"></i>
+                                </div>
+                                <h6 class="fw-bold text-success mb-3">دليل السعرات الغذائية</h6>
+                                <p class="text-muted small mb-3">اعرف سعرات أكلك المفضل وخطط وجباتك بذكاء</p>
+                                <a href="{{ url_for('food_calories_guide') }}" class="btn btn-success btn-sm">
+                                    <i class="fas fa-arrow-left me-2"></i>دليل الأطعمة
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="text-center p-4 bg-light rounded-3 h-100">
+                                <div class="mb-3">
+                                    <i class="fas fa-dumbbell text-warning" style="font-size: 2.5rem;"></i>
+                                </div>
+                                <h6 class="fw-bold text-warning mb-3">دليل التمارين</h6>
+                                <p class="text-muted small mb-3">تمارين شاملة لجميع عضلات الجسم مع الشرح</p>
+                                <a href="{{ url_for('workout_guide') }}" class="btn btn-warning btn-sm">
+                                    <i class="fas fa-arrow-left me-2"></i>ابدأ التمرين
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-4 mt-2">
+                        <div class="col-md-6">
+                            <div class="text-center p-4 bg-light rounded-3 h-100">
+                                <div class="mb-3">
+                                    <i class="fas fa-heartbeat text-danger" style="font-size: 2.5rem;"></i>
+                                </div>
+                                <h6 class="fw-bold text-danger mb-3">دليل إصابات الجيم</h6>
+                                <p class="text-muted small mb-3">تعلم كيف تتجنب الإصابات وتتعامل معها</p>
+                                <a href="{{ url_for('gym_injuries') }}" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-arrow-left me-2"></i>دليل الأمان
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="text-center p-4 bg-light rounded-3 h-100">
+                                <div class="mb-3">
+                                    <i class="fas fa-chart-line text-info" style="font-size: 2.5rem;"></i>
+                                </div>
+                                <h6 class="fw-bold text-info mb-3">حاسبات اللياقة</h6>
+                                <p class="text-muted small mb-3">احسب BMI، نسبة الدهون، والمؤشرات الصحية</p>
+                                <a href="{{ url_for('calculators') }}" class="btn btn-info btn-sm">
+                                    <i class="fas fa-arrow-left me-2"></i>الحاسبات
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- General Guidelines -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="card border-info shadow-sm">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">
+                        <i class="fas fa-info-circle me-2"></i>
+                        إرشادات عامة مهمة
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-tint text-info me-2"></i>اشرب 2-3 لتر من الماء يومياً</li>
+                                <li class="mb-2"><i class="fas fa-clock text-info me-2"></i>التوقيت مهم - اتبع التعليمات</li>
+                                <li class="mb-0"><i class="fas fa-utensils text-info me-2"></i>المكملات تكمل النظام الغذائي</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><i class="fas fa-certificate text-info me-2"></i>اختر منتجات موثوقة ومعتمدة</li>
+                                <li class="mb-0"><i class="fas fa-user-md text-info me-2"></i>استشر طبيب أو أخصائي تغذية</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Supplement Detail Modal -->
+<div class="modal fade" id="supplementModal" tabindex="-1" aria-labelledby="supplementModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="supplementModalLabel"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="supplementModalBody">
+                <!-- Content will be loaded here -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.supplement-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    height: 100%;
+}
+
+.supplement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.category-badge {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+}
+
+.benefit-item {
+    background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.warning-box {
+    background: linear-gradient(45deg, #fff3cd, #ffeaa7);
+    border-left: 4px solid #ffc107;
+    padding: 1rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.usage-box {
+    background: linear-gradient(45deg, #d1ecf1, #bee5eb);
+    border-left: 4px solid #17a2b8;
+    padding: 1rem;
+    border-radius: 0 8px 8px 0;
+}
+
+.brands-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.brand-tag {
+    background: #6c757d;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+</style>
+
+<script>
+let supplementsData = [];
+
+// Load supplements data
+async function loadSupplements() {
+    try {
+        const response = await fetch('/static/supplements_data.json');
+        const data = await response.json();
+        supplementsData = data.supplements;
+        displaySupplements(supplementsData);
+    } catch (error) {
+        console.error('Error loading supplements:', error);
+        // Fallback to inline data if file not found
+        loadFallbackData();
+    }
+}
+
+function loadFallbackData() {
+    // This will be populated with the supplements data
+    supplementsData = [
+        {
+            "id": 1,
+            "name": "Whey Protein - بروتين مصل اللبن",
+            "scientific_name": "Whey Protein Isolate/Concentrate",
+            "category": "بروتين",
+            "benefits": "يساعد على بناء العضلات بسرعة، دعم التعافي بعد التمرين، تحسين تخليق البروتين في الجسم، زيادة الكتلة العضلية الصافية",
+            "usage": "جرعة 25-30 جرام بعد التمرين مباشرة أو بين الوجبات، يُخلط مع 200-300 مل من الماء أو الحليب",
+            "side_effects": "قد يسبب مشاكل هضمية لمن لديهم حساسية اللاكتوز، انتفاخ، غازات في البطن عند الإفراط في الاستخدام",
+            "suitable_for": "مناسب للمبتدئين والمحترفين على حد سواء",
+            "medical_consultation": "يفضل استشارة الطبيب لمرضى الكلى والكبد",
+            "results_time": "تظهر النتائج عادة بعد 3-4 أسابيع من الاستخدام المنتظم مع التمرين",
+            "interactions": "لا ينصح بتناوله مع مكملات بروتين أخرى بنفس الوقت، يمكن دمجه مع الكرياتين",
+            "popular_brands": ["Optimum Nutrition Gold Standard", "Dymatize ISO100", "MyProtein Impact Whey", "BSN Syntha-6"],
+            "warnings": "لا تتجاوز الجرعة الموصى بها، لا تستخدمه كبديل للوجبات الأساسية، تأكد من شرب كمية كافية من الماء"
+        }
+        // Add more supplements here...
+    ];
+    displaySupplements(supplementsData);
+}
+
+function displaySupplements(supplements) {
+    const container = document.getElementById('supplementsContainer');
+    container.innerHTML = '';
+
+    supplements.forEach(supplement => {
+        const card = createSupplementCard(supplement);
+        container.appendChild(card);
+    });
+}
+
+function createSupplementCard(supplement) {
+    const col = document.createElement('div');
+    col.className = 'col-md-6 col-lg-4 mb-4';
+
+    const categoryColor = getCategoryColor(supplement.category);
+    const suitabilityIcon = getSuitabilityIcon(supplement.suitable_for);
+
+    col.innerHTML = `
+        <div class="card supplement-card h-100 shadow-sm" onclick="showSupplementDetails(${supplement.id})">
+            <div class="card-header bg-${categoryColor} text-white">
+                <h6 class="mb-0 fw-bold">${supplement.name}</h6>
+                <small class="opacity-75">${supplement.scientific_name}</small>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="badge bg-${categoryColor} category-badge">${supplement.category}</span>
+                    <span class="text-muted">${suitabilityIcon}</span>
+                </div>
+                <p class="card-text text-muted small mb-3">${supplement.benefits.substring(0, 100)}...</p>
+                <div class="row text-center">
+                    <div class="col-6">
+                        <small class="text-muted d-block">النتائج خلال</small>
+                        <strong class="text-${categoryColor}">${supplement.results_time.split(' ')[4] || 'متغير'}</strong>
+                    </div>
+                    <div class="col-6">
+                        <small class="text-muted d-block">الاستشارة الطبية</small>
+                        <strong class="text-${supplement.medical_consultation.includes('ضروري') ? 'danger' : 'success'}">
+                            ${supplement.medical_consultation.includes('ضروري') ? 'مطلوبة' : 'اختيارية'}
+                        </strong>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer bg-light">
+                <small class="text-primary">
+                    <i class="fas fa-click me-1"></i>
+                    اضغط للمزيد من التفاصيل
+                </small>
+            </div>
+        </div>
+    `;
+
+    return col;
+}
+
+function getCategoryColor(category) {
+    const colors = {
+        'بروتين': 'primary',
+        'معزز طاقة وقوة': 'danger',
+        'أحماض أمينية': 'success',
+        'أحماض دهنية أساسية': 'info',
+        'فيتامينات ومعادن': 'warning',
+        'معزز طاقة وتركيز': 'dark'
+    };
+    return colors[category] || 'secondary';
+}
+
+function getSuitabilityIcon(suitable) {
+    if (suitable.includes('مبتدئين') && suitable.includes('محترفين')) {
+        return '<i class="fas fa-users text-success" title="مناسب للجميع"></i>';
+    } else if (suitable.includes('محترفين')) {
+        return '<i class="fas fa-trophy text-warning" title="للمحترفين"></i>';
+    } else {
+        return '<i class="fas fa-seedling text-success" title="للمبتدئين"></i>';
+    }
+}
+
+function showSupplementDetails(id) {
+    const supplement = supplementsData.find(s => s.id === id);
+    if (!supplement) return;
+
+    const modal = document.getElementById('supplementModal');
+    const modalLabel = document.getElementById('supplementModalLabel');
+    const modalBody = document.getElementById('supplementModalBody');
+
+    modalLabel.textContent = supplement.name;
+
+    const categoryColor = getCategoryColor(supplement.category);
+
+    modalBody.innerHTML = `
+        <div class="row">
+            <div class="col-12 mb-4">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span class="badge bg-${categoryColor} fs-6">${supplement.category}</span>
+                    <small class="text-muted">${supplement.scientific_name}</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h6 class="text-primary"><i class="fas fa-star me-2"></i>الفوائد الأساسية</h6>
+                <div class="benefit-item">
+                    <p class="mb-0">${supplement.benefits}</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <h6 class="text-info"><i class="fas fa-pills me-2"></i>طريقة الاستخدام</h6>
+                <div class="usage-box">
+                    <p class="mb-0">${supplement.usage}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <h6 class="text-success"><i class="fas fa-clock me-2"></i>وقت ظهور النتائج</h6>
+                <p class="mb-0">${supplement.results_time}</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <h6 class="text-warning"><i class="fas fa-user-check me-2"></i>مناسب لـ</h6>
+                <p class="mb-0">${supplement.suitable_for}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h6 class="text-danger"><i class="fas fa-exclamation-triangle me-2"></i>الآثار الجانبية</h6>
+                <p class="mb-0">${supplement.side_effects}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h6 class="text-info"><i class="fas fa-user-md me-2"></i>الاستشارة الطبية</h6>
+                <p class="mb-0">${supplement.medical_consultation}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h6 class="text-secondary"><i class="fas fa-exchange-alt me-2"></i>التداخلات</h6>
+                <p class="mb-0">${supplement.interactions}</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h6 class="text-primary"><i class="fas fa-shopping-cart me-2"></i>العلامات التجارية الشهيرة</h6>
+                <div class="brands-list">
+                    ${supplement.popular_brands.map(brand => `<span class="brand-tag">${brand}</span>`).join('')}
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <h6 class="text-warning"><i class="fas fa-shield-alt me-2"></i>تحذيرات مهمة</h6>
+                <div class="warning-box">
+                    <p class="mb-0">${supplement.warnings}</p>
+                </div>
+            </div>
+        </div>
+    `;
+
+    const bootstrapModal = new bootstrap.Modal(modal);
+    bootstrapModal.show();
+}
+
+// Filter functionality
+document.getElementById('categoryFilter').addEventListener('change', filterSupplements);
+document.getElementById('levelFilter').addEventListener('change', filterSupplements);
+
+function filterSupplements() {
+    const categoryFilter = document.getElementById('categoryFilter').value;
+    const levelFilter = document.getElementById('levelFilter').value;
+
+    let filtered = supplementsData;
+
+    if (categoryFilter) {
+        filtered = filtered.filter(s => s.category === categoryFilter);
+    }
+
+    if (levelFilter) {
+        filtered = filtered.filter(s => s.suitable_for.includes(levelFilter));
+    }
+
+    displaySupplements(filtered);
+}
+
+// Load supplements when page loads
+document.addEventListener('DOMContentLoaded', loadSupplements);
+</script>
+{% endblock %}

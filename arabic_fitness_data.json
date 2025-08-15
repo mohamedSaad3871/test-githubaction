@@ -1,0 +1,725 @@
+{
+  "exercises": [
+    {
+      "name": "ضغط عادي",
+      "muscle_group": "صدر",
+      "difficulty": "مبتدئ",
+      "equipment": "وزن الجسم",
+      "description": "نام على بطنك، حط إيديك على الأرض بعرض الكتف، ادفع جسمك لفوق وتحت"
+    },
+    {
+      "name": "ضغط مايل",
+      "muscle_group": "صدر",
+      "difficulty": "متوسط",
+      "equipment": "وزن الجسم",
+      "description": "حط رجليك على حاجة عالية واعمل ضغط عادي"
+    },
+    {
+      "name": "بنش برس",
+      "muscle_group": "صدر",
+      "difficulty": "متقدم",
+      "equipment": "أوزان حرة",
+      "description": "نام على البنش، امسك البار بعرض الكتف، نزله على الصدر وارفعه تاني"
+    },
+    {
+      "name": "عقلة",
+      "muscle_group": "ظهر",
+      "difficulty": "متقدم",
+      "equipment": "عقلة",
+      "description": "اتعلق في العقلة واسحب جسمك لفوق لحد ما دقنك يوصل فوق البار"
+    },
+    {
+      "name": "سحب دمبل",
+      "muscle_group": "ظهر",
+      "difficulty": "متوسط",
+      "equipment": "أوزان حرة",
+      "description": "انحني لقدام، امسك الدمبل واسحبه ناحية خصرك"
+    },
+    {
+      "name": "سوبرمان",
+      "muscle_group": "ظهر",
+      "difficulty": "مبتدئ",
+      "equipment": "وزن الجسم",
+      "description": "نام على بطنك، ارفع صدرك ورجليك عن الأرض في نفس الوقت"
+    },
+    {
+      "name": "اسكوات",
+      "muscle_group": "أرجل",
+      "difficulty": "مبتدئ",
+      "equipment": "وزن الجسم",
+      "description": "قف مستقيم، انزل جسمك زي ما تقعد على كرسي، وارجع تاني"
+    },
+    {
+      "name": "طعنات",
+      "muscle_group": "أرجل",
+      "difficulty": "متوسط",
+      "equipment": "وزن الجسم",
+      "description": "خد خطوة كبيرة لقدام، انزل جسمك لحد ما ركبتك تعمل زاوية 90 درجة"
+    },
+    {
+      "name": "ديد ليفت",
+      "muscle_group": "أرجل",
+      "difficulty": "متقدم",
+      "equipment": "أوزان حرة",
+      "description": "قف قدام البار، انحني واحمله، وقف مستقيم مع شد عضلات الضهر"
+    },
+    {
+      "name": "رفع سمانة",
+      "muscle_group": "أرجل",
+      "difficulty": "مبتدئ",
+      "equipment": "وزن الجسم",
+      "description": "قف على أطراف صوابعك، ارفع كعبك عالي وانزله ببطء"
+    },
+    {
+      "name": "باي دمبل",
+      "muscle_group": "ذراعين",
+      "difficulty": "مبتدئ",
+      "equipment": "أوزان حرة",
+      "description": "امسك الدمبل، اثني دراعك ناحية كتفك مع تثبيت الكوع"
+    },
+    {
+      "name": "تراي حبل",
+      "muscle_group": "ذراعين",
+      "difficulty": "متوسط",
+      "equipment": "آلات الجيم",
+      "description": "امسك الحبل، ادفعه لتحت مع تثبيت الكوعين جنب جسمك"
+    },
+    {
+      "name": "ضغط ضيق",
+      "muscle_group": "ذراعين",
+      "difficulty": "متوسط",
+      "equipment": "وزن الجسم",
+      "description": "اعمل ضغط مع حط إيديك قريب من بعض"
+    },
+    {
+      "name": "رفرفة جانبي",
+      "muscle_group": "أكتاف",
+      "difficulty": "مبتدئ",
+      "equipment": "أوزان حرة",
+      "description": "امسك الدمبل، ارفع دراعك للجنب لحد مستوى الكتف"
+    },
+    {
+      "name": "ضغط عسكري",
+      "muscle_group": "أكتاف",
+      "difficulty": "متوسط",
+      "equipment": "أوزان حرة",
+      "description": "امسك البار أو الدمبل، ادفعه لفوق فوق راسك"
+    },
+    {
+      "name": "رفرفة خلفي",
+      "muscle_group": "أكتاف",
+      "difficulty": "متوسط",
+      "equipment": "أوزان حرة",
+      "description": "انحني لقدام، ارفع الدمبل لورا مع فتح الدراعين"
+    },
+    {
+      "name": "بطن عادي",
+      "muscle_group": "بطن",
+      "difficulty": "مبتدئ",
+      "equipment": "وزن الجسم",
+      "description": "نام على ضهرك، ارفع كتافك عن الأرض ناحية ركبك"
+    },
+    {
+      "name": "بلانك",
+      "muscle_group": "بطن",
+      "difficulty": "متوسط",
+      "equipment": "وزن الجسم",
+      "description": "نام على بطنك، ارفع جسمك على الكوع وأطراف الرجلين"
+    },
+    {
+      "name": "دراجة",
+      "muscle_group": "بطن",
+      "difficulty": "متوسط",
+      "equipment": "وزن الجسم",
+      "description": "نام على ضهرك، حرك رجليك زي ما تسوق عجلة"
+    },
+    {
+      "name": "روسي تويست",
+      "muscle_group": "بطن",
+      "difficulty": "متقدم",
+      "equipment": "وزن الجسم",
+      "description": "اقعد مع رفع رجليك، لف جذعك يمين وشمال"
+    },
+    {
+      "name": "جري في المكان",
+      "muscle_group": "كامل الجسم",
+      "difficulty": "مبتدئ",
+      "equipment": "وزن الجسم",
+      "description": "اجري في مكانك مع رفع الركب عالي"
+    },
+    {
+      "name": "جامبينج جاك",
+      "muscle_group": "كامل الجسم",
+      "difficulty": "مبتدئ",
+      "equipment": "وزن الجسم",
+      "description": "انط مع فتح الرجلين ورفع الدراعين فوق الراس"
+    },
+    {
+      "name": "بربي",
+      "muscle_group": "كامل الجسم",
+      "difficulty": "متقدم",
+      "equipment": "وزن الجسم",
+      "description": "انزل على الأرض، اعمل ضغطة، انط لورا وبعدين انط عالي"
+    },
+    {
+      "name": "ماونتن كلايمبر",
+      "muscle_group": "كامل الجسم",
+      "difficulty": "متوسط",
+      "equipment": "وزن الجسم",
+      "description": "في وضع البلانك، اجيب ركبك بالتناوب ناحية صدرك"
+    },
+    {
+      "name": "اسكوات بنط",
+      "muscle_group": "أرجل",
+      "difficulty": "متوسط",
+      "equipment": "وزن الجسم",
+      "description": "اعمل اسكوات وبعدين انط عالي لما تطلع"
+    },
+    {
+      "name": "ضغط على الحيطة",
+      "muscle_group": "صدر",
+      "difficulty": "مبتدئ",
+      "equipment": "وزن الجسم",
+      "description": "قف قدام الحيطة، حط إيديك عليها وادفع جسمك لقدام وورا"
+    },
+    {
+      "name": "كيتل بيل سوينج",
+      "muscle_group": "كامل الجسم",
+      "difficulty": "متقدم",
+      "equipment": "كيتل بيل",
+      "description": "امسك الكيتل بيل، أرجحه من بين رجليك لمستوى الكتف"
+    },
+    {
+      "name": "جلوتس بريدج",
+      "muscle_group": "أرجل",
+      "difficulty": "مبتدئ",
+      "equipment": "وزن الجسم",
+      "description": "نام على ضهرك، ارفع وركك عالي مع الضغط على المؤخرة"
+    },
+    {
+      "name": "هامر كيرل",
+      "muscle_group": "ذراعين",
+      "difficulty": "متوسط",
+      "equipment": "أوزان حرة",
+      "description": "امسك الدمبل بقبضة عادية، اثني دراعك ناحية الكتف"
+    },
+    {
+      "name": "ديبس",
+      "muscle_group": "ذراعين",
+      "difficulty": "متقدم",
+      "equipment": "مقعد",
+      "description": "حط إيديك على المقعد وراك، انزل جسمك وادفعه لفوق"
+    },
+    {
+      "name": "كارديو بالحبل",
+      "muscle_group": "كامل الجسم",
+      "difficulty": "متوسط",
+      "equipment": "حبل القفز",
+      "description": "انط بالحبل بإيقاع ثابت مع الحفاظ على الوضعية الصح"
+    },
+    {
+      "name": "رجل واحدة",
+      "muscle_group": "أرجل",
+      "difficulty": "متقدم",
+      "equipment": "وزن الجسم",
+      "description": "قف على رجل واحدة، انزل جسمك وارجع للوضع الأصلي"
+    },
+    {
+      "name": "ضغط بدراع واحد",
+      "muscle_group": "صدر",
+      "difficulty": "متقدم",
+      "equipment": "وزن الجسم",
+      "description": "اعمل ضغط باستخدام دراع واحد بس"
+    },
+    {
+      "name": "رفعة جانبي بالكابل",
+      "muscle_group": "أكتاف",
+      "difficulty": "متوسط",
+      "equipment": "آلات الجيم",
+      "description": "امسك الكابل، ارفع دراعك للجنب لحد مستوى الكتف"
+    },
+    {
+      "name": "فراشة",
+      "muscle_group": "صدر",
+      "difficulty": "متوسط",
+      "equipment": "آلات الجيم",
+      "description": "اقعد على آلة الفراشة، اجمع دراعك قدام صدرك"
+    },
+    {
+      "name": "هاي نيز",
+      "muscle_group": "كامل الجسم",
+      "difficulty": "متوسط",
+      "equipment": "وزن الجسم",
+      "description": "اجري في المكان مع رفع الركب عالي ناحية الصدر"
+    },
+    {
+      "name": "ضغط متفجر",
+      "muscle_group": "صدر",
+      "difficulty": "متقدم",
+      "equipment": "وزن الجسم",
+      "description": "اعمل ضغط مع دفع الجسم بقوة عشان يرتفع عن الأرض"
+    },
+    {
+      "name": "كرانش مايل",
+      "muscle_group": "بطن",
+      "difficulty": "متوسط",
+      "equipment": "وزن الجسم",
+      "description": "نام على جنبك، ارفع كتفك ناحية وركك"
+    },
+    {
+      "name": "رفعة ميتة رومانية",
+      "muscle_group": "أرجل",
+      "difficulty": "متقدم",
+      "equipment": "أوزان حرة",
+      "description": "امسك البار، انحني لقدام مع خلي الرجلين مستقيمين"
+    },
+    {
+      "name": "ضغط كتف بالدمبل",
+      "muscle_group": "أكتاف",
+      "difficulty": "متوسط",
+      "equipment": "أوزان حرة",
+      "description": "اقعد أو قف، ادفع الدمبل لفوق فوق راسك"
+    },
+    {
+      "name": "طعنات جانبي",
+      "muscle_group": "أرجل",
+      "difficulty": "متوسط",
+      "equipment": "وزن الجسم",
+      "description": "خد خطوة واسعة للجنب، انزل جسمك على الرجل المثنية"
+    },
+    {
+      "name": "ضغط بالكورة",
+      "muscle_group": "صدر",
+      "difficulty": "متقدم",
+      "equipment": "كرة التوازن",
+      "description": "حط إيديك على الكورة واعمل ضغط"
+    },
+    {
+      "name": "كرانش عكسي",
+      "muscle_group": "بطن",
+      "difficulty": "متوسط",
+      "equipment": "وزن الجسم",
+      "description": "نام على ضهرك، ارفع ركبك ناحية صدرك"
+    },
+    {
+      "name": "وقوف على الإيدين",
+      "muscle_group": "أكتاف",
+      "difficulty": "متقدم",
+      "equipment": "وزن الجسم",
+      "description": "قف على إيديك مع الاستناد على الحيطة للتوازن"
+    },
+    {
+      "name": "جري بركبة عالية",
+      "muscle_group": "كامل الجسم",
+      "difficulty": "متوسط",
+      "equipment": "وزن الجسم",
+      "description": "اجري في المكان مع رفع الركب بأقصى ارتفاع ممكن"
+    },
+    {
+      "name": "ضغط بتصفيق",
+      "muscle_group": "صدر",
+      "difficulty": "متقدم",
+      "equipment": "وزن الجسم",
+      "description": "اعمل ضغط مع التصفيق لما ترتفع عن الأرض"
+    },
+    {
+      "name": "كيك باك",
+      "muscle_group": "أرجل",
+      "difficulty": "مبتدئ",
+      "equipment": "وزن الجسم",
+      "description": "على الأربع، ارفع رجلك لورا مع الحفاظ على الزاوية القايمة"
+    },
+    {
+      "name": "ضغط هندي",
+      "muscle_group": "كامل الجسم",
+      "difficulty": "متقدم",
+      "equipment": "وزن الجسم",
+      "description": "ابدأ في وضع الكلب المقلوب، انزل لقدام وارفع صدرك"
+    },
+    {
+      "name": "ستار جامب",
+      "muscle_group": "أرجل",
+      "difficulty": "متوسط",
+      "equipment": "وزن الجسم",
+      "description": "انط من جنب للتاني زي ما تتخطى خط وهمي"
+    },
+    {
+      "name": "بلانك جانبي",
+      "muscle_group": "بطن",
+      "difficulty": "متوسط",
+      "equipment": "وزن الجسم",
+      "description": "نام على جنبك، ارفع جسمك على الكوع والرجل"
+    }
+  ],
+  "meals": [
+    {
+      "name": "فول مدمس بزيت الزيتون",
+      "meal_type": "فطار",
+      "calories": 350,
+      "protein": 18,
+      "carbs": 40,
+      "fats": 12,
+      "food_preference": "عادي"
+    },
+    {
+      "name": "حمص بالطحينة",
+      "meal_type": "فطار",
+      "calories": 320,
+      "protein": 15,
+      "carbs": 35,
+      "fats": 14,
+      "food_preference": "نباتي"
+    },
+    {
+      "name": "بيض مسلوق مع خبز أسمر",
+      "meal_type": "فطار",
+      "calories": 280,
+      "protein": 20,
+      "carbs": 25,
+      "fats": 10,
+      "food_preference": "سريع"
+    },
+    {
+      "name": "لبنة بزيت الزيتون والزعتر",
+      "meal_type": "فطار",
+      "calories": 250,
+      "protein": 12,
+      "carbs": 20,
+      "fats": 15,
+      "food_preference": "عادي"
+    },
+    {
+      "name": "شوفان بالحليب والعسل",
+      "meal_type": "فطار",
+      "calories": 300,
+      "protein": 12,
+      "carbs": 45,
+      "fats": 8,
+      "food_preference": "صحي"
+    },
+    {
+      "name": "فتة الحمص",
+      "meal_type": "فطار",
+      "calories": 400,
+      "protein": 16,
+      "carbs": 50,
+      "fats": 16,
+      "food_preference": "عادي"
+    },
+    {
+      "name": "منقوشة زعتر",
+      "meal_type": "فطار",
+      "calories": 320,
+      "protein": 8,
+      "carbs": 45,
+      "fats": 12,
+      "food_preference": "سريع"
+    },
+    {
+      "name": "عجة بالخضار",
+      "meal_type": "فطار",
+      "calories": 260,
+      "protein": 18,
+      "carbs": 8,
+      "fats": 18,
+      "food_preference": "نباتي"
+    },
+    {
+      "name": "جبنة بيضاء مع طماطم وخيار",
+      "meal_type": "فطار",
+      "calories": 200,
+      "protein": 15,
+      "carbs": 12,
+      "fats": 12,
+      "food_preference": "سريع"
+    },
+    {
+      "name": "مربى التين مع الجبن",
+      "meal_type": "فطار",
+      "calories": 280,
+      "protein": 10,
+      "carbs": 35,
+      "fats": 12,
+      "food_preference": "عادي"
+    },
+    {
+      "name": "كبة مشوية مع سلطة",
+      "meal_type": "غداء",
+      "calories": 450,
+      "protein": 25,
+      "carbs": 35,
+      "fats": 22,
+      "food_preference": "عادي"
+    },
+    {
+      "name": "دجاج مشوي مع أرز",
+      "meal_type": "غداء",
+      "calories": 520,
+      "protein": 35,
+      "carbs": 45,
+      "fats": 18,
+      "food_preference": "عادي"
+    },
+    {
+      "name": "سمك مشوي مع خضار",
+      "meal_type": "غداء",
+      "calories": 380,
+      "protein": 30,
+      "carbs": 25,
+      "fats": 16,
+      "food_preference": "صحي"
+    },
+    {
+      "name": "شوربة عدس مع خبز",
+      "meal_type": "غداء",
+      "calories": 320,
+      "protein": 18,
+      "carbs": 50,
+      "fats": 6,
+      "food_preference": "نباتي"
+    },
+    {
+      "name": "مجدرة بالبرغل",
+      "meal_type": "غداء",
+      "calories": 350,
+      "protein": 15,
+      "carbs": 55,
+      "fats": 8,
+      "food_preference": "نباتي"
+    },
+    {
+      "name": "كفتة بالصينية",
+      "meal_type": "غداء",
+      "calories": 480,
+      "protein": 28,
+      "carbs": 30,
+      "fats": 25,
+      "food_preference": "عادي"
+    },
+    {
+      "name": "ملوخية بالدجاج",
+      "meal_type": "غداء",
+      "calories": 420,
+      "protein": 30,
+      "carbs": 35,
+      "fats": 18,
+      "food_preference": "عادي"
+    },
+    {
+      "name": "فاصولياء خضراء باللحمة",
+      "meal_type": "غداء",
+      "calories": 380,
+      "protein": 22,
+      "carbs": 40,
+      "fats": 14,
+      "food_preference": "عادي"
+    },
+    {
+      "name": "كوسا محشي",
+      "meal_type": "غداء",
+      "calories": 360,
+      "protein": 20,
+      "carbs": 35,
+      "fats": 16,
+      "food_preference": "عادي"
+    },
+    {
+      "name": "برياني دجاج",
+      "meal_type": "غداء",
+      "calories": 550,
+      "protein": 32,
+      "carbs": 60,
+      "fats": 20,
+      "food_preference": "عادي"
+    },
+    {
+      "name": "سلطة فتوش",
+      "meal_type": "غداء",
+      "calories": 180,
+      "protein": 6,
+      "carbs": 25,
+      "fats": 8,
+      "food_preference": "نباتي"
+    },
+    {
+      "name": "تبولة",
+      "meal_type": "غداء",
+      "calories": 150,
+      "protein": 5,
+      "carbs": 20,
+      "fats": 6,
+      "food_preference": "نباتي"
+    },
+    {
+      "name": "كباب مشوي مع خضار",
+      "meal_type": "غداء",
+      "calories": 420,
+      "protein": 28,
+      "carbs": 20,
+      "fats": 24,
+      "food_preference": "عادي"
+    },
+    {
+      "name": "مقلوبة دجاج",
+      "meal_type": "غداء",
+      "calories": 480,
+      "protein": 26,
+      "carbs": 55,
+      "fats": 18,
+      "food_preference": "عادي"
+    },
+    {
+      "name": "فلافل مع طحينة",
+      "meal_type": "غداء",
+      "calories": 320,
+      "protein": 14,
+      "carbs": 35,
+      "fats": 14,
+      "food_preference": "نباتي"
+    },
+    {
+      "name": "شاورما دجاج",
+      "meal_type": "عشاء",
+      "calories": 380,
+      "protein": 25,
+      "carbs": 30,
+      "fats": 18,
+      "food_preference": "سريع"
+    },
+    {
+      "name": "سلطة يونانية",
+      "meal_type": "عشاء",
+      "calories": 220,
+      "protein": 8,
+      "carbs": 15,
+      "fats": 16,
+      "food_preference": "نباتي"
+    },
+    {
+      "name": "شوربة خضار",
+      "meal_type": "عشاء",
+      "calories": 150,
+      "protein": 6,
+      "carbs": 25,
+      "fats": 4,
+      "food_preference": "نباتي"
+    },
+    {
+      "name": "سمك سالمون مشوي",
+      "meal_type": "عشاء",
+      "calories": 350,
+      "protein": 28,
+      "carbs": 8,
+      "fats": 22,
+      "food_preference": "صحي"
+    },
+    {
+      "name": "دجاج مسلوق مع خضار",
+      "meal_type": "عشاء",
+      "calories": 280,
+      "protein": 30,
+      "carbs": 15,
+      "fats": 12,
+      "food_preference": "صحي"
+    },
+    {
+      "name": "عجة بالسبانخ",
+      "meal_type": "عشاء",
+      "calories": 240,
+      "protein": 16,
+      "carbs": 8,
+      "fats": 16,
+      "food_preference": "نباتي"
+    },
+    {
+      "name": "حساء العدس الأحمر",
+      "meal_type": "عشاء",
+      "calories": 200,
+      "protein": 12,
+      "carbs": 30,
+      "fats": 4,
+      "food_preference": "نباتي"
+    },
+    {
+      "name": "سلطة التونة",
+      "meal_type": "عشاء",
+      "calories": 250,
+      "protein": 20,
+      "carbs": 12,
+      "fats": 14,
+      "food_preference": "سريع"
+    },
+    {
+      "name": "كوكتيل فواكه",
+      "meal_type": "سناك",
+      "calories": 120,
+      "protein": 2,
+      "carbs": 30,
+      "fats": 1,
+      "food_preference": "صحي"
+    },
+    {
+      "name": "مكسرات مشكلة",
+      "meal_type": "سناك",
+      "calories": 180,
+      "protein": 6,
+      "carbs": 8,
+      "fats": 15,
+      "food_preference": "صحي"
+    },
+    {
+      "name": "زبادي بالعسل",
+      "meal_type": "سناك",
+      "calories": 150,
+      "protein": 8,
+      "carbs": 20,
+      "fats": 4,
+      "food_preference": "صحي"
+    },
+    {
+      "name": "تفاحة مع زبدة الفول السوداني",
+      "meal_type": "سناك",
+      "calories": 200,
+      "protein": 8,
+      "carbs": 25,
+      "fats": 8,
+      "food_preference": "صحي"
+    },
+    {
+      "name": "جزر مع حمص",
+      "meal_type": "سناك",
+      "calories": 100,
+      "protein": 4,
+      "carbs": 15,
+      "fats": 3,
+      "food_preference": "نباتي"
+    },
+    {
+      "name": "موز بالشوفان",
+      "meal_type": "سناك",
+      "calories": 160,
+      "protein": 4,
+      "carbs": 35,
+      "fats": 2,
+      "food_preference": "صحي"
+    },
+    {
+      "name": "بسكويت الشوفان",
+      "meal_type": "سناك",
+      "calories": 140,
+      "protein": 3,
+      "carbs": 22,
+      "fats": 5,
+      "food_preference": "عادي"
+    },
+    {
+      "name": "عصير أخضر",
+      "meal_type": "سناك",
+      "calories": 80,
+      "protein": 3,
+      "carbs": 18,
+      "fats": 1,
+      "food_preference": "صحي"
+    }
+  ]
+}

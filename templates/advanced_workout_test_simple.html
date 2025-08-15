@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار سريع - مولد الخطط المطور</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .test-btn:hover {
+            background: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        pre {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 اختبار سريع - مولد الخطط المطور</h1>
+        <p>هذه الصفحة لاختبار النظام بسرعة باستخدام بيانات افتراضية</p>
+        
+        <button class="test-btn" onclick="testAdvancedPlan()">🚀 اختبار الخطة المطورة</button>
+        <button class="test-btn" onclick="clearResult()">🗑️ مسح النتائج</button>
+        
+        <div class="loading" id="loading">
+            <p>⏳ جاري إنشاء الخطة المطورة...</p>
+        </div>
+        
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        async function testAdvancedPlan() {
+            console.log('🚀 Starting advanced plan test...');
+            alert('🚀 بدء اختبار الخطة المطورة...');
+            
+            // بيانات افتراضية للاختبار
+            const testData = {
+                name: "أحمد محمد",
+                age: "28",
+                gender: "male",
+                weight: "75",
+                height: "175",
+                goal: "muscle_gain",
+                level: "intermediate",
+                days_per_week: "4",
+                equipment: "gym",
+                activity_level: "moderately_active",
+                sleep_hours: "7",
+                stress_level: "moderate",
+                dietary_preferences: "omnivore",
+                health_issues: ["back_pain"],
+                quit_reasons: ["lack_of_time", "boredom"],
+                previous_injuries: "إصابة خفيفة في الظهر منذ سنة",
+                medications: "لا يوجد"
+            };
+            
+            console.log('📊 Test data:', testData);
+            console.log('📊 Test data JSON:', JSON.stringify(testData));
+            
+            // إظهار التحميل
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('result').style.display = 'none';
+            
+            try {
+                console.log('📡 Sending request to server...');
+                console.log('📡 URL: /api/generate-advanced-workout-plan');
+                console.log('📡 Method: POST');
+                console.log('📡 Headers: Content-Type: application/json');
+                
+                const response = await fetch('/api/generate-advanced-workout-plan', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(testData)
+                });
+                
+                console.log('✅ Response received!');
+                console.log('📊 Response object:', response);
+                console.log('📊 Response status:', response.status);
+                console.log('📊 Response ok:', response.ok);
+                console.log('📊 Response headers:', response.headers);
+                
+                if (!response.ok) {
+                    console.error('❌ Response not OK!');
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                console.log('📖 Parsing JSON response...');
+                const result = await response.json();
+                console.log('✅ JSON parsed successfully!');
+                console.log('📊 Parsed result:', result);
+                console.log('📊 Result keys:', Object.keys(result));
+                console.log('📊 Result success:', result.success);
+                
+                if (result.success) {
+                    console.log('🎉 Success! Displaying result...');
+                    alert('🎉 نجح إنشاء الخطة!');
+                    displaySuccess(result);
+                } else {
+                    console.log('❌ Failed! Displaying error...');
+                    alert('❌ فشل في إنشاء الخطة!');
+                    displayError(result.message, result.missing_fields);
+                }
+                
+            } catch (error) {
+                console.error('💥 CRITICAL ERROR:', error);
+                console.error('💥 Error name:', error.name);
+                console.error('💥 Error message:', error.message);
+                console.error('💥 Error stack:', error.stack);
+                alert(`💥 خطأ حرج: ${error.message}`);
+                displayError(`حدث خطأ في الاتصال بالخادم: ${error.message}`);
+            } finally {
+                console.log('🏁 Request completed, hiding loading...');
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+        
+        function displaySuccess(result) {
+            console.log('🎨 Starting to display success result...');
+            console.log('🎨 Result object size:', JSON.stringify(result).length);
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.className = 'result success';
+            
+            try {
+                // عرض المعلومات الأساسية أولاً
+                let html = `
+                    <h3>✅ نجح الاختبار!</h3>
+                    <p><strong>الرسالة:</strong> ${result.message}</p>
+                    <p><strong>المميزات:</strong> ${result.features ? result.features.join(' • ') : 'غير متوفر'}</p>
+                `;
+                
+                // إضافة ملخص الخطة إذا كانت متوفرة
+                if (result.plan) {
+                    console.log('🎨 Plan object found, adding summary...');
+                    html += `
+                        <div style="margin-top: 15px; padding: 10px; background: #e8f5e8; border-radius: 5px;">
+                            <h4>📋 ملخص الخطة:</h4>
+                            <ul>
+                    `;
+                    
+                    // عرض أقسام الخطة المتوفرة
+                    const planSections = Object.keys(result.plan);
+                    planSections.forEach(section => {
+                        html += `<li><strong>${section}:</strong> متوفر</li>`;
+                    });
+                    
+                    html += `
+                            </ul>
+                        </div>
+                        <details style="margin-top: 15px;">
+                            <summary>📊 عرض تفاصيل الخطة الكاملة (JSON)</summary>
+                            <div style="max-height: 400px; overflow-y: auto;">
+                                <pre style="font-size: 12px;">${JSON.stringify(result.plan, null, 2)}</pre>
+                            </div>
+                        </details>
+                    `;
+                } else {
+                    console.log('⚠️ No plan object found in result');
+                    html += `<p style="color: orange;">⚠️ لم يتم العثور على بيانات الخطة</p>`;
+                }
+                
+                resultDiv.innerHTML = html;
+                console.log('🎨 HTML content set successfully');
+                
+            } catch (error) {
+                console.error('💥 Error in displaySuccess:', error);
+                resultDiv.innerHTML = `
+                    <h3>⚠️ نجح إنشاء الخطة لكن حدث خطأ في العرض</h3>
+                    <p><strong>الرسالة:</strong> ${result.message}</p>
+                    <p><strong>خطأ العرض:</strong> ${error.message}</p>
+                    <p>حجم البيانات: ${JSON.stringify(result).length} حرف</p>
+                `;
+            }
+            
+            resultDiv.style.display = 'block';
+            console.log('🎨 Result div displayed successfully');
+        }
+        
+        function displayError(message, missingFields = []) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.className = 'result error';
+            let html = `
+                <h3>❌ فشل الاختبار</h3>
+                <p><strong>الخطأ:</strong> ${message}</p>
+            `;
+            
+            if (missingFields && missingFields.length > 0) {
+                html += `
+                    <p><strong>الحقول المفقودة:</strong></p>
+                    <ul>
+                        ${missingFields.map(field => `<li>${field}</li>`).join('')}
+                    </ul>
+                `;
+            }
+            
+            resultDiv.innerHTML = html;
+            resultDiv.style.display = 'block';
+        }
+        
+        function clearResult() {
+            document.getElementById('result').style.display = 'none';
+            console.clear();
+        }
+    </script>
+</body>
+</html>

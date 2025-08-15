@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bicepBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dumbbellGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#666;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#999;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#666;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#bicepBg)" opacity="0.9"/>
+  
+  <!-- Person doing bicep curls -->
+  <!-- Head -->
+  <circle cx="100" cy="50" r="12" fill="#fdbcb4" stroke="#333" stroke-width="2"/>
+  
+  <!-- Body -->
+  <ellipse cx="100" cy="90" rx="18" ry="30" fill="#4a90e2" stroke="#333" stroke-width="2"/>
+  
+  <!-- Left arm (curled up) -->
+  <line x1="82" y1="75" x2="70" y2="85" stroke="#fdbcb4" stroke-width="6" stroke-linecap="round"/>
+  <line x1="70" y1="85" x2="65" y2="70" stroke="#fdbcb4" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Right arm (down position) -->
+  <line x1="118" y1="75" x2="130" y2="110" stroke="#fdbcb4" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Left dumbbell (up position) -->
+  <rect x="55" y="65" width="20" height="4" fill="url(#dumbbellGradient)" rx="2"/>
+  <circle cx="57" cy="67" r="4" fill="#333"/>
+  <circle cx="73" cy="67" r="4" fill="#333"/>
+  
+  <!-- Right dumbbell (down position) -->
+  <rect x="125" y="108" width="20" height="4" fill="url(#dumbbellGradient)" rx="2"/>
+  <circle cx="127" cy="110" r="4" fill="#333"/>
+  <circle cx="143" cy="110" r="4" fill="#333"/>
+  
+  <!-- Hands gripping dumbbells -->
+  <circle cx="65" cy="67" r="4" fill="#fdbcb4"/>
+  <circle cx="135" cy="110" r="4" fill="#fdbcb4"/>
+  
+  <!-- Legs -->
+  <line x1="90" y1="115" x2="85" y2="155" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+  <line x1="110" y1="115" x2="115" y2="155" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Feet -->
+  <ellipse cx="82" cy="158" rx="8" ry="4" fill="#333"/>
+  <ellipse cx="118" cy="158" rx="8" ry="4" fill="#333"/>
+  
+  <!-- Motion arrows showing curl movement -->
+  <path d="M 75 95 Q 70 85 65 75" stroke="#ff6b6b" stroke-width="3" fill="none" opacity="0.8" marker-end="url(#arrowhead)"/>
+  
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ff6b6b" />
+    </marker>
+  </defs>
+  
+  <!-- Bicep muscle highlight -->
+  <ellipse cx="75" cy="80" rx="8" ry="4" fill="#ff6b6b" opacity="0.3"/>
+  
+  <!-- Effort sparkles -->
+  <circle cx="55" cy="60" r="2" fill="#ffd700" opacity="0.8"/>
+  <circle cx="80" cy="65" r="1.5" fill="#ffd700" opacity="0.6"/>
+  <circle cx="60" cy="75" r="1.5" fill="#ffd700" opacity="0.6"/>
+  
+  <!-- Text -->
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">Bicep Curls</text>
+</svg>

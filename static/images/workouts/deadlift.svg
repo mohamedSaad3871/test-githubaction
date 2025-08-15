@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="deadliftBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="barGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c0c0c0;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0c0c0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#deadliftBg)" opacity="0.9"/>
+  
+  <!-- Floor line -->
+  <line x1="30" y1="160" x2="170" y2="160" stroke="#333" stroke-width="3"/>
+  
+  <!-- Barbell -->
+  <rect x="40" y="148" width="120" height="6" fill="url(#barGradient)" rx="3"/>
+  
+  <!-- Weight plates -->
+  <circle cx="50" cy="151" r="12" fill="#333" stroke="#666" stroke-width="2"/>
+  <circle cx="150" cy="151" r="12" fill="#333" stroke="#666" stroke-width="2"/>
+  
+  <!-- Person doing deadlift -->
+  <!-- Head -->
+  <circle cx="100" cy="70" r="12" fill="#fdbcb4" stroke="#333" stroke-width="2"/>
+  
+  <!-- Body -->
+  <ellipse cx="100" cy="100" rx="15" ry="25" fill="#4a90e2" stroke="#333" stroke-width="2"/>
+  
+  <!-- Arms -->
+  <line x1="85" y1="85" x2="70" y2="140" stroke="#fdbcb4" stroke-width="6" stroke-linecap="round"/>
+  <line x1="115" y1="85" x2="130" y2="140" stroke="#fdbcb4" stroke-width="6" stroke-linecap="round"/>
+  
+  <!-- Hands gripping bar -->
+  <circle cx="70" cy="145" r="4" fill="#fdbcb4"/>
+  <circle cx="130" cy="145" r="4" fill="#fdbcb4"/>
+  
+  <!-- Legs -->
+  <line x1="90" y1="120" x2="85" y2="155" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+  <line x1="110" y1="120" x2="115" y2="155" stroke="#333" stroke-width="8" stroke-linecap="round"/>
+  
+  <!-- Feet -->
+  <ellipse cx="82" cy="158" rx="8" ry="4" fill="#333"/>
+  <ellipse cx="118" cy="158" rx="8" ry="4" fill="#333"/>
+  
+  <!-- Motion arrows -->
+  <path d="M 100 40 L 95 50 L 105 50 Z" fill="#ff6b6b" opacity="0.8"/>
+  <path d="M 100 35 L 95 45 L 105 45 Z" fill="#ff6b6b" opacity="0.6"/>
+  
+  <!-- Text -->
+  <text x="100" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#333">Deadlift</text>
+</svg>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبات اللياقة البدنية</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/calculators.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="hero-section">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="hero-title">
+                        <i class="fas fa-calculator"></i>
+                        حاسبات اللياقة البدنية
+                    </h1>
+                    <p class="hero-subtitle">
+                        احسب احتياجاتك الغذائية والصحية بدقة علمية
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <div class="row g-4">
+            
+            <!-- BMR Calculator -->
+            <div class="col-lg-6">
+                <div class="calculator-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-fire"></i> حاسبة معدل الأيض الأساسي (BMR)</h3>
+                        <p>احسب كمية السعرات التي يحرقها جسمك في حالة الراحة</p>
+                    </div>
+                    <div class="card-body">
+                        <form id="bmrForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">العمر (سنة)</label>
+                                    <input type="number" class="form-control" id="bmrAge" min="15" max="100" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">الجنس</label>
+                                    <select class="form-select" id="bmrGender" required>
+                                        <option value="">اختر الجنس</option>
+                                        <option value="male">ذكر</option>
+                                        <option value="female">أنثى</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">الوزن (كجم)</label>
+                                    <input type="number" class="form-control" id="bmrWeight" min="30" max="300" step="0.1" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">الطول (سم)</label>
+                                    <input type="number" class="form-control" id="bmrHeight" min="100" max="250" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">
+                                <i class="fas fa-calculator"></i> احسب BMR
+                            </button>
+                        </form>
+                        <div id="bmrResult" class="result-box mt-3" style="display: none;">
+                            <h5>النتيجة:</h5>
+                            <p id="bmrValue"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TDEE Calculator -->
+            <div class="col-lg-6">
+                <div class="calculator-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-running"></i> حاسبة إجمالي الطاقة المستهلكة (TDEE)</h3>
+                        <p>احسب إجمالي السعرات التي تحتاجها يومياً مع النشاط</p>
+                    </div>
+                    <div class="card-body">
+                        <form id="tdeeForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">العمر (سنة)</label>
+                                    <input type="number" class="form-control" id="tdeeAge" min="15" max="100" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">الجنس</label>
+                                    <select class="form-select" id="tdeeGender" required>
+                                        <option value="">اختر الجنس</option>
+                                        <option value="male">ذكر</option>
+                                        <option value="female">أنثى</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">الوزن (كجم)</label>
+                                    <input type="number" class="form-control" id="tdeeWeight" min="30" max="300" step="0.1" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">الطول (سم)</label>
+                                    <input type="number" class="form-control" id="tdeeHeight" min="100" max="250" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">مستوى النشاط</label>
+                                    <select class="form-select" id="tdeeActivity" required>
+                                        <option value="">اختر مستوى النشاط</option>
+                                        <option value="1.2">قليل الحركة (مكتبي)</option>
+                                        <option value="1.375">نشاط خفيف (1-3 أيام/أسبوع)</option>
+                                        <option value="1.55">نشاط متوسط (3-5 أيام/أسبوع)</option>
+                                        <option value="1.725">نشاط عالي (6-7 أيام/أسبوع)</option>
+                                        <option value="1.9">نشاط شديد (مرتين يومياً)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">
+                                <i class="fas fa-calculator"></i> احسب TDEE
+                            </button>
+                        </form>
+                        <div id="tdeeResult" class="result-box mt-3" style="display: none;">
+                            <h5>النتيجة:</h5>
+                            <p id="tdeeValue"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Macros Calculator -->
+            <div class="col-lg-6">
+                <div class="calculator-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-pie"></i> حاسبة توزيع المغذيات الكبرى</h3>
+                        <p>احسب احتياجك من البروتين والكربوهيدرات والدهون</p>
+                    </div>
+                    <div class="card-body">
+                        <form id="macrosForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">السعرات اليومية</label>
+                                    <input type="number" class="form-control" id="macrosCalories" min="1000" max="5000" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">الهدف</label>
+                                    <select class="form-select" id="macrosGoal" required>
+                                        <option value="">اختر الهدف</option>
+                                        <option value="weight_loss">تخسيس</option>
+                                        <option value="maintenance">الحفاظ على الوزن</option>
+                                        <option value="muscle_gain">بناء عضلات</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">الوزن (كجم) - لحساب البروتين</label>
+                                    <input type="number" class="form-control" id="macrosWeight" min="30" max="300" step="0.1" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">
+                                <i class="fas fa-calculator"></i> احسب المغذيات
+                            </button>
+                        </form>
+                        <div id="macrosResult" class="result-box mt-3" style="display: none;">
+                            <h5>النتيجة:</h5>
+                            <div id="macrosValue"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ideal Weight Calculator -->
+            <div class="col-lg-6">
+                <div class="calculator-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-weight"></i> حاسبة الوزن المثالي</h3>
+                        <p>احسب الوزن المثالي لجسمك حسب الطول والجنس</p>
+                    </div>
+                    <div class="card-body">
+                        <form id="idealWeightForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">الطول (سم)</label>
+                                    <input type="number" class="form-control" id="idealHeight" min="100" max="250" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">الجنس</label>
+                                    <select class="form-select" id="idealGender" required>
+                                        <option value="">اختر الجنس</option>
+                                        <option value="male">ذكر</option>
+                                        <option value="female">أنثى</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">الوزن الحالي (كجم) - اختياري</label>
+                                    <input type="number" class="form-control" id="currentWeight" min="30" max="300" step="0.1">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">
+                                <i class="fas fa-calculator"></i> احسب الوزن المثالي
+                            </button>
+                        </form>
+                        <div id="idealWeightResult" class="result-box mt-3" style="display: none;">
+                            <h5>النتيجة:</h5>
+                            <div id="idealWeightValue"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Water Intake Calculator -->
+            <div class="col-lg-6 mx-auto">
+                <div class="calculator-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-tint"></i> حاسبة احتياج الماء اليومي</h3>
+                        <p>احسب كمية الماء التي يحتاجها جسمك يومياً</p>
+                    </div>
+                    <div class="card-body">
+                        <form id="waterForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label">الوزن (كجم)</label>
+                                    <input type="number" class="form-control" id="waterWeight" min="30" max="300" step="0.1" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">مستوى النشاط</label>
+                                    <select class="form-select" id="waterActivity" required>
+                                        <option value="">اختر مستوى النشاط</option>
+                                        <option value="low">قليل الحركة</option>
+                                        <option value="moderate">نشاط متوسط</option>
+                                        <option value="high">نشاط عالي</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">المناخ</label>
+                                    <select class="form-select" id="waterClimate" required>
+                                        <option value="">اختر نوع المناخ</option>
+                                        <option value="normal">معتدل</option>
+                                        <option value="hot">حار</option>
+                                        <option value="humid">رطب</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary mt-3">
+                                <i class="fas fa-calculator"></i> احسب احتياج الماء
+                            </button>
+                        </form>
+                        <div id="waterResult" class="result-box mt-3" style="display: none;">
+                            <h5>النتيجة:</h5>
+                            <div id="waterValue"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <p>&copy; 2024 حاسبات اللياقة البدنية. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/calculators.js') }}"></script>
+</body>
+</html>

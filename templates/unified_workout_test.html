@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اختبار شامل لـ APIs التمارين</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+        
+        .container {
+            max-width: 800px;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .card-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px 15px 0 0 !important;
+            padding: 20px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: bold;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(45deg, #ffecd2, #fcb69f);
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .form-control, .form-select {
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            padding: 12px 15px;
+        }
+        
+        .form-control:focus, .form-select:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .api-selector {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .api-option {
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .api-option:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+        
+        .api-option.selected {
+            border-color: #667eea;
+            background: #667eea;
+            color: white;
+        }
+        
+        .result-section {
+            margin-top: 30px;
+        }
+        
+        .debug-info {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        
+        .nutrition-tip {
+            background: #e8f5e8;
+            border: 1px solid #c3e6c3;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 8px 0;
+        }
+        
+        .exercise-card {
+            background: #fff;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+        
+        .day-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px 0 10px 0;
+        }
+        
+        .tips-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header text-center">
+                <h2><i class="fas fa-dumbbell me-2"></i>اختبار شامل لـ APIs التمارين</h2>
+                <p class="mb-0">اختبار آمن ومتقدم لكلا الـ APIs مع معالجة ذكية للبيانات</p>
+            </div>
+            <div class="card-body">
+                <!-- اختيار نوع API -->
+                <div class="api-selector">
+                    <h5><i class="fas fa-cogs me-2"></i>اختر نوع API</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="api-option" data-api="personalized">
+                                <h6><i class="fas fa-user me-2"></i>التمارين الشخصية</h6>
+                                <small>API بسيط للخطط الشخصية</small>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="api-option" data-api="advanced">
+                                <h6><i class="fas fa-rocket me-2"></i>التمارين المتقدمة</h6>
+                                <small>API شامل مع تحليل متقدم</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- نموذج البيانات -->
+                <form id="unifiedWorkoutForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label"><i class="fas fa-user me-2"></i>الاسم</label>
+                            <input type="text" class="form-control" name="name" value="أحمد محمد" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label"><i class="fas fa-calendar me-2"></i>العمر</label>
+                            <input type="number" class="form-control" name="age" value="25" min="16" max="80" required>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label"><i class="fas fa-venus-mars me-2"></i>الجنس</label>
+                            <select class="form-select" name="gender" required>
+                                <option value="male">ذكر</option>
+                                <option value="female">أنثى</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label"><i class="fas fa-weight me-2"></i>الوزن (كيلو)</label>
+                            <input type="number" class="form-control" name="weight" value="75" min="40" max="200" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label"><i class="fas fa-ruler-vertical me-2"></i>الطول (سم)</label>
+                            <input type="number" class="form-control" name="height" value="175" min="140" max="220" required>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label"><i class="fas fa-target me-2"></i>الهدف</label>
+                            <select class="form-select" name="goal" required>
+                                <option value="weight_loss">إنقاص الوزن</option>
+                                <option value="muscle_gain">بناء العضلات</option>
+                                <option value="endurance">تحسين اللياقة</option>
+                                <option value="strength">زيادة القوة</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label"><i class="fas fa-chart-line me-2"></i>المستوى</label>
+                            <select class="form-select" name="level" required>
+                                <option value="beginner">مبتدئ</option>
+                                <option value="intermediate">متوسط</option>
+                                <option value="advanced">متقدم</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label"><i class="fas fa-calendar-week me-2"></i>أيام التمرين أسبوعياً</label>
+                            <select class="form-select" name="days_per_week" required>
+                                <option value="3">3 أيام</option>
+                                <option value="4">4 أيام</option>
+                                <option value="5">5 أيام</option>
+                                <option value="6">6 أيام</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label"><i class="fas fa-dumbbell me-2"></i>مكان التمرين</label>
+                            <select class="form-select" name="equipment" required>
+                                <option value="gym">صالة رياضية</option>
+                                <option value="home">المنزل</option>
+                                <option value="outdoor">في الهواء الطلق</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- حقول إضافية للـ API المتقدم -->
+                    <div id="advancedFields" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label"><i class="fas fa-running me-2"></i>مستوى النشاط</label>
+                                <select class="form-select" name="activity_level">
+                                    <option value="sedentary">قليل الحركة</option>
+                                    <option value="lightly_active">نشاط خفيف</option>
+                                    <option value="moderately_active">نشاط متوسط</option>
+                                    <option value="very_active">نشاط عالي</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label"><i class="fas fa-bed me-2"></i>ساعات النوم</label>
+                                <select class="form-select" name="sleep_hours">
+                                    <option value="5">5 ساعات</option>
+                                    <option value="6">6 ساعات</option>
+                                    <option value="7">7 ساعات</option>
+                                    <option value="8">8 ساعات</option>
+                                    <option value="9">9 ساعات</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg" id="generateBtn">
+                            <i class="fas fa-magic me-2"></i>إنشاء الخطة
+                        </button>
+                    </div>
+                </form>
+                
+                <div class="loading" id="loading">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">جاري التحميل...</span>
+                    </div>
+                    <p class="mt-3">جاري إنشاء خطتك...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="result" style="display: none;"></div>
+        <div id="debugInfo" style="display: none;"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/safe-data-handler.js') }}"></script>
+    <script>
+        let selectedApi = 'personalized';
+        
+        // معالج اختيار نوع API
+        document.querySelectorAll('.api-option').forEach(option => {
+            option.addEventListener('click', function() {
+                // إزالة التحديد من جميع الخيارات
+                document.querySelectorAll('.api-option').forEach(opt => opt.classList.remove('selected'));
+                
+                // تحديد الخيار المختار
+                this.classList.add('selected');
+                selectedApi = this.dataset.api;
+                
+                // إظهار/إخفاء الحقول الإضافية
+                const advancedFields = document.getElementById('advancedFields');
+                if (selectedApi === 'advanced') {
+                    advancedFields.style.display = 'block';
+                } else {
+                    advancedFields.style.display = 'none';
+                }
+                
+                console.log('Selected API:', selectedApi);
+            });
+        });
+        
+        // تحديد API الشخصي افتراضياً
+        document.querySelector('.api-option[data-api="personalized"]').click();
+        
+        // معالج إرسال النموذج
+        document.getElementById('unifiedWorkoutForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // إظهار التحميل
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('result').style.display = 'none';
+            document.getElementById('debugInfo').style.display = 'none';
+            document.getElementById('generateBtn').disabled = true;
+            
+            // جمع بيانات النموذج
+            const formData = new FormData(this);
+            const data = {};
+            
+            for (let [key, value] of formData.entries()) {
+                data[key] = value;
+            }
+            
+            // تحويل الحقول الرقمية
+            data.age = parseInt(data.age);
+            data.weight = parseFloat(data.weight);
+            data.height = parseInt(data.height);
+            data.days_per_week = parseInt(data.days_per_week);
+            
+            // إضافة حقول إضافية للـ API المتقدم
+            if (selectedApi === 'advanced') {
+                data.stress_level = 'moderate';
+                data.dietary_preferences = 'omnivore';
+                data.health_issues = [];
+                data.previous_injuries = '';
+                data.medications = '';
+                data.quit_reasons = ['no_results'];
+            } else {
+                // للـ API الشخصي
+                data.selected_reasons = ['no_results'];
+            }
+            
+            try {
+                // تحديد endpoint بناءً على نوع API
+                const endpoint = selectedApi === 'advanced' 
+                    ? '/api/generate-advanced-workout-plan'
+                    : '/api/generate-personalized-workout-plan';
+                
+                console.log(`🚀 Sending request to: ${endpoint}`);
+                console.log('📤 Request data:', data);
+                
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                console.log('📥 Response status:', response.status);
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                console.log('📋 Parsed result:', result);
+                
+                // إخفاء التحميل
+                document.getElementById('loading').style.display = 'none';
+                
+                if (result.success) {
+                    displayUnifiedPlan(result.plan, selectedApi);
+                    showDebugInfo(result, selectedApi);
+                } else {
+                    displayError(result.message);
+                }
+                
+            } catch (error) {
+                console.error('❌ Error:', error);
+                document.getElementById('loading').style.display = 'none';
+                displayError(`حدث خطأ في الاتصال بالخادم: ${error.message}`);
+            } finally {
+                document.getElementById('generateBtn').disabled = false;
+            }
+        });
+        
+        function displayUnifiedPlan(plan, apiType) {
+            const resultDiv = document.getElementById('result');
+            
+            // استخدام المعالج الآمن
+            const processedData = SafeDataHandler.processWorkoutPlan(plan);
+            
+            let html = `
+                <div class="card result-section">
+                    <div class="card-header text-center">
+                        <h3><i class="fas fa-star me-2"></i>خطتك ${apiType === 'advanced' ? 'المتقدمة' : 'الشخصية'}</h3>
+                        <p class="mb-0">مصممة خصيصاً لـ ${processedData.userInfo.name || 'المستخدم'}</p>
+                        <small>نوع API: ${processedData.apiType} | المطلوب: ${apiType}</small>
+                    </div>
+                    <div class="card-body">
+            `;
+            
+            // معلومات أساسية
+            if (apiType === 'personalized') {
+                html += `
+                    <div class="row mb-4">
+                        <div class="col-md-3 text-center">
+                            <div class="badge bg-primary">${processedData.goal || 'غير محدد'}</div>
+                            <p class="small mt-1">الهدف</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="badge bg-success">${processedData.level || 'غير محدد'}</div>
+                            <p class="small mt-1">المستوى</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="badge bg-info">${processedData.trainingDays || 'غير محدد'} أيام</div>
+                            <p class="small mt-1">أيام التمرين</p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <div class="badge bg-warning">${processedData.equipment || 'غير محدد'}</div>
+                            <p class="small mt-1">المكان</p>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // التحليل الصحي (للـ API المتقدم)
+            if (processedData.userAnalysis) {
+                html += `
+                    <div class="tips-section">
+                        <h4><i class="fas fa-chart-line me-2"></i>التحليل الصحي</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>مؤشر كتلة الجسم:</strong> ${processedData.userAnalysis.bmi} (${processedData.userAnalysis.bmi_category})</p>
+                                <p><strong>معدل الأيض الأساسي:</strong> ${processedData.userAnalysis.bmr} سعرة/يوم</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>السعرات المطلوبة:</strong> ${processedData.userAnalysis.daily_calories} سعرة/يوم</p>
+                                <p><strong>تقييم اللياقة:</strong> ${processedData.userAnalysis.fitness_assessment}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // التمارين
+            if (processedData.exercises && processedData.exercises.length > 0) {
+                html += '<h4><i class="fas fa-calendar-alt me-2"></i>برنامج التمارين</h4>';
+                processedData.exercises.forEach(day => {
+                    if (day && day.exercises) {
+                        html += `
+                            <div class="day-header">
+                                <h5>اليوم ${day.day || 'غير محدد'} - ${(day.muscle_groups || []).join(' + ')}</h5>
+                            </div>
+                        `;
+                        
+                        day.exercises.forEach(exercise => {
+                            html += `
+                                <div class="exercise-card">
+                                    <h6><i class="fas fa-dumbbell me-2"></i>${exercise.name || exercise.name_ar || 'تمرين غير محدد'}</h6>
+                                    <p><strong>العضلة:</strong> ${exercise.target_muscle || 'غير محدد'} | 
+                                       <strong>المجموعات:</strong> ${exercise.sets || 'غير محدد'} | 
+                                       <strong>التكرارات:</strong> ${exercise.reps || 'غير محدد'}</p>
+                                    <p class="small text-muted">${exercise.tips || exercise.instructions || 'لا توجد نصائح'}</p>
+                                </div>
+                            `;
+                        });
+                    }
+                });
+            }
+            
+            // الخطط الأسبوعية (للـ API المتقدم)
+            if (processedData.weeklyPlans && processedData.weeklyPlans.length > 0) {
+                html += '<h4><i class="fas fa-calendar-week me-2"></i>الخطط الأسبوعية</h4>';
+                processedData.weeklyPlans.forEach((week, index) => {
+                    html += `
+                        <div class="tips-section">
+                            <h5>الأسبوع ${index + 1}: ${week.focus || 'غير محدد'}</h5>
+                            <p><strong>الهدف:</strong> ${week.goal || 'غير محدد'}</p>
+                            <p><strong>الشدة:</strong> ${week.intensity || 'غير محدد'}</p>
+                        </div>
+                    `;
+                });
+            }
+            
+            // النصائح الغذائية
+            if (processedData.nutritionPlan && processedData.nutritionPlan.length > 0) {
+                html += `
+                    <div class="tips-section">
+                        <h4><i class="fas fa-apple-alt me-2"></i>النصائح الغذائية</h4>
+                `;
+                processedData.nutritionPlan.forEach(tip => {
+                    html += `
+                        <div class="nutrition-tip ${tip.type === 'error' ? 'alert alert-warning' : ''}">
+                            <strong>${tip.category}:</strong> ${tip.advice}
+                            ${tip.foods && tip.foods.length > 0 ? `<br><small>الأطعمة المقترحة: ${tip.foods.join(', ')}</small>` : ''}
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            }
+            
+            // النصائح العامة
+            if (processedData.generalTips && processedData.generalTips.length > 0) {
+                html += `
+                    <div class="tips-section">
+                        <h4><i class="fas fa-lightbulb me-2"></i>نصائح عامة</h4>
+                        <ul>
+                `;
+                processedData.generalTips.forEach(tip => {
+                    html += `<li>${typeof tip === 'string' ? tip : tip.message || tip.advice || 'نصيحة غير محددة'}</li>`;
+                });
+                html += '</ul></div>';
+            }
+            
+            html += '</div></div>';
+            
+            resultDiv.innerHTML = html;
+            resultDiv.style.display = 'block';
+            resultDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function showDebugInfo(result, apiType) {
+            const debugDiv = document.getElementById('debugInfo');
+            
+            const processedData = SafeDataHandler.processWorkoutPlan(result.plan);
+            
+            const html = `
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-bug me-2"></i>معلومات التشخيص</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="debug-info">
+                            <strong>نوع API المطلوب:</strong> ${apiType}<br>
+                            <strong>نوع API المكتشف:</strong> ${processedData.apiType}<br>
+                            <strong>حجم البيانات:</strong> ${JSON.stringify(result).length} حرف<br>
+                            <strong>عدد النصائح الغذائية:</strong> ${processedData.nutritionPlan.length}<br>
+                            <strong>عدد النصائح العامة:</strong> ${processedData.generalTips.length}<br>
+                            <strong>عدد التمارين:</strong> ${processedData.exercises.length}
+                        </div>
+                        
+                        <details>
+                            <summary>البيانات الخام</summary>
+                            <pre class="debug-info">${JSON.stringify(result, null, 2)}</pre>
+                        </details>
+                        
+                        <details>
+                            <summary>البيانات المعالجة</summary>
+                            <pre class="debug-info">${JSON.stringify(processedData, null, 2)}</pre>
+                        </details>
+                    </div>
+                </div>
+            `;
+            
+            debugDiv.innerHTML = html;
+            debugDiv.style.display = 'block';
+        }
+        
+        function displayError(message) {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `
+                <div class="card result-section">
+                    <div class="card-body">
+                        <div class="alert alert-danger" role="alert">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            ${message}
+                        </div>
+                    </div>
+                </div>
+            `;
+            resultDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>

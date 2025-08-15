@@ -1,0 +1,262 @@
+{% extends "admin/base.html" %}
+
+{% block title %}لوحة تحكم الإدارة - جسمي أحسن{% endblock %}
+
+{% block extra_css %}
+<style>
+
+    .stats-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease;
+        border: none;
+        margin-bottom: 2rem;
+    }
+
+    .stats-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .stats-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        color: white;
+        margin-bottom: 1rem;
+    }
+
+    .stats-number {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: var(--dark-text);
+        margin-bottom: 0.5rem;
+    }
+
+    .stats-label {
+        color: #6c757d;
+        font-size: 0.9rem;
+    }
+
+    .quick-actions {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .action-btn {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 10px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+    .action-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        text-decoration: none;
+    }
+
+    .btn-primary-custom {
+        background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        color: white;
+    }
+
+    .btn-success-custom {
+        background: linear-gradient(135deg, var(--success-color), #229954);
+        color: white;
+    }
+
+    .btn-warning-custom {
+        background: linear-gradient(135deg, var(--warning-color), #e67e22);
+        color: white;
+    }
+
+    .recent-activity {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .activity-item {
+        padding: 1rem 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .activity-item:last-child {
+        border-bottom: none;
+    }
+
+    .activity-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: white;
+        margin-left: 1rem;
+    }
+
+    @media (max-width: 768px) {
+        .stats-card {
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .stats-number {
+            font-size: 2rem;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<!-- Main Content -->
+<div class="main-content">
+        <div class="container">
+            <!-- Welcome Section -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h1 class="display-6 mb-3">
+                        <i class="fas fa-chart-line me-2 text-primary"></i>
+                        مرحباً {{ session.admin_username }}
+                    </h1>
+                    <p class="lead text-muted">إدارة شاملة لنظام التمارين والتدريب</p>
+                </div>
+            </div>
+
+            <!-- Statistics Cards -->
+            <div class="row mb-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card">
+                        <div class="stats-icon" style="background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));">
+                            <i class="fas fa-dumbbell"></i>
+                        </div>
+                        <div class="stats-number">{{ stats.total_exercises }}</div>
+                        <div class="stats-label">إجمالي التمارين</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card">
+                        <div class="stats-icon" style="background: linear-gradient(135deg, var(--success-color), #229954);">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stats-number">{{ stats.total_users }}</div>
+                        <div class="stats-label">المستخدمين المسجلين</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card">
+                        <div class="stats-icon" style="background: linear-gradient(135deg, var(--warning-color), #e67e22);">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <div class="stats-number">{{ stats.total_plans }}</div>
+                        <div class="stats-label">الخطط المُنشأة</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card">
+                        <div class="stats-icon" style="background: linear-gradient(135deg, var(--accent-color), #c0392b);">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="stats-number">{{ stats.total_meals }}</div>
+                        <div class="stats-label">الوجبات المتاحة</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Quick Actions -->
+                <div class="col-lg-6 mb-4">
+                    <div class="quick-actions">
+                        <h4 class="mb-4">
+                            <i class="fas fa-bolt me-2 text-warning"></i>
+                            إجراءات سريعة
+                        </h4>
+                        
+                        <a href="{{ url_for('admin_add_exercise') }}" class="action-btn btn-primary-custom">
+                            <i class="fas fa-plus me-2"></i>
+                            إضافة تمرين جديد
+                        </a>
+                        
+                        <a href="{{ url_for('admin_exercises') }}" class="action-btn btn-success-custom">
+                            <i class="fas fa-list me-2"></i>
+                            عرض جميع التمارين
+                        </a>
+                        
+                        <a href="{{ url_for('workout_plans') }}" target="_blank" class="action-btn btn-warning-custom">
+                            <i class="fas fa-dumbbell me-2"></i>
+                            خطط التمارين
+                        </a>
+                        
+                        <a href="{{ url_for('your_plan_your_goal') }}" target="_blank" class="action-btn btn-success-custom">
+                            <i class="fas fa-bullseye me-2"></i>
+                            خطتك هدفك (تفاعلي)
+                        </a>
+                        
+                        <a href="{{ url_for('index') }}" target="_blank" class="action-btn btn-warning-custom">
+                            <i class="fas fa-external-link-alt me-2"></i>
+                            معاينة الموقع
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Recent Activity -->
+                <div class="col-lg-6 mb-4">
+                    <div class="recent-activity">
+                        <h4 class="mb-4">
+                            <i class="fas fa-clock me-2 text-info"></i>
+                            النشاط الأخير
+                        </h4>
+                        
+                        <div class="activity-item d-flex align-items-center">
+                            <div class="activity-icon" style="background: var(--success-color);">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold">تم إنشاء النظام بنجاح</div>
+                                <small class="text-muted">منذ دقائق</small>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item d-flex align-items-center">
+                            <div class="activity-icon" style="background: var(--secondary-color);">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold">تم تحديث قاعدة البيانات</div>
+                                <small class="text-muted">منذ دقائق</small>
+                            </div>
+                        </div>
+                        
+                        <div class="activity-item d-flex align-items-center">
+                            <div class="activity-icon" style="background: var(--warning-color);">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div>
+                                <div class="fw-bold">تم إنشاء حساب الإدارة</div>
+                                <small class="text-muted">منذ دقائق</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
